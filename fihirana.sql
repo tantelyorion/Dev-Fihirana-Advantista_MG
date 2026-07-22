@@ -1,0 +1,35120 @@
+-- ==================================================
+-- Dev : Tantely Orion
+-- Fichier : fihirana.sql
+-- Description : Base de données des cantiques SDA
+-- Langue : Malagasy (MG)
+-- Version : 2.0
+-- Creé le : 2026-07-22 23:02:10
+-- Nombre de cantiques : 800
+-- ==================================================
+
+-- Suppression de la table si elle existe
+DROP TABLE IF EXISTS `hymns`;
+
+-- Création de la table
+CREATE TABLE `hymns` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `hymn_id` VARCHAR(10) NOT NULL,
+  `number` VARCHAR(10) NOT NULL,
+  `title` VARCHAR(255) NOT NULL,
+  `composer` VARCHAR(255) DEFAULT NULL,
+  `author` VARCHAR(255) DEFAULT NULL,
+  `key_signature` VARCHAR(100) DEFAULT NULL,
+  `theme1` VARCHAR(100) DEFAULT NULL,
+  `theme2` VARCHAR(100) DEFAULT NULL,
+  `lyrics` LONGTEXT,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_hymn_id` (`hymn_id`),
+  KEY `idx_number` (`number`),
+  KEY `idx_title` (`title`),
+  KEY `idx_theme1` (`theme1`),
+  KEY `idx_theme2` (`theme2`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Insertion des données
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '1',
+  '1',
+  'RY MPONINA AN-TANY O!',
+  'L. Bourgeois',
+  'Rakotonjanahary',
+  'Do dia G 4/4 ',
+  'SALAMO',
+  NULL,
+  '
+1. Ry mponina an-tany ô,
+	Avia manandratra feo
+	Ka mba derao ny Tomponao;
+	Hirao ny voninahiny.
+
+2. Andriana ambony hasina,
+	Izy nanao antsika izao.
+	Isika no malalany,
+	Fa ondry izay fiandriny.
+
+3. Midira eo an-tranony
+	Amin\'ny fihobiana,
+	Ataovy ren\'ny lanitra
+	Ny akon\'ny fisaorana.
+
+4. Andriamanitra dia Ray,
+	Mamindra fo sy marina,
+	Mitsimbina ny zanany,
+	Hatramin\'ny taranany.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '2',
+  '2',
+  'DERAIKO IANAO',
+  'C. Malan',
+  'Rakotonjanahary',
+  'Do dia Db 4/4 Allegreto',
+  'SALAMO',
+  NULL,
+  '
+1. Deraiko Ianao,
+	Isan\'andro rehetra,
+	Andriamanitra ô.
+	Ny marina handre
+	Ny aingan\'ny Fanahy
+	Manentana ny fo.(2x)
+
+2. Ry Kristiana ô,
+	Ankalazao ny Tompo,
+	Ilay Mpamonjinao;
+	Ry voafidiny,
+	Sambatra, tafavory
+	Ambany elany.(2x)
+
+3. Anjely masina,
+	Manan-kery hamonjy,
+	Aron\'ny zanany,
+	Ambenany tokoa
+	Raha hitany fa misy
+	Loza manambana.(2x)
+
+4. Ny fanjakany koa,
+	Fanjakana izay misy
+	Fahamarinana.
+	Izay mialoha eo,
+	Tsy manana ahiahy
+	Fa tsara antoka.(2x)
+
+5. Mibanjina Anao
+	Ny olona Jehovah,
+	Anjara lovanay
+	Fikirinay Ianao
+	Fa anay mandrakizay
+	Omeo fiadanana. (2x)
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '3',
+  '3',
+  'NY TOMPO ANKALAZAO',
+  '16 è siecle',
+  'Rakotonjanahary',
+  'Do dia Eb 4/4 Moderato',
+  'SALAMO',
+  NULL,
+  '
+1. Hy Tompo ankalazao,
+	An-dapany masina,
+	Fa izy re no nanao
+	Ny tany sy ny lanitra.
+	Derao re hatraiza hatraiza
+	Derao ny indrafony,
+	Derao koa ny heriny,
+	Hery, toky ho antsika.
+
+2. Hoderaina anie,
+	Hatrany am-parany,
+	Ny anaran-tsoany
+	Isaorana anie
+	Htrany amin\'ny avo.
+	Ry mponina an-tany ô,
+	Ry olona velona,
+	Derao Izy : Haleloia !
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '4',
+  '4',
+  'IZAHO DIA HIDERA ANAO',
+  'I. Bourgeois',
+  'Rakotonjanahary',
+  'Do dia D 4/4 Allegro',
+  'SALAMO',
+  NULL,
+  '
+1. Izaho die hidera Anao
+	Amin\'ny foko manontolo,
+	Hasandratro ny feoko
+	Eo antrehan\'ny Mpanjaka.
+	Eran\'ny toera-masinao,
+	No hanandratako ny loha,
+	Hihoby ny anaranao,
+	Ry Mpitana ny fanekena.
+
+2. Niely be ny lazanao
+	Noho ny teninao mahery.
+	Fiononako re Ianao
+	Raha hidonam-pahoriana,
+	Ireo mpanjaka maro koa
+	Hiankohoka ary hitsaoka,
+	Raha vao reny ny feonao
+	Manome hery mahasahy.
+
+3. Feno ny fiderana Anao
+	Izao tontolo hita maso.
+	Izay vahoaka mandre
+	Ho velon-kira koa mahita.
+	Ianao, Andriamanitra ô,
+	Dia mijery anay mahantra
+	Ka na dia toa lavitra
+	Dia mamelona any rehetra.
+
+4. Raha torovana ny fo
+	Ka ketraka sy very toky
+	Noho ny adin-tsaina be
+	Izay mandreraka tsy zaka
+	Dia ny fahamarinanao
+	No mampiarina ny voa ;
+	Ka na dia toa reraka
+	Dia mbola afaka hidera
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '5',
+  '5',
+  'TOY NY DIERA AN-TANY',
+  '16 è siecle',
+  'Rakotonjanahary',
+  'Do dia G 4/4 Dolce',
+  'SALAMO',
+  NULL,
+  '
+1. Toy ny diera eran-tany maina,
+	Anan-ketaheta ao,
+	Ny fanahiko, ry Tompo,
+	Mba maniry rano koa.
+	O, ry Tompo velona,
+	Ranon\'aina Ianao,
+	Koa mandra-pahoviana
+	No mba hahitako Anao.
+
+2. Tena mafy fianjera
+	Tamiko ny tananao :
+	Zanakao fa tsy jerenao,
+	\'Zany no tolokoko.
+	Mihainoa Tompo ô,
+	Mamindrà fo amiko,
+	Masina Ianao Jehovah,
+	Masina Tsitoha indrindra.
+
+3. Ranomaso lalandava
+	No fiahiko ety
+	Hoy ny latsam-pahavalo,
+	\"Aiza Andriamanitrao ?\"
+	Nefa hitanay Iano,
+	Tao ant-tempolinao:
+	Nivavahanay rehetra,
+	Nohobinay, noderanay.
+
+4. Ry fanahiko, nahoana
+	No dia reraka ianao ?
+	Ao Andriamanintsika,
+	Ao Izy ka jereo
+	Fa fanasitranana,
+	Ho anao ny tavany
+	Vatolampy velona Izy,
+	Iboiboihan-dRanon\'aina.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '6',
+  '6',
+  'RY TOMPO O, MPAMINDRA FO',
+  'I. D. Sankey',
+  'Rajoelison',
+  'Do dia E 6:4 Dolce',
+  'SALAMO',
+  NULL,
+  '
+1. Ry Tompo ô, Mpamindra fo
+	Sy feno fiantrana koa,
+	Mpamela heloka tokoa,
+	Vonoy ny hadisoako.
+	Manatona Aho \'zao,
+	Na meloka Aminao,
+	Noho ny hasoavanao,
+	Sasao madio ny foko.
+
+2. Tsy te hiala tsiny re
+	Fa tena diso lehibe,
+	He! ratsy hatrany ambohoka e!
+	Ianao no nanotako.
+	Manatona Anao \'zao,
+	Na meloka aminao,
+	Noho ny hasoavanao,
+	Sasao madio ny foko.
+
+3. Ny fahamarinana ao am-po
+	No tena sitrakao tokoa,
+	Avia, diovy avokoa
+	Ny heloko rehetra.
+	Manatona Anao \'zao,
+	Na meloka aminao,
+	Noho ny hasoavanao,
+	Izay tsy misy fetra.
+
+4. O,amorony fo madio,
+	Ankehitriny eny anio;
+	Fanahy tsara mba ampio,
+	Tohano tsy ho resy.
+	Hamerina aminao
+	\'Reo olon-diso izao,
+	No faniriako hatrizao,
+	Ry Kristy, \'Zay Mpandresy !
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '7',
+  '7',
+  'RY TOMPO \'ZAY FONENANAY',
+  'H. A. Miller',
+  'Rajoelison',
+  'Do dia E 3/4 ',
+  'SALAMO',
+  NULL,
+  '
+1. Ry Tompo \'zay fonenanay
+	Sy manda mafy hatrizay,
+	Asandratray ho aminao
+	Ny saotra sy ny dera izao
+
+2. Ny heloka izay vita izao
+	Ataonao anatrehanao.
+	He indro menatra izahay,
+	O, mamelà, ry Tomponay.
+
+3. Ampianaro ny fo
+	hahay hihevitra tokoa
+	Fa fohy re ny andro ety
+	Ka manakaiky ny ary.
+
+4. O, miverena Ianao,
+	Ry Tompo, aza afoinao.
+	Ny hasoavan-dehibe
+	Hitoetra aminay anie.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '8',
+  '8',
+  'MIDERA AN\'I JEHOVAH',
+  'M. Randriamiarana',
+  'M. Randriamiarana',
+  'Do dia F 3/4 ',
+  'SALAMO',
+  NULL,
+  '
+1. Miderà an\'Ii Jehovah,
+	Ry firenena rehetra;
+	Miderà Azy ry olona rehetra.
+	Fa lehibe
+	Ny famindram-pony amintsika.
+	Ary mandrakizay
+	Ny fahamarinan\'i Jehovah
+	Haleloia.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '9',
+  '9',
+  'IZA NO HIAKATRA',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Bb 3/4 ',
+  'SALAMO',
+  NULL,
+  '
+1. Feo 4. :;: Iza no hiakatra any an-tendrombohitra ?
+	Feo 1,2,3. An-tendrombohitr\'i Jehovah,
+	Feo 4:
+	Hiakatra any an-tendrombohitra ?
+	Feo 1,2,3. Iza no hiakatra any ?
+	Feo 4. Ary iza no hitoetra, hitoetra, hitoetra, hitoetra any ?
+	Feo 1,2,3. Ary iza no hitoetra any, hitoetra any,
+	Iza no hiakatra any an-tendrombohitr\'i Jehovah,
+	Feo 4. An-tendrombohitr\'i Jehovah,
+	Feo 1,2,3. Iza no hiakatra any ?
+	Feo 4. Ka iza no hitoetra amin\'ny fotoerany masina ?
+	Feo 1,2,3. Ka hitoetra ao amin\'ny fotoerany masina. :;:
+	Feo 4. :;: \'Zay madio, izay madio, izay madio tanana,
+	Feo 1,2,3. \'Zay madio, izay madio tanana,
+	Feo 4. \'Zay mahitsy fo, izay mahitsy, izay mahitsy fo,
+	Feo 1,2,3. \'Zay mahitsy,izay mahitsy fo,
+	Feo 1,2,3,4. No hiakatra any
+	Feo 1,2,3,4. Ary handray ny fitahiana, ny fitahiana
+	Feo 1,2,3,4. Avy amin\'i Jehovah izy,
+	Feo 4. Handray ny fitahiana izy,
+	Handray ny fitahiana izy,
+	Ka iza no hiakatra any an-tendrombohitra
+	Feo 1,2,3. An-tendrombohitr\'i Jehovah,
+	Feo 4. An-tendrombohitr\'i Jehovah,
+	Feo 1,2,3. Iza no hiakatra any ?
+	Feo 4. Ka hitoetra amin\'ny fotoerany masina ?
+	Feo 1,2,3. Ka hitoetra ao amin\'ny fitoerany masina ?
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '10',
+  '10',
+  'JEHOVAH NO MPIANDRY AHY',
+  'Jessie Seymour Irvine - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia F 3/4 ',
+  'SALAMO',
+  NULL,
+  '
+1. Jehovah no miandry ahy,
+	Mpiahy ny fanahy.
+	Tsy misy atahorako
+	Fa izy aroko.
+
+2. Jehovah no Mpitarika ahy
+	Sady mpitondra ahy
+	Amoron-dranon\'aina re,
+	Miala sasatra e.
+
+3. Jehovah no Mpitantana ahy
+	Tsy misy mampanahy
+	Na dia mamaky ny aloky
+	Ny fahafatesana !
+
+4. Jehovah no Mpiaro ahy
+	Mamelatra ho ahy
+	Latabatra eo imason\'
+	Ny fahavaloko.
+
+5. Jehovah no Mpanjakako
+	Sady be indrafo.
+	Hitoetra an-kianjanao doria
+	No faniriako ety.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '11',
+  '11',
+  'FALY AHO',
+  'J. P. Randriamahefa',
+  'J. P. Randriamahefa',
+  'Do dia Bb 4/4 Kingakinga',
+  'SALAMO',
+  NULL,
+  '
+1. Faly aho,faly aho
+	Raha hoy izireo tamiko;
+	Andeha isika ho any,
+	Any an-tranon\'i Jehovah.
+	Ny tongotray efa mijoro
+	Ao anatin\'ny vavahadinao,
+	Ry Jerosalema ô!
+	Dia ianao ry Jerosalema
+	Izay efa vita.
+	Tahaka ny tanàna efa voalamina,
+	Efa voalamina tsara.
+	Any no hiakaran\'ny firenena,
+	Dia ireo firenen\'i Jehovah,
+	Mba hisaotra, mba hisaotra
+	Ny anaran\'i Jehovah.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '12',
+  '12',
+  'O! MAMINDRA FO AMIKO',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia Eb 3/4 ',
+  'SALAMO',
+  NULL,
+  '
+1. O! mamindrà,fo amiko
+	Mba mamindrà fo Ray ô!
+	Ianao no fialofan\'ny fanahiko
+	ry Ray ô!
+
+Réf
+
+Amin\'ny elatrao Ray ô!
+	No hialofako
+	Mandra-pahalasan\'ny loza re
+	Jehovah Andriamanitra ô!
+	Amen
+
+2. Fa hitaraina amin\'ny Avo 
+	Indrindra aho,
+	Dia amin\'Andriamanitra
+	Mahatanteraka ahy.
+	Amin\'ny elatrao Ray ô, sns
+
+3. Anjely no hirahinao Jeso,
+	hamonjy ahy,
+	Raha toa ka misafoaka
+	ireo manenjika ahy.
+	Amin\'ny elatrao Ray ô, sns
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '13',
+  '13',
+  'JESO NO MPIANDRIKO',
+  'D. Riemens',
+  '(Tsy fantatra)',
+  'Do dia Ab 4/4 ',
+  'SALAMO',
+  NULL,
+  '
+1. Jeso no Mpiandriko, (Mpiandriko)
+	Tsy mba orin\'javatra aho
+	Ahi-maitso mavana
+	No andriako isan\'andro,
+	Ranon\'aina tsy ho ritra
+	isotroako izao
+	Fitariha-mahatoky
+	no ianteherako
+	Fa ny tehim-pamonjeny
+	Sy ny fahamarinany
+	No faneva \'zay jereko
+	Ka manala-tahotra.
+	FEON\'OLON-TOKANA
+	Na dia mamaky \'lay lohasaha 
+	maizina aho
+	Dia tsy hangovitra akory
+	Ny tehinao Tompo no heriko,
+	(Heriko), Tokiko, fiononako,
+	Na dia mafy aza re, (aza re)
+	ny tsora-kazo
+	Dia tsy ho ketraka aho.
+	Ny tananao, Tompo,
+	No raisiko, (raisiko)
+	Amikirako mafy.
+
+2. He, ny zava-tsoanao
+	 amokisanao ny foko
+	Diloilo manitra no ahosotrao
+	ny loa
+	Ka ny fahavalo koa aza indro
+	fa mangaihay
+	Raha mahita ilay kapoakan\'ny 
+	fahasoavanao,
+	Eny hatrizao, Jesosy
+	Ka hatrany aminao,
+	Famindrampo tsy ho lany,
+	Homba ahy mandrakizay
+	Na dia mamaky, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '14',
+  '14',
+  'RY TOMPO Ô',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia D 2/4 ',
+  'SALAMO',
+  NULL,
+  '
+1. Ry Tompo ô, Andriamanitro Ianao,
+	mamindrà fo amiko
+	Sitrano aho,hatanjaho ny ao 
+	anatiko ao.
+	Mangovitra aho, mihozohozo koa,
+	Ka mila ny vonjy avy Aminao,
+	Ry Tompo ô, Andriamanitro Ianao,
+	Mamindrà fo aminko,
+
+2. O! miverena Ianao ka afaho,
+	Tompo ny fanahiko.
+	Vonjeo aho, Tompo ô,
+	noho ny fitiavanao.
+	Ny maty tsy hahatsiaro Anao,
+	Ireo tsy afaka hidera Anao.
+	Ry Tompo ô, Andriamanitro Ianao,
+	mamindrà fo amiko
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '15',
+  '15',
+  'AVIA MIONDREHA',
+  'R. Whately (FFPM006)',
+  'Ramahandry',
+  'Do dia D 4/4 ',
+  'ANDRIAMANITRA',
+  'Mpamorona',
+  '
+1. Avia, miondreha,
+	Ry vazan-tany ô,
+	Fa lehibe Jehovah,
+	Sy masina tokoa;
+	Miankohofa tsara
+	Manatona Azy \'zao;
+	Haneho fanajana
+	Ilay Mpanao anao.
+
+2. Andriananahary !
+	Manaiky izahay
+	Fa aminao ny hery
+	Tsy hay toherina,
+	Tsy misy maharara
+	Ny tianao hatao,
+	Fa Ianao Mpitondra
+	Izao rehetra izao.
+
+3. Re any lavitra any
+	Izao ny herinao,
+	Ka ism-bazan-tany
+	Hiondrika aminao;
+	Mpanjaka sy Mpitsara
+	Mahery Ianao;
+	Miadana ny tany
+	Miankina aminao.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '16',
+  '16',
+  'ENDREY AMBONY LOATRA',
+  'I. D. Sankey',
+  'Rajoelison',
+  'Do dia Eb 6/4 ',
+  'ANDRIAMANITRA',
+  'Mpamorona',
+  '
+1. Endrey ambony loatra,
+	Tsy tratry ny sainay,
+	He avo tafahoatra
+	Ny herinao, ry Ray
+	Ny lanitra sy tany,
+	\'Zay asan-tananao,
+	Mitory lavitra any
+	Ny voninahitrao.
+
+2. Tsy takatra mihintsy
+	\'Zay vitanao ry Ray;
+	Ianao di tsy nitsisty
+	Mba hamonjena anay.
+	Fa indro ilay havoana
+	Mitafy haizim-be,
+	Mitory fisoloana
+	Sy famelana re.
+
+3. Ry Tompom-pamonjena,
+	He menatra izahay
+	Fa ratsy nefa ekena
+	Ho zanaky ny Ray.
+	Atolotray tontolo
+	Fa tadiavinao
+	Ny fonay, ry Mpisolo,
+	Satria navotanao
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '17',
+  '17',
+  'NY HASOAVANAO',
+  'Carey',
+  'F. Ramanantsialonina',
+  'Do dia Ab 3/4 ',
+  'ANDRIAMANITRA',
+  'Mpamorona',
+  '
+1. Ny hasoavanao
+	Sy ny fitiavanao
+	Jehovah ô,
+	:,:Narotsaka ho anay
+	Mba hifalianay
+	Ka saotra atolotray
+	Mandrakiza.:,:
+
+2. Ianao Mpamorona,
+	\'zahay foronina
+	Hidera Anao.
+	:,:Fa lehibe tokoa
+	Ny voninahitrao,
+	Ny saotra sy ny haja koa
+	Ho Anao tokoa.:,:
+
+3. Hanoa Anao \'zahay,
+	Ho irakao indray,
+	Ry Tomponay
+	:,Ka mba tahionao
+	Sy hamasinonao,
+	Ho tena olom-baovao
+	Hiasa ho Anao
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '18',
+  '18',
+  'MISAORA AN\'I ZANAHARY',
+  'L.M.S.',
+  'Maintimolaly',
+  'Do dia Bb 4/4 ',
+  'ANDRIAMANITRA',
+  'Mpamorona',
+  '
+1. Misaora an\'i Zanahary,
+	\'Zao olona tontolo izao
+	Dia mankalazà Azy,
+	Fa anton\'izao rehetra izao.
+
+2. Izay zavatra nomeny
+	Mahafaly, mahasoa,
+	Toy ny andro fararano,
+	Toy ny andro mipoaka.
+
+3. Dia ampitomboy ny sainay
+	Hahalala ny teninao,
+	Hahafantatra ny marina
+	Izay sitraky ny fonao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '19',
+  '19',
+  'TSARA, MAHAFINARITRA',
+  'Royal wOak - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia Ab 4/4 ',
+  'ANDRIAMANITRA',
+  'Mpamorona',
+  '
+
+ISAN\'ANDININY
+
+Tsara, mahafinaritra
+	Ny zava-boarinao (voarinao).
+	Endrey izany lanitra
+	Maneho ny Tomponay (Tomponay).
+	1. Ireo voninkazo soa
+	Tena fatratra koa
+	Ka mitory sy manambara koa
+	Ny voninahitrao.
+	Tsara, sns.
+
+2. Ireo tendrombohitra,
+	Ny lohasaha koa,
+	Ny volana, ny kintana,
+	Dia voninahitrao.
+	Tsara, sns.
+
+3. He ny Masoandro koa
+	\'Zay mamiratra soa,
+	Ny ranomasim-be ary,
+	Dia voninahitrao
+	Tsara, sns.
+
+4. He ny ali-maizim-be
+	Sy fahazavana e!
+	Mitory sy milaza re
+	Ny voninahitrao
+	Tsara, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '20',
+  '20',
+  'ANDRIAMANITRA FITIAVANA',
+  'Josué A. Rabarison',
+  'Josué A. Rabarison',
+  'Do dia Eb 4/4 Maredona',
+  'ANDRIAMANITRA',
+  'Mpamorona',
+  '
+1. Andriamanitra fitiavana,
+	\'Zay Mpamorona mahery tokoa
+	Manome anao (ireo), 
+	ireo zava-tsoa.
+	Dia sakafo ampy sy fitsaharana
+
+2. Andriamanitra fitiavana
+	Sy Mpanoro ny lalan-kombana
+	Manome toky, (Sady) tsy mamitaka
+	Mampikambana ny mino hifankatia
+
+3. Andriamanitra fitiavana
+	Mpanasitrana ny aretina,
+	Sy manaisotra (ireo) ireo ota koa
+	Ka manolotra ny famonjena ho anao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '21',
+  '21',
+  'TAMIN\'NY RAIKO ITY',
+  'Franklin L. Sheppard',
+  'A. R. Marnoël',
+  'Do dia D 4/4 ',
+  'ANDRIAMANITRA',
+  'Mpamorona',
+  '
+1. Tanin\'ny Raiko ity
+	Ka ho fifaliako
+	No ihiran\'ny voary
+	Feon-kiran\'ny tany.
+	He taniny ity
+	Tony re ny saiko
+	Raha mahita
+	Ny zava-bitany.
+	Mahagaga ny nataony.
+
+2. Tanin\'ny Raiko ity,
+	Ny kalom-borona
+	midera ny Mpamorona.
+	Derao, derao ny Ray.
+	He taniny ity
+	Nofenoiny ny soa.
+	tendrombohitra,
+	Voninkazo koa,
+	Mitory avokoa ny Mpanao.
+
+3. Tanin\'ny Raiko ity,
+	Tsy hohadinoiko.
+	Na mahery ny ratsy ety
+	Izy no manjaka.
+	He ! taniny ity
+	Tsy halahelo aho.
+	Lanitra ô, hirao
+	Fa Mpanjaka Izy,
+	Avia mihobia, ry tany.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '22',
+  '22',
+  'MOA FANTATRAO',
+  'John N. Peterson',
+  'Samoely Lala James',
+  'Do dia G 4/4 ',
+  'ANDRIAMANITRA',
+  'Mpamorona',
+  '
+1. Moa fantatrao ry namako,
+	\'Lay Ray Mpamorona ?
+	Ny herin\'ny fitiavany
+	Moa ve nandramanao ?
+
+ISAN\'ANDININY :
+
+Mahatalanjona ny
+	Andriamanitro,
+	Ny hasambarany
+	Tiany ho anaio koa
+	O ! tia anao Izy,
+	Ka miantso anao
+	Ny valin-teninao no andrasany.
+
+2. Moa fantatrao ry namako,
+	\'Lay Ray mandrakizay ?
+	Tsy manam-petra ny heriny,
+	Hanavotra anao.
+	Mahatalanjona, sns.
+
+3. Moa fantatrao ry namako,
+	\'Lay Ray Mpamindra fo
+	Ny fahotanao lasa ve ?
+	Hodioviny avokoa.
+	Mahatalanjona, sns
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '23',
+  '23',
+  'RY TOMPO Ô,MPAHARY NY REHETRA',
+  'Stuart K. Hine',
+  'Rajoelison',
+  'Do dia Bb 4/4 ',
+  'ANDRIAMANITRA',
+  'Mpamorona',
+  '
+1. Ry Tompo ô, Mpahary ny rehetra
+	An-danitra, ety an-tany koa,
+	Ny herinao dia tsy mba
+	 manam-petra,
+	Fa lehibe, ikoizana tokoa.
+	Koa velon-kira re izao \'zao:
+	Haleloia ! Haleloia !.
+
+2. Jereko indray \'reo manodidina ahy
+	Ny asanao mirindra sady soa ;
+	Mamelombelon-tsaina sy fanahy,
+	Mameno toky, fifaliana koa.
+	Dia satriko hanandratra ny feo :
+	Haleloia ! Haleloia !
+	Misinda izao ny sento sy toreo :
+	Haleloia ! Haleloia !
+
+3. Fa raha mitodika eny Gologota
+	Ny masoko, ry Tompo tena tia,
+	Dia tazako Ilay nisolo ota,
+	Ny Zanakao  nafoy teo kalvary !
+	\'Njao manontany ao am-poko ao :
+	Ry Tompo ô ! izaho ve
+	No iantefan\'ny fitiavanao ?
+	O ! fitiavan-dehibe.
+
+4. Fa any an-koatra, ao an-danitra avo,
+	Misy fonenan-tsoa amboarinao,
+	Handraisanao ao am-po miravoravo
+	\'Ty ondry very nokatsahinao.
+	Amin\'izay hihoby aho hoe :
+	Haleloia ! Haleloia !
+	Hiaraka amin\'ny voavonjy re
+	Haleloia ! Aman ! Amen !
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '24',
+  '24',
+  'IZA NO NANAO NY LANITRA',
+  'Johnny Lange, My Heath sy Sonny Burk - Mamy J. Ratsirison ',
+  'D. Razakaria',
+  'Do dia Eb 4/4 ',
+  'ANDRIAMANITRA',
+  'Mpamorona',
+  '
+1. Iza no nanao ny lanitra,
+	Ny herinao sy lohasaha,
+	\'Zao tany amn-danitra hita izao ?
+	Ilay Mahery noho \'zaho sy ianao.
+	\'Reo voninkazo tsara tarehy,
+	Ny voronkely izay manga feo ;
+	Moa ve fantatrao ny nanao ireo ?
+	Ilay Mahery noho \'zaho sy ianao ?
+	Raha mamaky ny haizim-be
+	Izaho sy ianao, mitantana Izy
+	Miambina Izy,
+	Momba fa tsy mandao.
+	Raha rera-tsaina na kivy fo
+	Iza no haleha raha misy manjo
+	hanome finoana sy hery vao ?
+	Ilay Mahery noho \'zaho sy ianao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '25',
+  '25',
+  'JESO MPANJAKA MALAZA',
+  'H. R. Palmer',
+  'Rajaonimaria',
+  'Do dia C 6/4 ',
+  'ANDRIAMANITRA',
+  'Mpamorona',
+  '
+1. Jeso Mpanjaka malaza,
+	No Tompo Mpanjakanay
+	Mahery sy trsara indrindra,
+	Ka Izy no aronay.
+	Mendrika hankalazaina
+	Noho ny heriny;
+	Eran-tany sy lanitra koa
+	Ny zo ama-dazany.
+
+Réf
+
+Ry Tompo, Mpanjaka mahery ô,
+	Mihainoa (mihainoa).
+	Avy manaiky tokoa \'zahay
+	Fa Tompon\'ny hery rehetra Ianao,
+	Tsy misy mihintsy ny toa Anao,
+	Tsy tratry ny saina ny herinao.
+	Ny fiderana \'zay entinay,
+	Raiso re! raiso re!
+	Ny haja atolotra Anao ety,
+	Raiso izao!
+
+2. Tompo Mpandahatra hendry,
+	Mpanao izao rehetra izao,
+	Ny zara sy tendry ataony
+	Dia tsara sy mahasoa.
+	Mendrika ny hoderaina
+	Ny fandaharany
+	Atolory ho azy ny saotra,
+	Fa Izy tandrifin\'io.
+	Ry, Tompo Mpanjaka,sns.
+
+3. Tompo, Mpanjaka Tsitoha,
+	Kanefa be indra-fo;
+	Deraina eram-po eran-tsaina,
+	Deraina mandrakizay;
+	He! ny mpanompo voavonjy
+	Samy mihoby hoe:
+	<< Haleloia ho amin\'ny Avo,
+	Fa Jeso no Tomponay >>
+	Ry, Tompo Mpanjaka,sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '26',
+  '26',
+  'O !MAHAGAGA',
+  'John W. Peterson',
+  'D. Rasolonjatovo',
+  'Do dia Eb 4/4 ',
+  'ANDRIAMANITRA',
+  'Mpamorona',
+  '
+1. O ! mahagaga Raiko ô
+	Ny herinao tsitoa
+	Voasoratra tokoa ery
+	An-danitra ery.
+
+ISAN\'ANDININY
+	Ny masoandro
+	Izay mamirapiratra,
+	Ny kintana mazava
+	Mahafinaritra,
+	Ny fitiavanao mahagaga anay
+	Dia tsy ho takatray tokoa
+	Ry Ray.
+
+2. Ny voninahitrao, ry Ray,
+	Dia tsy voajerinay
+	Fa he manjelanjelatra ao
+	Ny fiandriananao.
+	Ny masoandro, sns.
+
+3. Ny teny masinao ry Ray,
+	Mitory aminay,
+	Ny voronkely eny an-tsaha,
+	Ny voninkazo koa.
+	Ny masoandro, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '27',
+  '27',
+  'AVIA RY VAZAN-TANY O!',
+  'FFPM016',
+  'T. Rowlands',
+  'Do dia Bb 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Avia, ry vazan-tany ô !
+	Sy mponina ao an-danitra,
+	Miraisa feo ka mihirà
+	Ny fanavaozan-dehibe
+	\'Zay amonjena marobe
+	Dia vita re, ka miderà.
+	\'Zay amonjena marobe
+	Dia vita re, ka miderà.
+
+2. Avia, ry fiangonana ô !
+	Mba asandrato re ny feo
+	Hidera ny Mpanavotra,
+	Na aty an\'efitra aza izao,
+	Hirao am-pandehanana
+	Ny hira soan\'i ziona.
+	Hirao am-pandehanana
+	Ny hira soan\'i ziona.
+
+3. Avia, ry voavonjy ô !
+	Ka mifalia avokoa,
+	Fa afa-doza ianareo ;
+	Miraisa feo ka mihirà,
+	Derao, derao fa mendrika
+	Ilay nanavotra anareo.
+	Derao, derao fa mendrika
+	Ilay nanavotra anareo.
+
+4. Avia, ry olom-bery ô !
+	Izay mandre ny teny soa
+	Hoe : < Manatona Ahy izao >>,
+	Anio ny Tompo mba fidio ;
+	Ny fitiavany valio ;
+	Ny fiderany koa hirao.
+	Ny fitiavany valio ;
+	Ny fiderany koa hirao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '28',
+  '28',
+  'VONINAHITRA ANIE',
+  'S. Webbe',
+  'S. Razanajatovo',
+  'Do dia E 4/4 Adante',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Voninahitra anie!
+	Ho an\'Andriamanitra,
+	Dera, saotra, laza soa
+	Aoka hasandratra ho avo.
+	Lehibe ny heriny;
+	Lehibe ny asany;
+	Marina ny didiny,
+	Manambara ny hatsarany.
+
+2. \'Zao rehetra àry izao
+	Mankato ny teniny
+	Ka mirindra soa ery
+	Mba hidera ny Mpahary.
+	He! ny any an-danitra,
+	Maro sy mamiratra;
+	Ny ety an-tany koa
+	Sesehena sady kanto.
+
+3. O! ry olombelona,
+	Izay sanganasany,
+	Manomeza Azy izao
+	Voninahitra sy haja
+	Ianao no sambatra,
+	Notahiany fatratra.
+	Tiany raha ory koa,
+	Mba ho volamena tsara.
+
+4. Tompo Andriamanitra,
+	Aoka ny voavotra
+	Hiray feo mandrakizay
+	Hankalaza Anao hatrany.
+	He! ny fitiavanao
+	Sy ny famindramponao !
+	Voninahitra ho Anao,
+	Tena lehibe Jehovah !
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '29',
+  '29',
+  'RY ANDRIANANAHARINAY',
+  'H. L. Morley',
+  'R. Baron',
+  'Do dia G 4/4 Faingapaingana',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Ry Andriananaharinay
+	Ny hamasinanao
+	Dia tena lehibe tokoa
+	Ka tsy hahita Anao \'zahay,
+	Raha tsy mba masim-po
+
+2. Ny mason\'ny anjelinao
+	Mahita Anao tokoa,
+	Ka tsy mba manjambena ireo
+	Na dia mamirapiratra
+	Ny hamasinanao.
+
+3. Fa tsy nanota taminao
+	Akory izy ireo,
+	Tsy meloka, tsy menatra,
+	Ka misy hahazoany
+	Hijery tsara Anao.
+
+4. Fa izahay, maloto fo
+	Raha ta hahita anao,
+	Tsy mana-mahamendrika
+	Fa zanak\'olombelona,
+	Ahoana no hataoko ?
+
+5. Ry Andriananaharinay !
+	Ny ran\'ny zanakao
+	Ny asan\'ny Fanahy koa,
+	No zava-mahamendrika anay
+	Hahita Anao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '30',
+  '30',
+  'MIDERA ANAO \'ZAHAY RY RAY',
+  'W. Tanser ',
+  'Rajoelison',
+  'Do dia E 3/4 Maesteso',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Midera Anao \'zahay ry Ray,
+	Fa be ny voninahitrao.
+	Isaoranay mandrakizay
+	Noho ny fitiavanao
+	Noho ny fitiavanao.
+
+2. Ny tany sy ny lanitra
+	Manandratra ny herinao,
+	Nataonao hahafinaritra,
+	Sy hahasoa ny zanakao
+	Sy hahasoa ny zanakao.
+
+3. Ny ala maitso mavana,
+	Havoana, lohasaha koa,
+	Ny rahona sy ny avana
+	Dia manambara Anao tokoa
+	Dia manambara Anao tokoa.
+
+4. Endrey ny lahitokanao
+	natolotrao hisolo anay,
+	Hanananay anjara izao
+	An-danitra rahatrizay
+	An-danitra rahatrizay.
+
+5. Dia raisona, ry Tompo tia,
+	Ny hiranay midera Anao
+	\'Zay santatry ny ho doria
+	Hasandratray ambony ao
+	Hasandratray ambony ao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '31',
+  '31',
+  'MASINA INDRINDRA',
+  'Rakotonjanahary',
+  'Rakotonjanahary',
+  'Do dia D 4/4 Maesteso',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Masina indrindra,
+	Masina indrindra,
+	Ka derainay,
+	Derainay ho mandrakizay.
+	Ny fonenan\'ao ambony
+	Sy ny mponona any koa
+	Samy heninky ny hamasinanao
+	\'Zahay te hidera toy ireo anjely
+	Ka mba ampianaro
+	\'Zay fanaon\'ireo !
+	Masina indrindra,
+	Masina indrindra
+	Ka derainay,
+	Derainay ho mandrakizay.
+
+2. Marina indrindra,
+	Marina indrindra
+	Ka ekenay,
+	Ekenay ho mandrakizay.
+	He ! ny fitsarana ataonao
+	Sy ny fotondran-drehetra
+	Dia mitory ny fahamarinanao.
+	Mba zavatra irinay ny hiovan\'ny tany
+	Ho tany anjakan\'ny
+	Hamarinanao
+	Marina indrindra,
+	Marina indrindra
+	Ka ekenay,
+	Ekenay ho mandrakizay.
+
+3. Be fitia indrindra,
+	Be fitia indrindra
+	Ka tianay,
+	Tianay ho mandrakizay.
+	Fa ny zavatra rehetra,
+	Dia ny hita sy tsy hita,
+	Samy mahatsapa fitahiana.
+	Na ny manan-teny,
+	Na tsy manam-peo
+	Dia manan-tarehy
+	Te hisaotra Anao.
+	Be fitia indrindra,
+	Be fitia indrindra,
+	Ka tianay,
+	Tianay ho mandrakizay.
+	Amen, Amen, Amen, Amen.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '32',
+  '32',
+  'TSARA TOMPO NY ASANAO !',
+  'L. J. Delaborde',
+  'A. R. Marnoël',
+  'Do dia Eb 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Tsara, Tompo, ny asanao
+	Ka hohiraiko,
+	Kanto ny herinao,
+	Soa koa ny lazanao
+	Miaraka amin\'ny masinao
+	No hihirako
+	Hira amin\'ny fo ho Anao 
+	Hira amin\'ny fo ho Anao
+
+2. Hery mamelona
+	Ny tenin\'i Jehovah
+	\'Zay nahariana
+	Izao tontolo izao;
+	Izy no niteny
+	Dia indro fa niova,
+	Nivoatra re \'zao tany izao
+	Nivoatra re \'zao tany izao.
+
+3. Indray andro any
+	Handalo ka ho lasa
+	Izao hita izao
+	Ho rava avokoa
+	Tendrombohitra soa,
+	Lohasaha sy asa,
+	Fa Ianao hitoetra tokoa
+	Fa Ianao hitoetra tokoa.
+
+4. Ny herin\'ny teninao,
+	Ry Tompo iriko
+	Hamorona ho ahy
+	Toetra sy fo vaovao
+	Ka ny sitrakao ihany
+	No hifaliako
+	Mba hitoerako aminao
+	Mba hitoerako aminao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '33',
+  '33',
+  'SAOTRA ATOLOTRA ANAO',
+  'C. C. Case',
+  'A. R. Marnoël',
+  'Do dia Bb 3/4 Falifaly',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Saotra atolotra Anao re
+	ry Raiko,
+	Efa namonjy ny aiko Ianao
+	Sy nanazava tokoa ny saiko
+	Ka nanova ahy
+	Ho mpandova Anao
+
+Réf
+
+Fitiavana re
+	Avy amin-dRay
+	Famindram-po be
+	No hafatra torina indray
+	(indray).
+
+2. Tena tsy takatry ny saiko loatra
+	\'Zany fitia nampidina Anao
+	Honina aty anatiko mpanota,
+	Tena tsy mendrika hitoeranao.
+	Fitiavana re, sns.
+
+3. Raiso ho Anao ity fo kely tia,
+	Raiso ny aiko, Ray, ka mba sasao,
+	Tena tsy mendrika anefa avia,
+	Raiso ihany ka diovy ho Anao.
+	Fitiavana re, sns.
+
+4. Tompo hazony
+	Fandrao dia ho lasa,
+	\'Ndrao ver aho
+	Raha lavitra Anao ;
+	Nefa mbola ato
+	Ny fo \'zay mikasa
+	Sady mitepo te hahita Anao.
+	Fitiavana re, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '34',
+  '34',
+  'ZANAHARY LEHIBE',
+  'Rec. de Vienne',
+  'A. R. Marnoël',
+  'Do dia G 3/4 Miadana',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Zanahary lehibe,
+	Mankalaza Anao \'zahay \'zao.
+	Reo anjely marobe
+	Mbaminay manandratra Anao
+	:,: Sy mitsaoka Anao tokoa
+	Ry Mpanjaka foto-tsoa :,: 
+
+2. Tena Masina sy soa
+	Ny Jehovah Tompo, Rainay,
+	Tsy mba mety lefy koa
+	\'Lay fitia mandrakizay ;
+	:,: Fa, he, hita taratra
+	Amin\'ny voavotra :,: 
+
+3. O, vonjeo ny olonao,
+	Mba tahio fa lovanao re !
+	Ka ny voninahitrao
+	Atosahy aminay re!
+	:,: Dieny \'zao Ray be fitia,
+	Sy mandrakizay doria :,: 
+
+4. Ny fiadananao, ry Ray,
+	\'Zay navelan\'i Jesosy,
+	Enga ka hoentinay
+	Mba hanerana ny Nosy,
+	:,: Haneken\'ny marobe
+	An\'i Jeso lehibe :,: 
+
+5. Fa ny voninahitra,
+	Haja, dera, saotra, hery,
+	Ho an\'Andriamanitra,
+	\'Lay Mpamonjy olom-bery
+	:,: Azy \'zao atolotray,
+	Azy ho mandrakizay :,:
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '35',
+  '35',
+  'HO HIRAKO TOKOA RY RAY',
+  'G. C. Steppier',
+  'A. R. Marnoël',
+  'Do dia C 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Ho hirako tokoa, ry Ray,
+	Ilay fitia mahery;
+	Fa fitiavana mahay
+	Mamerina ny very.
+
+Réf
+
+O! hirao, hirao,
+	Ry foko hirao
+	Fa tena tia
+	Ilay Mpamonjinao
+
+2. Hirao \'lay fahefana be
+	Manova ny mpanota,
+	Na dia malemy aza re,
+	Handresy izao ny ota.
+	O! hirao, sns.
+
+3. Hirao \'lay fo mangoraka
+	Raha sendra anao tomany,
+	Manarina raha potraka
+	Noho ny onjan-tany.
+	O! hirao, sns.
+
+4. Hirao Ilay Mpiambina
+	Miahy sy mitandro,
+	\'Lay tana-misakambina
+	Na alina na andro.
+	O! hirao, sns.
+
+5. Hiraiko fa maharitra
+	Ny fitiavanao, Ray,
+	Mitaona ho any an-danitra,
+	Honina ao mandrakizay.
+	O! hirao, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '36',
+  '36',
+  'RY MPONINA AN-TANY ETY',
+  'L. Bourgeois',
+  'F. Ramanantsialonina',
+  'Do dia G 4/4 Mavitrika',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Ry mponina an-tany ety
+	O ! miondreha ka mifalia.
+	Derao Andriamanitra,
+	\'Zay Tompo ao an-danitra.
+
+2. Miankohofa tsara anio,
+	Ao an-tempoly tadidio,
+	Lazao ny hasoavany
+	Ary ny voninahiny.
+
+3. Midera ny Anaranao
+	\'Zahay, ry Tompo tokana,
+	Ny hira sy Hosana koa
+	Atolotray manokana
+
+4. Ny zavatra rehetra izao
+	Dia samy noforoninao
+	Ka indro manambara re
+	\'Lay Zanahary Lehibe.
+
+5. Ny haja, saotra aterinay
+	Natokana ho Anao, ry Ray
+	Sy Zanaka, Fanahy koa,
+	\'Zay tsy mba manam-paharoa.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '37',
+  '37',
+  'MIDERA NY ANARANAO',
+  'E. Perronet',
+  'Rowlands sy Peake',
+  'Do dia Bb 3/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Midera ny Anaranao
+	Zahay ry Tompo ô !
+	Zahay ry Tompo ô !
+	Ka hira no ventesinay
+	Hoe : haja, saotra, hery,
+	Hoe : haja, saotra, hery,
+	Mba raiso ho Anao.
+	
+
+2. He ! voahombo Ianao
+	Nisolo heloka,
+	Nisolo heloka,
+	Ka mendrika hanaovanay
+	Hoe : haja, saotra, hery,
+	Hoe : haja, saotra, hery,
+	Mba raiso ho Anao.
+
+3. Endrey ny ! fitiavanao,
+	Endrey ny ! herinao,
+	Tra-pamonjena izahay,
+	Ka haja, saotra, hery,
+	Haja, saotra, hery,
+	Mba raiso ho Anao.
+
+4. Raha tonga ao an-danitra
+	\'Zahay mpanomponao,
+	\'Zahay mpanomponao,
+	Hitohy re ny hiranay
+	Hoe : haja, saotra, hery,
+	Hoe : haja, saotra, hery,
+	Mba raiso ho Anao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '38',
+  '38',
+  'TSAROANAY TOKOA IZAO',
+  'R. H. Earnshaw',
+  'D. O. Jones',
+  'Do dia F 3/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Tsaroanay tokoa izao
+	Ny soa lehibe noraisinay
+	Tsy tapaka avy taminao,
+	Ry Andriananaharinay.
+
+2. Ny lasa itodihana
+	Dia mampiseho avokoa
+	Ny tanam-pitiavana
+	Miahy sady manasoa.
+
+3. He ! koa \'ty andronay ity,
+	Izay diavinay izao
+	Dia voahodidina ery
+	Ny fitahiana aminao.
+
+4. Dia tokinay tokoa izay
+	Fa mbola ho arovanao,
+	Anio, ampitso, rahatrizay,
+	Izay miakina aminao.
+
+5. Ka dia mba velomy re
+	Aty anatinay ny fo
+	Hahay misaotra anao anie,
+	Ry Rainay be famindrampo !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '39',
+  '39',
+  'RENAO MOA VE IZANY FEO',
+  '(Tsy fantatra)',
+  'F. Ramanantsialonina',
+  'Do dia F 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Renao moa ve izany feo
+	Mitory fiadanana ?
+	Anjely faly ka maneho:
+	Tonga Ilay Mpanavotra.
+	Tonga Jesosy, \'Lay Mpamonjy
+	Hanavotra antsika izao
+	Izy nitondra izany vonjy
+	Raiso mba ho fiainanao.
+
+2. Renao ve ilay feo mitaraina
+	Nipoitra tao Gologota tao ?
+	\'Njao reraka miferin\'aina,
+	Jesosy \'Zay nisolo anao.
+	Nisotro ngidin\'ny kapoaka,
+	Nijaly ka dia maty koa,
+	\'Zay nakorain\'ny vahoaka,
+	Nefa re tena Mpanao soa.
+
+3. Renao moa ve izany antso :
+	Fitiavan\'i Jeso anao.
+	O, manatòna ry mpania,
+	Fiainam-baovao omeko anao.
+	Andeha hamaly izany antso,
+	Dieny fotoana mety izao.
+	Aza avela ho matsatso
+	Ilay fitiavany anao.
+
+4. Renao ve hira hoe : <<Hosana>>
+	Ventesin\'ny voavotra ?
+	Vonona re ny fanasana,
+	Jesosy hampifaly anie.
+	Koa aza lavinao re, Jeso,
+	\'Lay Mpanome fiadanana.
+	Fa tsy mba hisy toa Azy,
+	\'Ndrao neninao re, ka ekeo !
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '40',
+  '40',
+  'DERAIKO NY ANARANAO',
+  'E. O. Excell',
+  'Raymond B. Rakotondrainibe',
+  'Do dia Db 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Deraiko ny anaranao,
+	Antsoiko mba ho re izao
+	Satria fitiavan-dehiba,
+	Fanetren-tena tsy fandre
+	Fanetren-tena tsy fandre.
+
+ISAN\'ANDININY :
+	:,: Jeso, Jeso
+	Deraiko ny anaranao :,:
+
+2. Raha avy ny maraina koa
+	Tsy hadinoko raha vao mifoha
+	Ny hariva rehefa tonga indray
+	Hanandratra Anao ry Ray
+	Hanandratra Anao ry Ray.
+	Jeso, Jeso, sns.
+
+3. Hidera Anao tsy tapaka,
+	Ry Tompo \'zay Mpanafaka,
+	Raha sarotra ny làlana
+	Ianao mahay mitantana
+	Ianao mahay mitantana.
+	Jeso, Jeso, sns.
+
+4. Ny onja sy tafiotra koa
+	Dia tsy hisy atahorako
+	Satria efa voalanjanao
+	Ary baikon\'ny tananao
+	Ary baikon\'ny tananao.
+	Jeso, Jeso, sns.
+
+5. Ambara-piavinao indray
+	Ho tonga sy handray anay
+	Hataonay ny sitrakao
+	Derainay ny anaranao
+	Derainay ny anaranao.
+	Jeso, Jeso, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '41',
+  '41',
+  'ISAORANAY IANAO ANDRIAMANITRA Ô !',
+  'J. Ramahaisahy',
+  'J. Ramahaisahy',
+  'Do dia C 6/8 3/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. :,: Isaoranay,
+	Isaoranay, Ianao
+	Andriamanitra ô !:,:
+	:,: Eny isaoranay Ianao. :,:
+	Isaoranay, Ianao
+	Isaoranay, Ianao
+	Andriamanitra ô !
+	:,: Fa akaiky ny Anaranao,
+	Fa akaiky ny Anaranao,
+	Mitory ny fahagagana
+	Ataonao ny olona. :,:
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '42',
+  '42',
+  'DERAO NY TOMPO',
+  'William J. rt Gloria Gaither - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia F 3/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. :,: Derao ny Tompo.
+O ! derao.
+Asandrato avo ny feo
+Ka miderà. :,:
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '43',
+  '43',
+  'TONGA ETO AN-TRANONAO',
+  'Bruce Ballinger',
+  '(Tsy fantatra)',
+  'Do dia F 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Tonga eto an-trano,
+	Mivory izahay
+	Hidera Anao
+	Tonga eto an-trano,
+	Mivory izahay
+	Hidera Anao
+	Tonga eto an-trano,
+	Mivory izahay
+	Hidera Anao Jeso
+	Hidera Anao
+	Hanompo  Anao, Jeso
+
+2. Efa nomenao ho ahy
+	Ny fahamarinanao
+	Ka afaka aho
+	Efa nomenao ho ahy
+	Ny fahamarinanao
+	Ka afaka aho
+	Efa nomenao ho ahy
+	Ny fahamarinanao
+	Ka afaka aho, Jeso
+	Hidera Anao,
+	Hanompo Anao, Jeso.
+
+3. Ny ho velona ho Anao,
+	Hiasa ho Anao
+	No iriko izao
+	Ny ho velona ho Anao,
+	Hiasa ho Anao
+	No iriko izao
+	Ny ho velona ho Anao,
+	Hiasa ho Anao
+	No iriko izao, Jeso
+	Hidera Anao,
+	Hanompo Anao, Jeso.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '44',
+  '44',
+  'RY TOMPONAY Ô!',
+  'S. K. Hine',
+  'Samoely Lala James',
+  'Do dia Bb 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Ry Tomponay ô !
+	Mahagaga loatra
+	Ny zava-bitan\'ilay tananao.
+	Tsy takatry ny saiko
+	Sy ny foko
+	Ny herin\'ilay Teny ao aminao.
+
+ISAN\'ANDININY :
+
+O ! ry fanahiko derao, hobio
+	Jehovah, Ray Mpahary anao.
+	O ! ry fanahiko andeha torio
+	Ny vininahiny hatrizao.
+
+2. Rah jereko ireto zavaboary,
+	Dia samy manana ny toerany
+	Ny kintana, ny raozy,
+	Ny hazandrano,
+	Misaotra Anao,
+	Noho ireo fonenany.
+	O ! ry fanahiko, sns.
+
+3. Ny olon \'zay sangan\'asanao,
+	Naniasia nefa notiavinao.
+	Ny tany izay mihasimba sy lao.
+	Havaozinao ho Tany vaovao.
+	O ! ry fanahiko, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '45',
+  '45',
+  'MIHIRA FIHIRAM-BAOVAO',
+  'R. Rabenasolo',
+  'R. Rabenasolo',
+  'Do dia C 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. :,: Mihirà fihiram-baovao
+	Ho an\'i Jehovah
+	Mihirà, Mihirà
+	Ho an\'i Jehovah,
+	Ry tany rehetra.
+	Mihirà ho an\'i Jehovah
+	Mihirà ho an\'i Jehovah,
+	Misora ny anaran\'i Jehovah
+	Lazao, (lazao) isan\'andro (isan\'andro)
+	Ny famonjeny mahafaly.
+	Mihirà fihiram-baovao (fihiram-baovao)
+	Ho an\'i Jehovah
+	Misora ny anaran\'i Jehovah
+	Ka ! ambarao
+	Amin\'ny jentilisa
+	Ny voninahiny
+	Ary, ary
+	Amin\'ny firenena rehetra
+	Ny fahagagana nataony.:,:
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '46',
+  '46',
+  'DERA, LAZA HO ANAO',
+  'M. Randriamiandriray',
+  'M. Randriamiandriray',
+  'Do dia Bb 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. :,: Dera, laza ho Anao,
+	Ray Tsitoha mandrakizay.
+	Hery koa, haja soa
+	No atolotray Anao. :,:
+	Tompo ô, raisonao,
+	Raiso re ho Anao
+	Ny haja entinay
+	Ho fisaorana Anao, Tompo ô,
+	Raisonao, raiso er ho Anao
+	Ny haja entinay
+	Ho fisaorana Anao,
+	Miobia, mifalia
+	(Miobia, mifalia)
+	Ary koa mihirà
+	Miobia, mifalia
+	(Miobia, mifalia)
+	Mihirà  ho an\'i Jehovah
+	Miobia, mifalia
+	Mihirà  ho an\'i Jehovah
+	Miobia, mifalia
+	Miobia, mifalia
+	Ary koa mihirà
+	Miobia, mifalia
+	Mihirà  ho an\'i Jehovah
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '47',
+  '47',
+  'RY ZIONA O, HIRAO',
+  'Phil Kerr',
+  'D. Rasolonjatovo',
+  'Do dia C 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Ry Ziona ô, hirao
+	Ny famonjena anao
+	 Ry Ziona ô, hirao
+	Nivezivezy re
+	tanaty alim-be.
+	 Ry Ziona ô, hirao
+	Ny ota nahazatra anao,
+	He afaka izao.
+	Ka toetra masina sy vao
+	No atafy anao.
+	 Ry Ziona ô, hirao
+	Ny afamonjena anao.
+	 Ry Ziona ô, hirao
+
+2. Ry Ziona ô, derao
+	Ilay Mpanao anao
+	 Ry Ziona ô, hirao.
+	He ! afaka ianao
+	Ka tonga vaovao.
+	 Ry Ziona ô, hirao.
+	Tsy mendrika ho anao,
+	Ry Ziona ity tanàna ity
+	Fa tany vaovao
+	Omena ho anao ary.
+	Ry Ziona ô, derao
+	Ilay Mpanao anao
+	 Ry Ziona ô, hirao.
+
+3. O ! Tsy hanapaka ahy
+	Ireo fakam-panahy
+	 Ry Ziona ô, hirao.
+	O ! fandresena soa
+	mahafaly ny fo
+	 Ry Ziona ô, hirao.
+	He ! velona ny Tompoko
+	Fitiavan-dehibe
+	Tanteraka ny nofiko
+	Voavonjy aho re
+	O ! tsy hanapaka ahy
+	Ireo fakam-panahy
+	 Ry Ziona ô, hirao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '48',
+  '48',
+  'RY JESOSINAY O!',
+  'J. Hiran\'ala Andrianavony',
+  'J. Hiran\'ala Andrianavony',
+  'Do dia D 4/4 Marisika',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. :,: Ry Jesosinay ô,
+	\'Ndreto izahay.
+	Fanirianay
+	Ny mba hidera Anao,
+	Ka sasao sy diovinao re
+	Ny fonay (mba)
+	Hahafahanay midera Anao.
+	Maminay ny fitiavanao (ka)
+	Hanononanay
+	Ny anaranao hoe :,:
+
+2. Ry Jesosy ô,
+	Faly ny fonay.
+	Notoloranao ny fitiavanao.
+	Hira no ventesinay
+	Mba hilaza
+	Fa Mpamonjy tia tokoa Ianao.
+	Maminay ny fitiavanao (ka)
+	Hanononanay
+	Ny anaranao hoe :,:
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '49',
+  '49',
+  'MIHIRA FIHIRAM-BAOVAO',
+  'Traditional Welsh Melody',
+  'D. Rasolonjatovo',
+  'Do dia F 3/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Mihirà fihiram-baovao
+	Ho an\'Ilay nanao
+	Izao rehetra izao, rehetra izao.
+	Ilay Tompo tena tia
+	Mpiaro ny mania.
+	No nitarika ny diafa tena tia.
+	Ny fahazavany be
+	Amin\'ny alim-be.
+	No indro fa nanome fiainana e.
+	Mihirà, hira vaovao
+	Ho an\'Ilay nanao
+	Izao rehetra izao, rehetra izao.
+
+Hajao ny fitsipiny sy ny didiny
+	Fa izay no sitrapony, ka sitrany
+	Andrandrao ny loha
+	Ka mba jereo tokoa
+	Ireo kintana maro soa
+	Masoandro koa
+	\'Reo tendrombohitra,
+	Havoana lavitra
+	Dia samy manolotra fisaorana
+	Mihirà, hira vaovao
+	Ho an\'Ilay nanao
+	Izao rehetra izao, rehetra izao.
+
+3. Derao ny fitiavany sy ny lazany
+	Omeo ny laza sy hajany
+	Ny rano lalina, ny ranomasina
+	No he manamarina
+	\'Lay masina.
+	Andeha venteso anio
+	Ny Haleloia hobio
+	Ka ny Hosana madio
+	Hobio, Hobio
+	Ho an\'Ilay nanao
+	Izao rehetra izao, rehetra izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '50',
+  '50',
+  'JESOSY Ô ! ANILANAO',
+  'R. Tovoarimino',
+  'R. Tovoarimino',
+  'Do dia Eb 3/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Jesosy ô, anilanao ny toloko
+	Lavitra ahy,
+	Fa Ianao ao am-poko
+	Ho sambatra ny fo sy fanahy.
+	\'Zay onenanao,
+	Tsy misy izay mampanahy,
+	Ny fanahinao anatiko ao
+	Manery ahy
+	Hihira hoe : (Haleloia)
+	Dera sy lasa, hery sy haja,
+	Jesosy ô !
+	Fa nifidy ahy
+	Tao amin\'ny maro Ianao
+	Ka dera, Haleloia, hatrizao
+	Jeso ô, ho Anao.
+
+2. Jesosy ô ! tazony aho ka tantano
+	Amin\'ny loza mba afaho
+	Sy sakano
+	He, tratrika aho, ry Jeso
+	Raha Ianao
+	No hitantana izao diako izao
+	Ho tafita
+	Hiaraka aminao hatreo
+	Ka hatreny am-pita
+	Hihira hoe : (Haleloia)
+	Dera sy lasa, hery sy haja,
+	Jesosy ô !
+	Fa nifidy ahy
+	Tao amin\'ny maro Ianao
+	Ka dera, Haleloia, hatrizao
+	Jeso ô, ho Anao.
+	'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '51',
+  '51',
+  'INONA JESO',
+  'R. Tovoarimino',
+  'R. Tovoarimino',
+  'Do dia Eb 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Inona, Jeso,
+	No hoentiko ho Anao ?
+	Moa ny foko ve
+	mendrika ho Anao Jeso ?
+	Lazao (omeko)
+	Fa omeko Anao
+	Izao anoio izao
+	Hidera sy hankalaza Anao
+	Ry foko ô ! hirao
+
+ISAN\'ANDININY :
+
+Feo 1 :
+	O ! hirao
+	Feo 2,3,4 :
+	Haleloia sy Hosana
+	Feo 1 :
+	Haleloia sy Hosana
+	No hirao, ry foko
+	Feo 2,3,4 :
+	O ! ry foko mihirà
+	Feo 1 :
+	Mihirà, ô ! hirao
+	Hosana
+	Feo 2,3,4 :
+	Haleloia sy Hosana
+	Ka derao ny Tompo
+	Mihirà, ry foko
+	Ankalazao, Jeso.
+
+2. Inona, Jeso
+	No mba hataoko aty ?
+	Moa ve hisento
+	Sy hitomany koa, Jeso ?
+	Lazao (iriko)
+	Faniriako ve
+	Ny hihira ho Anao
+	Hidera sy hankalaza Anao
+	Ry foko ô, hirao.
+	Haleloia, sns.
+
+3. Inona, Jeso
+	No foko ho Anao ?
+	Mba ho takalin\'izay
+	Natolotrao, Jeso ?
+	Lazao (hafoiko)
+	Moa hafoiko ve
+	Izao rehetra izao
+	Hidera sy hankalaza Anao
+	Ry foko ô, hirao.
+	Haleloia, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '52',
+  '52',
+  'JEHOVAH O!',
+  'J. Rakotomananjanahary',
+  'J. Rakotomananjanahary',
+  'Do dia Eb 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. :,: Jehovah ô, Jehovah ô !
+	Ny lanitra sy ny tany
+	Mitory ny fiandriananao.
+	Ny volana amn-kintana
+	Manambara ny voninahitrao.
+	Ny zava-manan\'aina,
+	Ny hita sy tsy hita,
+	Dia mampiseho avokoa
+	Ny fahendrenao.:,:
+	Ny voron-tsara feo,
+	Ny ranomasina,
+	Ny voninkazo soa,
+	Ny zava-maitso koa,
+	Maneho sy milaza
+	Ilay Mpamorona.
+	Tsy manana sahala
+	Mpanolotra ny soa.
+	Hobio,,derao, derao
+	Jehovah Tomponao,
+	Jehovah Tomponao.
+	Haleloia.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '53',
+  '53',
+  'MISAORA AN\'I JEHOVAH',
+  '(Tsy fantatra)',
+  'N. Ravoninjatovo',
+  'Do dia E 6/8 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Misaora an\'i Jehovah,
+	Ô ! ry fanahiko,
+	Misaora an\'i Jehovah,
+	Derao, derao ny Tomponao.
+	Ny fitahiany rehetra,
+	Saintsaino avokoa.
+	Mamindra fo sy mihantra
+	Ilay Mpamonjiko.
+	Hidera an\'iJehovah aho
+	Raha mbola miaina koa.
+	Hidera an\'iJehovah aho
+	Raha mbola miaina koa.
+	Asandrato ny feonao,
+	Ianao \'zay olony
+	Asandrato ny feo.
+	Derao ny anarany.
+
+2. Mifalia ry zatovo,
+	Ny sitrakao atao
+	Fa sitraky ny Tompo
+	Ny hifalianao :
+	Kanefa re tsarovy,
+	Ilay Mpanao anao.
+	O ! atolory Azy
+	Ny fiainanao izao.
+	Amin\'izay ny alahalo
+	Dia handositra.
+	O ! mifalia mandrakariva,
+	Eny, mifalia.
+	Asandrato ny feonao,
+	Hirao ny hatsarany.
+	Asandrato ny feonao,
+	derao ny anarany.
+
+3. Raha sendra ka manjombona
+	re ny lanitrao
+	O ! matokia ihany
+	Jeso tsy lavitra.
+	Ny fitondran\'izao
+	Miafina aminao ;
+	Kanefa dia nikendry
+	Ny mahasoa anao.
+	Fiadanana, fiadanana
+	Sy fitahiana.
+	Ny alahelonaoDia hody fifaliana.
+	Asandrato ny feonao,
+	Hirao ny hatsarany.
+	Asandrato ny feonao,
+	derao ny anarany.
+
+4. Jesosy anie ho avy
+	Tsy ho ela intsiny izao
+	Hitondra famonjena
+	Ho an\'ireo olony
+	Ka moa tsy ho faly indrindra ianao ?
+	Ny Tompo avelao
+	Hiasa ao am-ponao
+	Amin\'izay, amin\'izay
+	Ho vonona ianao.
+	O ! mifalia mandrakariva.
+	Eny, mifalia.
+	Asandrato ny feonao,
+	Derao  ka mba lazao,
+	Eny ankalazao
+	Ilay Mpanjakanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '54',
+  '54',
+  'DERA, LAZA, HERY, HAJA',
+  'FFPM008',
+  'R. G. Hartley',
+  'Do dia E 4/4 Marisika',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Dera, laza, hery, haja
+	Ho an\'Andriamanitra,
+	Tompon\'aina, Zanahary,
+	Rain\'ny voninahitra.
+	Izy no Mpanao antsika
+	Sady ivelomana ;
+	Fototr\'aina, foto-tsoa,
+	Izy ivavahana.
+
+ISAN\'ANDININY :
+
+Hihira isika hoe :
+	Haleloia !
+	Dera ho an\'Andriamanitra
+	Dia Haleloia ! (in-2)
+	Haleloia ! (in-4)
+	Hihira isika hoe :
+	Haleloia !
+	Dera ho an\'Andriamanitra
+
+2. Ray Tsitoha, tsy miova,
+	Tia sy mamindra fo,
+	Mahasoa isan\'andro,
+	Izy no isaorana ;
+	Vatolampy tsy mifindra,
+	Tokin\'olombelona ;
+	Fiarova-mahavonjy,
+	Izy itokiana :
+	Hihira isika, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '55',
+  '55',
+  'ISAONANA ANIE ANDRIAMANINTSIKA',
+  'M. Rinkart',
+  'L. Stueland sy M. J. Meeg',
+  'Do dia F 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Isaorana anie
+	Andriamanintsika,
+	Fa fitahiam-be
+	Omeny ho antsika
+	Hatreo am-bohoka
+	Ka mandraka antitra
+	Isika henika
+	Ny soan\'ny lanitra.
+
+2. Tsy mety tapitra
+	na lany ny hareny ;
+	Tsy hita faritra
+	Ny sisa izay homeny ;
+	Fanahy sambatra
+	Sy fo miadana
+	No efa santatra
+	izay ananana.
+
+3. Ny Ray sy Zanaka
+	Sy ny Fanahy koa,
+	Derain\'ny masina
+	Ho Tompo iray tokoa ;
+	Andriamanitray
+	Be fahasoavana
+	No anateranay
+	Izay fisaorana.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '56',
+  '56',
+  'TOMPO O, ANDRIAMANITRA TSITOHA',
+  'M. Randriamiandriray',
+  'M. Randriamiandriray',
+  'Do dia F 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Tompo ô,
+	Andriamanitra Tsitoha
+	(Tompo ô, Andriamanitra Tsitoha)
+	Tompo ô,
+	Andriamanitra Tsitoha
+	Lehibe dia lehibe tokoa
+	Ny Anaranao (Lehibe)
+	Tompo ô,
+	Andriamanitra Tsitoha
+	Nahary izao rehetra izao.
+	Tompo ô,
+	Andriamanitra Tsitoha
+	(Tompo ô, Andriamanitra Tsitoha)
+	Tompo ô,
+	Andriamanitra Tsitoha
+	Lehibe dia lehibe tokoa
+	Ny Anaranao
+	Tompo ô, Andriamanitra
+	Ianao (Ianao)
+	No nahary (Ianao)
+	Ianao no nahary
+	Izao rehetra hita maso izao
+
+2. Dera, saotra,
+	No atolotray ho Anao
+	(Dera, saotra, no atolotray ho Anao)
+	Ho Anao, ry Tompo
+	Andriamanitray
+	Raiso Tompo ô
+	Ny haja entinay ho Anao
+	(Raiso Tompo ô)
+	Tompo ô,
+	Andriamanitra Tsitoha
+	Nahary izao rehetra izao.
+	Dera, saotra no atolotray 
+	Ho Anao
+	(Dera, saotra no atolotray)
+	Ho Anao
+	Ry Tompo Andriamanitray
+	Raiso, Tompo ô,
+	Ny haja entinay ho Anao
+	(Raiso Tompo ô)
+	Tompo ô,
+	Andriamanitra (Tompo ô)
+	Ianao (Ianao) no nahary (Ianao)
+	Ianao no nahary
+	Izao rehetra hita maso izao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '57',
+  '57',
+  'ASANDRATO NY HOSANA',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia F 4/4 ',
+  'ANDRIAMANITRA',
+  'Fiankohofana sy fiderana',
+  '
+1. Asandrato ny Hosana,
+	Haleloia.
+	Ka hirao ny fiderana,
+	Haleloia.
+	Azonao ny famonjena.
+
+ISAN\'ANDININY :
+
+Ka derao, hobio.
+	Dera, laza, no hirao, Haleloia.
+	Haleloia, Haleloia, haleloia;
+	(Asandrato ny Hosana 
+Ka hirao ny fiderana 
+Azonao ny famonjena)
+	Hobio, dera, laza no hirao,
+	Haleloia.
+
+2. Famonjena azo maina, Haleloia.
+	Ranon\'aina,
+	Hazon\'aina, Haleloia.
+	No nomena ho antsika.
+	Ka derao, hobio, sns.
+
+3. Aza avela mba hangina
+	Ny Haleloia
+	Famonjena tsy vidina, Haleloia.
+	Ny otantsika no nariana.
+	Ka derao, hobio, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '58',
+  '58',
+  'MAHAGAGA RA NY ASAN\'NY RAY',
+  'George Beverly',
+  'A. R. Marnoël',
+  'Do dia Bb 3/4 Somary haingana',
+  'ANDRIAMANITRA',
+  'Ny fitiavana',
+  '
+1. Mahagaga re ny asan\'ny Ray,
+	Ny andro sy ny alina.
+	Fa ny mahagaga
+	Ka tiako mba ho hay
+	Dia ny fitiavany lalina.
+
+ISAN\'ANDININY :
+	Mahagaga loatra re,
+	Manintona ny fo
+	Ilay fitiavam-be.
+	Midadasika tokoa
+	mateza, mihavao,
+	Ampy ho ahy sy ho anao.
+
+2. Mahagaga re ny asan\'ny Ray,
+	mamafy, mijinja izahay.
+	Fa ny mahagaga
+	Dia mahagaga ahy
+	Mihoatra be ny voajinjanay.
+	Mahagaga loatra re, sns.
+
+3. Mahagaga re ny asan\'ny Ray,
+	Dia ny famelan-keloka
+	Fahafatesana
+	No tambin\'ny otanay.
+	Nefa aina no atolotra.
+	Mahagaga loatra re, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '59',
+  '59',
+  'JEHOVAH Ô ! EO AMINAO',
+  'Ira F. Stamphill',
+  'D. Razakaria',
+  'Do dia G 3/4 ',
+  'ANDRIAMANITRA',
+  'Ny fitiavana',
+  '
+1. Jehovah ô ! eo aminao
+	No anandratako anio ny fanahy ;
+	Andriamanitra ô !
+	Ianao no tokiko
+	Ka aoka aho tsy mba ho menatra.
+	Ampahafantaro ahy
+	Jehovah ny lalanao ;
+	Izay sitrakao no ampianaro
+	Fa Ianao no Mpamonjiko.
+
+2. Jehovah ô ! tsarovy re
+	Ireo antra sy indrafonao ;
+	Hatrizay, hatrizay
+	No nisian\'ireny
+	Ka mba amindrao fo
+	Ity zanakao.
+	Izay ota vitako
+	Ô ! aza tsarovanao,
+	Fa noho ilay hasoavanao :
+	Mamindrà fo Jehovah ô !
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '60',
+  '60',
+  'ENDREY TSY TAKATRY NY SAINA',
+  'R. C. Savage',
+  'D. Rasolonjatovo',
+  'Do dia D 4/4 ',
+  'ANDRIAMANITRA',
+  'Ny fitiavana',
+  '
+1. Endrey, tsy takatry ny saina
+	Ny fitiavanao, ry Ray.
+	Fa he mamelombelon\'aina.
+	Fitia tsy mendrika ho anay.
+
+ISAN\'ANDININY :
+
+Ka dera, haleloia, hosana
+	Ho Anao, ry Telo \'Zay Iray,
+	Ô ! raiso ny fiderana
+	Ho Anao anio mandrakizay.
+
+2
+Endrey, tsy takatry ny saina
+	Ny hasoavanao, Jeso.
+	Fa soa tsy tambonay isaina
+	No azonay avy taminao.
+	Ka dera, haleloia, sns.
+
+3. Endrey, tsy takatry ny saina
+	Ny herinao Fanahy ô !
+	Fa na antoandro na maraina
+	ianao manadio, manavao.
+	Ka dera, haleloia, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '61',
+  '61',
+  'FITIAVANA TSY TAKATRY NY SAINA',
+  'Joseph Baruby',
+  'A. R. Marnoël',
+  'Do dia Db 4/4 Haingana 2=1',
+  'ANDRIAMANITRA',
+  'Ny fitiavana',
+  '
+1. Fitiavana tsy takatry ny saina
+	Fa fitiavana tanteraka,
+	Fa tsy mba misy izay ankahalaina
+	Fa raisiny izay mibebaka.
+
+2. Fitiavana tsy takatry ny saina
+	Fa fitiavana mamelona,
+	Fitiavana izay mitondra aina
+	Ny maty aza tonga velona.
+
+3. Fitiavana manandratra ny ambany
+	Sy mampahery izay reraka
+	Ka mampifaly izay mitomany
+	Na ny fatorana aza boraka.
+
+4. Ry Jeso tia ô, babonao ny foko
+	Fa ny fitiavanao mampihaiky fo
+	Ka inty aho mba ho tia Anao koa
+	Ka mba ovay ho toy ny Anao ny fo.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '62',
+  '62',
+  'HE FITIAVAN-TSY MBA MANAM-PETRA',
+  'R. Tovoarimino',
+  'R. Tovoarimino',
+  'Do dia Eb 4/4 Miadana sy milanto',
+  'ANDRIAMANITRA',
+  'Ny fitiavana',
+  '
+1. He fitiavan-tsy mba manam-petra
+	Fitia tsy mba miova fa mitoetra 
+	Ny fitiavanao, ry Jeso Tomponay ô,
+	Dia fitia mandrakizay.
+	Kao na inona re mety hitranga
+	Na ho mainty re ny lanitra, na ho manga
+	Ho hazoniko i Jeso tia
+	Hatrizao ho mandrakizay doria.
+
+2. He fitiavan-tsy mba mila tamby,
+	Fitia tena feno, manana amby
+	Ny fitiavanao, ry Jeso Zokinay ô.
+	Ka fitia \'zay tena soa
+	Koa na aiza na aiza no hitoetra,
+	Ho mandritra ny andro iainanay rehetra
+	Dia ho tiako Ianao, Jeso tia.
+	Hatrizao ho mandrakizay doria.
+
+3He fitia tsy haiko tantaraina
+\'lay fitia nihatra taman\' aina
+Ny fitiavanao, ry Ilay Mpanjakanay ô,
+Mamy, tena mamiko.
+Ka na ory aho, Jeso, na faly,
+Hoventesiko ho hira mifamaly
+Ny ho tia Anao, ry Jeso tia.
+Hatrizao ho mandrakizay doria
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '63',
+  '63',
+  'Ô ! ANDRIAMANITRA TSITOHA',
+  'Sey Mour Irving - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia G 2/4 4/4 ',
+  'ANDRIAMANITRA',
+  'Ny fitiavana',
+  '
+1. Ô ! Andriamanitra Tsitoha,
+	Tsy manam-paharoa,
+	Ny asan\'ny famoronana
+	Maneho ny herinao.
+
+ISAN\'ANDININY :
+
+Ô ! Inoako tokoa
+	\'Reo fahagagana soa,
+	Dia fahagagana izay
+	Mahay manova fo iray.
+	Ô ! mahagaga ilay fitia
+	Naseho teo Kalvary.
+	Manan-kery hanavao
+	Ka dia inoako izao.
+
+2. He azoko atao tokoa,
+	Andriamanitra ô,
+	Hahita fahagagana soa
+	Eo Kalvary izao.
+	Ô ! Inoako tokoa, sns.
+
+3. Andriamanitra ô,
+	Endrey ny fitiavanao
+	Dia zava-mahagaga iray
+	Ho ahy mandrakizay.
+	Ô ! Inoako tokoa, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '64',
+  '64',
+  'ENDREY MAHAGAGA LOATRA',
+  'C. Austin Miles',
+  'N. Ravoninjatovo',
+  'Do dia Bb 4/4 ',
+  'ANDRIAMANITRA',
+  'Ny fitiavana',
+  '
+1. Endrey mahagaga loatra,
+	Andriamanitra ô !
+	Ray mandrakizay Ianao,
+	Avo indrindra koa Ianao
+	Nefa izahay mpanota
+	Notsijovinao.
+	Mahagaga ny fitiavanao.
+
+ISAN\'ANDININY :
+
+Novonjena tamin\'ota tokoa
+	Izahay (Jeso)
+	Ka ny dera (dera) sy saotra
+	No atolotray izao
+	Ny fonay feno fifaliana
+	Fa fiainam-baovao
+	No ivelomanay hatrizao
+	Noho ny herinao (re hatrizao).
+
+2. Endrey mahagaga Tompo ô !
+	Ny fitondranao soa
+	Tsy navelanao \'zahay
+ho lavitra Anao (Anao)
+Fa notaominao \'zahay
+Hikatsaka Anao
+	Ô ! tariho hahita Anao tokoa.
+	Novonjena tamin\'ota, sns.
+
+3. Endrey mahagaga loatra,
+	Andriamanitra ô,
+	Ny niantsoanao ny mpanota
+	Ho zanakao
+	Ary manavao ny toetra
+	Amam-panahiny
+	Ho tena mendrika ny lanitra.
+	Novonjena tamin\'ota, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '65',
+  '65',
+  'INDRO NY TOMPO MPAMONJY',
+  'N. B. Vandall',
+  'A. R. Marnoël',
+  'Do dia Db 6/4 Miadakadana',
+  'JESOSY KRISTY',
+  'Ny nahaterahany',
+  '
+1. Indro ny Tompo Mpamonjy
+	Teraka tao an\'alim-be,
+	He ! teraka tao an-tranon\'omby
+	Ka tsy nisy izay mba nandre.
+
+ISAN\'ANDININY :
+
+Fa ny Ray an-danitra
+	Nandefa anjely
+	Mba hanambara Ilay nateraka
+	Mba ho Mpamonjy.
+
+2. Raha tsy niraika ny olona
+	Tan-tanàna fa natory,
+	\'Reo mpiandry ondry kosa dia vonona
+	Ka nandeha sy nandao ny ondriny.
+	Fa ny Ray an-danitra, sns.
+
+3. Fa manahoana kosa re
+	No mba fihetsikao izao
+	Raha madre fa he ho avy anie
+	\'Lay Jesosy izay namonjy anao ?
+	Fa ny Ray an-danitra
+	Nandefa anjely
+	Hanomana izay te hiakatra ;
+	Any an-danitra.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '66',
+  '66',
+  '\'REO TAONA TAO NAZARETA',
+  'Harry L. Haris',
+  'A. R. Marnoël',
+  'Do dia Ab 4/4 Malefaka',
+  'JESOSY KRISTY',
+  'Ny nahaterahany',
+  '
+1. \'Reo taona tao Nazareta
+	Taona kanto tokoa
+	\'Zay nahitan\'ny rehetra
+	\'Lay loharano soa.
+	Izay niboika maizina
+	Ka toy ny nofy re,
+	Nangina toy ny alina,
+	Tsy nisy feo \'zay re.
+
+2. \'Reo taona tao Nazareta
+	Dia taona niafina.
+	Mahaliana ny rehetra
+	Tian-kotarafina.
+	Fa toy ny rano an\'ony
+	ambany volana :
+	Mandray taratra avy any ambony :
+	Jeso, hazavana.
+
+3. \'Reo taona tao Nazareta
+	Taonan\'ny adidy.
+	Toy ny zatovo rehetra
+	Jeso dia nifidy.
+	Toy ny tanora namany
+	\'Zay nifidy lalao,
+	Jeso nandray ho anjarany
+	Ny hamonjy anao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '67',
+  '67',
+  'NY HIRANAO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia F 4/4 ',
+  'JESOSY KRISTY',
+  'Ny nahaterahany',
+  '
+1. Ny hiranao aoka hanako,
+	Ry Ziona ô,
+	Fa teraka ao ny Tomponao.
+	Ny antemanao,
+	Ry tanàna \'zay maminay,
+	Hanenika izao tany izao.
+	(Ry Ziona ô)
+	Lazao fa efa teraka ao
+	Imanoela, Mpanjakanao,
+	(Ry Ziona ô)
+	Ny lanitra sy ny tany
+	Dia ho faly hiaraka aminao,
+	Ry Zionanay ô,
+Ny fifalianao anie ho mandrakizay,
+Fiadanana ao anatinao. (ry Ziona ô)
+
+2. Edena simba
+	Efa havaozina aminao
+	Aingao anio ny hiranao,
+	Ny fifalianao anie
+	Ho mandrakizay.
+	Fiadanana ao anatinao.
+	(Ry Ziona ô)
+	Lazao fa efa teraka ao
+	Imanoela, Mpanjakanao,
+	(Ry Ziona ô)
+	Ny lanitra sy ny tany
+	Dia ho faly hiaraka aminao,
+	Ry Zionanay ô,
+Ny antemanao, ry tanàna \'zay maminay,
+Hanenika izao tany izao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '68',
+  '68',
+  '\'LAY ZAZA IZAY MATORY',
+  'Greensleeves',
+  'A. Emiliarison',
+  'Do dia G 6/8 ',
+  'JESOSY KRISTY',
+  'Ny nahaterahany',
+  '
+1. \'Lay zaza izay matory eo
+	Am-pofoan\'i Maria,
+	Mba zaza iza loatra re ?
+	Fa betsaka mpitia.
+
+ISAN\'ANDININY :
+
+Indro fa teraka Kristy,
+	Ilay Mpanjaka.
+	Avia hiaraka amin\'ny anjely
+	Mba hitsaoka.
+
+2. Ny anjely avy ka mitsaoka Azy
+	Amin-kira mamy
+	Nanaraka Azy
+	Dia ny mpiandry ondry
+	Koa mba tamy.
+	Indro fa teraka Kristy, sns.
+
+3. Ny fihinanam-bilona
+	No hany mba fandriany
+	Fa zaza dia naninona ?
+	Jereo ny fihafiany.
+	Indro fa teraka Kristy, sns.
+
+4. Na ory ianao na mpanana,
+	Avia hankalaza
+	Amin\'izay ananana,
+	Ilay Jesosy Zaza.
+	Indro fa teraka Kristy, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '69',
+  '69',
+  'O, IZA RE \'TY TAMY',
+  'H. Sanders',
+  'Rajoelison',
+  'Do dia Ab 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. O, iza re \'ty tamy
+	Avy any Edoma izao,
+	Mareva-pitafiana,
+	Mba iza moa Ianao ?
+	\'Zaho no Mpamonjinao
+	\'Zay tena tia,
+	Mitory fahamarinana
+	Sy vonjy koa.
+	Hamonjy anao (in-3)
+	Izao no niaviako :
+	Hamonjy anao.
+
+2. Nahoana no dia mena
+	Ny fitafianao ?
+	Nanosy famiazana
+	Irery va Ianao ?
+	Eny, manirery re
+	Ka ory fo ;
+	Nijaly mafy ho anao
+	Teo Kalvary.
+	Hamonjy anao (in-3)
+	Izao no niaviako :
+	Hamonjy anao.
+
+3. Ry Zanak\'ondry mora,
+	Endrey \'ty vitanao !
+	Tsy takatry ny saiko re
+	Ny fitiavanao.
+	<<Indro efa maty Aho,
+	Fa velona.
+	Nandresy ho anao tokoa
+	Mandrakizay.
+	O, raisonao (in-3)
+	mpanota, raisonao anio
+	Ny vonjy \'zao>>.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '70',
+  '70',
+  'MPANJAKA MENDRI-KAJA',
+  'S. S. Wesley',
+  'A. R. Marnoël',
+  'Do dia Eb 4/4 Milantolanto',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. Mpanjaka Mendrikaja
+	No indro maty eo,
+	Toa rasty manan-daza,
+	Mpanota ô, jereo
+	Fo noho ny helokao be
+	No ijaliany.
+	Fitiavany Anao re
+	No nihafiany
+
+2. Nafoin\'ny Rainy Izy
+	Noho ny otanao,
+	Nisotro ny mangidy
+	Noho ny helokao.
+	Nalatsany ny rany
+	Ho fanavotana,
+	Nanaiky ny hijaly
+	Izay tao Gologota.
+
+3. << Ny rako nikoriana,
+	Ny satro-tsiloko,
+	Ny hazo fijaliana
+	\'Zay nihantonako,
+	Mpanota, mba tsarovy
+	Fa tokony ho anao ;
+	Kanefa ô, tsarovy
+	Izaho Solonao !>>
+
+4. Mpamonjy ô, malala,
+	Ny fitiavanao
+	Nanintona ahy adala
+	Ho tonga tia Anao ;
+	Ry Tompo ô, mba raiso,
+	Ho setrin\'ny ainao,
+	Ny foko ho doria,
+	Omeko anjakao. 
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '71',
+  '71',
+  'MOA TAZANAO MIHOMBO ERY',
+  'E. S. Widdemer',
+  'Rajoelison',
+  'Do dia F 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. Moa tazanao mihombo ery
+	\'Lay Tompon\'ny fiainana,
+	Mifantsika eny Kalvary
+	Hanavotra, hamelona ?
+
+2. Ho ahy re sy ho anao
+	No nanekeny ny manjo ;
+	Fitiavan-tsy voafetra izao ;
+	Andao hatolotra ny fo.
+
+3. Anefa anie tsy mendrika
+	Fa feno loto, ota koa,
+	Itambesaran-keloka,
+	Ka moa ho raisiny tokoa ?
+
+4. Iriny indrindra re anio
+	Homenao ho fanatitra,
+	Hohamasininy hadio.
+	Ho lapam-boninahitra.
+
+5. Tsy haiko ny handao Anao,
+	Ry Tompo be fitia tokoa,
+	Atolotro tontolo izao
+	Am-pelatananao ny fo !
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '72',
+  '72',
+  'IMDRO NY TOMPO JESOSY JEREO',
+  'E. E. Hasty',
+  'A. Rakotovao',
+  'Do dia G 6/4 Antonony',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. Indro ny Tompo Jesosy, jereo
+	Tena nihafy tokoa !
+	He ! Nivesatra eso, jereo.
+	Mba hamonjena anao.
+	ISAN\'ANDININY:
+	Indro, Jeso, jereo, (Jeso)
+	Indro, Jeso, jereo, (Jeso)
+	Izy izao dia mihevitra anao,
+	Indro, Jeso, jereo.
+
+2. Indro ny Tompo Jesosy jereo
+	Efa voahombo tokoa !
+	He ! fa nijaly tsy meloka teo,
+	Mba hamonjeny anao.
+	Indro, Jeso, jereo, sns.
+
+3. Indro ny lefo-mandoza, jereo,
+	Nenti-namely ny Tompo !
+	He ! fa ny rany nirotsaka teo,
+	Mba hamonjeny anao
+	Indro, Jeso, jereo, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '73',
+  '73',
+  'TOA MANJOMBONA',
+  'J. H. Fillmore',
+  'D. Rasolonjatovo',
+  'Do dia D 6/4 ',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. Toa manjombona, toa manirery
+	Ilay sahan\'i Getsemane,
+	Tao Jesosy, \'Lay Tompo mahery,
+	Nitaraina nivavaka hoe :
+
+ISAN\'ANDININY :
+
+<<Mba esory amiko, re raha azo atao,
+	Izao kapoaka mangidy izao ;
+	Nefa aoka, ry Ray, izay sitraponao
+	Fa tsy ny ahy re no atao.>>
+
+2. He mangina tsy misy miteny
+	Ao an-tsahan\'i Getsemane
+	Fa ny hany mba re feo malemy
+	Dia Jesosy mivavaka hoe :
+	Mba esory amiko, sns.
+
+3. Ry mpanota andeha re ho eny,
+	Eny an-tsahan\'i Getsemane
+	Fa ny vavaka ataonao ho reny
+	Ilay vavaka masina hoe :
+	Mba esory amiko, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '74',
+  '74',
+  'NY FITIAVANY AHY SY ANAO',
+  'Kurt Kaiser - Mamy J. Ratsirison',
+  'Esther Bary',
+  'Do dia A 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. Ny fitiavany ahy sy anao.
+	No he ! Nanolorany
+	Ny ainy mba ho fanavotana.
+	Tia ahy Jeso,
+	Tia anao tokoa
+	Samy tiany izaho sy ianao.
+
+2. Nandeha teny Kalvary
+	Haneho ny fitiavany
+	\'lay Jesosy fanomezana soa.
+	Tia ahy Jeso,
+	Tia anao tokoa
+	Samy tiany izaho sy ianao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '75',
+  '75',
+  'O! MBA TSAROVINAO JESOSY',
+  'Byrron Carmony',
+  'A. R. Marnoël',
+  'Do dia Bb 6/4 Haingana',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. O ! mba tsarovinao re Jesosy tia
+	Maty hamonjy,
+	Nanolotra ny ainy tao Kalvary
+	Ho an\'ny ondry
+
+ISAN\'ANDININY :
+
+Tompon\'ny anjely sy lanitra
+	Sy Mpanjakan\'ny voninahitra
+	Nefa nietry ho olona izao
+	Tonga nahantra hamonjy anao.
+
+2. He voaisotra avokoa ny toloko
+	Noho ny heriny
+	Dia voasintona tokoa re ny foko
+	Tonga olony.
+	Tompon\'ny anjely sy lanitra, sns.
+
+3. Isaorako Ianao, ry Jesosy tia,
+	Fa namonjy ahy.
+	Ka mba omeo ahy koa ny fo minia
+	Hamonjy fanahy.
+	Fo mahay mietry toy ny Anao,
+	Mba hamonjy izao tontolo izao,
+	Fo malemy sy mandefitra koa,
+	Vonon-kanompo, omeo, Tompo soa.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '76',
+  '76',
+  'IRERY NY MPAMONJIKO',
+  'Ben H. Price',
+  'A. R. Marnoël',
+  'Do dia F 4/4 Milanto',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. Irery ny Mpamonjiko
+	Raha tao Getsemane.
+	Nisotro irery ny ngidiko,
+	O ! famonjen-dehibe.
+
+ISAN\'ANDININY :
+
+Irery teo,
+	Nisolo ny maro.
+	Nanolotra ny rany soa
+	Mba ho ahy sy ho anao koa.
+
+2. Irery ny Mpamonjiko
+	Teo am-pitsarana
+	Nisatro-tsilo irery koa
+	Sy nofatorana.
+	Irery teo, sns.
+
+3. Irery ny Mpamonjiko
+	Raha nohomboina,
+	Nangirifiry, nitoloko
+	Sady nesoina.
+	Irery teo, sns.
+
+4. Irery raha niresaka
+	Tamin\'ilay jiolahy
+	\'Zay nahatsiaro fa reraka
+	Am- po sy am-panahy.
+	Irery teo, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '77',
+  '77',
+  'TOMPO MALALA',
+  'M. Noton',
+  'Rajoelison',
+  'Do dia E 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. Tompo malala,
+	\'Ndrey ny fitiavanao !
+	He! tsy nandala
+	Na dia ny ainao.
+	Nidi-pahoriana
+	Tsy tandrify ho Anao ;
+	Niari-pijaliana
+	Mendrika ahy \'zao !
+
+ISAN\'ANDININY
+
+Jeso, Jeso,
+	Tia ahy Ianao.
+	Jeso, Jeso,
+	\'Zaho tia Anao.
+
+2. Tompo malala,
+	\'Ndrey ny famindraponao !
+	Zanaka adala
+	Fa navelanao.
+	Ota maro isa
+	Efa vitako tety,
+	Nefa Paradisa
+	Miandry ahy ary !
+	Jeso, Jeso, sns.
+
+3. Tompo malala,
+	\'Zaho te ho mpianatrao
+	Ka tsy hiala
+	Eo an-tongotrao.
+	Ampianaro ho tia
+	Toy ny itiavanao,
+	Ho mpanara-dia
+	Mahatoky Anao.
+	Jeso, Jeso, sns.
+
+4. Tompo malala,
+	Ento mody aho izao
+	Amin\'ny vala
+	Ao an-danitra ao.
+	Any hiderako
+	\'Zany fitiavanao
+	Sady hahitako
+	Ilay endrikao !
+	Jeso, Jeso, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '78',
+  '78',
+  'TSY MENDRIKA NY FITIAVANY AHO',
+  'Beatrice Bush Bixler - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia F 6/8 ',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. Tsy mendrika ny fitiavany aho
+	Nefa tonga ho ahy Kristy.
+	Dia tonga nofo
+	Ka maty hamonjy ahy,
+	Maty irery tao Kalvary.
+
+ISAN\'ANDININY :
+	Tsy mendrika aho,
+	Tena tsy mendrika,
+	Tsy mendrika re ;
+	Nefa faly ny fo.
+	Izy nisolo ahy mpanota,
+	Fitiavan-dehibe tokoa.
+
+2. Tsy mendrika ny fitiavany aho
+	Nefa matoky fa tiany
+	Ka tonga mpiray lova aminy aho.
+	Ho ahy izay ananany.
+	Tsy mendrika aho, sns
+
+3. Tsy mendrika ny fitiavany aho
+	Nefa amboarana toerana
+	Mba hiara-monina
+	Amin\'ny Mpamonjiko
+	Ho faly sy ho mirana.
+	Tsy mendrika aho, sns..
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '79',
+  '79',
+  'TONGA NY TOMPO HITADY NY NANIA',
+  'Halldor Lillenas',
+  'A. R. Marnoël',
+  'Do dia F 6/8 ',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. Tonga ny Tompo hitady ny nania ;
+	Kanefa nolavina tsy ho Mesia.
+	Izy anefa no Ilay Zanak\'Ondry
+	Naidina tety hitondra vonjy.
+
+ISAN\'ANDININY :
+
+Notsaraina ho solonao,
+	Nofantsihina ny tanany roa.
+	Izy tonga mba hanasoa
+	Hanala izay mangeja anao.
+
+2. Tsy nanan-tsiny
+	Fa Tompo Mpanasoa tanteraka,
+	Kanefa niaritra eso
+	Ny tenany \'zay namonjy ny olony
+	Tsy nosakanany fa natolony.
+	Notsaraina ho solonao, sns.
+
+3. Nahoana no nijaly teo re Kristy
+	Ka nisotro ny kapoaka mangidy ?
+	Moa ve tsy fantatrao ry mpanota ô ?
+	Ny hanafaka anao no anton\'izao.
+	Notsaraina ho solonao, sns.
+
+4. Ankehitriny Jeso any ambony
+	Mifona ho anao re no ataony.
+	Raha toa manantona Azy tokoa ianao,
+	Dia ho raisiny soa fa ho avy Izy \'zao.
+	Notsaraina ho solonao, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '80',
+  '80',
+  'RAHA NOHOMBOANA JESOSY',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia F 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. Raha nohomboana Jesosy tao Kalvary,
+	Novonoina tsy meloka tao,
+	Nolatsaina ary koa nesoina ery,
+	O, inoako tokoa fantatrao.
+	Raha nekeny ny ho faty dia ny hisolo anao
+	Ka ny rany no hanasany ny helokao
+	Raha niaretany koa \'reo loza taty
+	Sy ny mafy dia noho ianao.
+
+2. Fahoriana no hita tao Kalvary,
+	Fahoriana tsy ho zakanao,
+	Nefa kosa Jesosy Ilay Mesia,
+	Dia niaritra tao noho ianao
+	Tena tiany tokoa ianao ho sambatra indray
+	Hiara-monina Aminy ao an-dapan\'ny Ray
+	Raha nomeny ny ainy tao Kalvary
+	O ! inoako tokoa fantatrao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '81',
+  '81',
+  'MANIRY MAFY AHO',
+  'E. C. Clephane',
+  'G. Torvik',
+  'Do dia Db 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. Maniry mafy aho, ry Jeso Tompo ô !
+	Hialoka eo ambany hazo fijalianao
+	Tsy misy toeren-kafa re \'zay tena mamiko :
+	Ny hazo fijaliana no fiarovako.
+
+2. Ny hazo fijaliana no itazanako
+	Ny tenanao Izay nijaly mba ho avotro ;
+	Ka dia kotsan-dranomasom-pitiavana
+	Ny tavako, ry Tompo ô !
+	Fa afa-keloka.
+
+3. Am-pototry ny hazo \'zay nijalianao
+	No itoerako hohazavain\'ny tavanao,
+	Ataoko fatiantoka ny zava-mora lo.
+	Ny hazo fijalianao no tombon-dahiko.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '82',
+  '82',
+  'HE, MIJALY NY MPAMONJY',
+  'FFPM089 (Feon-kira alimàna)',
+  'V. Andersen',
+  'Do dia Eb 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. He mijaly ny Mpamonjy
+	Ao Getsemane izao !
+	O ! Ry te ho voavonjy,
+	Manaraha Azy ao !
+	Indro ny Mpanavotrao,
+	Fa miady ho anao.
+
+2. Ory tao ny Tompon\'aina,
+	Mafy re ny adiny
+	Ka misento, mitaraina
+	Toy ny ra ny dininy.
+	Ry mpanota, mijere,
+	Mihevera ka hendre !
+
+3. Indro tonga ny anjely
+	Mba hampahatanjaka
+	An\'i Jeso, Izay mijaly
+	Amim-panaintainana.
+	Ry Mpamonjy tia ô,
+	Mamindrà fo amiko !
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '83',
+  '83',
+  'RY VOASATRO-TSILO',
+  'Arnulphus de Lovanio',
+  'Hira anglikana',
+  'Do dia C 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. Ry voasatro-tsilo,
+	Ry voakapoka !
+	Indrisy be ny loza
+	Manafotra Anao
+	Nitsaohan\'ny anjely
+	Fahiny Hianao.
+	Fa henatra sy latsa
+	No entinao izao.
+
+2. Atolotro, ry Jeso
+	Ny foko ho Anao,
+	Hiaraka hitondra
+	Ny fahorianao
+	Raha henatra sy loza
+	No anjarako,
+	Dia Hianao Mpamonjy,
+	No ifaliako.
+
+3. Tsarovy aho, Tompo,
+	Raha tratry ny manjo !
+	Tsy mendrika aho, nefa
+	Mba amindraonao fo !
+	Ny ratranao no misy
+	Fanasitranana,
+	Ny ranao ahitana
+	Ny fiadanana.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '84',
+  '84',
+  'RAIKO O! AVIA ESORY',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Bb 4/4 Moderato',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. Feo 1       : Ray ô, avia esory \'ty kapoakako ity       
+	Feo 2,3,4 : Raiko ô avia esory \'ty kapoakako ity     
+	   Feo 1       : He ny dinitro manjary ra,                       
+	Feo 2,3,4 : He ny dinitro manjary ra,                    
+	Feo 1       : Esory Raiko ô, esory Raiko ô                
+	Feo 2,3,4 : Esory Raiko ô !                                   
+	Feo 1       : Kanefa, ry Raiko, ekeko tokoa              
+	Feo 2,3,4 : Kanefa, Raiko ô,                                  
+	Feo 1       : Ny efa voatendry mba hiaretako          
+	Feo 2,3,4 : \'Zay sitrakao no atao                          
+	Feo 1       : Tsy izay sitrapoko no atao fa ny Anao. 
+	Feo 2,3,4 : Tsy ny sitrapoko anie, ry Raiko, no atao
+	Fa ny Anao.                      
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '85',
+  '85',
+  'HE NORATRAINA IANAO',
+  'W. G. Ovens',
+  'D. Rasolonjatovo',
+  'Do dia Eb 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fiainany sy ny fahafatesany',
+  '
+1. He noratraina Ianao,
+	Ka nolatsaina, ry Tompo Tsitoha.
+	Ny dian-kapoka teo aminao
+	No nanasitranana ny ratrako.
+
+2. Raha nohomboana Ianao,
+	Indro nafoinao, hatolotra ahy
+	Hitarika ny fiainako izao
+	Natolotrao, Jeso ô, ny Fanahy.
+
+3. Nefa tsy tana Ianao,
+	Fa indro nitsangana Ilay Tompo soa
+	Resy ny fasana, resy izao
+	O ! fandresena nomena ahy koa.
+
+4. Any an-danitra, Jeso,
+	\'Lay Andriamanitra, Tompo Tsitoha.
+	Izy mifona ho ahy izao,
+	Hery sy fanantenana tokoa.
+
+5. Tsy ho ela intsony re izao,
+	Avy eny ambony, ho avy Jeso :
+	O ! ny hafaliana raha ho avy Ianao,
+	Haleloia, hitsenako Anao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '86',
+  '86',
+  '\'ZAY REHETRA TSARA SADY SOA',
+  'martin Shaw',
+  'A. R. Marnoël',
+  'Do dia Ab 4/4 Somary haingana',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. \'Zay rehetra tsara sady soa,
+	Na kely na lehibe (na lehibe)
+	Zava-kanto sy ny mahasoa
+	Jeso no nanome (azy re)
+	Vony vao mivelatra
+	Sy voronkely misioka
+	Na ny tsy mbola ary elatra
+	Nataon\'ny Tompontsika.
+
+ISAN\'ANDININY :
+
+\'Zay rehetra tsara sady soa,
+	Na kely na lehibe
+	Zava-kanto sy ny mahasoa
+	Jeso no nanome.
+
+2. \'Zay rehetra tsara sady soa,
+	Na kely na lehibe (na lehibe)
+	Zava-kanto sy ny mahasoa
+	Jeso no nanome (azy re)
+	Reo havoana avobe,
+	Ny renirano mandeha,
+	Ny masoandro \'zay mazava be
+	Manazava ny aleha.
+	\'Zay rehetra tsara sady soa, sns.
+
+3. \'Zay rehetra tsara sady soa,
+	Na kely na lehibe (na lehibe)
+	Zava-kanto sy ny mahasoa
+	Jeso no nanome (azy re)
+	Ny rivotra mitsoka,
+	Ny hafanana mahasoa,
+	Ny voankazo \'zay tena masaka,
+	Nomen\'i Jeso avokoa.
+	\'Zay rehetra tsara sady soa, sns.
+
+4. \'Zay rehetra tsara sady soa,
+	Na kely na lehibe (na lehibe)
+	Zava-kanto sy ny mahasoa
+	Jeso no nanome (azy re)
+	Izy nanome maso
+	Mba hijerena azy ireny.
+	Tena Lehibe ny Tompo Jeso,
+	Izy nanao ireny.
+	\'Zay rehetra tsara sady soa, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '87',
+  '87',
+  'JESOSY NO ASANDRATRO',
+  'Johanesa',
+  'Rajaobelina',
+  'Do dia F 4/4 ',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. Jesosy no asandratro
+	Fa Izy no Mpanavotro.
+	Ny tanany nanafaka
+	Ny aiko tao an-davaka
+	Ny rafiko ho ketraka,
+	Izaho afa-kenatra
+	Fa manana ny Tompoko
+	\'Zay mandako sy aroko.
+
+ISAN\'ANDININY :
+
+Ry foko ô ! ankalazao
+	Jesosy \'Lay Mpamonjinao.
+
+2. Ny tsiron\'ny fiainana
+	Ananako sahady re,
+	Fa efa mby an-tànana
+	Ny famonjena lehibe ;
+	Ny ranon\'aina azoko,
+	Ny mofon\'aina haniko,
+	Sakafo mahatanjaka,
+	Mamelona ny reraka
+	Ry foko ô, sns.
+
+3. Ny rany no anjarako,
+	Ny ainy no fananako,
+	Ny lanitra no lovako,
+	Ny tany dia hilaozako ;
+	Ny ota tsy hanaraka,
+	Ny ady dia ho tapaka ;
+	Ny aloka ho tapitra,
+	Fa ao ny tena zavatra.
+	Ry foko ô, sns.
+
+4. Ny hanitry ny lanitra
+	Mamerovero fatratra :
+	Ny hiran\'ny voavotra
+	Manetsika ahy hiakatra ;
+	Ny tavan\'ny Mpamonjiko
+	No tsinjon\'ny fanahiko :;
+	Ny tavany manafaka
+	Ny haizina ao anatiko.
+	Ry foko ô, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '88',
+  '88',
+  'JESO TOMPO LEHIBE',
+  'W. H. Doane',
+  'J. Andrianaivoravelona',
+  'Do dia F 6/4 ',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. Jeso Tompo lehibe,
+	Iraky ny Rainy,
+	Nolatsain\'ny marobe
+	Tsy mba nohajainy :
+
+ISAN\'ANDININY :
+	Jeso tia, Jeso tia,
+	Maty voahombo ;
+	Maty tany Kalvary,
+	Maty re ny Tompo !
+
+2. Ory loatra fahizay,
+	Zanak\'ondry mora ;
+	Maty mba ho solonay
+	Sady voakora :
+	Jeso tia, Jeso tia, sns.
+
+3. Nalahelo, be nanjo,
+	Nefa tsy nanota,
+	Fa nijaly sitrapo
+	Tany Gologota :
+	Jeso tia, Jeso tia, sns.
+
+4. Jeso no Mpamonjy tia
+	Nahafoy ny ainy
+	Mba hamory \'zay mania
+	Hody amin-dRainy.
+	Jeso tia, Jeso tia, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '89',
+  '89',
+  'NY FAMONJEN\'I JESO',
+  'R. S. Willis',
+  'Rabenadimby',
+  'Do dia Bb 6/4 ',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. Ny famonjen\'i Jeso anao
+	Nandatsahany ny rany soa
+	Mba ho famelana helokao
+	Sy ho fanadiovana.
+	Ekeo, ekeo ny fitiavany
+	Fa tsy mba mamitaka.
+	\'Ty fitiavana masina,
+	Ekeo, ekeo ho anao.
+
+2. Ny famonjen\'i Jeso anao,
+	\'Zay vitany tao Gologota,
+	Moa ve ekenao am-po madio
+	Fa ampy ho fiainanao ?
+	Ekeo ! ekeo ! ny fitiavany
+	Fa tsy mba mamitaka.
+	\'Ty fitiavana masina,
+	Ekeo ! ekeo ! ho anao.
+
+3. Ny famonjena \'zay vitanao
+	Ho raisiko an-tsitrapo,
+	Ry Jeso, Ilay Mpanjakako,
+	<<Fitiavana tsy ho lo>>
+	Ekeko, eny, ekeko izao :
+	Fahafahana atolotrao,
+	Jeso ô ! ventesiko, ho Anao
+	Ny <<Eny>> \'zay Masina.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '90',
+  '90',
+  'MISAOTRA ANAO \'ZAHAY',
+  'C. H.',
+  'J. Rabarijoël',
+  'Do dia Db 4/4 ',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. Misaotra Anao \'zahay, ry Ray,
+	Noho ny Teninao
+	\'Zay nampiseho taminay
+	Ny fitiavanao, (ry Ray).
+	Na betsaka ny helokay
+	Teo anatrehanao, (ry Ray).
+	Dia Kristy \'lay Mpisolonay,
+	Nifona taminao.
+
+2. Mitebiteby fatratra
+	Sy kivy mafy koa,
+	Tsy nanana halahatra
+	Fa meloka tokoa (izahay) ;
+	Kanefa injao ny Zanakao
+	Fa mitaraina hoe (ho anay) :
+	<<Ry Ray malala, avelao
+	Ny helony anie>>.
+
+3. Atolotray an-tsitrapo,
+	Am-pitiavana,
+	Ny fonay sy ny saina koa
+	Ka aza lavina (tokoa).
+	Ny sitrapo sy didinao
+	No ankatoavinay (indray)
+	Ny herin\'ny Fanahinao
+	Ataovy aminay.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '91',
+  '91',
+  'RY MPAMONJIKO TSARA',
+  'E. Lassere',
+  'J. Rabarijoël',
+  'Do dia F 4/4 Andantino',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. Ry Mpamonjiko tsara,
+	\'Zao no tiako hambara :
+	O, meteza Ianao,
+	Ho Mpiaro ahy \'zao
+	O, manahy ny foko,
+	Ory sy mitoloko
+	Noho ny ota natao.
+	Hotsaraina izao.
+
+2. Jeso, Mpisolovava,
+	Ianao mahalala.
+	\'Ndrisy meloka be,
+	mamindrà fo anie.
+	Aoka ny ranao soa
+	Hanadio ahy koa
+	Ka ny ota natao,
+	Hofafana izao.
+
+3. <<Eny, ampy ny rako,
+	Manatòna ho sasako
+	Dieny azo atao,
+	Ry mpanota izao.
+	O, avia ka minoa
+	Hofafako avokoa
+	otanao marobe.
+	Mitrakà, mijere>>
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '92',
+  '92',
+  'VOAVIDY TAMIN-DRA',
+  'P. P. Bilhorn',
+  'Rajoelison',
+  'Do dia Eb 4/4 ',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. Voavidy tamin-dran\'iKristy
+	(He) ra sarobidy e, (tokoa)
+	Nalatsaka tany Kalvary
+	Ho fanesoran-keloka.
+
+ISAN\'ANDININY :
+
+He sambatra aho (ho sambatra aho ao,ho sambatra).
+	Fa voavonjy re izao.
+	Fa indro \'lay ra nalatsaka.
+	Andraisako fahasoavana.
+
+2. Manasa \'reo ota marobe
+	\'Lay ra soan\'i Kristy (Kristy)
+	Manaisotra koa ny entam-be,
+	Mitondra fahafahana e.
+	He sambatra aho, sns.
+
+3. Manova sy manavao ny fo
+	Ny ra soan\'i Kristy (Kristy)
+	Manolotra ny hery koa
+	Mba handreseko hatrizao.
+	He sambatra aho, sns.
+
+4. Raha tody vetivety ary
+	An-danitra izao (izao)
+	Voavonjy noho ny ran\'i Kristy,
+	Hidera izao no hatao.
+	He sambatra aho
+	(Ho sambatra aho ao, ho sambatra aho)
+	Fa voavonjy re izao;
+	Fa indro \'lay ra nalatsaka
+	Handraisako fiadanana !
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '93',
+  '93',
+  'MIADY HOA ANAO',
+  'P. P. Bilhorn',
+  'Rajoelison',
+  'Do dia Ab 4/4 ',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. Miady ho anao izao,
+	Irery tao Getsemane,
+	\'Lay Tompo tena tia anao,
+	mpanota, mijere !
+
+ISAN\'ANDININY :
+
+Ario (ny ota izao)
+	Ny ota izao, (ario ny ota izao),
+	Ario (ario)
+	Andeha jereo ny Tomponao
+	Dia mibebaha re anio.
+
+2. Mitondra latsa ho anao,
+	Irery am-pitsaharana e
+	\'Lay Tompon-danitra izao,
+	Mpanota, mijere.
+	Ario, sns.
+
+3. He maty ho anao izao,
+	Irery ao an\'alim-be,
+	Ny Tompo, moa fantatrao ?
+	Mpanota, mijere.
+	Ario, sns.
+
+4. Iriny aminao ny fo
+	Mba hanjakany hatrizao,
+	Hamboariny ho lapa soa,
+	Moa foinao ve, lazao ?
+	Ario, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '94',
+  '94',
+  'MOA VE TSY HO LAZAIKO',
+  'S. Y. 84',
+  'Rajoelison',
+  'Do dia Bb 6/8 ',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. Moa ve tsy ho lazaiko
+	Fa velona tokoa
+	Fa velona Jesosy,
+	Tantara tena soa.
+	He maty mba hisolo,
+	Nitondra ny heloko ;
+	Kanefa izao nandresy.
+	He ! velona.
+	ISAN\'ANDININY :
+Lazao, (lazao),
+lazao (lazao),
+Fa akaiky Izy \'zao.
+Torio, lazao, eny
+ambarao
+Jesosy avy re.
+Lazao, (lazao),
+lazao (lazao).
+Avy Izy haka anao.
+Hiseho eny an-danitra
+fa velona tokoa
+
+2. Ny otako rehetra
+	Voavelany tokoa ;
+	Ny vesany manindry
+	Nesoriny avokoa.
+	Ny fiadanam-pony
+	O, fahalalana soa !
+	Atolony tontolo.
+	He velona !
+	Lazao,lazao sns.
+
+3. Ny diako isan\'andro
+	Tantanany tokoa ;
+	\'Reo zava-mampahory
+	Reseny avokoa.
+	Raha sendra kivy aho
+	Ka reraka ny fo,
+	Bitsihiny mangina.
+	He velona !
+	Lazao, lazao, sns.
+
+4. Tsy ahy irery mantsy
+	Fa ho anao tokoa,
+	Ry namako mahantra,
+	Ho anao avokoa
+	Ny vonjy efa vita,
+	\'Lay Paradisa soa,
+	Anao tsy misy fetra,
+	Fa velona.
+Hobio,(hobio), hobio,(hobio)
+Vaovao mahafaly re.
+Torio, lazao, eny
+ambarao
+Jesosy velona.
+Hobio,(hobio), hobio,(hobio),
+Vaovao mahafaly re.
+Jesosy velona ao am-po
+O fantatro tokoa.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '95',
+  '95',
+  'HAREKO SADY LAZA',
+  'C. H. Purday',
+  'A. R. Marnoël',
+  'Do dia G 4/4 ',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. Hareko sady laza
+	No fifaliako koa
+	Ny mino sy milaza
+	Ny vonjin\'i Jeso.
+	Izaho feno toky
+	Ka tsy matahotra.
+	Fa mino sy matoky
+	Anao Mpanavotra.
+
+2. Tsy misy mahasasa
+	Sy mahadio ny fo
+	Afa-tsy irony ratra
+	Niaretan\'i Jeso.
+	Ny rany sarobidy
+	No manadio anay ;
+	Ny sitrapo ovàny
+	Ho toy ny an\'ny Ray.
+
+3. Ry tany ô, ry tany,
+	Avia manantòna
+	Ka ento ho sasany
+	\'Rony halotoana.
+	Nandao ny lanitra Izy
+Nafoiny koa ny Ray;
+Tsy hanome va Izy
+Aina mandrakizay ?
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '96',
+  '96',
+  'VAOVAO MAHAFALY',
+  'Air Gallois',
+  'A. R. Marnoël',
+  'Do dia A 3/4 Mavitribitrika',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. Vaovao mahafaly,
+	Amin\'i Jeso,
+	Mpanota mijaly
+	Voavonjy tokoa.
+
+Réf
+
+Ny dera sy haja.
+	Ny fisaoranay
+	Atolotra Anao
+	Mpanavotra anay.
+
+2. Maty tsy nanota,
+	Ry Jeso Ianao.
+	Nisolo mpanota
+	No nijalianao.
+	Ny dera sy haja, sns.
+
+3. Ireo dinitrao no 
+	Famelana anay
+	Ka dia afaka
+	Ireo ratranay.
+	Ny dera sy haja, sns.
+
+4. Kristy fandresena,
+	Fahamasinanay,
+	No aina omena
+	Ho mandrakizay.
+	Ny dera sy haja, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '97',
+  '97',
+  'IRIKO MBA HAMBARA',
+  'L. D. Sankey',
+  'L. J. Raharijaona',
+  'Do dia Eb 4/4 Milantolanto',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. Iriko mba hambara
+	Sy ho ventesina
+	Mamiko ny tantaran\'ny
+	Fanavotana.
+	Ry Tompo sy Mpanjaka,
+	Be voninahitra,
+	Manaiky mba hizaka
+	Latsa sy henatra.
+
+ISAN\'ANDININY :
+
+Fitiavanao Mpamonjy
+	No tiako holazaina,
+	Fa izaho voavonjy
+	Ry Tompo deraina.
+
+2. Fahorian- tsy hita lany
+	No nozakainy re !
+	Fa nameno ny tany
+	Ny ota marobe.
+	Kapoka ary ratra,
+	Fanamavoana koa !
+	Nataon\'ny Ray nihatra
+	Taminy avokoa !
+	Fitiavanao Mpamonjy, sns.
+
+3. Koa raiso ho fanilo,
+	Mba hanazava anao,
+	\'Lay voasatro-tsilo
+	Nanome aim-baovao,
+	Fa Izy efa nandresy,
+	Tamin\'ny rany soa ;
+	Ny otanao nisesy,
+	Novahany avokoa !
+	Fitiavanao Mpamonjy, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '98',
+  '98',
+  'MOA TSY NY RANAO',
+  'F. F. Flemming',
+  'A. R. Marnoël',
+  'Do dia A 4/4 Mitalaho',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. Moa tsy ny ranao
+	Sy ny hatsarany,
+	Moa tsy \'lay ainao
+	Latsaka an-tany,
+	Ry Tompo ô,
+	No hany antenaiko
+	Sy famonjeko ?
+
+2. Na sarotra aza
+	Ny adim-panahy
+	Ka \'lay mpihaza
+	Ta hamotraka ahy,
+	Moa tsy ny ranao,
+	Jeso ô, Mpamonjy,
+	No mahavonjy ?
+
+3. Raha hiseho
+	Ny otako voalanja,
+	Ray ô, koseho
+	Na mavesa-danja
+	Fa Jeso Zanak\'ondry
+	Efa maty,
+	Ny rany afafy.
+
+4. Saotra sy haja
+	No atolotro \'zao.
+	Dera sy laza,
+	Ry Mpamonjy, ho Anao
+	Fa azo toky izao 
+	Ny fandresena :
+	Jeso mifona !
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '99',
+  '99',
+  'MOA FANTATRAO \'LAY',
+  'I. D. Sankey',
+  'Rajoelison',
+  'Do dia G 4/4 Animé',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. Moa fantatrao
+	\'Lay Mpamonjy mahery,
+	Sakaiza namoy re
+	Ny ainy ho anao,
+	Maniry indrindra
+	Hamonjy ny very,
+	Hamerina azy
+	Ho an-danitra izao ?
+	ISAN\'ANDIONINY :
+	Ny fony dia tia
+	Anao \'zay nania,
+	Avia, manatòna,
+	Anio no fotoana.
+
+2. Moa fantatrao ve
+	\'Lay famelana
+	Ny ota rehetra
+	Izay vitanao ?
+	Avia, aza ela,
+	Avia ho sasana,
+	Fandrao diso aoriana,
+	Ka ho neninao.
+	Ny fony dia tia, sns.
+
+3. Moa fantatrao
+	\'Lay mifona ao ambony
+	Ho ahy sy ho anao,
+	Anatrehan\' ny Ray
+	Endrey! Mahagaga
+	Ny famindrampony
+	Izay hamonjeny mandrakizay
+	Ny fony dia tia.
+
+4. Moa fantatrao
+	\'Lay Mpanjaka ho avy
+	Tsy ho ela intsony,
+	Akaiky izao,
+	Hanala ny rofy,
+	Ny sento, ny ady,
+	Hampiditra antsika
+	An-danitra ao.
+	Ny fony dia tia, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '100',
+  '100',
+  'HE TAZAKO ILAY MPAMONJY',
+  'C. H. Morris',
+  'A. R. Marnoël',
+  'Do dia G 4/4 Malefaka',
+  'JESOSY KRISTY',
+  'Ny asany',
+  '
+1. He tazako Ilay Mpamonjy,
+	Manatona, ny Ray, Mpitsara;
+	Miseho Mpanalalana ahy
+	Fa Tompo tia
+
+2. He tazako Ilay voahombo,
+	\'Reo hola-pantsika sy tsilo,
+	\'Zany fitiany toa mitombo,
+	Azo antoka.
+
+3. Indro mifona toa manery
+	Ka mitalaho toa mitaky
+	Amin\'ny Ray tsy mahajery
+	Fa fo torotoro.
+
+4. Mangoraka ny Ray mihaino
+	Ny zanany \'zay mitaraina.
+	\'La ota teo, fanahy, saino,
+	Nesorina.
+
+5. Isaorako Ianao, ry Tompo,
+	Noho \'zao famindramponao \'zao.
+	Atolotro Anao ny foko
+	Ka anjakao
+	'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '101',
+  '101',
+  'HALELOIA',
+  'C. Simper',
+  'B. Andriantsizafy',
+  'Do dia G 4/4 ',
+  'JESOSY KRISTY',
+  'Ny nitsanganany - Ny niakarany',
+  '
+1. Haleloia, haleloia,
+	Haleloia
+	Fa lehibe tokoa
+	Ny voninahitrao.
+	Endrey !
+	Ny fahagagana nataonao.
+	(Feo 1)
+	Fa lehibe,
+	Lehibe tokoa tokoa
+	(Feo 2,3,4)
+	Fa, lehibe  tokoa,
+	Tokoa, tokoa
+	Isaorana anie
+	Ny voninahitrao
+	Atolotray Anao ry Ray
+	Ny voninahitra
+	Sy haja koa.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '102',
+  '102',
+  'ANAO NY LAZA',
+  'Haendel',
+  'A. R. Marnoël',
+  'Do dia E 4/4 Mavitrika',
+  'JESOSY KRISTY',
+  'Ny nitsanganany - Ny niakarany',
+  '
+1. Anao ny laza, ry Natsangana ô,
+	Fa resy mazava
+	Ilay rafinao.
+	Anjely no tonga
+	Nampihiratra,
+	Ka nanakodia
+	\'Lay vaton\'ny tsy tia
+
+Réf
+
+Anao ny laza,
+	Ry Natsangana ô,
+	Fa resy mazava
+	Ilay rafinao
+
+2. Jereo fa Jeso
+	No nitsangana ;
+	Resy \'zao ny eso
+	Sy ny fasana.
+	Mihobia, ry tany
+	Sy ry olona ô,
+	Fa nadresy ihany
+	Ny Mpamonjinao.
+	Anao ny laza, sns.
+
+3. Jeso no zoky
+	Sady santatra ;
+	Ny mino matoky
+	Dia ho sambatra.
+	Na matory izy
+	Ao am-pasany,
+	Jeso hamoha azy
+	Any am-parany.
+	Anao ny laza, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '103',
+  '103',
+  'JESO NATSANGANA',
+  'R. Lowry',
+  'A. R. Marnoël',
+  'Do dia C 4/4 Marisika',
+  'JESOSY KRISTY',
+  'Ny nitsanganany - Ny niakarany',
+  '
+1. Jeso natsangana
+	Ka hoby re !
+	Resy ny fasana
+	Afaka e !
+
+Réf
+
+Laza sy haja ho Anao (ho Anao)
+	Ry Mpamonjy sy Mpanavotra ô !(Avotray)
+	Indro foana re ny fasanao
+	Ry Mpanjaka Tompon\'aina ô
+	Raiso re (Raiso re)
+	Dera ho mandrakizay
+
+2. Jeso natsangana,
+	Toky ho anao
+	\'Zay anovozana
+	Hery vaovao.
+	Laza sy haja, sns
+
+3. Jeso hanjaka izao
+	Miarak\'amin-dRay.
+	Ta hampanjaka anao
+	Mandrakizay.
+	Laza sy haja, sns
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '104',
+  '104',
+  'RANOMASOKO OMALY',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia F 3/4 ',
+  'JESOSY KRISTY',
+  'Ny nitsanganany - Ny niakarany',
+  '
+1. Ranomasoko omaly,
+	Nisolo hafaliana indray
+	Fa nitsangana tokoa \'zao Jeso
+	Fandresena tsy hita lany
+	\'Zay mampihorina ho mafy
+	Ilay finoako saika rava teo.
+	Resy \'zao ny fahafatesana,
+	Kristy no fiainana.
+	Foana koa ny ranomaso
+	Fa efa lasa izao
+	Ny zavatra taloha.
+	Torotoro teo Satana,
+	Ny fasana efa noravana,
+	Jesosy no fiainam-baovao.
+
+2. Ranomasoko omaly,
+	Nisolo hafaliana indray
+	Fa nitsangana tokoa \'zao Jeso
+	Fandresena tsy hita lany
+	\'Zay mampiorina ho mafy
+	Ilay finoako saika rava teo.
+	Andriamanitra mahery
+	Sy fotor\'aina Ianao,
+	Ny lohalika rehetra anie
+	Hilefitra ho fanajana Anao.
+	Voninahitra eran-tany
+	Sy izay rehetra
+	An-danitra any
+	Ho Anao Jesosy,
+	Fiainam-baovao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '105',
+  '105',
+  'TAFATSANGANA TOKOA',
+  'C. Wesley',
+  '(Tsy fantatra)',
+  'Do dia C 2/4 ',
+  'JESOSY KRISTY',
+  'Ny nitsanganany - Ny niakarany',
+  '
+1. Tafatsangana tokoa
+	Haleloia !
+	Jeso Kristy Tompo soa,
+	Haleloia !
+	Maty nefa velona,
+	Haleloia !
+	Mihirà, ry olona,
+	Haleloia !
+
+2. Foana ny fasana,
+	Haleloia !
+	Indro Jeso velona.
+	Haleloia !
+	Toky tsy mamitaka,
+	Haleloia !
+	Mihirà, ry olona,
+	Haleloia !
+
+3. Andro lehibe tokoa,
+	Haleloia !
+	Andro fihobiana,
+	Haleloia !
+	Afaka ny tahotra,
+	Haleloia !
+	Mihirà, ry olona,
+	Haleloia !
+
+4. Haja, laza, aterinay,
+	Haleloia !
+	Jeso ô, Mpanjakanay,
+	Haleloia !
+	Raiso re ny saotranay,
+	Haleloia !
+	Raiso koa ny tenanay,
+	Haleloia !
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '106',
+  '106',
+  'ERAN\'NY TANY',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Db 4/4 ',
+  'JESOSY KRISTY',
+  'Ny nitsanganany - Ny niakarany',
+  '
+1. Eran\'ny tany sy lanitra izao ny hoby
+	Fa efa nitsangana izao Jeso,
+	Fa efa nitsangana izao Jeso,
+	Ny voninahitra sy Haleloia omena
+	Ilay Mpanjaka lehibe, (Mpanjaka)
+	Ny fandresena efa natolotra ho Azy
+	Ka \'zao rehetra izao omena
+	Ho fanjakany mandrakizay.
+
+ISAN\'ANDININY :
+
+Fa nitsangana tokoa ny Tompo,
+	Efa velona Jeso Mpanjaka,
+	Voninahitra atolotra Azy
+	\'Zao tontolo izao ho fanjakany avokoa,
+	(Ka derao).
+	Dera sy laza omenay Anao, ry Tompo,
+	Ho mandrakizay.
+	Mandraisa ny fiderana ay ao am-po.
+
+2. Kristy no santatr\'izay efa nodimandry
+	Ka mbola hatsangana rahatrizay
+	Ka mbola hatsangana rahatrizay
+	Ho mafy orina indray ny finoantsika
+	Ilay Mpanjaka lehibe (Mpanjaka)
+	Fanantenana ho antsika ny fandreseny
+	Fa isika izao hitafy ny fahamarinany rahatrizay
+	Fa nitsangana, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '107',
+  '107',
+  'TONGA JESO',
+  'William J. Gaither',
+  'A. R. Marnoël',
+  'Do dia Ab 4/4 Miadankadana, malefaka',
+  'JESOSY KRISTY',
+  'Ny nitsanganany - Ny niakarany',
+  '
+1. Tonga Jeso Zanaky ny Ray
+	Niantra sy namonjy koa
+	Maty Izy fa nitsangana indray
+	Hanamarinany \'zay mifidy ny soa.
+
+ISAN\'ANDININY :
+
+Azo antoka ny ho avy izao
+	Fa velona ny Mpamonjy
+	Ny tahotra ho lasa sy ho lao
+	Fiainan-tsambatra
+	No an\'ny voavonnjy.
+
+2. Mamy ery ny zazakely
+	Mamelombelona tokoa;
+	Tsy mba manahy velively
+	Hanatrika ny ho avy :
+	Velona Jeso.
+	Azo antoka ny ho avy izao, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '108',
+  '108',
+  'FOTOANA ANANDRATAKO',
+  'William Bredburg - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia D 3/4 ',
+  'JESOSY KRISTY',
+  'Ny asa fisoronana ataony',
+  '
+1. Fotoana anandratako
+	Ny fivavahako Aminao,
+	Fotoana tena mamiko.
+	Hitoerako eo an-tongotrao.
+	Ray, ekeo ny fivavahako
+	Akariko eo aminao.
+	O ! raiso mba ho hanitra
+	Izay ankasitrahanao.
+
+2. Raha tojo zava-tsarotra
+	\'Zay mila hampamoy fo,
+	Hazony tsy hatahotra,
+	Hiantehitra aminao tokoa.
+	Ny vavaka tononiko
+	Henoy ka mba valio, ry Ray
+	Ny hery \'zay andrasako
+	Dia herin\'ny Fanahinao.
+
+3. Jesosy Mpanalalana,
+	Manao ny fisoronana.
+	Mitondra ny tarainako
+	mampita ny fifonako.
+	Tsy misy miafina Aminao
+	Ny rakitry ny foko \'zao
+	Raha ho avy Ianao
+	An-drahon-danitra
+	Ho feno ny hasambarako.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '109',
+  '109',
+  'HE MAHAGAGA IANAO MPAMONJY',
+  'Elisha A. Hoffman',
+  'Esther Bary',
+  'Do dia D 4/4 ',
+  'JESOSY KRISTY',
+  'Ny asa fisoronana ataony',
+  '
+1. He mahagaga Ianao
+	Mpamonjy Tomponay
+	O ! voavotra tokoa \'zahay
+	Fa voaloa ny trosanay.
+
+ISAN\'ANDININY :
+
+Kanto loatra Jeso
+	Ny namonjenao anay
+	Mahagaga Ianao
+	Fa Mpamonjy mahay.
+
+2. Ankalazainay Ianao
+	Noho \'lay ra manadio
+	\'Zay nampihavana anay
+	Taminao sy taminay
+	Kanto loatra, sns.
+
+3. Te hiara-mamindra Aminao
+	Izahay Jeso tia ô
+	Tsy hivily na hania
+	Fa ho tody soa ary.
+	Kanto loatra, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '110',
+  '110',
+  'HE REKO FA MANAKOAKO',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Bb 6/8 ',
+  'JESOSY KRISTY',
+  'Ny asa fisoronana ataony',
+  '
+1. He reko fa manakoako
+	Ny feon\'ny trompetra izao.
+	Tsy maintsy havotana lafo
+	Ireo heloka izay natao.
+	Manomboka ny fitsarana
+	An\'ireo manana aina izao.
+	Ny isam-poko sy tanàna,
+	Handray ny valin\'ny natao.
+
+ISAN\'ANDININY :
+
+Fisaonana sy toloko
+	No mba hany sisa azo natao.
+	O ! indrisy fa efa nisoko
+	Ny androm-pahasoavana izao.
+	O ! indrisy fa efa nisoko
+	Ny androm-pahasoavana izao.
+
+2. Indreny ireo mpanefoefo
+	Ireo mahantra maro koa
+	Toa sempotra misefosefo
+	Manoloana Ilay Tompo Tsitoha
+	Indreny fa tazako teo
+	Ireo trema sy ngeza tety
+	Miondrika sy mitoreo
+	manatrika Ilay Mesia
+	Fisaonana sy toloko, sns.
+
+3. Mba tazako \'reo manompo
+	Nanafina ota ao am-po
+	Sy ireo izay namono ny Tompo
+	Fa nakambana toerana koa
+	Tsy nisy izay mampiavaka azy
+	Fa mitovy ny ota natao.
+	Iraisana koa re ny sazy
+	natokana ho azy ireo.
+	Fisaonana sy toloko, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '111',
+  '111',
+  'JESO MORA FO INDRINDRA',
+  'J. R. Sweney',
+  'Razanaka',
+  'Do dia Ab 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Jeso mora fo indrindra,
+	Tsara sady mahasoa,
+	Tsy miova, tsy mifindra,
+	Tompo be fitia tokoa.
+	Mba iriko ho toa Azy
+	Tsy mba mety soso-po,
+	Ka hihonona ny foko
+	Raha avy ny manjo.
+
+2. Jeso tia, manetry tena
+	Sy nandefitra tokoa,
+	Nefa Tompo be harena
+	Sy Mpanjaka foto-tsoa,
+	Mba iriko ho toa Azy
+	\'Zay ninia ho ory koa ;
+	Ka ny sainy no fidiko
+	Fa fiainana tokoa.
+
+3. He ! manolo-tena aho
+	Ho Anao, ry Tompo soa
+	Ka ny heloko rehetra
+	Mba sasaonao avokoa.
+	Enga mba homenao ahy
+	Fo madio sy vaovao,
+	Mba hahaizako manefa
+	\'Zay rehetra sitrakao !
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '112',
+  '112',
+  'TSARA INDRINDRA',
+  'F. E. Belden',
+  'Rajoelison',
+  'Do dia C 6/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Tsara indrindra
+	Eny re, tsy misy toa Anao.
+	Hendry indrindra,
+	Feno hasoavana,
+	Tia indrindra,
+	Nahafoy ny voninahitrao,
+	Tonga tety mba ho faty ho anay.
+
+ISAN\'ANDININY :
+
+Mandrakizay, ry Jeso
+	(Ny voninahitrao),
+	Ry Zanak\'ondry mora
+	(\'Zay maty ho anay)
+	No anandratanay izao,
+	(No anandratanay)
+	Ny fiandriananao lehibe,
+	(Lehibe, ho mandrakizay).
+
+2. Avo indrindra
+	Ka tsy takatry ny saina,
+	Mety indrindra
+	\'Zany fitondranao soa.
+	Tiako indrindra
+	Ny matoky izany herinao,
+	Ka manantena
+	Ny famindramponao.
+	Mandrakizay, ry Jeso, sns.
+
+3. Mamy indrindra
+	Ny mitoetra eo akaikinao
+	Sahy indrindra
+	Ny manao izay sitrakao.
+	Faly indrindra
+	\'Zany miandry ny hiavianao
+	tsy ho ela intsony,
+	An-drahon-danitra.
+	Mandrakizay, ry Jeso, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '113',
+  '113',
+  'HE MAMIKO INDRINDRA',
+  'P. P. Bilhorn',
+  'Rajoelison',
+  'Do dia A 6/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. He mamiko indrindra
+	Ilay tantara soa,
+	Feo manga sy mirindra
+	Ka maharavo fo.
+	Kristy nandao ny lapa,
+	Tary an-koatra ary
+	Fa nidina hizaka
+	Ny fahoriana ety.
+	Fa nidina hizaka
+	Ny fahoriana ety.
+
+2. Nietry sy nihafy
+	Na dia Mpanjaka re.
+	Nitolona ady mafy.
+	Nivesatra entam-be.
+	Nanaiky sy nanoa
+	Ny Ray ambony ao.
+	Nanolotra aina koa
+	Hanavotra anao.
+	Nanolotra aina koa
+	Hanavotra anao.
+
+3. Tazano \'lay havoana,
+	Moa tsinjonao iry
+	Toa maloka, misaona ?
+	Io re no Kalvary.
+	Jereo fa he mijaly,
+	Mangirifiry eo,
+	Jeso Izay Mpampifaly :
+	Henoy fa mitoreo.
+	Jeso Izay Mpampifaly :
+	Henoy fa mitoreo.
+
+4. Ho rakitra lalaiko
+	Ilay tantara soa ;
+	Ny vetsovetson-tsaiko
+	Hikalo \'zany koa.
+	Raha tonga ao an-koatra
+	Eo anatrehan-dRay,
+	Ny foko faly loatra
+	Hihira izany indray.
+	Ny foko faly loatra
+	Hihira izany indray.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '114',
+  '114',
+  'EFA ANANANAO VE',
+  'A. Hoffman',
+  'Rajoelison',
+  'Do dia F 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Efa anananao ve ny fiadanan\'ny fo
+	\'Zay atolotr\'i Jeso izao ?
+	\'Lay fitiavany be, mahatoky tokoa,
+	Moa ve efa noraisinao ?
+
+ISAN\'ANDININY :
+
+Atolory anio, ho fanatitra soa,
+	Ny fonao, fa iriny izao.
+	Eny ny andronao koa,
+	Dia ilainy avokoa.
+	Moa tsy homenao hatrizao ?
+
+2. Efa anananao ve \'zany herin\'ny fo
+	\'Zay atolotr\'i Jeso izao ?
+	Ny fitiavany re, manda mafy tokoa
+	Fiarovana mafy ho anao
+
+3. Efa anananao ve ho fiainan\'ny fo
+	\'Zay atolotr\'i Jeso izao ?
+	Ny fitiavany anie tena aina tokoa
+	Izay hamelona re ny ainao
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '115',
+  '115',
+  'TSY TAKATRY NY SAIKO AKORY',
+  'J. Mac Granaham',
+  'Rajoelison',
+  'Do dia Eb 4/4 Moderato',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Tsy takatry ny saiko akory
+	Ny fitiavanao,
+	Ry Tompo \'zay ninia ho ory,
+	Hamonjy ahy izao
+
+Réf
+
+Nefa inoako fa tena aina
+	Ka itokiako sy ifaliako
+	Mandra-piavin\'Ilay maraina
+	Izay hiverenanao.
+
+2. Tsy misy lela mahalaza
+	Ny fitiavanao ;
+	Ny tenin\'olo-manan-daza
+	Dia latsa-danja izao.
+	Nefa inoako, sns
+
+3. Tsy misy hira mahaventy
+	Ny fitiavanao ;
+	Na feo mirindra sy mirenty
+	Toa feon\'anjely izao.
+	Nefa inoako, sns
+
+4. Rahatrizay, ry Tompo tia,
+	Ary an-koatra ary,
+	Ho takatro ilay fitia
+	Naseho teo Kalvary.
+	Nefa inoako ety sahady
+	Ka itokiako
+	Sy ifaliako ;
+	Ary rehefa tapitra ady
+	Dia ho fiainako ary.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '116',
+  '116',
+  'HE AMPY AHY IZAO',
+  'H. Work',
+  'Rajoelison',
+  'Do dia Eb 6/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. He ampy ahy \'zao ny fitiavanao,
+	Fa mamy indrindra, ry Ray.
+	Mahery tokoa ka tokin\'ny fo,
+	Mitoetra mandrakizay.
+	Fa indro nania ity ondrinao,
+	Kanefa, ry Mpiandry, nokatsahinao !
+	Fitia lehibe, tsy takatro re,
+	Ka isaorako Anao.
+
+2. He ampy tokoa ny famindram-po,
+	Tsy haiko lazaina, ry Ray,
+	Fa voasaronao sy navelanao
+	Ny ota izay ela izay.
+	O ! fahasoavana be dia be
+	Omenao, ry Mpiandry, hatahotra ve ?
+	Ekeko tokoa ny famindram-po
+	Ka isaorako Anao.
+
+3. He  ampy, ry Ray, ho mandrakizay
+	Ny fiainana ao Aminao :
+	Mahavokatra be, mahasambatra re,
+	Dieny ety izao.
+	Kanefa ny fetra dia tsy mba ety,
+	Tantano, ry Mpiandry, ho tonga ery.
+	Ho tody indray am-balan\'ny Ray,
+	Hisaotra Anao. Amen !
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '117',
+  '117',
+  'TEANA FITIA TSY METY RITRA',
+  'H. Ross Philips',
+  'A. R. Marnoël',
+  'Do dia G 4/4 Malefaka',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Tena fitia tsy mety ritra
+	Ny an\'Ilay Mpamonjintsika ;
+	Fa Izy dia tena tia
+	Mandrakizay
+
+2. Fitia naseho tao Gologota,
+	Fitia mamonjy ny mpanota.
+	Izay mandray dia voaova
+	Ho tia indray.
+
+3. Fitia izay tsy mba tia tena
+	Fa tena feno famonjena.
+	Sady madio tsara loatra,
+	Ka mba fidio.
+
+4. Ny fankatoavana no tena
+	Ilaina, sy fandavan-tena,
+	Mba hamonjena olom-bery
+	Ho tody ery.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '118',
+  '118',
+  'JESO RE NO SAKAIZA',
+  'Richerd W. Beaty',
+  'A. R. Marnoël',
+  'Do dia Eb 3/4 Haingakaingana',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Jeso re no sakaiza tsara
+	\'Zay be fitia.
+	Ny fitiany tsy mba miafara
+	Fa ho doria.
+	Ny eto, havana, sakaiza,
+	Mandalo ihany ka mahaiza.
+	Izy irery re no mitaiza.
+	He! ny fitia.
+
+2. Izy re no fiainantsika
+	Mandrakizay ;
+	\'Ndeha re hankalazaintsika
+	Fa Zana-dRay.
+	Tadiaviny ny ondry very ;
+	Ny any an-efitra tsy irery ;
+	Ao am-bala ny fo tsy tery.
+	He! ny fitia.
+
+3. Izy nanolotra ny ainy
+	Tao Kalvary.
+	Ny hitahy anao no ilainy.
+	He! ny fitia.
+	Andeha isika mba hihaino
+	Ny feony \'zay miantso saino
+	O! hatony Izy, ry mpihaino.
+	Fa ao ny fitia.
+
+4. Jeso ampio \'zahay hahalala
+	\'Zany fitia,
+	Ny fonay hofenoiny tsara
+	Hifankatia.
+	Hiainanay anie izany,
+	Ho vatsinay raha eto an-tany,
+	Ka ho santatry ny ho avy
+	\'Zany fitia.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '119',
+  '119',
+  'NOMEKO ANAO NY AIKO',
+  'O. U. Linnereu',
+  'A. R. Marnoël',
+  'Do dia Eb 3/4 Miadana',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Nomeko Anao ny aiko,
+	Ny rako nalatsaka
+	Ny onitra koa nefaiko,
+	Ny gadra he afaka.
+	Fitiava-mahasoa
+	Sahinao ve tsy handray
+	Rako no nomena anao.
+	Inona no omenao ?
+
+2. Nilaozako re ny Raiko
+	Sy ny voninahitro,
+	Fonena-mamiratra sy
+	Haleloia rodobe.
+	Tonga ory tety Aho.
+	Nefa re Mpanjakanao.
+	He ! nafoiko re ny lapa,
+	Inona no afoinao ?
+
+3. Niaritra fijaliana,
+	Nitomany mafy koa
+	Nizaka zava-tsy tiana
+	Mba ho solonao tokoa.
+	Famelana ny helokao,
+	Avotro anao tokoa.
+	Niaritra ny fijaliana.
+	Inona no iaretanao ?
+
+4. Atolory re ny ainao,
+	Atolory ny fonao.
+	Ialao re ny ota,
+	Reseo ny ratsy izao.
+	Sambatra re ianao
+	Manana Mpamonjy tia !
+	Atolory re ny ainao
+	Hovelomiko doria.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '120',
+  '120',
+  'VOAVONO TOY NY OLON-DRATSY',
+  'R. Harkness',
+  'A. R. Marnoël',
+  'Do dia Eb 6/8 Milantolanto',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Voavono toy ny olon-dratsy Jeso
+	Teo an-kazo fijaliana.
+	Niaretany ny latsa sy ny eso
+	Sy ny fangirifiriana.
+	RODOBE :
+	Tompo Mpanjakanay,
+	Misaotra Anao
+	Fa ny ranao
+	No namonjena anay
+	Ho tonga zanakao.
+
+2. Indro misy làlana misokatra,
+	Dia làlana soa sy vaovao
+	halehan\'ny olona voavotra
+	Mba hanarahany Anao.
+	Tompo Mpanjakanay, sns.
+
+3. Ny fandresena, azonay antoka izao
+	Ianao no mifona ho anay
+	Ka tsy mamela anay hiala Aminao, 
+	Ho eo Aminao mandrakizay.
+	Tompo Mpanjakanay, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '121',
+  '121',
+  'ENY TONTOLO ENY JESO',
+  'John W. Peterson',
+  'A. R. Marnoël',
+  'Do dia Eb 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Eny tontolo eny Jeso
+	Mahita antsika
+	Samy hitany avokoa
+	Ny omby, vitsika ;
+
+ISAN\'ADININY :
+	Nefa indro misy tsy ho hitany :
+	Ny otako navela tao Kalvary.
+	Hohadinoiny avokoa,
+	Tsy ho tsaroany tokoa,
+	Tsy ho hitany intsony izany.
+
+2. Izy manaraka tsara
+	Izay miseho ety
+	Ny fandehan\'ny tantara
+	Voadinika ary ;
+	Nefa indro misy, sns.
+
+3. Tsy azo iafenana
+	Fa mahita Izy.
+	Na aloka miserana
+	Na senton\'ankizy ;
+	Nefa indro misy, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '122',
+  '122',
+  '\'NJAO RE MANAKO ATO AM-POKO',
+  'Elton M. Roth - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia Ab 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. \'Njao re manako ato am-poko
+	Feon-kiran\'ny lanitra.
+	Feo tena kanto, mirindra tokoa,
+	Hira mahafinaritra.
+
+ISAN\'ANDININY :
+
+Feo mirindran\'ny fitiavana
+	Dia ny fitiavako Ilay Mpamonjiko
+	Dia Jeso izay Mpampihavana
+	Ka manaiky ho soloko.
+
+2. Tiako tokoa Ianao, Jeso ô,
+	\'Zay maty ho soloko.
+	Nasianao hira ao am-poko ao
+	\'Zay tsy maintsy kaloiko.
+	Feo mirindran\'ny, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '123',
+  '123',
+  'MOA MBA FANTATRAO VE \'LAY SAKAIZA',
+  'Clarence Kohimann - Mamy J. Ratsirison',
+  'James Ratsirison',
+  'Do dia G 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Moa mba fantatrao ve \'Lay Sakaiza ?
+	\'Zay miara-dàlana amiko, (ô amiko)
+	Eo, hatrany, na aiza na aiza
+	Lalana alehako.
+
+ISAN\'ANDININY :
+
+Jeso Kristy, Ilay Sakaizako
+	Izay nandao ny lapa fahizay
+	Nandao ny lapa fahizay
+	Satria nanao izay hahazoako
+	Mandray ny fiainana
+	Mandrakizay.
+
+2. Fifaliana ve no sendra ahy ?
+	O ! zaraiko aminy tokoa,
+	(Eny, tokoa).
+	Foana teo ny ahiahy.
+	Eo ny fiadanam-po.
+	Jeso Kristy, sns.
+
+3. Raha sendra tojo fitsapana
+	Na tsaroana maizina ny dia,
+	(Eny, ny dia).
+	Ka ny làlana mahàna,
+	Mbola ao Jesosy tia.
+	Jeso Kristy, sns.
+
+4. Tsy ho ahy \'rery nefa Izy,
+	Mety ho Sakaizanao tokoa,
+	(Eny, tokoa).
+	Na ny lehibe na ankizy
+	Raiso Jeso ao am-po.
+	Jeso Kristy, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '124',
+  '124',
+  'MANAN-TSAKAIZA AHO',
+  'John W. Peterson',
+  'A. R. Marnoël',
+  'Do dia C 4/4 Antonony',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Manan-tsakaiza avy any an-danitra aho,
+	Mpiara-dia sy tena tokiko.
+	\'Zay mampifaly ka namaly ny talaho.
+	Izy no Jeso nandray ny foko.
+	Tsy ahiako \'zay loza hanjo anay
+	Mamaky ny lohasaha maizina.
+	Ampy ahy ny mahita ny fiarahanay.
+	mamonjy ny làlam-bolamena.
+
+2. \'Zay ela izay tsy fantatro fa tiany aho
+	Mandra-pandre fa Izy maty ho ahy.
+	Nanatona aho ka dia noraisiny tokoa
+	Izy izao no mitantana ahy.
+	Tsy ahiako \'zay loza hanjo anay
+	Mamaky ny lohasaha maizina.
+	Ampy ahy ny mahita ny fiarahanay.
+	mamonjy ny làlam-bolamena.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '125',
+  '125',
+  'VOAGEJAN\'NY SAINA TSY NINO',
+  'William J. Gaither - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia F 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Voagejan\'ny saina tsy nino
+	Nandevozin\'ny filàna koa ;
+	Nefa ny Tompo re tsy mba nanadino,
+	Fa namonjy tamin-drany soa.
+
+ISAN\'ANDININY :
+
+He afaka aho, voavonjy.
+	Tsy misy intsony heloka.
+	Afaka ny ota \'zay tena mampilonjy
+	Fa voavela tanteraka.
+
+2. He, afaka tsy voaheloka
+	Tamin\'ota lasa rehetra ;
+	Fa navela ity mpanota nibebaka.
+	Famelana tsy misy fetra,
+	He afaka aho, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '126',
+  '126',
+  'JESO \'LAY INOAKO',
+  'J. Ratsimihahy',
+  'J. Ratsimihahy',
+  'Do dia Bb 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Jeso \'lay inoako,
+	No Mpamonjiko,
+	Hivelomako.
+	Ka ny diako hatrizay,
+	Novimbininy.
+	Derao Jeso
+	(Ho deraiko lalandava ny fitiavany)
+	Ny heloko nesoriny,
+	Vonjy no natolony.
+	Derao Jeso
+	(Ho deraiko lalandava ny hasoavany)
+	Izy no inoako,
+	Mpamonjiko.
+
+2. Jeso \'lay inoako,
+	No aty am-poko.
+	Hery, tokiko,
+	Ilay sandriny mahery
+	No nitantana.
+	Derao Jeso
+	(Ho deraiko lalandava ny fitiavany)
+	\'Zaho nositraniny
+	Làlako nalaminy
+	Derao Jeso
+	(Ho deraiko lalandava ny hasoavany)
+	Izy no inoako,
+	Mpamonjiko.
+
+3. Jeso \'lay inoako,
+	Jeso \'lay mahery
+	Sy Mpamindra fo
+	Ka ny foko hanambara
+	Ny fitiavany
+	Derao Jeso
+	(Hoderaiko lalandava ny fitiavany)
+	Maty mba ho avotro
+	Sy misolo ny heloko
+	Derao Jeso
+	(Hoderaiko lalandava ny hasoavany)
+	Izy no inoako,
+	Mpamonjiko.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '127',
+  '127',
+  'HO HAIKO VE',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Eb 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Ho haiko ve Jesosy ô !
+	Hiala Aminao
+	Hiara-mandeha
+	Amin\'izao tontolo izao ?
+	Sahiko ve, lavitra Anao,
+	\'Lay fonao tia ?
+	O, satriko re,
+	Anilana doria, doria.
+
+ISAN\'ANDININY :
+
+Ka na aiza na aiza, Jeso ô !
+	Misy Anao.
+	\'Zaho sy Ianao, Jesosy ô !
+	Tsy hifandao.
+	O, sanatria,
+	Izay hisaraka Aminao
+	Fitia ho doria,
+	Ry Jeso tia ka anjakao.
+
+2. Ho reko ve Jesosy ô !
+	\'Lay feonao tia
+	Miantso hoe mpanota,
+	O ! avia, avia.
+	Raha lavitra,
+	Eny izaho lavitra Anao
+	Mety manindao Jesosy ô,
+	Mety ho lao.
+	Ka na aiza na aiza, Jeso, sns.
+
+3. Endrey ny fo Jesosy ô !
+	Raha tsy eo Ianao
+	Loto sy lo
+	Ny fahotana mifamaho.
+	Sambatra, eny tretrika ao,
+	Jesosy ô !
+	Satria Ianao
+	No monina ao am-poko ao.
+	Ka na aiza na aiza, Jeso, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '128',
+  '128',
+  'MOA VE JESO FANTATRAO',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia E 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Moa ve Jeso fantatrao
+	Ny manjo ahy ety ?
+	Moa ve mbola atsotranao
+	Ilay sandrim-pitia,
+	Sa kosa efa nilaozanao
+	Ity mahantra ity ?
+
+ISAN\'ANDININY :
+
+Efa sasatra, efa reraka
+	Mafy ny ady atao.
+	Efa trotraka, toa ho ketraka
+	Ka faingàna Ianao.
+
+2. Moa ve Jeso fantatrao :
+	Maro ny rafy ety ?
+	Malemy ny mpanomponao
+	Sao tsy tody ary.
+	Tompo ô, omeo hery vao
+	Mba hitohy ny dia.
+	Efa sasatra, sns.
+
+3. Fantatro fa mijaly ianao
+	Raha mbola ety
+	Nefa Izaho efa momba anao
+	Ka herezo ny dia.
+	Kely sisa hiaretanao
+	Dia ho tody ary.
+	Efa sasatra, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '129',
+  '129',
+  'ENDREY, JESO O!',
+  'B. Rajorotahiana',
+  'B. Rajorotahiana',
+  'Do dia Eb 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Endrey Jesosy ô,
+	Ny fitiavanao
+	Tsy mendrika ho ahy
+	Izay voaozona  ;
+	Kanefa, Tompo ô ! 
+	Nanaiky Ianao
+	Hisolo ahy re,
+	Noho ny fitiavanao.
+
+2. Voasatro-tsilo Ianao,
+	Sy nokapohina koa.
+	Teha-maina, daka re,
+	Niaretana avokoa.
+	Izao tontolo izao
+	Nihataka aminao..
+	Nandefitra Ianao
+	Noho Ilay fitiavanao.
+
+3. He ! fantatro tokoa,
+	\'Reo ratra taminao
+	Sy diam-pantsika,
+	Tamin\'ny tananao
+	\'Zao ratsy rehetra izao,
+	Ny fahotana be,
+	Zakainao avokoa
+	Noho ny fitiavanao.
+
+4. Mpamonjy tia ô,
+	Atolotro ho Anao
+	\'Ty foko kely izay
+	Niala taminao.
+	Diovy, anjakao,
+	Ho Anao mandrakizay ;
+	Ho mendrika tokoa
+	Ilay fitiavanao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '130',
+  '130',
+  'RY MPANOTA MANIA',
+  'R. Rabenasolo',
+  'R. Rabenasolo',
+  'Do dia Eb 6/8 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Ry mpanota mania ô ! banjino Kristy.
+	Fitiavana feno ho anao doria.
+	Fony Izy tety dia nijaly ery ;
+	Fa nigoka ny tena mangidy Izy
+	He niaritra Izy raha teo Kalvary
+	Noho ny otanao dia maty Kristy.
+
+2. \'Zaho naniasia tena very satria
+	Voagejan\'ny ratsy tsy hizotra ary.
+	Moa ve \'zaho ity mbola tian\'i Kristy
+	Na dia efa niodina nivily dia ?
+	Ianao ve Kristy mbola tia, tena tia
+	Ny mpanota toa ahy \'zay efa nania ?
+
+3. Ry mpanota mania, manatòna, avia !
+	\'Lay fitiavako feno tsy miova doria.
+	\'Zaho Tompo efa tia, eny, mbola ho tia,
+	Mbola tia anao Aho, avia aty.
+	Aza ela, avia fa \'lay Ray be fitia
+	efa miandry anao ho tody ary.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '131',
+  '131',
+  'MANONJA MALEFAKA',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Eb 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Manonja malefaka, manala ny manjo,
+	Manainga ny hirako izao.
+	Misioka mahalana, mamelona ny fo
+	Ny herin\'ny fitiavanao.
+
+ISAN\'ANDININY :
+
+Ny herin\'ny fitiavanao
+	Mamboatra ny fo mba ho vao.
+	Misioka mahalana, mamelona ny fo
+	Ny herin\'ny fitiavanao.
+
+2. Mandefa ny taratra mazava sy madio,
+	Manala ny rahona koa,
+	Misava ny fiainako omaly sy anio
+	Ny herin\'ny fitiavanao.
+	Ny herin\'ny fitiavanao, sns.
+
+3. Ry Tompo ampio aho handia ny làlanao
+	Tsy hivily tsy haniasia,
+	Omany ny foko mba handova tany vao
+	Eo amin\'ny fitiavanao.
+	Ny herin\'ny fitiavanao, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '132',
+  '132',
+  'HAFALIAM-BE',
+  'B. D. Ackley',
+  'J. Rabarijoël',
+  'Do dia Bb 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Hafaliam-be, he, Hosana re.
+	Hoby sy fisaorana no asandratray,
+	Ry Mpanavotray,
+	Zanak\'Andriamanitra.
+	Tsapanay \'zao, ny fitiavanao.
+	Tena zava-dehibe tokoa.
+	Fa nanetry tena ho olona
+	Nefa Andriamanitra.
+
+2. \'Reo anjely koa, gaga avokoa
+	Noho ny fitiavanao.
+	Fa nilaozanao, ny toeranao,
+	Seza fiandrianana.
+	Tianay \'zao, mba handeha hankao
+	Betlehema, hiankohoka
+	Anoloanao, ry Mpamonjy soa
+	Fa navotanao tokoa,
+
+3. Fa mba inona, no haterinay
+	Ho fanati-tsitrapo ?
+	Mendrika ho Anao,
+	Ry Mpanjakanay.
+	Tena Andriamanitra.
+	Moa vola sy harena ve ?
+	No ilainao hanajana Anao ?
+	Tsia fa ny fo sy fiainanay
+	Ho Anao tokoa. Amen.
+
+
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '133',
+  '133',
+  'EFA ELA JESO',
+  'W. H. ',
+  'D. Rasolonjatovo',
+  'Do dia Eb 6/8 ',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Efa ela Jeso, efa ela tokoa.
+	No niainako lavitra Anao.
+	Toa tsy haiko, Jeso, Nokoloina ao am-po
+	\'Zany herin\'ny fitiavanao.
+
+ISAN\'ANDININY :
+
+Ilay Jeso tao Nazareta
+	No namafa ny ota rehetra.
+	Tsy vahiny aho satria
+	Ilay Tompo efa tia
+	No nitantana hatrizao ny dia.
+
+2. Tao anaty alim-be no nahita ahy Ianao,
+	Dia \'lay endrikao \'zay tena tia.
+	O ! fiadanana re no iainako izao,
+	\'Lay fiadanan\'i Jeso Kristy.
+	Ilay Jeso tao Nazareta, sns.
+
+3. Tsy mba misy ety \'zay mahafatra-po
+	Ho sakaizako tahaka Anao
+	Ianao tena tia ka ho tiako tokoa.
+	Hohiraiko ny fitiavanao.
+	Ilay Jeso tao Nazareta, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '134',
+  '134',
+  'RY JEHOVAH TOMPONAY ! OLOM-BERY IZAHAY',
+  'R. Redhead',
+  'J. Andrianaivoravelona',
+  'Do dia C 6/4 Miadankadana',
+  'JESOSY KRISTY',
+  'Ny fitiavany',
+  '
+1. Ry Jehovah Tomponay
+	Olom-bery izahay
+	Nefa tsy mba foinao,
+	Fa vonjen\'ny zanakao.
+
+ISAN\'ANDININY :
+
+Zanahary Aba Ray,
+	Jeso Kristy Havanay,
+	Jeso, Jeso Kristy Havanay.
+
+2. Lehibe ny indrafo ;
+	Iza re no nanampo
+	Famonjena Taminao ?
+	Kanjo azonay izao :
+	Zanahary, sns.
+
+3. Gaga izahay izao !
+	Be fitia Ianao ;
+	Avotr\'aina azonay,
+	Hody aminao izahay.
+	Zanahary, sns.
+
+4. Jeso ô, Mpamonjy soa
+	Sy Mpamindra fo tokoa !
+	Avy ny navotanao
+	Ka midera Anao  izao :
+	Zanahary, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '135',
+  '135',
+  'FAINGANA RY MPANJAKA',
+  'J. Richardson',
+  'J. Richardson',
+  'Do dia E 4/4 Faingapaingana',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Faingàna ry Mpanjaka !
+	Handray ny lovanao ;
+	faingàna re mba haka
+	Ny tany ho Anao ;
+	Avia hampifaly
+	Ny malahelo fo !
+	Afaho ny mijaly
+	Sy azon\'ny manjo.
+
+2. Avia fa misento
+	Aty ny olonao ;
+	Ny fanjakana ento,
+	Fa Tompo Ianao ;
+	Tsy hisy hitomany
+	Ao anatrehanao ;
+	Hiadana ny tany
+	Izay alehanao.
+
+3. Ny tendrombohitra avo,
+	Ny lohasaha koa,
+	Ho tonga ravoravo
+	Sy tretrika avokoa ;
+	Ny be tsy haka an-kery,
+	Ny kely afa-po,
+	Tsy hisy \'zay ho very,
+	Tsy hisy \'zay hanjo.
+
+4. Mpanjaka sy Mpiaro
+	Mahery Ianao ;
+	Ny firenena maro
+	Hitoky Aminao ;
+	Ho avy lalandava
+	Izao rehetra izao
+	Hitondra harem-bevava
+	Ho eo an-tongotrao.
+
+5. Faingàna ry Mpamonjy
+	Ry Tompo be fitia ;
+	Ny olonao tra-bonjy
+	Miantso hoe : Avia !
+	Anao ny fiderana,
+	Anao ny laza be,
+	Anao ny fanjakana
+	Sy arahaba e !
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '136',
+  '136',
+  'EFA AKAIKY \'LAY ANDRO',
+  'F. A. Backmer',
+  'Rajoelison',
+  'Do dia Ab 4/4 Falifaly',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Efa akaiky \'lay andro malaza
+	Hisokafan\'ny lanitra re,
+	Ka hiseho \'lay tena mazava
+	Hampisava ny alina re
+
+ISAN\'ANDININY :
+
+Haleloia ! Hosana, ry Tompo !
+	Haleloia ! hoy ireto mpanompo !
+	Mihoby Anao \'zahay,
+	Ry Ilay Mpanjakanay !
+	Haleloia re ho amin\'ny Avo !
+
+2. Efa akaiky ilay fandresena :
+	Hovohana ny fasana re,
+	Ka hitsangana ireo \'zay nekena
+	Ho mpandova ny lanitra e !
+	Haleloia, sns.
+
+3. Efa akaiky ilay fitsenana,
+	eo an-drahon\'ny lanitra e,
+	An\'i Jeso Mpamonjy, Hosana !
+	Hoy ny hiran\'ireo marobe.
+	Haleloia, sns.
+
+4. Efa akaiky ilay vavahady
+	Hankanesana amin\'ny Ray
+	Handrosoan\'ireo afaka ady :
+	Efa very fa hita indray !
+	Haleloia, sns.
+
+5. Efa akaiky ilay famonjena
+	Ka ny ratsy mandoza ho lao
+	Fahoriana koa ho resena
+	Hira, hoby izao no hatao.
+	Haleloia, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '137',
+  '137',
+  'INDRO JESO',
+  'Raobijaona',
+  'Raobijaona',
+  'Do dia A 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Indro Jeso, Tompon\'ny aina,
+	Tsy ho ela dia avy indray ;
+	Koa hatanjaho ny fo sy saina
+	Akaiky izao ny Ray.
+	Fonenana mahasambatra
+	Isiam-piadanam-be
+	Lova soa maharitra,
+	Voninahi-dehibe.
+	Eny, tsy ho ela,
+	\'Zao andrasantsika izao.
+
+2. Indro Jeso Toky sy Hery,
+	Mivonona ho avy indray
+	Haka ny Azy amin-kery
+	Ho eo amin\'ny Ray.
+	Ho sambatra, ho tretrika koa
+	Izay manaiky, mankatò.
+	Fa ny olo-marina
+	Ary ny mahitsy fo,
+	Eny tsy ho ela,
+	Dia ho raisin\'i Jeso.
+
+3. Indro Jeso, tsy ho ela intsony,
+	Hamaly soa sy hanome
+	Ireo mpanompo mahatoky :
+	Fahasambaram-be
+	O ! mifalia sy miravoa
+	Fa hisokatra ny lanitra.
+	Andrandrao ny masonao,
+	Indro ny Mpampakatra.
+	Eny tsy ho ela,
+	Avy handray anao tokoa.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '138',
+  '138',
+  'HO AVY INDRAY ENY',
+  'F. E. Belden',
+  'Rajoelison',
+  'Do dia C 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Ho avy indray
+	Eny an-danitra ambony
+	Ilay Tomponay,
+	Tsy ho ela intsony.
+	He ! faly izahay
+	Fa hilaozana itony.
+	Moa vonona va ?
+
+ISAN\'ANDININY :
+
+Avy indray, (avy indray)
+	Miomàna hitsena.
+	Avy indray, (avy indray)
+	Sy handray famonjena.
+	Ka hihoby hoe :
+	Haleloia, Hosana !
+	Ho Anao Tomponay.
+
+2. \'Njay manako, henoy
+	\'Zany feon\'ny trompetra.
+	Mitory ety,
+	Fa efa tonga ny fetra.
+	Vorina izao ireo mpino rehetra.
+	Moa vonona va ?
+	Avy indray, sns.
+
+3. Raha tonga anio Kristy
+	\'Zay famonjena,
+	Ry namako ô, ianao va hekena ?
+	Hiakatra ary
+	Ho any Jerosalema ?
+	Moa vonona va ?
+	Avy indray, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '139',
+  '139',
+  'ANGAMBA ANIO',
+  'J. Mac Granaham',
+  'Rajoelison',
+  'Do dia D 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Angamba anio,
+	Raha maraina ny andro
+	Mibaliaka soa
+	Ireo tanamasoandro,
+	No ho avy indray
+	Eny an-danitra ambony
+	Kristy mba handray ny azy re.
+
+ISAN\'ANDININY :
+
+O ! faingàna Ianao, Jeso,
+	Mandrapahoviana? hihiranay :
+	Haleloia, Haleloia, Amen !
+	Haleloia, Amen !
+
+2. Angamba anio,
+	Raha mby ny atoandro,
+	Mitataovovonana
+	Ny masoandro,
+	No ho avy indray
+	Eny an-danitra ambony
+	Kristy mba handray ny azy re.
+	O ! faingàna, sns.
+
+3. Angamba anio,
+	Raha hariva ny andro,
+	Ka hisoka izao,
+	Lasa ny masoandro,
+	No ho avy indray
+	Eny an-danitra ambony
+	Kristy mba handray ny azy re.
+	O ! faingàna, sns.
+
+4. Angamba anio,
+	O ! ry foko miomàna,
+	\'Ndrao variana re
+	Amin\'ny fahotana.
+	Maraina, antoandro
+	Na ali-mangina :
+	Avy Kristy, moa vonona va ?
+	O ! faingàna, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '140',
+  '140',
+  'HE INDRO AVY INDRAY',
+  'B. D. Ackley',
+  'Rajoelison',
+  'Do dia Ab 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. He indro avy indray
+	An-drahon-danitra,
+	Kristy \'Lay Mpamonjinay
+	Feno voninahitra.
+	Mihira izahay hoe :
+	Haleloia !
+
+2. Tsy ho ela intsony re
+	Hilaozanay ny ety
+	Ka ho fifaliam-be
+	No hidiranay ary.
+	Hanandra-peo hidera :
+	Haleloia !
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '141',
+  '141',
+  'IZA MOA IRETO AVY',
+  'H. de Flutter',
+  'Rajoelison',
+  'Do dia Db 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Iza moa ireto avy
+	Amin-kery izao ?
+	He mitafy hazavana
+	Sy voninahitra ?
+
+ISAN\'ANDININY :
+
+Avia, (avia) ô, avia,
+	Faingàna Tompo ô,
+	Miandry ny olonao
+	Izay navotanao (izao).
+	Ento, (ento) izahay
+	Ho any Aminao
+	hahita Ilay Mpanjakanay
+	Am-boninahitra, (Amen !)
+
+2. O ! derao, ry ondry vitsy,
+	Asandrato ny feo,
+	Ka satroy diadema
+	\'Lay efa tia anao.
+	Avia, sns.
+
+3. Lasa izao ny aizim-pito
+	Nampahory tety ;
+	Tonga ny mazavan\'aina
+	\'Zay tsy ho tapitra.
+	Avia, sns.
+
+4. \'Zao no hiranay : Hosana !
+	Haleloia ! Amen !
+	Hitsenanay an\'i Jeso
+	Izay Mpamonjinay.
+	Avia, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '142',
+  '142',
+  'HE NY ANTSO MAFY IZAO',
+  'A. Humbert',
+  'Rajoelison',
+  'Do dia Db 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. He, ny antso mafy izao,
+	Ô! Henoy, ô! Henoy !
+	Avy Ilay Mpanjakanao,
+	Eo an-drahona.
+	Injay ny trômpetra,
+	Ô! Henoy, ô! Henoy !
+	Fa tonga ny fetra izay nandrasana.
+
+2. \'Nreto anjely marobe
+	Ô! Henoy, ô! Henoy !
+	No indray mihira hoe:
+	Voninahitra !
+	He, feo maharavo,
+	Ô! Henoy, ô! Henoy !
+	Nameno ny avo
+	Eny an-danitra.
+
+3. Avy izao ny Tomponao,
+	Ô! henoy, ô! henoy !
+	Moa faly ny fonao ?
+	Mba lazao anio.
+	Ekeo tsy terena
+	Izy izao, Izy izao.
+	Miomàna hitsena
+	Azy am-po madio.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '143',
+  '143',
+  'AVY \'LAY MPANJAKANAO',
+  'J. E. Mac Naughton',
+  'Rajoelison',
+  'Do dia Ab 4/4 Miadana',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Avy \'Lay Mpanjakanao ;
+	Moa vonona ?
+	Avy mba handray anao ;
+	Moa vonona ?
+	Vetivety foana
+	Dia hanoloana.
+	Voninahi-dehibe,
+	Eo an-danitra e !
+	Moa ve fantatrao ?
+	Avy \'Lay Mpanjakanao ;
+	Moa vonona ?
+
+2. Avy \'Lay Mpamonjinao ;
+	Moa vonona ?
+	Avy mba handray anao ;
+	Moa vonona ?
+	He ! ho lasa avokoa,
+	Sento sy mahory koa,
+	Fifalian-danitra
+	Tsy ho tapitra.
+	Moa ve fantatrao ?
+	Avy \'Lay Mpanjakanao ;
+	Moa vonona ?
+
+3. Tompo ô, ampio \'zahay
+	Mba ho vonona,
+	Eny tsy hangahiahy
+	Fa ho vonona
+	O ! faingana Ianao
+	Haka ny navotanao
+	Honina finaritra
+	Ao an-danitra,
+	O ! avia Tomponay,
+	Noho ny hasoavanao,
+	Vonona izahay
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '144',
+  '144',
+  'OMANY NY FANILO',
+  'P. S. Morave',
+  'Rajelison',
+  'Do dia A 4/4 Moderato',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Omany ny fanilo,
+	Andao hiakatra !
+	Moa renao ve ry mpino ?
+	\'Ndry ny Mpampakatra !
+
+ISAN\'ANDININY
+
+Avy \'lay nantenaina,
+	Mihirà Hosana !
+	He! tonga ny maraina,
+	Derao, Haleloia !
+	Derao, Haleloia !
+
+2. Indreny ny anjely
+	Be voninahitra
+	Hamory \'zay niely,
+	Handova lanitra.
+	Avy \'lay nantenaina,sns.
+
+3. Tazano ! Iry ny Tompo,
+	Mpandresy lehibe !
+	Nietry mba hanompo
+	Fa izao nasandratra e!
+	Avy \'lay nantenaina,sns.
+
+4. Faingana, Jeso tia,
+	Miandry Anao \'zahay,
+	Miantso hoe: << Avia >>,
+	Amen ! handray anay.
+	Avy \'lay nantenaina,sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '145',
+  '145',
+  'RY ZANAK\'ANDRIAMANITRA',
+  'I. D. Sankey',
+  'F. Ramanantsialonina',
+  'Do dia Ab 6/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Ry zanak\'Andriamanitra,
+	Injany misy feo,
+	Dia feo avy any an-danitra
+	Ka moa ve renareo ?
+
+ISAN\'ANDININY :
+
+Jesosy dia ho avy,
+	Tsy ho ela intsony izao.
+	Miantso, miangavy :
+	Mahareta ianareo 
+	Manàna finoana
+	Mivavaha izao.
+	Ny tany dia ho foana,
+	Ho simba sy ho lao.
+
+2. Injao ny tabataban\'ady
+	Sy loza be manjo
+	No indro fa mianjady
+	Ka reraka ny fo.
+	Jesosy dia ho avy, sns.
+
+3. Ny fitiavan-tena be,
+	Ny ditra maro koa,
+	Ny olona ho lozabe
+	Famantarana avokoa.
+	Jesosy dia ho avy, sns.
+
+4. Koa dia mandrosoa sakaiza
+	hamita ny adidy.
+	Mijoroa ka meteza
+	Ho olom-boafidy.
+	Jesosy dia ho avy,sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '146',
+  '146',
+  'INJANY TROMPETRA',
+  'L. D. Randriamampandry',
+  'L. D. Randriamampandry',
+  'Do dia Eb 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Injany trompetra marobe
+	Manakoako mafy re.
+	Mifoha ny maty fa nandre
+	Ny feon\'i Jeso miantso hoe:
+
+ISAN\'ANDININY :
+
+<<Mifohaza, mifohaza,
+	Mitady anao ny Rainao.
+	Fa voninahitra re
+	Omena anao, atafy anao.>>
+
+2. Ny anjely koa mahita
+	Ny fasana nandriana ;
+	Ary izy koa no mampita
+	izay antsom-pifaliana.
+	Mifohaza, sns.
+
+3. Ireo nodimandry ela,
+	Ray, reny sy hafa koa,
+	Dia tsy hisy ho tavela,
+	Handre ny feony
+	\'Zay mampifoha.
+	Mifohaza, sns.
+
+4. Ambony an-drahona eny
+	Ny tra-boina, ny nandry,
+	Diadema no homeny
+	Ireo natoky sady niandry
+	Mifohaza, sns.
+
+5. Ny mifoha androtr\'io,
+	Ny manao ny sitrapony,
+	Voatahiry ho madio
+	tsy hisento eto intsony.
+	Mifohaza, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '147',
+  '147',
+  '\'NJAY MANAKO ANY',
+  'Kirrkpatrick',
+  'B. Ranorohanta',
+  'Do dia C 4/4 Marisidrisika',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. \'Njay manako any
+	Feo miantso hoe :
+	Mihainoa ry tany,
+	Jeso ho avy re !
+
+ISAN\'ANDININY :
+
+Maranata, Maranata !
+	Tompo ô ! avia
+	Miandry ela ny olonao
+	O ! avia, avia !
+
+2. Indro avy Izy
+	Amin-drahona !
+	Faly sy mihoby
+	\'Zay niomana.
+	Maranata, sns.
+
+3. Mihorohoro mafy
+	\'Reo tsy vonona,
+	Miantso vatolampy
+	Hialofana.
+	Maranata, sns.
+
+4. \'Zaho, ry Mpamonjy
+	Tano ho Anao.
+	Mba ho voavonjy,
+	Ka hidera Anao.
+	Maranata, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '148',
+  '148',
+  'RAHA TONGA ANIO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Ab 2/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Raha tonga anio
+	Avy ao anatin\'ny rahona ao Jeso,
+	Mba hanao ahoana re ?
+	Moa efa vita tsara ve
+	Ny fiomananao
+	Handray ny Tompo lehibe ?
+	Ny hosana ve no hoventesinao
+	Hampiseho ny fahavononanao
+	Sa ny vatolampy kosa no antsoinao
+	Ho avy hanarona anao ?
+
+2. Raha tonga anio,
+	Avy ao anaty rahona ao Jeso,
+	Hitsena ve ianao ?
+	Ho tampoka aminao
+	sa efa nandrasanao ?
+	Izao fiaviany izao.
+	Moa ny fifaliana sy ny avotra
+	No antenainao hoentiny ho anao
+	Sa ny horohora ary ny tahotra
+	No hameno ny ao anatinao ?
+
+3. Raha tonga anio,
+	Avy ao anatin\'ny rahona ao Jeso,
+	Moa ve mba fantatrao ?
+	Fa hiavaka eo ireo very 
+	Ary ireo ho ao Salema vaovao.
+	Nosasàny ve ireo helokao
+	Ary hakariny ianao ho ary,
+	Sa ho fiampangana hanameloka anao
+	Ny rà nalatsany taty ?
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '149',
+  '149',
+  'O! HAFALIANA MAMENO FO',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia F 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. O ! hafaliana mameno ny fo
+	Ho avy indray Jeso.
+	Ny fijaliana hisinda tokoa
+	Ho avy indray Jeso.
+	Ny tendrombohitra avo hikoa,
+	Ny fo ho ravoravo tokoa.
+	Ho safononoka ny hafaliana
+	Raha avy indray Jeso.
+
+ISAN\'ANDININY :
+
+Ho avy indray Jeso
+	hanala ny manjo.
+	Ho avy indray Jeso
+	Hampionona ny fo.
+	Jesosy ô, avia (avia)
+	Avia, avia ka mamalia.
+	Hafaliana sesilany
+	No hanerana ny tany,
+	Fa ho avy indray Jeso.
+
+2. O ! hafaliana mameno ny fo
+	Ho avy indray Jeso
+	Izay irina hita avokoa
+	Ho avy indray Jeso.
+	Tanàna masina vaovao,
+	Sy mana miafina ho anao.
+	Ho safononoka ny hafaliana
+	Raha avy indray Jeso.
+	Ho avy indray Jeso, sns.
+
+3. O ! hafaliana mameno ny fo
+	Ho avy indray Jeso
+	Aza mangina fa miantsoa
+	Ho avy indray Jeso.
+	\'Ndeha hitoriana mba handre
+	\'reo havan-tiana marobe.
+	Ho safononoka ny hafaliana
+	Raha avy indray Jeso.
+	Ho avy indray Jeso, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '150',
+  '150',
+  'HO AVY INDRAY \'LAY MPANJAKANAO',
+  'John Hatton',
+  'R. Tsimaitoarivo',
+  'Do dia Eb 4/4 Martial',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Ho avy indray
+	\'Lay Mpanjakako
+	Dia Jesosy Zokiko.
+	He faly aho miandry Azy
+	Ho avy indray
+	Hanova izao rehetra izao.
+
+2. Ho avy indray
+	\'Lay Mpanjakako
+	Dia Jesosy Zokiko.
+	He ! faly aho hiaraka aminy
+	Tsy ho ela
+	Hitety izao tontolo izao.
+
+3. Ho avy indray
+	\'Lay Mpanjakako
+	Dia Jesosy Zokiko.
+	He ! faly aho handray
+	Ny satro-diadema,
+	Hitendry ny lokanga soa.
+
+4. Ho avy indray
+	\'Lay Mpanjakako
+	Dia Jesosy Zokiko.
+	He ! faly aho hisotro
+	\'Zany ranon\'aina
+	Higoka amim-pahasambarana.
+	
+'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '151',
+  '151',
+  'TIAKO, TIAKO ISAN\'ANDRO',
+  '(Tsy fantatra)',
+  'R. Tsimaitoarivo',
+  'Do dia G 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Tiako, tiako isan\'andro
+	\'Zany mihira hoe :
+	<< Ho avy, ho avy Jesosy
+	Eo an-drahona.
+	Ho avy Izy tsy ho ela.>>
+	Ka handray ahy re !
+	Ho any an-danitra any
+	Ho sambatra tokoa.
+
+2. Tiako, tiako isan\'andro
+	\'Zany mihira hoe :
+	Ho avy, ho avy Jesosy
+	Eo an-drahona.
+	Ho avy Izy tsy ho ela.
+	Ka hanova tokoa
+	Izato fahoriana
+	Ho fifaliam-be.
+
+3. Tiako, tiako isan\'andro
+	\'Zany mihira hoe :
+	Ho avy, ho avy Jesosy
+	Eo an-drahona.
+	Ho avy Izy tsy ho ela.
+	Ka hampody indray
+	\'Lay Edena fahiny
+	Ho tonga vaovao.
+
+4. Tiako, tiako isan\'andro
+	\'Zany mihira hoe :
+	Ho avy, ho avy Jesosy
+	Eo an-drahona.
+	Ho avy Izy tsy ho ela.
+	Ka handray tokoa
+	Ireo zaza rehetra
+	\'Zay tena mpakato.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '152',
+  '152',
+  'LAKOLOSY NO MANENO',
+  'J. Rakotomananjanahary',
+  'J. Rakotomananjanahary',
+  'Do dia C 4/4 Marisika',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. (Feo 1, 2)
+	Lakolosy no maneno
+	(Feo 3, 4)
+	Nding, ndaong,
+	Nding, ndaong
+	Ka manakoako fatratra.
+	(Feo 1, 3)
+	Tsenao, tsenao,
+	(Feo 2, 4)
+	Indro avy Jeso Tompo
+	Mba hitondra hiakatra.
+	Ampy ve ny solikao ?
+	Ampy ve ? Fantaronao !
+	\'Ndrao variana loatra
+	ka ilaozany any an-koatra.
+
+2. (Feo 1, 2)
+	Lakolosy no manaitra
+	(Feo 3, 4)
+	Nding, ndaong,
+	Nding, ndaong
+	O ! ario ny ota rasty izao
+	(Feo 1, 3)
+	Fidio, fidio
+	(Feo 2, 4)
+	Ka Jesosy no araho
+	Mba ho famonjena anao.
+	Na dia mafy re ny dia
+	Ampy ho anao Jeso tia.
+	Aza mba misalasala
+	Fa Jesosinao tsy mba miala.
+
+3. (Feo 1, 2)
+	Lakolosy no mipaika
+	(Feo 3, 4)
+	Nding, ndaong,
+	Nding, ndaong
+	Feo miantefa mafy aminao
+	(Feo 1, 3)
+	Hobio, hobio
+	(Feo 2, 4)
+	\'Lay Mpanjakan\'ny tontolo
+	Avy mba handray anao,
+	Ka ny tany dia ho lao
+	\'Lay Satana sisa ao
+	Fa ianao tsy ho eto intsony
+	Hiadana tokoa any ambony.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '153',
+  '153',
+  'AVIA JESOSY TOMPO',
+  'Héritage Singers',
+  'A. Razaka',
+  'Do dia G 4/4 Marisika',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. :,: Avia Jesosy Tompo
+	Fa miandry Anao \'zahay.
+	Eny, avy faingana Aho,
+	Mahareta ianao.
+	Hoy Izy manambara :
+	Ho avy Aho,
+	Ho sambatra izay manasa
+	Ny akanjony (in-3)
+	Eny, avy faingana Aho
+	Mba hamaliako
+	Ny olona rehetra
+	Araka ny asany (in-2) :,:
+	Ny olona rehetra
+	Araka ny asany 
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '154',
+  '154',
+  'TOY INONA ALINA IZAO',
+  'Joseph Parry',
+  'A. R. Marnoël',
+  'Do dia F 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. <<Toy inona alina izao,
+	Ry mpiambina ô, mba lazao.
+	Moa efa miseho ve ?
+	\'Reo famantarana be ? >> 
+	<<Ry mpandeha trotraka,
+	Indro fa miposaka
+	Ny maraina vaovao.
+	Ka moa ve vonona ianao ? >>
+
+2. << Toy inona alina izao,
+	Ry mpiambina ô, mba lazao.
+	Efa nisandratra ve
+	Ilay kintan-dehibe,
+	Hanambara inona ? >>
+	<<Ry mpandeha mionona :
+	Avy Jeso Tomponao.
+	Ka moa ve vonona ianao ? >>
+
+3. << Toy inona alina izao,
+	Ry mpiambina ô, mba lazao.
+	Mba efa mazava ve
+	Sa mbola maizina be ? >>
+	<<Ry mpandeha matokia :
+	Avy Jeso, mifalia.
+	Atrakao ny lohanao,
+	Aoka ho vonona ianao. >>
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '155',
+  '155',
+  'INDRO MAZAVA',
+  'R. Browing',
+  'D. Rasolonjatovo',
+  'Do dia D 6/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Indro mazava ny lanitra ery
+	Efa nisava ny haizina ety.
+	Ny raho-mainty izay mitatao
+	Jereo, nisinda izao.
+
+ISAN\'ANDININY :
+
+O ! miomàna.
+	Andao, ô ! andao.
+	Ka mitsangàna,
+	Ny Tompo tsenao.
+	He, tsy ho ela,
+	Ho avy Izy izao.
+	Indro ny Tompo, tsenao.
+
+2. Tsy renao ve
+	Izao trompetra izao,
+	Manakoako, manaitra tokoa ?
+	Aza variana, ny loha andrandrao.
+	Indry, \'Lay Jeso soa
+	O ! miomàna, sns.
+
+3. Ny tabataban\'ity tany ity
+	Ny rahon\'ady ety sy ery
+	No lakolosy izay mampandre
+	Fa he ! avy Izy izao.
+	O ! miomàna, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '156',
+  '156',
+  'TSY HO ELA DIA HISAVA AVOKOA',
+  'A. H. Ackley',
+  'Rajoelison',
+  'Do dia Bb 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Tsy ho ela dia hisava avokoa
+	Ny fahoriana ety ;
+	Vetivety dia hiposaka tokoa
+	\'Lay masoandro dia Kristy.
+	Nefa hatrizao sahady
+	Dia mitoetra (ao am-po)
+	Ato am-poko ny hazavana
+	Tsy voafetra (tokoa)
+	Indro ao Jesosy tia
+	\'Zay Mpamonjiko, Mesia,
+	Ahy Izy, \'zaho Azy ho doria.
+
+2. Tsy ho ela dia ho afaka avokoa.
+	Ny mavesatra ety,
+	Fa hiseho ho eo an-danitra tokoa
+	\'Lay Mpisolo dia Kristy.
+	Nefa hatrizao sahady
+	Dia mitoetra (am-po)
+	Ao am-po ny fitsaharan-tsy
+	Voafetra (tokoa)
+	Indro ao Jesosy tia
+	\'Zay Mpamonjiko, Mesia,
+	Ahy Izy, \'zaho Azy ho doria.
+
+3. Tsy ho ela dia ho resy avokoa.
+	Ny ota mamely ety ;
+	Ka ny gadra dia ho tapaka tokoa
+	Raha avy indray kristy.
+	Nefa hatrizao sahady
+	Dia mitoetra (am-po)
+	Ao am-po ny fitsaharan-tsy
+	Voafetra (tokoa)
+	Indro ao Jesosy tia
+	\'Zay Mpamonjiko, Mesia,
+	Ahy Izy, \'zaho Azy ho doria.
+
+4. Tsy ho ela dia ho tony avokoa
+	Ny rivotra mafy ety ;
+	Ka \'reo onja dia hitsahatra tokoa
+	Hotenenin\'i Kristy.
+	Nefa hatrizao sahady
+	Dia mitoetra (am-po)
+	Ao am-po ny fiadanan-tsy
+	Voafetra (tokoa)
+	Indro ao Jesosy tia
+	\'Zay Mpamonjiko, Mesia,
+	Ahy Izy, \'zaho Azy ho doria.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '157',
+  '157',
+  'RAHA HANENO NY TRÔMPETRA',
+  'Rajoelison',
+  'Rajoelison',
+  'Do dia G 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Raha haneno ny trômpetra
+	Eny an-drahona izao,
+	Ka ho tapitra hatreo ny andro ety
+	Moa ho vonona hitsena
+	Ny Mpanjaka ve ianao,
+	Sy handova ilay tanàna soa ary ?
+
+ISAN\'ANDININY :
+
+Raha ho re (izao) ny fiantsoana
+	Ka ho avy (re mba) hanoloana
+	Ny voavotra rehetra,
+	Moa va ho re ny anaranao izao ?
+
+2. Raha hatsangana amin-kery
+	Ireo nodimandry re,
+	Ka hitafy voninahitra izao ;
+	Ary indreny miara-dia
+	Ny voavonjy marobe,
+	Moa va mba ho anisany ianao ?
+	Raha ho re, sns.
+
+3. Raha avy mba hijinja
+	Ilay Tompom-bokatra,
+	Ka hamory
+	\'Reo amboara tsara voa,
+	Dia hampiditra azy ireny
+	Mba ho any an-tsompitra,
+	Moa va ianao ho isany tokoa ?
+	Raha ho re, sns.
+
+4. O ! ry namako variana,
+	Mety ho anio izao
+	No ho avy Kristy,
+	\'Lay Mpanjaka re.
+	Koa anio, anio izao ;
+	Dia manatòna ianao
+	Mba hiaraka amin\'ireo marobe.
+	Raha ho re ny fiantsoana
+	Ka ho avy hanoloana,
+	Ny voavotra rehetra,
+	Mifalia fa ho re ny anaranao !
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '158',
+  '158',
+  'MISY RE TANY SOA',
+  'J. Hunter',
+  'Rajoelison',
+  'Do dia G 6/8 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Misy re tany soa
+	Ary an-koatra ary
+	Hasambarana no ao
+	Fa tsy toy ny ety,
+	Anatrehan\'ny Ray,
+	Tena mamy tokoa
+	Izay irin\'ny fo
+	Lavorary avokoa.
+
+ISAN\'ANDININY :
+
+Fiadanana be
+	No miandry ahy ao
+	Ary koa ho anao
+	O, ry namako izao.
+
+2. Misy koa lapa soa
+	Tena kanto ery,
+	Volamena avokoa
+	Tsy hiofo doria
+	Vatosoa marobe
+	Mitomaratra koa
+	Handravahana re
+	An\'ireo todisoa.
+	Fiadanana be, sns.
+
+3. Misy koa ony soa
+	Mikoriana, madio,
+	Tsy ho ritra tokoa
+	Rahampitso sy anio ;
+	Hazon\'aina, odre !
+	Milonjehitra voa
+	Mamy anie sady fy,
+	Eo an-daniny roa.
+	Fiadanana be, sns.
+
+4. Misy koa hira soa
+	Horedonina izao
+	Toy ny feon-dranobe
+	Tsy hitsahatra ao ;
+	Hiderana ny Ray,
+	Ary Jesosy koa ;
+	Ny voavonjy tety
+	Dia hiantsa avokoa.
+	Ny fanahy anie,
+	Namako ô, tadidio,
+	Miantso anao, ka ekeo,
+	Sao hangina \'lay feo.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '159',
+  '159',
+  'INDRO TAZAKO ILAY LOVAKO',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia Db 6/4 Moderato',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Indro tazako ilay lovako
+	Ka hilaozako ny tany eto.
+	Ireo ota vita, vonoina tsy hita,
+	Tazako Jerosalema ô
+
+ISAN\'ANDININY :
+
+Ao tsy misy ny toreo
+	Fa sambatra
+	Ao hiadana ireo \'zay sasatra.
+	Fiderana no ho re manako ao.
+	Tazako Jerosalema ô.
+
+2. Mba rahoviana re
+	Izaho no handre
+	Feon\'ireo lokanga volamena?
+	Hitako sahady ireo afaka ady
+	Monina ao Jerosalema ô.
+	Ao tsy misy ny toreo, sns.
+
+3. Jeso ô, avia, ny olonao ety
+	Miandry elabe, ô aza ela
+	Fandrao tsy tafita,
+	Ary tsy hahita fiainana
+	Ao Jerosalema.
+	Ao tsy misy ny toreo, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '160',
+  '160',
+  'EFA NAMPIOMANA AHY SY ANAO KRISTY',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia Db 6/8 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Efa nampiomana ahy sy ianao Kristy :
+	<<Indro avy faingana Aho>>.
+	Hojinjaina sy hotsaraina ny olona ety,
+	<<Indro avy faingana Aho>>.
+	Ary eto amiko ny famaliako,
+	<<Indro avy faingana Aho>>.
+	Hamaliako ireo nanao na tsia ny sitrako,
+	<<Indro avy faingana Aho>>.
+
+ISAN\'ANDININY :
+
+<<Indro avy faingana Aho>>.
+	Hamaly ny asanao
+	<<Indro avy faingana Aho>>.
+	Miomàna ianao.
+
+2. Sambatra izay manasa ny akanjony
+	<<Indro avy faingana Aho>>.
+	Lanitra no valin\'asa \'zay ho azony,
+	<<Indro avy faingana Aho>>.
+	Vetivety, kely sisa dia hifarana eo
+	<<Indro avy faingana Aho>>.
+	Ka anjely alin-kisa no hanandram-peo,
+	<<Indro avy faingana Aho>>.
+	Indro, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '161',
+  '161',
+  'O! MIVONONA RE IANAO',
+  'Josué A. Rabarison',
+  'Josué A. Rabarison',
+  'Do dia Ab 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. O ! mivonona re ianao
+	Tsenao, Jeso.
+	Am-pifaliam-be (derao)
+	Ankalazao.
+
+ISAN\'ANDININY :
+
+(Faingàna Ianao Jeso)
+	Faingàna Ianao Jeso
+	(Jesosy, Mpanjaka),
+	Mpanavotra,
+	Ho avy ilay Mpanjakanao
+	Tsenao !
+	Ho avy ilay Mpanjakanao
+	Tsenao !
+	Isika no hihira hoe : Haleloia!
+
+2. Tsy ho ela intsony
+	Ny fiavian\'ny Tompo soa,
+	An -drahon-danitra (hobio)
+	Ankalazao.
+	Faingàna Ianao Jeso sns
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '162',
+  '162',
+  'ANY ANDRO IZAY HAHITAKO',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia F 3/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Any andro izay hahitako
+	\'Reo anjely mitsoka trompetra,
+	Ka ny lanitra hanakoako
+	Fa handray \'reo voavonjy rehetra.
+	Amin\'izay ho hitako
+	\'Lay Jesosy \'zay nanafaka ahy.
+	Hiakatra ireo voavonjy marobe
+	Hitsena Ilay Jesosy.
+	Izay nanafaka azy ireo.
+	Amin\'izay hihira aho
+	Hihira aho, hihira aho
+	Fa handao \'ty tany (fa haheno) feno 
+	toreo
+	Hitako ny lanitra
+	Fa mivoha ho ahy sy (ho) anao
+	Hitako ny Tompo, indro (fa)
+	Mifona ho ahy sy ho anao
+	Hitako indreo ny anjely (fa)
+	Mivonona tokoa (hidina)
+	Hidina (hanambara sy) ka hampiely
+	Fa ho avy (indray) ny Tompo.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '163',
+  '163',
+  'RAHA HO AVY INDRAY JESO',
+  'A. Razaka',
+  'A. Razaka',
+  'Do dia D 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Raha ho avy indray Jeso,
+	Moa ho faly ve ianao ?
+	Indro efa kely sisa,
+	Moa ve vonona ianao ?
+	ISAN\'ANDININY:
+	Moa ho androm-pifaliana
+	Sa ho hakiviana ?
+	Raha ho avy indray Jesosy,
+	Moa ve vonona ianao ?
+
+2. Maso maro no hahita
+	Raha ho avy indray Jeso.
+	\'Reo anjely alin-kisa,
+	Moa ve hiaraka aminao ?
+	Moa ho androm-pifaliana, sns.
+
+3. \'Reo tsara fanahy maty
+	Raha ho avy indray Jeso.
+	No hitsangana aloha,
+	Ho anisany ve aho ?
+	Moa ho androm-pifaliana, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '164',
+  '164',
+  'HO AVY INDRAY NY TOMPONAO',
+  'Suzette Ratsimba',
+  'Suzette Ratsimba',
+  'Do dia E 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Ho avy indray ny Tomponao,
+	Vonona ve ianao ?
+	Aza mba misalasala
+	Jeso ho anao.
+
+ISAN\'ANDININY :
+
+Mihirà Haleloia, ka hobio ;
+	Hosana !
+	Asandrato re ny feo
+	Miderà, mihirà !
+
+2. Ho avy indray ny Tomponao
+	Faly izao tontolo izao.
+	Samy faly manantena
+	Ilay famonjena.
+	Mihirà Haleloia, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '165',
+  '165',
+  'MIDERA SY MIHOBIA IZAO',
+  'F. Ramanantsialonina',
+  'F. Ramanantsialonina',
+  'Do dia D 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Miderà sy mihobia izao,
+	Ry namako.
+	Efa hifarana ny adinao.
+	Indro ny Kristinao.
+	Kely sisa hanoloana ka ho tafahoana.
+	Ilay Mpamonjy ahy sy anao.
+	Avy ny Tomponao.
+
+2. \'Lay Kanana efa vonona
+	Ho lovanao
+	Hafaliana tsy hay tononina
+	Izao no miandry anao
+	Ireo anjely marobe
+	No hanangona ny voavonjy.
+	Hihoby re ny Fiangonana.
+
+3. Fa ny eto dia miserana
+	Mandalo koa.
+	Ao tsy hisy fitserana
+	fa maharavo fo.
+	Miomàna \'zaho sy ianao
+	Mba handao ny ety
+	Ka handova ny Tanàna soa
+	\'Lay Paradisa ary.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '166',
+  '166',
+  'HO AVY INDRAY JESO',
+  'Homer Rodeheaver',
+  'D. Rasolonjatovo',
+  'Do dia C 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Ho avy indray Jeso Mpanjaka,
+	Ho avy handray ny olony.
+	Ho avy Izy izao hanjaka,
+	Fiainana no atolony.
+
+ISAN\'ANDININY :
+
+Haleloia, Hosana.
+	Haleloia, Hosana.
+	Avia, tsenao,
+	Indro tamy \'Lay Tompo tia,
+	Mpanjaka Tsitoha.
+
+2. Ho avy indray Jeso Mpitsara,
+	Amin\'izay ho hitany
+	Ireo izay nanao ny tsara,
+	Izay nanao ny sitrany.
+	Haleloia, Hosana, sns.
+
+3. Ho avy izao he tsy ho ela
+	O ! mba lazao ny hevitrao
+	Hiakatra sa dia havela ?
+	Mpanota ô ! lazao, ô lazao !
+	Haleloia, Hosana sns
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '167',
+  '167',
+  'EFA ANTOMOTRA NY ORA',
+  '(Tsy fantatra)',
+  'A. Emiliarison',
+  'Do dia Ab 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Efa antomotra ny ora,
+	Ho avy faingana Kristy.
+	Atsaharo, ry natiora,
+	Ny sento fandre ety
+	Ho avy faingana ny Tompo !
+	O ! tongava Jeso ô ! Avia !
+	O, tongava Jeso ô !
+
+2. \'Zao ny tany dia mitory
+	Ny adinao teo Kalvary
+	Fa avy ny andro, tsy ela akory
+	Hahitany Anao Kristy
+	Ho avy faingana ny Tompo !
+	O ! ry foko ô, hirao ! Hirao !
+	O, ry foko ô, hirao !
+
+3. Hirao \'lay fanantenana,
+	Raiso ny lokanganao,
+	Ianao \'zay tsy tamana,
+	Na aiza na aiza,ô hirao.
+	Ho avy faingana ny Tompo !
+	O ! tongava faingana, Jeso
+	O ! tongava faingana !
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '168',
+  '168',
+  'MBA JEREO NY TOMPONTSIKA',
+  'C. Wesley',
+  'J. Richardson',
+  'Do dia C 4/4 ',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Mba jereo ny Tompontsika
+	Avy ao an-danitra,
+	Indro, avy amin-kery
+	Ao amin\'ny rahona :
+	Haleloia ! Haleloia !
+	Ambarao ny heriny.
+
+2. \'Zay rehetra fahavalo
+	Efa resiny tokoa ;
+	Mifalia, ry anjely !
+	Mihobia, ry olona !
+	Haleloia ! Haleloia !
+	Ambarao ny lazany.
+
+3. Fony mbola teto Izy,
+	Satro-tsilo nentiny ;
+	\'Zao ny satro-bolamena
+	Mendrika ny lohany :
+	Haleloia ! Haleloia !
+	Ambarao ny derany.
+
+4. Voaeso mafy Izy,
+	Be ny fahoriany ;
+	Fa izao, asandratra Izy,
+	Ambarao ny hajany !
+	Haleloia ! Haleloia !
+	Ambarao ny voninahiny !
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '169',
+  '169',
+  'RAHA TONGA ANIO NY TOMPO',
+  'I. D. Sankey',
+  'Ramasitera',
+  'Do dia Eb 4/4 Taloha',
+  'JESOSY KRISTY',
+  'Ny fiverenany - Ny fanjakany',
+  '
+1. Raha tonga anio ny Tompo
+	Amin-kery lehibe,
+	Ka arahin\'ny mpanompo
+	Sy anjely marobe :
+
+ISAN\'ANDININY :
+
+:,:O! Avia, ô! Avia,
+	:,:O! Avia, ô!Avia,):,:
+	Fa ny olonao rehetra
+	Dia maniry indrindra Anao.
+
+2. He ! ho simba sy ho rava
+	\'Zao rehetra ary izao,
+	Ka hifankahita tava
+	Ny natao sy ny Mpanao.
+	:,:O! Avia sns
+
+3. Maso maro no hijery
+	\'Lay nijaly fahizay,
+	Fa ny mino Azy ihany
+	No ho faly rahatrizay.
+	:,:O! Avia sns
+
+4. Rehefa tonga re ny Tompo
+	Mba hitsra izay natao,
+	Hitomany ny tsy mino,
+	Fa hanatrika Azy ao.
+	:,:O! Avia sns
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '170',
+  '170',
+  'RY FANAHY MASINA Ô!',
+  'Gottschalk',
+  'Rabarijoël',
+  'Do dia Bb 3/4 ',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. RY FANAHY MASINA Ô !
+	1. Ry Fanahy Masina ô !
+	Mba monena aminay,
+	Ka fenoy ny herinao
+	Ny fo sy fanahinay.
+
+2. O, levony avokoa
+	Ota mahazatra anay,
+	Ka ho resinay tokoa
+	\'Zay mamatotra anay.
+
+3. Hamasino izahay
+	Ka ny fonay anjakao.
+	Mba hanjary tafaray
+	Aminao doria, Amen.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '171',
+  '171',
+  'JESOSY O, AROTSAHY',
+  'J. Mac Granaham',
+  'F. Ramanantsialonina',
+  'Do dia Bb 6/4 ',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. Jesosy ô, arotsahy,
+	Hivatravatra tokoa,
+	Ho aminay ny Fanahy
+	\'Lay ranonorana soa.
+
+ISAN\'ANDININY :
+
+Ry andon\'aina (andon\'aina)
+	Tondrahy izahay
+	Fa tena karakaina,
+	Velombelomy indray.
+	Amen, amen.
+
+2. Midina ô, ry Fanahy,
+	Hanenika ny fonay,
+	Hanala ny ahiahy,
+	Hitari-dalana anay.
+	Ry andon\'aina, sns.
+
+3. Ny irinay ry Fanahy,
+	Ho vavolombelonao,
+	Ho mahatoky sy sahy
+	Hamabo fo ho Anao.
+	Ry andon\'aina, sns.
+
+4. Amboary mba ho mpandova
+	Fiainana mandrakizay ;
+	Ka ny fonay ho voaova
+	Ho tena lapan\'ny Ray.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '172',
+  '172',
+  'O RY FANAHIN\'NY RAINAY !',
+  'W. H. Gladstone',
+  'A. R. Marnoël',
+  'Do dia D 3/4 Malefaka sady miadana',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. O, ry Fanahin\'ny Rainay
+	Hevero ny taranakay
+	\'Zay very fa manaraka
+	Ny rivotra sy aloka.
+
+2. Omeo fiteny izahay
+	Sy feo mazava, fo mahay
+	Miantso sy mitia tokoa,
+	Hitory koa ny teny soa.
+
+3. Ny haizim-be mba hazavao,
+	Ny fonay koa ovay ho vao.
+	Fankahalana, vono koa,
+	Soloy fitia sy aina moa.
+
+4. Ny hazo fijaliana anie
+	Hamirapiratra avobe,
+	Hanintona ny Nosinay
+	Hiankohokany Nosinay
+	Hiankohoka eo amin\'ny Ray.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '173',
+  '173',
+  'VALIO NY HATAKAY',
+  'Haydn',
+  'F. Ramanantsialonina',
+  'Do dia A 6/4 Malefaka',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. Valio ny hatakay re,
+	Fanahy Masina ô
+	\'Zay hery sady tokinay,
+	Sy fitahiana.
+	Mamelona fanahy.
+	Manala ahiahy.
+	Fohazy, tsilovy,
+	Arovinao \'zahay.
+
+2. Raha misy halemena
+	Nitondra fietrena,
+	Fanahy ô, midina
+	Hitondra aim-baovao,
+	Hanangana ny rava
+	Ity mpanomponao.
+	Ho tonga irakao re,
+	Fanahy ! avotinao.
+
+3. Reseo ny hevitray \'zao,
+	Hanoa Anao indray.
+	Fa kely tsy mahomby,
+	Ampionao \'zahay.
+	Izany fahotana
+	\'Zay manameloka
+	Kosehonao hiala
+	Fa aminay ny antranao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '174',
+  '174',
+  'MITSAOKA ANAO \'ZAHAY',
+  'Haydn',
+  'A. R. Marnoël',
+  'Do dia G 3/4 Milantolanto',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. Mitsaoka Anao \'zahay,
+	Ry Zanahary,
+	\'Zay namonjy anay
+	Tamin\'ny ota.
+	Nomenao anay ny Fanahinao
+	Ho mariky ny fanavotanao,
+	Tombokasen\'ny voninahitrao
+	Izay atafy anay mpanota.
+
+2. Ianao nanafaka anay
+	Tsy ho andevo,
+	Ny fanahy no manambara aminay
+	Fa tonga zanakao izao \'zahay,
+	Izay voavidin\'ny ran\'i Jeso
+	Ka dia isaina handova indray
+	Fanjakana \'zay very fahizay.
+
+3. Ento hanaraka ny hazavanao
+	Izahay, Fanahy Mpitarika ô,
+	Koa aoka re tsy hangina Ianao
+	fa atoroy anay ny lalana
+	Ka dia hizotra tokoa izahay
+	Tarihinao ry Fanahin\'ny Ray.
+
+4. Tohano hery izahay fa malemy,
+	Ampionony raha mila ho kivy fo
+	Ka mba ampidino ho ao am-po,
+	Ho tanjaka sady hery tokoa,
+	Ny mba ho tody an-danitra ao
+	Sy mba handova ny fanjakanao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '175',
+  '175',
+  'O, BABOY \'ZAHAY HO ANAO RE',
+  '(Tsy fantatra)',
+  'A. R. Marnoël',
+  'Do dia Ab 3/4 Milantolanto',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. O, baboy \'zahay ho Anao re,
+	Ry Fanahy Masina ô!
+	Ny afonao hirehitra anie
+	Hanafana anay izao.
+
+ISAN\'ANDININY :
+
+Avia Fanahy ô!
+	Aoka ho re fa eto Ianao.
+	Atafio anay ny hery
+	Ka diovinao \'zahay.
+	Tafio hery,
+	Diovinao \'zahay.
+
+2. Fanahin\'ny fanantenana,
+	Mariho ny handrinay.
+	Omeo koa fahalalana
+	Ny lova miandry anay.
+	Avia Fanahy, sns
+
+3. Hafanao \'zahay hanompo
+	An\'Ilay namonjy anay,
+	Ka hanome an\'ny Tompo
+	Manontolo ny fonay.
+	Avia Fanahy, sns
+
+4. Ry Fanahy, aina, laza,
+	Ahitsio ny fiainanay
+	Mba handresy lalandava
+	Ka ho tonga vao indray.
+	Avia Fanahy, sns
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '176',
+  '176',
+  'RY FANAHY MPANAZAVA',
+  'Elevine Heede',
+  'Rajaobelina, M. J. Meeg, J. Johnson',
+  'Do dia C 3/4 ',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. Ry Fanahy Mpanazava
+	Miandrandra Anao \'zahay ;
+	Aza ela, fa tongava
+	Taomy ny fanahinay,
+	Mba ho fantatray mazava
+	\'Zay lazain\'ny Teninao ;
+	Areheto lalandava
+	Ao am-po ny afonao.
+
+2. Ry Jesosy ! Mitenena
+	Araka ny fombanao,
+	Aminay izay manantena
+	Mba handre ny feonao ;
+	Fo marary sy manahy
+	Mba tsaboy sy iantrao ;
+	Ny te hino, fa tsy sahy,
+	Anehoy ny olatrao.
+
+3. Rainay Mpanome ny soa
+	Mba henoy ny hatakay,
+	Ka ny tananao tsitoha
+	Iarovinao anay ;
+	Ny tanora mba tahio,
+	Ny vaventy hafanao,
+	Mba ho hitanay anio
+	Fa aty ny tenanao.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '177',
+  '177',
+  'IZAY MISY NY FANAHIN\'NY TOMPO',
+  'Stephen R. Adams - Mamy J. Ratsirison',
+  'Esther Bary',
+  'Do dia Eb 4/4 ',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. Izay misy ny Fanahin\'ny Tompo
+	Dia misy hery sy fiadanana,
+	Ka na dia manjombona aza re
+	Izany fiainana
+	Tsy ho kivy, manana
+	\'Lay Fanahy mampahery \'zany fo.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '178',
+  '178',
+  'MANATREHA, RY FANAHY O!',
+  'Dotte Ramboa sy David Huntsinger - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia D 3/4 ',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. Manatreha ry Fanahy Masina ô !
+	Manatreha eto Ianao izao,
+	Ry Rainay mahery, be famindram-po,
+	Manetreha anay Ianao.
+	Tongava mba hanasitrana anay,
+	Fa Ianao irery no mahavonjy anay.
+	manatreha, ry Fanahy Masina ô.
+	Ka fenoy Anao \'zahay.
+
+2. Ô ! avia, ry Fanahy Masina ô,
+	Manatreha eto Ianao izao,
+	Ry Rainay mahery, be famindram-po,
+	Manatreha anay Ianao.
+	Tompo, vokiso fa noana izahay
+	Velombelominao ny fanahinay.
+	manatreha, ry Fanahy Masina ô.
+	Ka fenoy Anao \'zahay.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '179',
+  '179',
+  'FANAHY MASINA O!',
+  'J. Harker - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia Eb 3/4 ',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. Fanahy Masina ô,
+	Ovay ny fiainako
+	Hanana ny fitiavanao
+	Hanao ny asanao
+
+2. Fanahy Masina ô,
+	Diovy ny foko
+	Hiray safidy Aminao
+	Hiaritra toloko.
+
+3. Fanahy Masina ô,
+	Raiso aho ho Anao
+	Ka amin\'ilay afonao
+	Hafanao mba hanao.
+
+4. Fanahy Masina ô,
+	Akambano izahay
+	Mba hiray hina ho Anao
+	Anio mandrakizay.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '180',
+  '180',
+  'RAISO NY FONAY FANAHY O!',
+  'John Wesley Calvert - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia Eb 6/4 ',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. Raiso ny fonay, Fanahy ô,
+	Amboary ho lapanao.
+	Fitia sy hasoavanao
+	Mba apetraho ao.
+
+ISAN\'ANDININY :
+
+Midina amin\'ny herinao
+	Ka hamasino izahay.
+	Ka ny fiainanay hatokanao
+	Ho tena an\'ny Ray.
+
+2. Ny afonao hanadio ny fo
+	Ho tonga sorona,
+	Voatolotra ho Anao tokoa,
+	Anao Mpamorona.
+	Midina amin\'ny, sns.
+
+3. Midina toy ny rivotra
+	Mamelombelona
+	hanehoanay ny avotra
+	Amin\'ny olona.
+	Midina amin\'ny, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '181',
+  '181',
+  'HE, INJAO MAMELOMBELONA',
+  'Doris Akers',
+  'D. Rasolonjatovo',
+  'Do dia F 4/4 ',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. He injao mamelombelona ahy
+	\'Lay Fanahy Masina
+	Avy amin\'ny Ray.
+	Mampitsiky mampifalifaly
+	\'Lay Fanahy Masina
+	Avy amin\'ny Ray.
+
+ISAN\'ANDININY :
+
+Voromailala avy amin\'ny Ray
+	Ô ! aza miala
+	Aza miala aminay.
+	Ô ! mba fenoy ny fitiavanao
+	Ka mba tahio ny fonay
+	Ka mba tahio re, ry Ray,
+	Tahio hidera Anao.
+
+2. He, manova, eny manafay
+	\'Lay Fanahy Masina
+	Avy amin\'ny Ray.
+	\'Ndeha re ho hendry
+	Ka handray
+	\'Lay Fanahy Masina
+	Avy amin\'ny Ray.
+	Voromailala, sns
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '182',
+  '182',
+  'EFA IVELOMAKO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia F 4/4 ',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. Efa ivelomako tokoa, Jeso,
+	Ato am-poko ny fitiavanao.
+	Nefa tiako koa raha izao tontolo izao
+	No handray ny fahasoavanao.
+
+ISAN\'ANDININY :
+
+O! reseo anio ny halemeko.
+	Mihainoa ny vavako, Jeso,
+	Ampidino eto ny Fanahinao
+	Hampahery ny olonao Jeso.
+
+2. Ny fahalalako ny fitiavanao
+	Sy ny famonjena atolotrao,
+	Hanameloka ahy raha izao tontolo izao
+	Tsy hilazako ny fitiavanao.
+	O! reseo anio ny halemeko
+
+3. Tompo ô, henoy
+	Ny vavaka ao am-po
+	Ô ! iraho ny Fanahinao
+	Hanafana anay sy hampahery anay
+	Ary koa hitari-dalana.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '183',
+  '183',
+  'RY FANAHY MASINA O!',
+  'M. M. Wells',
+  'Rajoelison',
+  'Do dia G 3/4 ',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. Ry Fanahy Masina ô,
+	\'Zay Mpitari-dalana,
+	Asehoy anay Jeso,
+	Hany lala-marina.
+	Manantena Anao \'zahay
+	Mba hitantana anay,
+	Hiantso hoe : <<Avia aty ! >>
+	O ! tazano Kalvary.
+
+2. Hitoeranao anie,
+	Ho fonena-masinao,
+	\'Zao nyh fonay meloka e,
+	Rehefa nodiovinao.
+	O ! reseo ny tahotray,
+	Aoka ho sahy izahay,
+	Irak\'i Jesosy tia,
+	Maty teny Kalvary.
+
+3. Ampianaro mba hanoa
+	\'Zany didi-masinao,
+	Sy hanaraka tokoa
+	\'Zay rehetra sitrakao.
+	He ! arovy tsy handà,
+	Efa diso, mamelà,
+	Tano ho mpanara-dia
+	An\'i Jeso be fitia.
+
+4. Raha akaiky Izy izao,
+	Avy mba handray anay,
+	Mainka hakekezinao,
+	Tomoera aminay.
+	Aoka hiandrandra re,
+	Feno toky, ravo e,
+	Ento, ry Fanahy tia
+	Ho mpandova ny ary.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '184',
+  '184',
+  'AVIA, FANAHY MASINA O !',
+  'H. Baker',
+  'W. E. Cousin',
+  'Do dia F 3/4 ',
+  'FANAHY MASINA',
+  NULL,
+  '
+1. Avia, Fanahy Masina ô !
+	Midina eto aminay :
+	Fenoy ny hasoavanao
+	Ny fonay noforoninao.
+
+2. Tongava ry Mpananatra ô !
+	Nomen\'Andriamanitray ;
+	Ho loharano velona
+	Hiboiboika ao am-po.
+
+3. Sokafy ny fanahinay
+	Hidiram-pitiavana ;
+	Ny tenanay malemy koa
+	Ampaherezonao anie.
+
+4. Reseo ny fahavalonay ;
+	Onony koa ny tahotray ;
+	Tantano ao an-dalana
+	Hahatraranay ny lanitra.
+
+5. Tahio mba hitiavanay
+	Ny Ray sy Jeso zanany,
+	Sy hitokianay Anao,
+	Izay Fanahy Masina.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '185',
+  '185',
+  'NY TENINAO REHETRA',
+  'David Ramanambintana',
+  'E. Andrianjafitrimo',
+  'Do dia Eb 4/4 ',
+  'NY TENYN\'ANDRIAMANITRA',
+  NULL,
+  '
+1. Ny teninao rehetra,
+	Ry Tompo tia anay !
+	No tsy mba manam-petra
+	Fa to mandrakizay ;
+	Ho levona avokoa
+	Izao rehetra izao,
+	Haharitra tokoa
+	\'Zao teninao izao
+
+2. Ny tenin\'ny Baiboly
+	No sabatra entinay
+	Handresy ny devoly,
+	\'Lay fahavalonay ;
+	Raha misy mampahory,
+	Ka osa izahay,
+	Ny teninao mahery
+	Manjary tanjakay.
+
+3. Fa teny mamy koa
+	Ho an\'ny mpankato
+	Ka loharano soa
+	Miboika ao am-po,
+	Ho fanomezan-toky
+	Ny azon\'ny manjo,
+	Sy hai-mahavoky
+	Mamelona ny fo.
+
+4. Fa teny mampisava
+	Ny haizim-be aty,
+	Fanilo manazava
+	Ny dia ho ary ;
+	Manolo-pahendrena,
+	Mananatra ny fo,
+	Milaza famonjena
+	Sy lova tsy ho lo.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '186',
+  '186',
+  'JIRO MAZAVA',
+  'E. S. Lorenz',
+  'Rajoelison',
+  'Do dia Ab 4/4 Marisidrisika',
+  'NY TENYN\'ANDRIAMANITRA',
+  NULL,
+  '
+1. Jiro mazava eo an-dalan-tery
+	Ny teninao, ry Ray an-danitra !
+	Mitarika ny dian\'ny olom-bery
+	Ho ao an-tany mahafinaritra.
+
+ISAN\'ANDININY
+
+Sitrako indrindra
+	Ny hamaky \'zany,
+	Hanaraka ny toroheviny,
+	Hampiely koa ny fahazavany
+	Sy hanambara izao ny heriny.
+
+2. Fandrika maro
+	No mivelatra eny
+	An-dalana izay diaviko ;
+	Nefa matoky
+	Fa indro re ny Teny
+	Dia mitsilo ny finoako.
+	Sitrako indrindra, sns.
+
+3. Raha mamely re ny fahoriana
+	Ka kivy sady ketraka ny fo,
+	Ny Teninao mitory fifaliana,
+	Mitondra fiononana tokoa.
+	Sitrako indrindra, sns.
+
+4. Mandroso isan\'andro
+	Izao ny diako,
+	Manitsy \'lay kanana ambony ao
+	Ny fahazavana hany hitokiako,
+	Tompo malala, dia ny Teninao.
+	Sitrako indrindra, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '187',
+  '187',
+  'JESO NY FITIAVANAO',
+  'Borthiansky',
+  'F. Ramanantsialonina',
+  'Do dia D 3/4 Antonony',
+  'NY TENYN\'ANDRIAMANITRA',
+  NULL,
+  '
+1. Jeso ny fitiavanao,
+	Mitondra ao am-poko ao
+	Ny fanavaozana tokoa,
+	\'Lay fitahiana mahasoa.
+	Tokinay ny didinao ;
+	Avotray ny teninao.
+
+2. Ny fanompoanay Anao,
+	Nanjary fifaliana.
+	Tsy zioga koa ny didinao ;
+	Nitondra fitahiana.
+	Aro, sy hery, tanjakay,
+	Fiarovana ho anay.
+
+3. Ny fitsapana, raha tonga izao,
+	Tena ao Satana mizahozaho,
+	Ny hany fanavotana :
+	Ny didinao no fiarovana
+	Resy koa ny halemena,
+	Hery vaovao atafy anay.
+
+4. Ka ny Fanahy Masinao,
+	Hampahatsiaro anay izao,
+	Fa efa zanakao \'zahay
+	Ho mpanompo tsara indray
+	Ka handova famonjena :
+	Ilay Kanana sy Edena.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '188',
+  '188',
+  'MISAOTRA ANAO IZAHAY',
+  'Mozart',
+  'J. Rabarijoël',
+  'Do dia D 3/4 Miadana',
+  'NY TENYN\'ANDRIAMANITRA',
+  NULL,
+  '
+1. Misaotra Anao \'zahay, ry Ray ô,
+	Noho ny Teny Masinao to
+	Tenin\'ny aina, Teny tsara,
+	Mamelombelona anay.
+	Feno fitiavana tokoa.
+
+2. Ampianaro hanova toetra
+	Hanjary tena olom-baovao ;
+	Ka ny Fanahy ampitoero,
+	Hitari-dàlana anay
+	Ho tonga any aminao
+
+3. Ny Teninao no sabatray e,
+	Izay handresenay ilay ratsy,
+	Fa tena hery, vatolampy
+	\'Zay azonay iankinana,
+	Maharitra mandrakizay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '189',
+  '189',
+  'AMPAHIRATO AHO',
+  '(Tsy fantatra)',
+  'Rajoelison',
+  'Do dia Ab 6/4 ',
+  'NY TENYN\'ANDRIAMANITRA',
+  NULL,
+  '
+1. Ampahirato aho \'zao
+	Hahita ny fitiavanao,
+	\'Lay fahazavana mamiratra,
+	Mitarika ao an-danitra,
+	O, misehoa Ianao,
+	Ry kintan\'ny maraina ô,
+	Hanoro làlana ahy izao
+	Ho aminao
+
+2. Ampaladio ny sofiko
+	Hihaino ny Mpamonjiko :
+	Fa tiako indrindra izao ny handre
+	\'Lay feony mahafaly re.
+	O, mitenena Ianao,
+	Ry Tompo \'Zay Mpanavotra ô,
+	Hanitsy re ny diako \'zao
+	Ho aminao.
+
+3. Sokafy koa ny vavako
+	Hilaza \'Lay Jesosiko
+	Izay nijaly tao Kalvary
+	Mba handovako ny ary.
+	O, mba tendreo ny molotro,
+	Ry Kristy \'Zay Mpisolo ô,
+	Hiantso ireo mpanota izao
+	Ho aminao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '190',
+  '190',
+  'MITENENA RY JEHOVAH',
+  'S. Razafindrakoto',
+  'S. Razafindrakoto',
+  'Do dia D 4/4 ',
+  'NY TENYN\'ANDRIAMANITRA',
+  NULL,
+  '
+1. Mitenena ry Jehovah,
+	Fa mihaino izahay.
+	Ambarao ny sitrakao
+	Ho amin\'ny mpanomponao.
+	Aoka ny Fanahinao
+	Ho ao anatinay izao.
+	Mitenena ry Jehovah,
+	Fa mihaino izahay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '191',
+  '191',
+  'HE MORA RAY NY ZIOGANAO',
+  'Bortniansky',
+  'A. R. Marnoël',
+  'Do dia F 4/4 Marisidrisika',
+  'NY TENYN\'ANDRIAMANITRA',
+  NULL,
+  '
+1. He! mora Ray ny zioganao
+	Tiako ny didinao.
+	Tena tsara sy madio,
+	Ka ampio fa hankato.
+	Manazava izao ny dia
+	Ka miaro tsy hania
+	Ahiratonao ny saiko
+	Ankatoavako Anao.
+
+2. Tsy sarotra ny didinao
+	Ho an\'ny naterakao.
+	Ny handresy azony atao,
+	Raha miankina aminao.
+	Aminao tsy mampanahy
+	Fa ianao no tokinay.
+	Raha kivy ny fanahy
+	Dia ampaherezonao.
+
+3. Andevon\'ny ota ety
+	Fa nafahan\'i Kristy.
+	Ka he, lova no omenao
+	Asan\'ny Fanahinao.
+	Tsy mba Tompo vinitra be,
+	Na manameloka re,
+	Fa ianao Rainay be fitia
+	No miantso ny mania
+
+4. Ho tsarovako hatrany
+	Tompo ô, ny didinao.
+	Ny mitandrina izany
+	No hataoko hatrizao
+	Ahitsio re ny diako
+	Hankato ny teny soa
+	Aminao no hifaliako
+	Sady hiononako.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '192',
+  '192',
+  'HE TOY NY TANIMBOLY SOA',
+  'Old Melody - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia Bb 4/4 ',
+  'NY TENYN\'ANDRIAMANITRA',
+  NULL,
+  '
+1. He, toy ny tanimboly soa,
+	Jeso, ny teninao.
+	\'Zay vonona hitady moa
+	Mahazo mioty ao.
+	Ny voninkazo manitra
+	Mamerovero ao,
+	Hanjary amboara fatratra
+	Manome aina vao.
+
+2. Toa kintana mamiratra
+	Ny teninao Kristy,
+	Ka he mandefa taratra
+	Mitsilo \'zany dia.
+	He sabatra maranitra
+	\'Zay anafihana,
+	Hambabo ho ao an-danitra
+	Ny fo manaiky Anao.
+
+3. Izay iriko, Tompo soa,
+	Ho tia ny teninao ;
+	Fitaovam-piadiana koa
+	Ho enti-miady ao,
+	Ho jiro hanazava ahy
+	An-dàlana izao,
+	Hitarika ireo fanahy
+	Hiandany aminao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '193',
+  '193',
+  'O ! SAMBATRA NY FO',
+  'A. Raoeliarijaona',
+  'D. Rasolonjatovo',
+  'Do dia D 4/4 ',
+  'NY TENYN\'ANDRIAMANITRA',
+  NULL,
+  '
+1. Ô, sambatra ny fo, Jeso,
+	Miverina aminao ;
+	Mandray ny hasoavanao
+	Ka tonga vaovao.
+
+ISAN\'ANDININY :
+	Tsy fefiky ny ranobe
+	(Tsy fefika izahay Jeso ô)
+	Nanafotra hatrizay,
+	Nahazo hery fa nandre
+	(Nandre ny feonao)
+	Ny feonao indray.
+	Ô, sambatra ny fo, Jeso,
+	Miverina aminao ;
+
+2. He ! tretrika tokoa, Jeso,
+	Mifikitra aminao,
+	Migoka ny fitiavanao,
+	Ka tonga vaovao.
+	Tsy fefiky ny ranobe, sns.
+
+3. Tazony mafy aho, Jeso,
+	Tsy hiala aminao
+	Ho velon\'ny fitiavanao,
+	Ho tonga vaovao.
+	Tsy fefiky ny ranobe, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '194',
+  '194',
+  'NY TENINAO TSY MIOVA',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Eb 3/4 ',
+  'NY TENYN\'ANDRIAMANITRA',
+  NULL,
+  '
+1. Ny teninao tsy miova hatrizao,
+	Jeso be fitia,
+	Dia toky ho ahy
+	Ka aina hivelomako ety.
+	Ny teninao mampahery ny fo
+	Velomy ao anatiko ao.
+
+2. Ny teninao \'zay fanilon\'ny dia
+	No mitantana ahy hanaraka Anao,
+	Misakana ahy tsy hania.
+	Ny teninao manazava ny fo
+	Velomy ao anatiko ao.
+
+3. Ny teninao \'zay nomenao ho ahy
+	No mampianatra ahy
+	Fa na aiza aleha
+	Dia momba ahy hatrany Ianao.
+	Ny teninao, vatolampin\'ny fo,
+	Velomy ao anatiko ao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '195',
+  '195',
+  'RY JESO ! MBA HENOINAO',
+  'W. H. Gladstone',
+  'A. M. Fredoux Peake',
+  'Do dia D 3/4 ',
+  'NY TENYN\'ANDRIAMANITRA',
+  NULL,
+  '
+1. Ry Jeso mba henoinao
+	Ny feonay mpanomponao
+	Izay mivavaka aminao,
+	Mitady fitahiana.
+
+2. Vokiso ny fanahinay,
+	Ny teninao no haninay,
+	Hahaizanay mamahana
+	Ny reraka ao an-dalana.
+
+3. Ampaherezonao izao
+	Ny tananay mpanomponao,
+	Hanohana ny olonao
+	Miraviravy tanana.
+
+4. Omeo fo mazoto re !
+	Tolory fahendrena be ;
+	Tarihonao ny hevitray ;
+	Tendreo koa ny molotray.
+
+5. He ! tsinontsinona izahay,
+	Malemy sady tsy mahay ;
+	Ka dia ampaherezonao
+	Hanaovanay ny sitrakao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '196',
+  '196',
+  'ANDEHA ISIKA HANANDRA-PEO',
+  'E. Rakotoson',
+  'E. Rakotoson',
+  'Do dia Eb 3/4 ',
+  'NY FIANGONANA',
+  'Fonombohana',
+  '
+1. Andeha isika hanandram-peo hoe :
+	Masina Jehovah Ray
+	Masina, masina, masina,
+	Jehovah Ray.
+
+VAVAKA MANDOHALIKA
+	Masina, masina, masina,
+	Jehovah Ray. Amen.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '197',
+  '197',
+  'O! RAY MALALA, ASEHOY',
+  'FFPM233',
+  'W. E. Cousins',
+  'Do dia Bb 4/4 Marisidrisika',
+  'NY FIANGONANA',
+  'Fonombohana',
+  '
+1. O ! Ray malala asehoy
+	Ny hasoavanao ;
+	Sasao ho afa-keloka
+	\'Zahay ho zanakao :
+
+ISAN\'ANDININY :
+	Ho mafy ny fiezakay
+	Handia ny làlanao,
+	Tsy hisy hijanonay,
+	Raha tsy an-tranonao.
+
+2. O ! Ray malala, mba henoy
+	Ny feonay zanakao ;
+	Tantano aoa an-dàlana
+	Hankany aminao :
+	Ho mafy, sns.
+
+3. O ! Ray malala, hitanao
+	Ny hasambaranay ;
+	Ny avotr\'ain\'ny Zanakao
+	No itokianay :
+	Ho mafy, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '198',
+  '198',
+  'TOERANA TONY',
+  'Ralph Carmichael',
+  'A. R. Marnoël',
+  'Do dia C 4/4 Milamina sady malefaka',
+  'NY FIANGONANA',
+  'Fonombohana',
+  '
+1. Toerana tony iray,
+	Mangina tsara ery.
+	Ao ny saiko tnen\'ny Ray,
+	Mandravaka azy koa
+	\'Reo felam-boninkazo soa
+	Ka mamiratra ery.
+	Eo no andaniako
+	Fotoana mamiko,
+	Migoka ny fitiavanay
+	Rehefa avy eo
+	Vonon-kanatrika ny asa
+	Amim-pitiavana.
+
+2. Toerana masina
+	Ity toerana ity,
+	\'Zay anatrehana ny Ray.
+	Eto andraisana
+	Sy anovozana tokoa
+	Ny fitahian\'ny Ray.
+	Eto amokisana,
+	Ampaherezana
+	Ny saina sy fanahy koa
+	Ka raha miala eto,
+	Vonon-kanatrika ny asa
+	Amim-pifaliana.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '199',
+  '199',
+  'RY JESO VORY IZAHAY !',
+  'G. Smart',
+  'E. E. Cousins',
+  'Do dia Bb 3/4 ',
+  'NY FIANGONANA',
+  'Fonombohana',
+  '
+1. Ry Jeso ! vory izahay,
+	Fa andronao anio,
+	Dia avy mba hivavaka
+	Ety an-tranonao.
+
+2. Ka na aiza na aiza ny olonao
+	No vory toy izao,
+	Ny herinao mba asehoy,
+	Efao ny teninao.
+
+3. Ny hira ikambananay
+	Aty an-tranonao,
+	Ekeo ho fanandratana
+	Ny voninahitrao.
+
+4. Ny vavaka tononinay
+	Eo anatrehanao,
+	Mba raiso ho fanatitra
+	Ankasitrahanao.
+
+5. Ny teny fitarainana
+	Ataon\'ny ory koa
+	Soloy fifaliana ;
+	Hisaoranay Anao.
+
+6. Ny teninao halahatra
+	Hambininao anie,
+	Hamelom-pitiavana
+	Am-pon\'izay mandre.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '200',
+  '200',
+  'MIHIRA FIHIRAM-PIFALIANA',
+  'J. Mac Granaham',
+  'F. Ramanantsialonina',
+  'Do dia Bb 4/4 Marisika',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. Mihirà fihiram-pifaliana
+	Hankalaza Ilay Tomponao.
+	Asandrato feo fiderana.
+	Hoby, hosana no atao
+
+ISAN\'ANDININY :
+
+Derao (derao), derao (derao)
+	Ny Tompo Mpanavotra anao
+	Hirao (hirao), hobio (hirao)
+	Jehovah Mpamorona anao.
+
+2. Ka aoka ny feo fifaliana
+	Hisandratra ambony ao.
+	Hanako ho re eran-tany,
+	Hanambara fitia manavao.
+	Derao, derao, sns.
+
+3. Isika dia olom-bonjena,
+	Firenena \'zay voatokana,
+	Navotana tao Gologota ;
+	Jesosy no nanafaka.
+	Derao, derao, sns.
+
+4. Namangy antsika tokoa
+	Ny Tompon\'ny lanitra soa.
+	Nomeny ny fanantenana,
+	Handova ilay tany vao.
+	Derao, derao, sns.
+
+5. Ry Tompo Mpandahatra hendry
+	Indreto \'zahay zanakao.
+	Ho tena mpanompo voatendry
+	Hanoa sy hanaraka Anao.
+	Derao, derao, sns.
+	'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '201',
+  '201',
+  'INDRO NY FAHARETAN\'NY OLOMASINA',
+  'Rabenadimby',
+  'Rabenadimby',
+  'Do dia D 4/4 Maesteso',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. -MASINA
+
+:,: Indro ny faharetan\'ny olo-masina :,:
+	Dia izay mitandrina ny didin\'Andriamanitra
+	Sy ny finoana an\'i Jesosy
+	:,: Amena, Amena, Amena. :,:
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '202',
+  '202',
+  'JESOSY O ! TARIHONAO',
+  'L. J. Raharijaona',
+  'L. J. Raharijaona',
+  'Do dia D 4/4 Miadana - Malefaka',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. 
+	(202-Ny fiangonanay : Fihirana Edisiona Vaovao fanao am-paosy)
+	1
+	Jesosy ô ! tarihonao
+	Sy mba tsinjovy
+	Ny Fiangonanay.
+	Tantano ny Fanahinay
+	Ho mendrika ny Anaranao !
+
+2. Jesosy ô ! vimbinonao
+	Mba hifankatia
+	Ny fiangonanay ;
+	Sokafinao ny molotray
+	Hanandratra ny Anaranao !
+
+3. Jesosy ô ! raketonao
+	Mba ho ao amin\'ny
+	Fiangonanay
+	Ny Teny \'zay nambaranao,
+	Hitari-dàlana anay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '203',
+  '203',
+  'MANGINA !  MANGINA !',
+  'W. H. Doane',
+  'Rajoelison',
+  'Do dia Bb 4/4 Calme et doux',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. Mangina ! Mangina !
+	Henoy fa injao,
+	Ny Tompo irina
+	Manatona anao.
+	Henoy fa mandona
+	Am-ponao izao :
+	Miandry, mifona,
+	Te hiditra ao.
+
+2. Mangina ! Mangina !
+	Moa henonao ve ?
+	\'Lay feo fifaliana
+	Miantso hoe :
+	<< Avia, ry mpania,
+	Omeko anao,
+	Anao ho doria,
+	Ny lanitra izao >>
+
+3. Mangina ! Mangina !
+	Mandalo ny ety.
+	Andrao dia sondriana,
+	Katsaho ny ary.
+	Anio aza ela,
+	Henoy re \'lay feo.
+	Ny Tompo mamela
+	Ka raiso ekeo.
+
+4. Mangina ! Mangina !
+	Feo mamy tokoa,
+	Mitory hafaliana,
+	\'Njao re ao am-po.
+	Ekeko ry Tompo,
+	Mangina aho izao ;
+	Mangina ny foko
+	Hihaino Anao.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '204',
+  '204',
+  'JESO O! INDRETO IZAHAY',
+  'J. Ramahaisahy',
+  'J. Ramahaisahy',
+  'Do dia Ab 4/4 ',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. Jeso ô, indreto izahay mpanomponao
+	Avy hankalaza sy hanaja Anao izao.
+	Raisonao ny saotra izay aterinay anio
+	Ka ny vavakay re mba valio.
+	Aza avelanao ho reraka izahay
+	Fa tohano hery mba haharitra ;
+	KA raha ho avy Ianao, dia ho vonona
+	Izahay rehetra vory eto izao.
+
+2. Ry Fanahy ô, midina, aza ela re !
+	Ny fiasanao mangina zava-dehiba.
+	\'Zao no zavatra irina : hamasinonao re
+	Ny fiainanay mba ho Anao.
+	O ! ampaherezo isan\'andro anie
+	Ka tantanonao re mba ho todisoa
+	Ao an-danitra, dia ho sambatra
+	Handiva lova izay maharitra.
+
+3. Ray ô, mamalia ny vavakay atao izao,
+	Raiso ho toy ny hanitra ankasitrahanao
+	KA diovinao ny tena, saina sy fanahy,
+	Atokàny re mba ho Anao.
+	Manantena lanitra sy tany vaovao
+	Izahay rehetra vory eto izao ;
+	KA ho sambatra, ao an-danitra:
+	Hiara-paly aminao mandrakizay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '205',
+  '205',
+  'ANDRIANANAHARY',
+  'J.P.  Diykes',
+  'J. A. Houlder',
+  'Do dia E 4/4 ',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. Andriananhary
+	Masina indrindra !
+	Ny anjelinao
+	Iza mitoetra aminao
+	Mifamaly hoe :
+	Masina indrindra
+	Andriananahary,
+	Telo \'Zay Iray.
+
+2. Andriananhary
+	Masina indrindra !
+	Na tsy hita aza izao
+	Ny voninahitrao,
+	Masina indrindra
+	Ianao irery
+	Andriananahary,
+	Telo \'Zay Iray.
+
+3. Zava-manan\'aina
+	Samy mankalaza
+	Sady manambara Anao
+	\'Zay Tompony izao;
+	Ianao irery no mitahy azy,
+	Andriananahary,
+	Telo \'Zay Iray.
+
+4. Andriananhary
+	Feno hatsarana !
+	HE ! ny fitahianao
+	Izay mpanomponao;
+	Tsara dia tsara ny omenao azy,
+	Andriananahary,
+	Telo \'Zay Iray.
+
+5. Andriananhary
+	Masina indrindra !
+	Izahay mpanomponao
+	Ta hankalaza Anao;
+	Feno fahendrene, feno fiantrana,
+	Andriananahary,
+	Telo \'Zay Iray.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '206',
+  '206',
+  'O ! HENOY NY ANTSON\'NY MPAMONJY SOA',
+  'Gilmour',
+  'A. R. Marnoël',
+  'Do dia F 4/4 ',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. O ! henoy
+	Ny antson\'ny Mpamonjy soa :
+	<<Ny ampahafolony re ento,
+	Mamin\'ny fanatitra an-tsitrapo,
+	Ho ao an-tempolin\'i Jeso.>>
+
+ISAN\'ANDININY :
+	<<Ka tsapao amin\'izany Aho
+	Dia ho hitanareo tokoa,
+	Handrotsa-pitahiana Aho
+	Dia ho vanona sy tsara ny voa.>>
+
+2. Hoy indray ny Tompo amintsika izao :
+	Ny fanatitra izay omena
+	Dia ho famonjena ireo namanao
+	Ary koa ny firenena.
+	Ka tsapao amin\'izany, sns.
+
+3. Atolory ny talenta sy ny fo
+	Ho fanatitra tsra indrindra.
+	Ny andro sy ny vola ary hery koa,
+	Mba ho an\'ny Avo indrindra.
+	Ka tsapao amin\'izany, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '207',
+  '207',
+  'O ! NY FANATITRA ENTINAY',
+  'Z. M. Meredith - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia Eb 3/4 ',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. O, ny fanatitra entinay
+	raiso, ekeo ry Ray
+	Mba arotsahy ho aminay
+	Ny fitahianao. Amen !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '208',
+  '208',
+  'FANOMEZANA TONGALAFATRA',
+  'Herbert A. Work - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia G 6/4 ',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. Fanomezana tongalafatra
+	Natolotra mba ho fanatitra.
+	Dia hanitra \'zay nentin\'i Maria
+	Nanosorany an\'i Jeso tia.
+
+2. Ny saina nanosika hanome,
+	Hanolotra ny fofo-manitra e,
+	Dia he, tena ambony lavitra,
+	Mendrika noho \'lay fanomezana.
+
+3. Ry Tompo malala avia handra
+	Ny fanatitra \'zay arotsakay.
+	Na kely tsy mendrika, ô ekeo,
+	Ny fonay manolotra no jereo.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '209',
+  '209',
+  'MISY TOERANA MAMIN\'NY FOKO',
+  'W. S. Pitts',
+  'D. Razakaria',
+  'Do dia Bb 4/4 ',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. Misy toerana mamin\'ny foko,
+	Tsy hohadinoiko mandrakizay;
+	Fiangonana soa ka koloiko,
+	Tsy hafioko fa tranon\'ny Ray.
+
+ISAN\'ANDININY:
+	Koa andeha re ho (ao ianao)
+	Asaiko ianao mba handroso 
+	Hamangy ny fiangonanay.
+	Fiangonana soa ka koloiko,
+	Tsy hafioko fa tranon\'ny Ray.
+
+2. Raha sehatra ny ady mafy
+	Ny fiainana diavinay;
+	Tsy manahy fa Jeso manafy
+	Hery vaovao ny fiangonanay.
+	Koa andeha re ho ao ianao, sns.
+
+3. Fitiavan\'ny mpirahalahy,
+	Fifalian\'ny fanaovan-tsoa;
+	Valim-bavaka amen\'ny Fanahy,
+	Samy hitanay ao avokoa.
+	Koa andeha re ho ao ianao, sns.
+
+4. Tsy ho ela izahay dia hifindra
+	Fa ho avy Ilay Tomponay,
+	Ka halaza sy tena hirindra
+	Fa voavonjy ny fiangonanay.
+	Koa andeha re ho ao ianao, sns.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '210',
+  '210',
+  'O! TOERA-MAHAFINARITRA',
+  'Cleland Bl Macfee',
+  'Esther Bary',
+  'Do dia Db 4/4 ',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. -MAHAFINARITRA
+
+1
+	O ! toera-mahafinaritra
+	Akaikinao, ry Ray.
+	Fa tony sy milamina,
+	Eo miadana izahay.
+
+ISAN\'ANDININY :
+	Jesosy voatahy.
+	Hazony aho izao
+	Mba ho mpanompo sahy
+	Akaikin\'ny fonao.
+
+2. O ! toera-mahafinaritra
+	Akaikinao, ry Ray.
+	Eo re no tena lanitra
+	Anasanao anay.
+	Jesosy voatahy, sns.
+
+3. O ! toera-mahafinaritra
+	Akaikinao, ry Ray.
+	Fa toera-mahasambatra
+	Eo ho faly izahay.
+	Jesosy voatahy, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '211',
+  '211',
+  'AOKA HOMBAN\'NY ELATRAO',
+  'M. Randriamiarana',
+  'M. Randriamiarana',
+  'Do dia Eb 4/4 ',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. Aoka homban\'ny elatrao ;
+	Ny fifankatiavanay.
+	Ny Fanahy Masinao
+	No hitarika anay.
+
+ISAN\'ANDININY :
+	Ny fiainana any an-danitra
+	\'Zay feno fitiavana.
+	No irinay hiainanay
+	Dieny ety ka hatrary.
+	Ry fitiavana ô,
+	Meteza hiaraka aminay.
+
+2. Kendrena mba hirindra
+	Sy ho tsara indrindra
+	Hatrizao ny fiainanay,
+	Ho voninahitry ny Ray.
+	Ny fiainana, sns.
+
+3. Enga anie \'zahay izao
+	Samy hotoloranao
+	Ilay tany vaovao
+	Mirindra sy mirenty ao.
+	Ny fiainan-danitra
+	\'Zay feno fitiavana.
+	No irinay hiainanay
+	Dieny ety ka hatrary.
+	Andriamanitra ô,
+	Meteza hiaraka aminay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '212',
+  '212',
+  'RY TOMPO ZANAHARINAY',
+  'L. Bourgeois',
+  'Hira Anglikana',
+  'Do dia A 4/4 ',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. Ry Tompo Zanaharinay,
+	Manati-tsaotra izahay,
+	Fa efa novelominao
+	Ka tratra izao anio izao.
+
+2. Ny haizina efa lasa izao,
+	Mazava no naposakao;
+	Levony koa ny otanay,
+	Ka hazavao ny hevitray.
+
+3. Ny asanay atao anio
+	Atrehonao ka mba tahio,
+	Hatao ho voninahitrao,
+	Handraisanay ny hantranao.
+
+4. Derainay Ianao, ry Ray,
+	Derainay Jeso Tomponay,
+	Derainay ny fanahy koa,
+	Derainay fa Mpamonjy soa.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '213',
+  '213',
+  'HE TSARA NY MPIRAHALAHY',
+  'C. Malan',
+  'A. R. Marnoel',
+  'Do dia C 4/4 Mientanentana',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. He ! tsara ny mpirahalahy
+	Iray fitia mivory \'zao 
+	Ka hazavainao, ry Fanahy,
+	Entanin\'ilay afonao.
+	Ny vavaka sy hira ataony
+	Dia tena fofomanitra
+	Ny vavaka sy hira ataony
+	Tafakatra ao an-danitra.
+
+2. Eo anoloanao, ry Mpamonjy,
+	Firaisan\'olo-masina.
+	Eo no mihoby ny voavonjy,
+	Voafidy sy voafantina.
+	Eo izy no mifalifaly
+	Amin\'ny fo finaritra ;
+	Eo izy no mifalifaly
+	Mihoby ny Mpanavotra.
+
+3. Ka n\'aiza n\'aiza ivoriana
+	Dia misy hoby avokoa,
+	Manjaka ao ny fifaliana
+	Fa tena henika ny soa.
+	Ny famindrampo taminao ;
+	Ny fiangonanao mahazo
+	Ny hery tena manavao.
+
+4. Ry Rainay tsara arotsahy,
+	Hitondra fiadanana,
+	Ny hasoavan\'ny Fanahy
+	Noho \'Lay Mpanalalana ;
+	Ka mba ho fitia mandrakizay
+	Ho santatr\'ilay tany vao,
+	Eny, ho fitia mandrakizay
+	No hampiray ny olonao.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '214',
+  '214',
+  'EO AMIN\'I JESO',
+  'yyyy',
+  'A. R. Marnoël',
+  'Do dia Db 3/4 Marisika',
+  'NY FIANGONANA',
+  'Fotoam-pivavahana',
+  '
+1. Eo amin\'i Jeso
+	Na dia eto an-tany,
+	Mifaly re ny fo
+	Fa voavonjiny.
+	Eo amin\'ny hazo
+	\'Zay nijalian\'ny Tompo.
+	Ny fo ho sambatra
+	Sy tretrika tokoa.
+
+2. Eo misy ny fitia
+	\'Zay iraisan\'ny mpino,
+	Najoro ho doria,
+	Tsy mety hadino
+	Eo no mitaratra
+	\'Lay hazavana tsara
+	Toa jiron-danitra :
+	Filazantsara soa.
+
+3. Eo koa \'lay lalana
+	Mahavonjy na ety ;
+	\'Zay ahafahana
+	Amin\'ny ratsy ety ;
+	Eo ahitana koa
+	Sakaiza tena tsara
+	\'Zay be famindrapo
+	Be fitiavana.
+
+4. Eo koa \'lay lanivoa
+	Notrabaran\'ny ota,
+	Eo koa \'re tanan-droa
+	Mpandray ny mpanota,
+	O ! Ray iantrao izao
+	Fa novidinao \'zahay ;
+	Fihino an-tratranao
+	\'Zahay ho tena iray.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '215',
+  '215',
+  'IZAO ANIO IZAO',
+  'S. S. Wesley',
+  'Randriavoavonjy',
+  'Do dia Eb 4/4 ',
+  'NY FIANGONANA',
+  'Ny Sabata',
+  '
+1. Izao anio izao re,
+	Jehovah Tomponay
+	Sabata masinao e
+	Ka ho tsaroanay.
+	Ianao nanendry izany
+	Mba hitsaharanay.
+	Nohamasininao re
+	Ka masina aminay.
+
+2. \'Zahay ankehitriny
+	Mivory eto \'zao,
+	Tahaka ny fahiny
+	Nataon\'ny zanakao.
+	Misaotra Anao \'zahay re,
+	Ry Andriamanitra ô,
+	Henoy ny vavakay \'zao
+	Anio Sabatanao.
+
+3. Rahatrizay \'zahay
+	Ary an-tranonao,
+	O ! sambatra tokoa
+	Hahita tava Anao.
+	Haneho fanajana,
+	Hiondrika aminao ;
+	Hihira fiderana
+	Sabata toy izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '216',
+  '216',
+  'NY SABATANAO RY TOMPO',
+  'Randriavoavonjy',
+  'Randriavoavonjy',
+  'Do dia Eb 3/4 ',
+  'NY FIANGONANA',
+  'Ny Sabata',
+  '
+1. Ny Sabatanao ry Tompo,
+	No tsarovanay izao ;
+	Ka mivory ny mpanompo
+	Mankato ny didinao
+	Entinay ny fanajana
+	Sy ny saotra ho Anao,
+	Ary hira fiderana
+	Nohon\'ny voninahitrao.
+
+2. Andro masina indrindra
+	Notahinao fahizay ;
+	Tsy miova, tsy mifindra,
+	Andronao Jehovah Ray.
+	Andro nitsaharanao
+	Ka mba itsaharanay ;
+	Ao an-tany vaovao
+	Mbola ho tsaroana indray.
+
+3. Tompo ô, tariho izahay
+	Mba hanao ny sitrakao ;
+	Ary hitandremanay
+	Ny Sabata Masinao.
+	Na aiza toeran-kivoriana,
+	Raha Sabata toy izao,
+	Arotsahy ny fitahiana
+	Ho amin\'ny vahoakanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '217',
+  '217',
+  'TSAROANAY TOKOA IZAO',
+  'R. Henriksen',
+  'F. Ramanantsialonina',
+  'Do dia Ab 6/4 ',
+  'NY FIANGONANA',
+  'Ny Sabata',
+  '
+1. Tsaroanay tokoa izao
+	Sabata masinao
+	\'Zay mahafaly, mahasoa,
+	Maneho ny hajanao.
+
+ISAN\'ANDININY :
+	Ry Tompo, deraina Ianao
+	Fa Mpahary tokoa
+	Tahionao \'ty andro \'ty
+	\'Zay lova hatrary.
+
+2. Ry Tompo ô, misaotra Anao
+	Izahay zanakao
+	Ny teninao \'zay manavao,
+	Manova ny fonay.
+	Ry Tompo, sns.
+
+3. He ! tazanay sahady re
+	Ny voninahitrao.
+	Fa andro soa sy lehiba
+	natokana ho Anao.
+	Ry Tompo, sns.
+
+4. Tohano ny mpanomponao
+	Hatoky tsara izao.
+	Hanaja sy hitandrina
+	Ny andro masina.
+	Ry Tompo, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '218',
+  '218',
+  'MIDERA ANAO \'ZAHAY',
+  'Ancien and modern',
+  'B. Andriantsizafy',
+  'Do dia Bb 4/4 ',
+  'NY FIANGONANA',
+  'Ny Sabata',
+  '
+1. Midera Anao \'zahay,
+	Ry Ray malala,
+	Fa tratr\'izao andro soa lehibe
+	Dia ny Sabatanao
+	\'Zay fifalianay
+	Ka dera saotra no atolotray.
+
+ISAN\'ANDININY :
+	Enga anie, Jeso,
+	Hitohy hatrary
+	\'Zao fiderana izao
+	\'Zay entinay.
+
+2. Ny fitahianao,
+	Ny herinao koa
+	Nampanantenainao
+	Homena anio,
+	Mba arotsahy, Jeso,
+	Aty am-ponay
+	Ho hery manavao ny tenanay.
+	Enga anie, Jeso, sns.
+
+3. \'Zay tadiavinay
+	Anio, Jeso ô !
+	Ny hitoeranay ao aminao ;
+	Ny asa izay atao
+	Aoka, Jeso ô !
+	Ho eo ambany fitarihanao.
+	Enga anie, Jeso, sns.
+
+4. Ka ny Fanahinao
+	Hitoetra am-ponay
+	Hahaizanay mba hanaja Anao ;
+	Sy hahatonga anay
+	Mba ho mpandova
+	\'Lay lanitra ary ny tany vaovao
+	Enga anie, Jeso, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '219',
+  '219',
+  'TSAROANAY MAIVANA',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia D 3/4 Moderato - Animato',
+  'NY FIANGONANA',
+  'Ny Sabata',
+  '
+1. Tsaroanay maivana ny adinay ;
+	Ny hasasaranay tsy henonay.
+	Fa fitsaharana atolotrao
+	Ka fifalianay ny Sabatanao.
+
+ISAN\'ANDININY :
+	Raiso re, Tompo ô,
+	Ny saotra vokatry ny fo
+	Fa taratra avy ao Edenanao
+	Ny fiadanan\'ny Sabatanao.
+
+2. Ny sainay reraka, mahery indray
+	Fa aina velona no azonay ;
+	Ny fonay reraka, tohananao,
+	Mahery noho ny Sabatanao.
+	Raiso re, Tompo ô, sns.
+
+3. Ny fiadananao hiainanay,
+	Ny fitahianao no tanjakay,
+	Fa hitanay tokoa ny herinao
+	Avy ao anatin\'ny Sabatanao.
+	Raiso re, Tompo ô, sns.
+
+4. Maniry izahay hanompo Anao
+	Sy mba hitandrina ny didinao.
+	O, hamasino re ho zanakao,
+	Hahay manaja ny Sabatanao.
+	Raiso re, Tompo ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '220',
+  '220',
+  'SABATA MASINAO',
+  'Rasamoelina',
+  'Rasamoelina',
+  'Do dia G 4/4 ',
+  'NY FIANGONANA',
+  'Ny Sabata',
+  '
+1. Sabata Masinao,
+	Andriamanitray,
+	No nitsaharanao,
+	Ka itsaharanay.
+	Sabata Masinao,
+	Ry Tompo tianay,
+	Izao anio izao
+	Ka ifalianay.
+
+ISAN\'ANDININY :
+	Sabata Masinao,
+	Andriamanitray,
+	No nitsaharanao,
+	Ka itsaharanay.
+
+2. Sabata Masinao,
+	Jehovah Tompo soa.
+	No voatahinao
+	Ka maminay tokoa.
+	Sabata Masinao, sns.
+
+3. Sabata Masinao,
+	Ry Ray malalanay,
+	Nohamasininao
+	Ka hamasininay.
+	Sabata Masinao, sns.
+
+4. Sabata Masinao,
+	Ry Jeso Tomponay,
+	No tena andronao
+	Ka ivavahanay.
+	Sabata Masinao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '221',
+  '221',
+  'AZA MANADINO AHY',
+  'FFPM617',
+  'Ramahandry',
+  'Do dia F 4/4 ',
+  'NY FIANGONANA',
+  'Ny Sabata',
+  '
+1. Aza manadino ahy,
+	Ry Mpihaino vavaka !
+	Aza mba manary ahy
+	Hanalavitra Anao ;
+	Mitodiha, ry Mpanjaka !
+	Ka jereo ny olona ;
+	Aza manadino ahy,
+	Ry Mpihaino vavaka !
+
+2. Ianao no fiereko,
+	Vatolampy heriko ;
+	Na kamboty aza aho,
+	Faly manana Anao ;
+	Afa-tahotra ny foko,
+	Raha miandrandra Anao ;
+	Aza manadino ahy,
+	Ry Mpihaino vavaka !
+
+3. Eny, Ianao no Raiko,
+	Ka hatoniko izao ;
+	Nefa ny fahadalako
+	Aza mba heverinao;
+	O ! ampifalio aho,
+	Ka ombay ny elatrao ;
+	Aza manadino ahy,
+	Ry Mpihaino vavaka !
+
+4. Tabataba lalandava
+	No mba hitako izao,
+	Ka izahoi te ho tonga
+	Ao am-pitsaharanao ;
+	Mitenena ry Jehovah !
+	mamalia ahy izao ;
+	Aza manadino ahy,
+	Ry Mpihaino vavaka !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '222',
+  '222',
+  'NY ANDRO MASIN\'NY SABATA',
+  'William B. Bradbury - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia Bb 4/4 ',
+  'NY FIANGONANA',
+  'Ny Sabata',
+  '
+1. Ny andro masin\'ny Sabata
+	Dia voatahy
+	Ka tiako indrindra
+	Noho ny fitahiana hita ao.
+	Atsahatray ny asanay ;
+	Avela ny lalao.
+	Dia miomana hivavaka
+	Sy hamaky teny.
+
+2. He ! tiako koa ny mianatra
+	Sekoly Sabata.
+	Mihaino ny tantara soa
+	Milaza an\'i Jeso.
+	Ny sabata hariva indray
+	manao ny asa soa ;
+	mamangy sy mihira koa
+	Eran\'ny tanàna.
+
+3. Fa raha milentika indray
+	Ilay masoandro
+	Dia he ! mivory indray
+	\'Zahay hisaotra ilay Ray.
+	He tiako re ny Sabata
+	\'Zay itahiana anay
+	Ka ho tsarovako tokoa
+	Mandritra ny andro.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '223',
+  '223',
+  'ANIO NO ANDRO',
+  'W. M. J. Kirkpatrick',
+  'D. Rasolonjatovo',
+  'Do dia Ab 4/4 ',
+  'NY FIANGONANA',
+  'Ny Sabata',
+  '
+1. Anio no andro natao ho anay
+	Andro masina :
+	Fihaonanay aminao, ry Ray,
+	Hifandraisana.
+	Ka faly izahay
+	Tafahaona indray.
+	Mihaona aminao, ry Ray,
+	\'Zao Sabata izao.
+
+2. Fa heniky ny fitiavanao
+	Ny androm-piainanay
+	Ka he tratr\'izao
+	Sabata izao
+	Hitsaharanay.
+	Tsaroanay soa tokoa
+	Ny fitiavanao.
+	Misaotra Anao \'zahay, ry Ray,
+	Fa notahianao
+
+3. He ! andro notahianao anio,
+	Tompo tsara ô,
+	Ka diovy re ny fonay hadio
+	Mba ho zanakao.
+	Tompo tia, ô ! avia,
+	Raiso re izao.
+	Diovy re ny fonay hadio
+	Dia ho lapanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '224',
+  '224',
+  'INDRO FA MISOKA IZAO',
+  'Willson F. Sewin - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia Ab 6/4 ',
+  'NY FIANGONANA',
+  'Ny Sabata',
+  '
+1. Indro fa misoka izao
+	\'Lay masoandro tazanao.
+	Manatona avia derao
+	Ny Mpamorona anao.
+	Ankalazao.
+
+ISAN\'ANDININY :
+	Dera, haja, saotra.
+	Atolotray,
+	Ho Anao, Jehovah Ray.
+	Mendrika asandratray
+	Mandrakizay.
+
+2. Ny ota maro izay natao
+	Tompo ô, mba avelao
+	O ! diovy ka sasao
+	Ny fonay re anjakao
+	Mba ho Anao
+	Dera, haja, saotra, sns.
+
+3. Ny fiadananao izao
+	Ampombay ny olonao
+	Hampitony, hanavao
+	Ka hameno hatrizao
+	Ny fiainanay.
+	Dera, haja, saotra, sns.
+
+4. O ! ekeo ny vavakay
+	Sy ny saotra entinay
+	Ka ny voninahitra
+	Ho Anao maharitra
+	Mandrakizay.
+	Dera, haja, saotra, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '225',
+  '225',
+  'ANDRO MALAZA SY MENDRIKA SOA',
+  'Raymond Browning',
+  'D. Rasolonjatovo',
+  'Do dia Bb 6/8 ',
+  'NY FIANGONANA',
+  'Ny Sabata',
+  '
+1. Andro malaza sy mendrika soa
+	\'Lay andro izay nitsaharan\'ny Ray.
+	Ny zavaboary he mifaly avokoa
+	He ! faly fa hiala sasatra indray.
+	Ry Zanahary, Tompo tia ô !
+	Ampifalio izao ny fonay,
+	Mba tsy hanary ny fombanao.
+	Tsy hanadino ilay hatrizay,
+	Ilay Sabata natao ho anay,
+	Ilay tsangambaton\'ny Ray.
+
+2. Andro tsy tontan\'ny ela hatrizay
+	Na dia natopan\'ny onja aza izao.
+	Andro natao hamantarana izay,
+	Ireo vahoaka manaraka Anao.
+	Ry Zanahary, Tompo tia ô !
+	Ampifalio izao ny fonay,
+	Mba tsy hanary ny fombanao.
+	Tsy hanadino ilay hatrizay,
+	Ilay Sabata amantarana anay,
+	Ilay famantaran\'ny Ray.
+
+3. O ! andro masina, kanto tokoa
+	Mamirapiratry ny endrikao,
+	Andraisanay fitahiana sy soa
+	\'Lay andro masina izay manavao
+	Ry Zanahary, Tompo tia ô !
+	Ampifalio izao ny fonay,
+	Mba tsy hanary ny fombanao.
+	Tsy hanadino ilay hatrizay,
+	Ilay Sabata anamasinana anay,
+	Sy manavao ny fonay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '226',
+  '226',
+  'FOTOANA SOA',
+  'R. Henriksen',
+  'S. Razanajatovo',
+  'Do dia Ab 6/4 Allegro',
+  'NY FIANGONANA',
+  'Sekoly Sabata',
+  '
+1. Fotoana soa sy mamiko,
+	Jeso Mpamonjiko,
+	Ny mianatra eo an-tongotrao
+	Ny teny masinao
+
+ISAN\'ANDININY :
+	Mitenena, Tompo ô !
+	Ao am-poko Ianao
+	Ka aoka ny finoako re
+	Hitombo hery anie
+
+2. Iriko indrindra, Jeso ô !
+	Handrehitra tokoa
+	Ny afon\'ny fitiavako
+	Izay voambaranao.
+	Mitenena, sns.
+
+3. Ny teninao ianarako
+	Manetsika ahy ho tia
+	\'Lay andronao andrasako :
+	<< Jesosy ô ! avia >>
+	Mitenena, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '227',
+  '227',
+  'NY ANDRONAO RY TOMPONAY',
+  '(Tsy fantatra)',
+  'F. Ramanantsialonina',
+  'Do dia Db 4/4 ',
+  'NY FIANGONANA',
+  'Sekoly Sabata',
+  '
+1. Ny andronao, ry Tomponay,
+	Milaza ao am-ponay ao
+	Fa lehibe ka sitrakay
+	\'Lay fitiavanao izao.
+
+2. Sabatanao dia lova soa,
+	Nomena hitsaharana.
+	Ka fitahiana sy tombotsoa,
+	Tena hasambarana.
+
+3. Ny hafatrao, ny teninao,
+	Mamelombelona ny fo
+	No renay izao ka sitrakay.
+	Fanavaozana tokoa.
+
+4. Ny herin\'ny : FANAHINAO
+	Hanampy anay mpanompo
+	Mba hankato ny didinao,
+	Hiadananay tokoa.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '228',
+  '228',
+  'EO AN-TONGOTRAO RY JESO',
+  'HL176',
+  'A. R. Marnoël',
+  'Do dia G 6/4 Marisika',
+  'NY FIANGONANA',
+  'Sekoly Sabata',
+  '
+1. -TONGOTRAO RY JESO
+
+1
+	Eo an-tongotrao, ry Jeso,
+	Tonga hianatra
+	Izahay ka alefaso
+	Ilay Mpananatra.
+
+ISAN\'ANDININY
+	Tompo ô ! ambarao
+	Ilay fitia ambony ;
+	Mba ho tspanay hatrizao,
+	Ny tena vidiny.
+
+2. Hazavain\'ity Sekoly
+	Ka hita ilay hazo,
+	Teo nandresy ny devoly
+	Ilay Mpanjakanay.
+	Tompo ô! ambarao, sns.
+
+3. Asehoy anay, ry Tompo,
+	Fahitana vaovao;
+	Atoroy aty am-ponay
+	\'Zay tena lalanao.
+	Tompo ô! ambarao, sns.
+
+4. Eo an-tongotrao, ry Jeso,
+	Tonga hianatra
+	Ny fanahinay vokiso
+	Ny mofon-danitra.
+	Tompo ô! ambarao, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '229',
+  '229',
+  ' TAZONY AHO',
+  'J. Gloeser',
+  'Rajoelison',
+  'Do dia F 4/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Tazony aho hatrizao
+	Ho eo anilanao, ry Ray,
+	Hanaraka ny dianao
+	Anio mandrakizay ;
+	He mora kivy \'zany fo
+	Ka mba tohanonao tokoa
+	Fikiro tsy hiala,
+	fandrao misalasala.
+
+2. Raha sendra ka variana ety
+	Sy mankafy ny tany
+	Ka manadino ny ary,
+	Tazony mafy ihany
+	Lazao fa tsara lavitra
+	\'Lay toeram-boninahitra
+	Miandry ao ambony
+	Tsy misy ota intsony.
+
+3. Tsinjovinao ny diako izao,
+	Arovy sy tantano
+	O ! asehoy ny herinao
+	Raha tondraka ny rano
+	Tazony re ny tanako
+	Ka andrandrao ny masoko
+	Hibanjina hatrany
+	Ilay Kanana any.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '230',
+  '230',
+  'O, TENY FIKASANA',
+  'Mrs G. H. Morris',
+  'Rajoelison',
+  'Do dia Bb 4/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. O ! Teny fikasana soa indrindra
+	Kristy mitarika ny lalako
+	Ny tanany no mampirindra
+	Ny momba ny fiainako.
+
+ISAN\'ANDININY :
+	He ! sambatra aho re
+	Nametraka aminao \'zao
+	Ny androko Mpamonjy tia
+	Ny fiainako tontolo
+	Satria Ianao nisolo
+	\'Reo fahotako marobe.
+
+2. Ny masonao mitazana ny diako
+	Ny saina atolotrao, mitarika
+	Any aminao no hitodiako,
+	Ny lanitra no marika
+	He ! sambatra aho re, sns.
+
+3. Na dia tsy hitako izay hombana
+	Fa maizina ny eo alohako
+	Ny tananao no he ! mitana
+	Tsy misy hatahorako.
+	He ! sambatra aho re, sns.
+
+4. Endrey ny hasambarana sy toky
+	mahampoka izao ny fiainako
+	Fa manana Anao ho zoky
+	Mandahatra ny lalako.
+	He ! sambatra aho re, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '231',
+  '231',
+  'ANTSOY JESO',
+  'A. Ekrede',
+  'Rajoelison',
+  'Do dia G 4/4 Miadana',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Antsoy Jeso, raha tonga ny maraina
+	\'Zay mampivelatra ny raozy soa.
+	Antsoy Jeso fa Izy anton\'aina
+	Mamelona ny fo sy saina koa.
+
+2. Antsoy Jeso mba ho mpiara-dia
+	An-dàlana izay diavinao ;
+	Antsoy Jeso, Sakaiza tena tia,
+	Ho aro, toky sady tanjakao.
+
+3. Antsoy Jeso, raha sendra ka tomany
+	Tsindrin\'ny ota be izay natao ;
+	Antso Jeso, Ilay nitondra izany,
+	Ka maty mba hanavotra anao.
+
+4. Antsoy Jeso, ny vavakao ho reny,
+	Ny sentonao tsy miafina aminy ;
+	Antsoy Jeso, inoy re ny Teny ;
+	Ny zava-tsarotra halaminy.
+
+5. Antsoy Jeso, raha mila ho variana
+	Amin\'izao fiainana eto izao ;
+	Antsoy Jeso fa Izy fifaliana,
+	Harena soa sy tena lovanao.
+
+6. Antsoy Jeso, raha tonga ny hariva,
+	Manaloka ny haizim-pasana ;
+	Ny masoandronao koa efa iva,
+	Antsoy Jeso,  \'zay Fitsanganana.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '232',
+  '232',
+  'MIHAINOA TOMPO O!',
+  'H. A. Miller',
+  'Rajoelison',
+  'Do dia Eb 4/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Mihainoa, Tompo ô !
+	Ny fivavakay anio.
+	Raisonao ankehitrio
+	Ny fisaoranay Anao.
+
+2. Manatreha, Tompo ô,
+	\'Reto zanakao anio ;
+	Akaikezo ka tahio ;
+	Hafanao ho tia Anao.
+
+3. Mamelà, ry Tompo ô,
+	Ny otanay rehetra anio ;
+	Dia ovay sy ahitsio
+	Izahay ho olonao.
+
+4. Mitariha, Tompo ô,
+	\'Reto ondrinao anio,
+	Dia arovy ka ampio
+	Mba ho tonga am-balanao. Amen
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '233',
+  '233',
+  'TOMPO MALALA, FENO HATSARANA',
+  'Luttroth',
+  'J. Rabarijoël',
+  'Do dia Eb 4/4 Andantino',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Tompo malala feno hatsarana,
+	Tena irinay ny hahita Anao,
+	O ! asehoy aminay hatrizao,
+	:,: Ny herinao mahavonjy tokoa. :,:
+
+2. Tompo Tsitoha, Tompo tena tia,
+	Mamboatra fonenan-tsoa tokoa,
+	O ! aza avela, baboy avokoa
+	:,: Mba ho Anao re ny fonay izao. :,:
+
+3. Tompo mahery, aza ela loatra
+	Fa sasa-miandry Anao ny olonao
+	O ! misehoa amin-kery izao.
+	:,: Ianao irery no fiononanay. :,:
+
+4. Tompo, faingàna fa tsy mahatamana
+	Ny tany izay onenanay izao,
+	Irinay ny hitoetra aminao.
+	:,: Anilanao, eo no honenanay. :,:
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '234',
+  '234',
+  'RY RAY O, HENOY',
+  'Hoffmann',
+  'J. Rabarijoël',
+  'Do dia C 4/4 Moderato',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Ry Ray ô, henoy ny vavakay
+	Atolotray ankehitrio
+	Mba ho fankasitrahanay
+	Ny fitiavanao anay.
+	Na ratsy aza izahay,
+	Nandà ny sitraponao,
+	Tsy nankato ny teny soa,
+	Dia mbola nomenao indrafo.
+	Isaoranay ny anaranao.
+
+2. Ny tena irinay hatrizao :
+	Hanompo sy hanaja Anao,
+	Hanao \'zay tianao tokoa
+	Sy hankato ny didinao.
+	Ny fonay manontolo, re,
+	Ny hery sy ny sainay,
+	Ny andro manontolo, e,
+	Ho entinay eo an-tongotrao,
+	Ry Ray ô, ka raiso hatrizao.
+
+3. Raha avy ilay andro lehibe
+	Hihaonanay ao aminao,
+	Hasandratray ny hira, re,
+	Hidera ny fitiavanao.
+	Ry Ray, diovy ny fonay,
+	Havaozy ny toetray
+	Ho mendrika ny lanitra,
+	Ho tretrika sy finaritra.
+	Henoy re ny vavakay. Amen.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '235',
+  '235',
+  'MBA MAMINDRA FO',
+  'D. Razafindramanana',
+  'D. Razafindramanana',
+  'Do dia C 6/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Mba mamindrà fo aminay Tompo ô !
+	Fa mila ho reraka ny fonay.
+	He ! indro miankohoka 
+	Eo amin\'ny tongotrao \'zahay,
+	Mitady fiainana.
+	Ny fitianao no hianteheranay izao.
+	Mpanota izahay ka mibebaka
+	Dia mangataka aminao ny hery,
+	Mba mihainoa, Tompo ô !
+
+2. Raha sendra ka diso ny alehanay,
+	Tariho sy tantano ny dianay.
+	Tsy mba misy izay itokianay ety
+	Afa-tsy izay lazainao fa mendrika.
+	Ny fitiavanao no hianteheranay izao.
+	Mpanota izahay, ka tsy mendrika
+	Ny hiantso ny Anaranao, Ray,
+	Ekeo ny fivavakay.
+
+3. Raha solafaka ety ny fiainanay
+	Areno fa kely ny herinay.
+	Eo aminao no miantoraka \'zahay, ry Jeso,
+	Mifona fa meloka.
+	Ny fitiavanao no hianteheranay izao.
+	Raha avy Ianao, Ianao Jeso ô  !
+	Aoka ho isan\'ny voaomana tokoa,
+	Ny mpanompokelinao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '236',
+  '236',
+  'TOMPO MALALA',
+  'Raobijaona',
+  'Raobijaona',
+  'Do dia D 4/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Tompo malala ô ! jereo \'zahay,
+	Fa osa ny fo tsy arovanao.
+	Ka arotsahy ao anatinay,
+	Hiasa ao am-po, ny Fanahinao.
+
+ISAN\'ANDININY :
+	Henoy ny feonay
+	Mitalaho izao.
+	O ! mba ekeo, ry Ray,
+	\'Zao vavakay izao.
+
+2. Tompo malala ô ! ampionao
+	Ireto ondry mila hery vao.
+	Omeo saina vonona hatrizao
+	Mba ho mpandresy \'reto zandrinao
+	Henoy ny feonay, sns.
+
+3. Tompo malala ô ! aza afoinao
+	\'Reto fanahy, eny mitoreo.
+	O ! mba trotroy eo an-tratranao.
+	Tompo malala, mba ekeo re.
+	Henoy ny feonay, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '237',
+  '237',
+  'JESOSY O! MPAMONJY',
+  'Raobojaona',
+  'Raobojaona',
+  'Do dia F 6/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Jesosy ô ! Mpamonjy
+	Ombay ny herinao
+	Ny fiezahanay
+	Hanatona Anao.
+	Raha indro mafy ny ady
+	Ka maizina ny dia,
+	Ianao Jeso tia,
+	Ianteheranay.
+
+2. Raha indro ka mahery
+	\'zany filan\'ny nofo,
+	O ! aza avela ho resy
+	\'Zahay mpanomponao.
+	O ! aza afoinao re
+	Fa osa izahay.
+	Ianao manan-kery
+	Mahavonjy anay.
+
+3. Sasao madio ny fonay
+	Mba hitoeranao,
+	Ry Tompo tia any
+	Ekeo hatrizao,
+	Ka izahay mpanota
+	Ho mendrika tokoa
+	Handova famonjena
+	Raha ho avy Ianao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '238',
+  '238',
+  'TOMPO O! MBA TONEO',
+  'E. Razakarivony',
+  'E. Razakarivony',
+  'Do dia F 4/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Tompo ô, mba toneo re,
+	\'Zato tebitebin-tsaiko.
+	Mila hampivadi-po
+	Sady sarotra tsy haiko.
+	Mampihorohoro lava
+	Sy mandreraka ny fo ;
+	Nefa raha tonenao
+	Dia ho resy ny manjo.
+
+2. Tompo ô ! ampangino re,
+	\'Zato herin\'onja iainako
+	Misamboaravoara
+	Mila hanafotra ny fiainako.
+	Izaho mantsy ra sy nofo,
+	Olombelona ihany ;
+	Ka ny heriko tsy ampy
+	hanoherana izany.
+
+3. Tompo ô ! mba sitrano re,
+	\'Zato ratra ato am-poko ;
+	Ka sosloy fifaliana
+	Izany sento sy toloko.
+	Fa izay sitraninao,
+	Tsy ho orin-java-tsoa.
+	Eny, sambatra aoka izany,
+	Tena tretrika tokoa.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '239',
+  '239',
+  'AKAIKY AHY NY TOMPO',
+  'B. D. Ackley',
+  'D. Rasolonjatovo',
+  'Do dia D 4/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Akaiky ahy, akaiky ny Tompo
+	Raha mitaraina aho.
+	Eny, fitia mitafotafo,
+	Raha mitaraina aho.
+	Raha mitaraina aminy aho,
+	Raha mitalaho aminy aho,
+	Izy manambara fa hihaino,
+	Raha mitaraina aho.
+
+2. Tsy lavitra ahy ny fitiavany,
+	Raha mitaraina aho,
+	Fa omeny ho ahy ny rany,
+	Raha mitaraina aho.
+	Raha mitaraina aminy aho,
+	Raha mitalaho aminy aho,
+	Izy efa tia ka he mamonjy,
+	Raha mitaraina aho.
+
+3. Ho lovako izao ny tany,
+	Raha mitaraina aho.
+	Ho foiny ho ahy izany,
+	Raha mitaraina aho.
+	Raha mitaraina aminy aho,
+	Raha mitalaho aminy aho,
+	Satro-diadema omeny ahy.
+	Raha mitaraina aho.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '240',
+  '240',
+  'NY FITAHIANAO RE, RY TOMPO TIA',
+  'Netherland Folk Song - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia D 3/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Ny fitahianao re, ry Tompo tia,
+	No mba arotsahy aminay eto anio
+	Ireo tsorankazo manitsy ny dia
+	Isaoranay Anao ka avia mba ampio.
+
+2. Ianao \'zay Mpitarika tsara indrindra
+	Tsy mba mahafoy fa mitantana anay
+	Fa he mampahery ary mampirindra
+	Nt dia ho tody ao ho mandrakizay.
+
+3. Ireo fanejehana dia tsy mankaiza
+	Ka tsy hampimalo anay olonao
+	Fa ho voninahitrao na aiza na aiza
+	\'Zahay ho tena vavolombelonao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '241',
+  '241',
+  'MPIANDRY TIA O!',
+  'John W. Peterson - Mamy Ratsirison',
+  'A. R. Marnoël',
+  'Do dia C 6/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Mpiandry tia ô !
+	Vonjeo re fa very aho
+	Mpiandry tia ô !
+	Vonjeo fa he mitalaho.
+	Notadiavinao aho ka hita
+	Dia nentinao nody aho.
+	Voavonjy, eny, tafita
+	Tsy nania intsony aho.
+	Mpiandry tia ô !
+	Vonjeo re fa very aho
+	Mpiandry tia ô !
+	Vonjeo fa he mitalaho.
+
+2. Tompo tia ô !
+	Mpamonjy, Mpitarika,
+	Akaikinao tano aho tsy hisaraka.
+	Notadiavinao aho ka hita,
+	Dia nentinao nody aho.
+	Voavonjy, eny, tafita
+	Tsy nania intsony aho.
+	Tompo tia ô !
+	Mpamonjy, Mpitarika,
+	Akaikinao tano aho tsy hisaraka.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '242',
+  '242',
+  'RAHA MIVAVAKA IANAO',
+  'Audrey Mieir - Mamy J. Ratsirison',
+  'Esther Bary',
+  'Do dia G 3/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Raha mivavaka ianao
+	Hotsaroanao ve \'lay anarako ?
+	Mila fanampiana aho
+	Ka miangavy anao.
+	O ! mba tsarovy re.
+
+ISAN\'ANDININY :
+	Sakaiza ô, tsy hadinoko
+	Fa tsaroako tokoa ianao.
+	Sakaiza ô, matokia ianao,
+	Fa ho entiko am-bavaka.
+
+2. Raha mivavaka ianao
+	Mba tonony izany anarako
+	Mila an\'i Jeso ho mpiahy aho
+	Ka mangataka ho ahy.
+	Sakaiza ô, sns.
+
+3. Tsy hadinoko ianao
+	Raha mivavaka aho
+	Ka mahereza re
+	Tia anao ny Ray,
+	Itokio izay, ario ny ahiahy.
+	Sakaiza ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '243',
+  '243',
+  'TOMPO O! IRIKO IANAO',
+  'Tryggare Kan YngenVara L. M.',
+  'Esther Bary',
+  'Do dia D 3/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Tompo ô ! iriko Ianao
+	Mba hifehy ny sitrapoko.
+	O ! baboy ny fo hitony
+	Dia ho foana ny toloko.
+
+2. Ny ainao no he nomenao
+	Mba ho sorona ho ahy.
+	Fiadanana omenao,
+	Tsy mba misy mampanahy.
+
+3. Aoka re ny sitraponao,
+	Ray malala, no hatao \'zao
+	Hiray fo, fanahy sy saina,
+	Dia tsy hisy ny taraina.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '244',
+  '244',
+  'TOMPO MAHERY',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Eb 4/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Tompo mahery,
+	Henoy \'zahay
+	Vonjeo sao very
+	Jereo, ry Ray
+	Ny eo anilanao, Ray
+	Tsy mitoreo
+	Raha sendra loza indray
+	O ! aza mba mandao.
+
+ISAN\'ANDININY :
+	Ry Tompo ô mba arovy
+	Ho zanakao \'zahay
+	Malemy ka mba tsinjovy
+	\'Ndrao dia mirona indray
+	Ny eo anilanao Ray
+	Tsy mitoreo.
+	Anilanao Ray no mba maminay.
+	Ry Ray ô, mba jereo.
+
+2. Tompon\'aina
+	O ! mihainoa
+	Fa mitaraina
+	Raiso ny fo
+	Tantano ho Anao Ray
+	Ny zanakao.
+	Tsy hifandao fa hiray
+	O ! aza mba mandao
+	Ry Tompo ô mba arovy, sns.
+
+3. Tompo henoy re
+	\'Zahay izao
+	Aoka mba ho re
+	Ny feonao
+	Ny vavakay ry Ray ô
+	O ! mba valio.
+	Mba tsy hangaihay.
+	O ! aza mba mandao
+	Ry Tompo ô mba arovy, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '245',
+  '245',
+  'RY TOMPO O! AMPIO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia F 4/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. RY TOMPO Ô ! AMPIO
+	1
+Ry Tompo ô ampio
+Ny fiangonanao.
+Avia ka mba tahio
+Ny hery avy aminao
+Hitory teny soa,
+Hilaza ny hafatrao
+Ka hanafaingana tokoa
+Ny fiavianao.
+
+2
+Tohano ireo mpitory,
+Ry Tompo be fitia,
+Fa miasa mba hamory
+Ny ondry \'zay mania ;
+Raha sendra fahoriana
+Jereo fa irakao
+Ka mba ho fifaliana
+No hanompoany Anao.
+
+3Ry Tompo mitenena,
+Fohazy ny olonao
+Mba hisy hanolo-tena
+Fa vitsy ny mpanao.
+Ny fony hafanao,
+Ry Tompo lehibe,
+Ekeo ny voady \'zay atao
+Izaho koa handeha.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '246',
+  '246',
+  'RY RAINAY O, MONENA',
+  'D. Rabarijoël',
+  'D. Rabarijoël',
+  'Do dia D 3/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Ry Rinao ô, monena
+	Aty anatinay.
+	Ny sitrakao ekena
+	Ho tena sitrakay.
+	Ny otanay rehetra,
+	Ny fomba ratsy koa
+	Tsy hisy hitoetra,
+	Ariana avokoa. (avokoa).
+
+2. Antomotra ny andro
+	Hihaonana aminao ;
+	Avia, ry masoandro,
+	Irinay Ianao
+	Handroaka tokoa
+	Ny haizim-be ety
+	Sy hanazava koa
+	Ny dia hatrary. (hatrary).
+
+3. Ny herin\'ny Fanahy
+	Aoka hanavao anay
+	Ho afaka ahiahy,
+	Ho faly ny fonay,
+	Ho tafaray tokoa
+	Amin\'ny fonao, Ray.
+	Ho zanaka mamoa
+	Anao mandrakizay. (ho doria).
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '247',
+  '247',
+  'NA BETSAKA NY MPANDEHA',
+  'Gardiner L. M.',
+  'Esther Bary',
+  'Do dia Ab 3/4 ',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Na betsaka ny mpandeha
+	Na mikotaba ny antoko,
+	Mivoitra ny mpirehareha
+	Ny teninao no henoiko.
+
+2. Avy amin\'ireo mahantra
+	Sy ireo sahirana, trotraka,
+	Ireo noana sy maratra
+	Ny fonao dia mangoraka.
+
+3. \'Lay kapoaka nisotroanao
+	Mitahiry ny hasoavanao
+	Mbola eo amin\'ny endrikao
+	Ilay fangoraham-ponao.
+
+4. Mba atoroy ny olona
+	Ny lalana izay nizoranao
+	Hahatonga azy ho vonona
+	Handray ilay tanàna vao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '248',
+  '248',
+  'TSAPAKO',
+  'Deara Arson',
+  'Deara Arson',
+  'Do dia C 4/4 Miova D alohan\'ny hiditra andininy faha-4',
+  'NY FIANGONANA',
+  'Vavaka',
+  '
+1. Tsapako, Raiko ô,
+	Tsapako, tsapako
+	Ny fitiavanao any
+	Isan\'andro izao.
+	Ka mangataka aminao,
+	Omeo fo mahay mankasitraka
+	\'Ty zanakao.
+
+ISAN\'ANDININY :
+	Mankasitraka, mankasitraka.
+	Ka misaotra Anao
+	Ry malala ô.
+	Ka mangataka aminao,
+	Omeo fo mahay mankasitraka
+	\'Ty zanakao.
+
+2. Hitako, hitako,
+	Hitako, hitako ny fiahianao
+	Ahy isan\'andro izao
+	Ka mangataka aminao
+	Omeo fo mahay mankasitraka
+	\'Ty zanakao.
+	Mankasitraka, sns.
+
+3. Iainako, iainako
+	Iainako, eny ny fiarovanao
+	Manarona ny tenako
+	Ka mangataka aminao
+	Omeo fo mahay mankasitraka
+	\'Ty zanakao.
+	Mankasitraka, sns.
+
+4. Tsinjoko, tsinjoko,
+	Tazako, hitako \'Lay Tany Vao
+	Omenao hivantanako
+	Ka omeo ahy anio ny finoana
+	Mafy orina,
+	Ry Raiko ô !
+	Mankasitraka, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '249',
+  '249',
+  'MANATONA RY MPANIA',
+  'G. C. Case',
+  'F. Ramanantsialonina',
+  'Do dia D 9/8 Malefaka',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. Manatona, ry mpania,
+	Fa miantso anao ny Ray.
+	Izy Tompo be fitia,
+	Tia anao mandrakizay.
+
+ISAN\'ANDININY
+
+O! avia, ô! avia.
+	Fa mandray anao ny Ray.
+	Mamalia, ka modia
+	Fa ho zanaka indray.
+
+2. Dieny misy ny fotoana,
+	Miverena hanavao.
+	Fa ny eto dia ho foana,
+	Sao hanenina ianao.
+	O! avia, ô! avia., sns.
+
+3. \'Zao no androm-pamonjena
+	Hararaoty, tadidio.
+	Hanarenana ny tena,
+	Ka ny otanao ario.
+	O! avia, ô! avia., sns.
+
+4. O ! ry Zokiko lalaiko,
+	Tano aho ho namanao.
+	Ka ny saiko sy ny aiko,
+	Entiko hanaja Anao.
+	O! avia, ô! avia., sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '250',
+  '250',
+  'RY RAIKO, FENO HANTRA',
+  'I. D. Sankey',
+  'R. Baron',
+  'Do dia Bb 6/4 ',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. Ry Raiko feno antra,
+	Inty ny zanakao,
+	Ny foko dia mahantra
+	Raha lavitra aminao ;
+	Fa tany karankaina
+	Izao tontolo izao,
+	Ka reraka ny aina
+	Mihataka aminao.
+
+2. Nivezivezy aho
+	Nikaro-java-tsoa,
+	Izay rehetra hita
+	Nandramana avokoa ;
+	Nandany taona maro,
+	Nanaran-tsitrapo ;
+	Kanefa tsy nahazo
+	Izay mahafa-po.
+
+3. Mamitaka mihitsy
+	Izao tontolo izao,
+	Ny mamy dia mangidy,
+	\'Zay tena soa tsy ao ;
+	Koa aza mba adalainy
+	Intsony re, ry fo !
+	Andeha mba ho hendry
+	Hatramin\'ny anio.
+
+4. Ry Jeso mofon\'aina
+	Ry ranon\'aina koa !
+	Ianao no mahatony
+	Izay filan\'ny fo ;
+	Ianao no mahavoky,
+	Ianao no manome
+	Izay irin\'ny foko,
+	Dia hasambaram-be.
+	
+'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '251',
+  '251',
+  'RAISO HO ANAO NY FOKO',
+  'J. Rajoely',
+  'J. Rajoely',
+  'Do dia D 4/4 ',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. Raiso ho Anao ny foko,
+	Ry Jeso malalako ô,
+	Mandrosoa fe he vohako ;
+	Manjakà irery ao.
+
+2. Hitanao ny ahi-dratsy
+	\'Zay mamaka lalina ao,
+	Mba ongoty ka soloy
+	Voninkazo tianao.
+
+3. Ny fitiavako rantsano
+	Fa mirantsandrantsana be,
+	Rantsana iray no tano,
+	\'Lay mifikitra aminao.
+
+4. Mba tohano ny finoako
+	Hirazonany aminao
+	Ka ho hery hizakako
+	Fitondrana sitrakao.
+
+5. Enga ny fanantenana
+	Fisantarako ny ary
+	Mba tsy hanam-oiovana
+	Mandra-pialako aty.
+
+6. Ny fiainako rehetra
+	Amboary sy hatsarao
+	Dia hamoa tsy misy fetra
+	Mba ho voninahitrao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '252',
+  '252',
+  'JESO O, AMPIANARO',
+  'Raobijaona',
+  'Raobijaona',
+  'Do dia Bb 4/4 ',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. Jeso ô ! ampianaro
+	Ny lalànao izahay
+	Ka ny fonay hamasino ;
+	Ahitsio ny fiainanay.
+
+ISAN\'ANDININY :
+	Eo aminao Jeso ô !
+	No tsara ho anay
+	(Soa tokoa, hery koa, aina vao)
+	Raisonao
+	O ! raiso re.
+	(Ho Anao, raiso re \'zahay).
+
+2. Afa-tahotra ny fonay,
+	Raha ny fanahinao
+	No miasa ho anay,
+	Mandra-pahatonga anay.
+	Eo aminao Jeso ô, sns.
+
+3. Ianao no vatolampy
+	Tanjona iononam-po.
+	Eo fiarovana ampy
+	hahatony \'zany fo.
+	Eo aminao Jeso ô, sns.
+
+4. Jeso ô, Mpamonjy mora,
+	Tomoera aminay.
+	Isan\'andro, isan\'ora,
+	O ! arovy izahay.
+	Eo aminao Jeso ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '253',
+  '253',
+  'RY TOMPO MANATREHA',
+  'Chant Evangelique',
+  'Rajoelison',
+  'Do dia F 3/4 ',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. Ry Tompo manatreha
+	Izato zanakao
+	\'Zay vonona handeha
+	Hiaraka aminao.
+	Tsy haiko velively
+	Hamindra irery \'zao
+	Fa izaho dia kely ;
+	:,: Aoka ho tantananao. :,:
+
+2. Raha mamely mafy
+	Ny fahoriana re,
+	Ka, indro, fa mifafy
+	Ny ranonoram-be.
+	Hazony, Tompo, aho
+	Mba tsy handao anao,
+	(O) Ampio mba ho taho
+	:,: Hikambana aminao. :,:
+
+3. Ekeko ny hitondra,
+	Tompo, ny zioganao
+	Fa soa toa diamondra
+	Ny fitsaharanao ;
+	Hanahaka \'lay toetra
+	malemy sy madio,
+	(Te) Hanakatra ny fetra
+	:,: Jeso ô, ampio. :,:
+
+4. Endrey ny hafaliako
+	Miaraka aminao ;
+	Na sarotra ny diako,
+	Na mafy ny atao,
+	Finaritra ny saiko
+	Mbanjina hatrety
+	(Dia) \'Lay lova andrandraiko
+	:,: Miandry ahy ary. :,:
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '254',
+  '254',
+  'JESO NO MIANTSO AHY IZAO',
+  'G. Raterarison',
+  'G. Raterarison',
+  'Do dia F 4/4 Manentoento',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. Jeso no miantso ahy \'zao,
+	Antso malefaka ery.
+	Manetsika ny fo, (ny fo)
+	Hankany Kalvary.
+
+ISAN\'ANDININY :
+	O ! avia, (avia)
+	O ! avia, (avia)
+	Matokia, indro Jeso mbola tia
+	O ! avia (avia) mijere (avia)
+	Maneke ry foko zary lao.
+
+2. \'Njany re fa mandona
+	Jeso Sakaiza tsy mandao,
+	Miverena manatona,
+	Misy vonjy ho anao.
+	O ! avia, O ! avia, sns.
+
+3. Indro ny famonjena
+	Ranon\'ny batisa,
+	Halevina ny tena
+	Handova Paradisa.
+	O ! avia, O ! avia, sns.
+
+4. Ny hiara-maty aminao
+	No tena mamiko tokoa,
+	Ny batisa no hanavao,
+	Hamonjeny ny efa voa.
+	O ! avia, O ! avia, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '255',
+  '255',
+  'IZAHO MANATONA ANAO',
+  'W. B. Bradbury',
+  'A. R. Marnoël',
+  'Do dia Eb 6/4 Miadana sy malefaka',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. Izaho manatona Anao,
+	Tsy manana af-tsy \'lay ra
+	Nalatsaka ho ahy re,
+	Ry zanak\'ondry, ekeo \'zao.
+
+2. Malemy, mora mirona
+	Sy mora koa miahotra
+	\'Ty \'zaho ka matahotra ;
+	Ry zanak\'ondry, miarova.
+
+3. Ry Tompo, aoka ny fonao
+	Hambabo ny fo rstiko,
+	Hanova ny anatiko,
+	Ry zanak\'ondry, ho vaovao.
+
+4. Na dia mpanota aza teo
+	Navelanao ny heloko,
+	Atolotro ny tenako,
+	Ry zanak\'ondry, mba ekeo.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '256',
+  '256',
+  'INDRETO IZAHAY MANATONA',
+  'Henriksen-Raft',
+  'A. R. Marnoël',
+  'Do dia Eb 4/4 Antonony',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. Indreto izahay
+	Manatona Anao.
+	Maniry mba handray
+	Ny mofon-danitra,
+	Tandindon\'ny Mpamonjy
+	\'Zay nanavotra anay
+	Nanaiky fijaliana
+	Mba ho solonay.
+
+2. Ny nofony sy ra,
+	Fanati-pisoloana,
+	No hanatonanay
+	\'Zao ny latabatrao.
+	Hadisoanay sy ota
+	Aoka ho vonoinao ;
+	Havaozy indray \'zahay
+	Ho tena zanakao.
+
+3. Entinay eto izao
+	Ny tebitebinay re
+	Mba hosoloinao
+	Ny toky aminao.
+	Ilay ra sarobidy
+	No itokianay
+	Sy antenainay
+	Ny vonjy, aim-baovao.
+
+4. Mba ! vokiso \'zao
+	Ny vahoakanao, ry Ray ô.
+	Fenoy fifaliana
+	Sy fiadanam-po.
+	Omeo koa ny hery
+	Hanompoany indray,Hampiorina finoana,
+	Hanadio ny fo.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '257',
+  '257',
+  'MBA HEVERONAO ANGE',
+  'J. Ramahaisahy',
+  'J. Ramahaisahy',
+  'Do dia Bb 4/4 ',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. Mba heveronao ange !
+	Zava-dehibe,\'Zay nataon\'ny Tomponao
+	Hamonjena anao :
+	Aina no natolony
+	Mba ho avotra.
+	Manambara Ilay fitia
+	Jeso Tomponao
+	Maty tany Kalvary
+	Mba ho solonao.
+
+2. Manatona ianao,
+	Ry mpanota ô,
+	Fa Jeso no miantso izao
+	Ta handray anao
+	Izy no manolotra
+	Hery vaovao
+	Sy mamela heloka
+	Hamonjena anao.
+	Manatona re !
+
+3. Mifalia re izao,
+	Ry sakaiza,
+	Fa voavonjy ianao
+	Ka voaray.
+	Jeso Tompo tia
+	No manome
+	Lanitra sy Tany vao,
+	Hivantananao,
+	Toeram-bononahitra
+	Any an-danitra.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '258',
+  '258',
+  '\'NJAY REKO TOMPO O!',
+  'L. Hartsough',
+  'Andrianaivoravelona',
+  'Do dia Eb 3/4 ',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. \'Njay reko, Tompo ô !
+	\'Njay re ny feonao ;
+	Miantso ahy Ianao
+	Hankany Kalvary.
+
+ISAN\'ANDININY :
+	Tompo lehibe,
+	Raioso aho e !
+	Diovy ny ra soanao
+	Izay tao Kalvary.
+
+2. Malemy aho e,
+	Ka mitaraina hoe :
+	Vonjeo ny aiko, Tompo ô !
+	Vonjeo ny olonao :
+	Tompo lehibe, sns.
+
+3. Ny fiadanam-po
+	Mandresy ny manjo ;
+	Esorinao ny tahotro,
+	Ry Tompo ô ! vonjeo :
+	Tompo lehibe, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '259',
+  '259',
+  'ATOLOTRO ANAO',
+  'FFPM446',
+  'J. Andrianaivoravelona zanany',
+  'Do dia Ab 4/4 ',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. Atolotro Anao ny tenako,
+	Ry Raiko,
+	Fa Ianao no tena
+	Loharanon-tsoa :
+	Izao tontolo izao
+	Manintona ny saiko
+	Hihataka aminao,
+	Ho babony tokoa.
+
+2. Atolotro Anao ny tenako,
+	Ry Raiko,
+	Ho eo an-tànanao,
+	Ho sakambininao,
+	Ho hatanjahinao
+	Ny tena sy ny saiko,
+	Hisikina tokoa,
+	Hiady ho Anao.
+
+3. Atolotro Anao ny tenako,
+	Ry Raiko,
+	Fa izany indrindra re
+	No hetahetako ;
+	Ny ran\'ny Zanakao
+	Mitory ao an-tsaiko
+	Mba hanolorako
+	Anao ny tenako.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '260',
+  '260',
+  'HIANAO RY JESO',
+  'FFPM636',
+  'G. Mondain',
+  'Do dia F 4/4 ',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. Hianao ry Jeso ô !
+	No mba hatohinay,
+	Tompon\'ny aina
+	Tompon\'ny aina
+	Mba mihainoa ka avia.
+
+2. Mba ampangino re
+	Ny ao anatinay,
+	Tsy hisy renay
+	Tsy hisy renay
+	Rha tsy feonao.
+
+3. Aoka izahay handray
+	Ny fanavaozanao,
+	Ka mba hitovy
+	Ka mba hitovy
+	Toe-tsina aminao.
+
+4. Mafy ny adinay,
+	Ka be ny tahotray ;
+	Nefa tsy resy
+	Nefa tsy resy
+	\'Zay miankina aminao.
+
+5. Dia tafionao
+	Amin\'ny herinao,
+	Mba ho mpandresy
+	Mba ho mpandresy
+	\'Zahay mpianatrao.
+
+6. Ny fonay hafanao
+	Mba hirehetanay
+	Amin\'ny asa
+	Amin\'ny asa
+	\'Zay omenao hatao.
+
+7. Mba ho tanterakay
+	\'Zay tena anjaranay
+	Ka manomeza
+	Ka manomeza
+	Fa miray aminao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '261',
+  '261',
+  'RAISO AHO TOMPO O!',
+  'J. B. Dykes',
+  'A. E. Brockway',
+  'Do dia Ab 4/4 ',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. Raiso aho, Tompo ô !
+	Fa te ho mpanomponao ;
+	Raiso koa ny androko,
+	Ka hanarano fo izao.
+
+2. Raiso re ny tanako
+	Mba hanao ny asanao ;
+	Raiso koa ny androko
+	Ho fanirakirakao.
+
+3. Raiso ny fahaizako
+	Ento mba hanaja Anao ;
+	Raiso koa ny volako
+	Ho Anao tokoa izao.
+
+4. Raiso re ny vavako
+	Hampiseho ny hafatrao ;
+	Raiso koa ny feoko
+	Ho mpanandratra Anao.
+
+5. Raiso ny fanahiko
+	Diovy ho tempolinao ;
+	Raiso aho Tompo ô !
+	Ho Anao mihintsy \'zao.
+
+6. Ho Anao manokana,
+	Ry Mpamonjy, Tompo soa
+	Ho Anao dia Anao tokoa,
+	Ho Anao mandrakizay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '262',
+  '262',
+  '\'LAY ORA TAO GETSEMANE',
+  'E. P. Hammond',
+  'Rabary sy Rakoto',
+  'Do dia F 3/4 ',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. \'Lay ora tao Getsemane
+	Tsaroako tsara izao,
+	Fa Tompo tia sy lehibe
+	No ory loatra tao :
+
+ISAN\'ANDININY :
+	Tsaroako \'zao Getsemane
+	\'Zay niaretanao,
+	Tsy haiko hadinoina re
+	\'Lay fahoriana tao.
+
+2. Ny mpianatrao malalanao,
+	Natory avokoa ;
+	Nafoin\'izao tontolo izao
+	Jesosy Tompo soa :
+	Tsaroako \'zao, sns.
+
+3. Nanjary rà ny dinitrao
+	Noho ny helokay ;
+	Fadiranovana Ianao
+	Nisolo voina anay :
+	Tsaroako \'zao, sns.
+
+4. Soraty ao am-poko re,
+	Ho sary velona ao,
+	Ny sarin\'i Getsemane
+	\'Zay niaretanao :
+	Tsaroako \'zao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '263',
+  '263',
+  'AINA NO FETRA, RY TOMPO MPANJAKA',
+  'FFPM298',
+  'J. Andrianaivoravelona zanany',
+  'Do dia Ab 2/4 ',
+  'NY FIANGONANA',
+  'Seremônia',
+  '
+1. Aina no fetra, ry Tompo Mpanjaka !
+	Aina no fetra hanarahana Anao,
+	Ka ny faneva tsy maintsy ho zaka,
+	Ny fanompoana tsy maintsy hatao.
+
+ISAN\'ANDININY :
+	Indreto izahay hilanja faneva :
+	Ilay hazo izay
+	Nanavotana anay.
+	An-tsitrapo no anoloranay tena,
+	Ka tano mba ho Anao izahay.
+
+2. Aina no fetra ho enti-manoa
+	Ilay Zanak\'ondry nisolo anay ;
+	Fandavan-tena sy fanaovan-tsoa
+	No fianarana atolotra anay.
+	Indreto izahay, sns.
+
+3. Aina no fetra, ry Tompo malala !
+	Aina no fetran\'ny fitiavanay ;
+	Ka sanatria izay handao na hiala ;
+	Mandrakizay ho Anao izahay.
+	Indreto izahay, sns.
+
+4. Aina no fetr, ny nofo anefa
+	Mora mirona ka lavo indray,
+	Ka manampia, ry Mpandresy mahefa !
+	O ! ùba tantano, hazony izahay.
+	Indreto izahay, sns.
+
+5. Aina no fetra, ka ampio ry Fanahy !
+	Aina no fetra, Vonjeo e, ry Ray !
+	Aina no fetra, izahay re no sahy ;
+	Aina no fetra, hadresy izahay.
+	Indreto izahay, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '264',
+  '264',
+  'Ô ! FIFALIAM-BE',
+  'W. M. Miryam',
+  'Samoela Lala James',
+  'Do dia Db 3/4 ',
+  'NY FIANGONANA',
+  'Ny batisa',
+  '
+1. Ô ! FIFALIAM-BE
+	1. O! fifalim-be an-danitra any,
+	Fa ny ondry ‘zay nania hita indray
+	Tompo ô! Havaozy indray ny fony tia
+	Ho mendrika tokoa ny la soa.
+	Sambatra izahay, sambatra tafaray,
+	Amin’ny lanitra ‘ty ondrinao
+	Ho voninahitrao ny fiainany izao
+	Anio sy ho mandrakizay, Amen!
+
+2. O! fifaliam-be an-dapanao Ray,
+	Fa ny mpanota iray hosasanao
+	Ateraka indray ho olom-baovao
+	Ankasitraho Jeso ho zanakao.
+
+3. Ray ô! Tarihonao, ny lalan’ireo
+	Fa mbola sarotra ny ady hatao
+	‘Ndrao manirery re! Raha lavitra Anao
+	Tafio ‘lay herin’ny Fanahinao.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '265',
+  '265',
+  'ARY RAHA NANDEHA',
+  'L. D. Randriamampandry ',
+  'L. D. Randriamampandry ',
+  'Do dia Bb 4/4 ',
+  'NY FIANGONANA',
+  'Ny batisa',
+  '
+1. ARY RAHA NANDEHA
+	Ary raha nadeha teny an-dalana izy
+	Dia tonga teny amin\'izay nisy rano
+	Ary hoy ilay tandapa : indro rano 
+	(indro rano)
+	Ka inona moa no misakana ahy (no misakana ahy)
+	No misakana ahy (no misakana ahy) tsy 
+	hatao batisa
+	Dia nasainy nijanona (ny kalesy), ny kalesy
+	Ary izy roa lahy dia Filipo sy ilay tandapa
+	Nidina (nidina), nidina (nidina),
+	 Nidina teo amin\'ny rano
+	Dia natao batisa,
+	Dia natao batisa,
+	Dia natao batisa,
+	Dia natao batisa izy.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '266',
+  '266',
+  'HIRA NO ASANDRATRAY',
+  'George J. Elvey',
+  'Esther Bary',
+  'Do dia F 4/4 ',
+  'NY FIANGONANA',
+  'Ny batisa',
+  '
+1. Hira no asandratray
+	Hoi fisaorana ny Ray.
+	He ! ny fitahianao
+	Narotsakao ho anay.
+	Notsimbininao \'zahay
+	Ka nahazo vokatra.
+	\'Zay natao an-tsopitra.
+	Mankasitraka tokoa.
+
+2. Sahan\'Andriamanitra
+	\'Zao isika rehetra izao,
+	Samy te hamokatra
+	Na izaho na ianao.
+	Mba amboary izahay
+	Hamoa be dia be, ry Ray.
+	Hiara-paly aminao
+	Ao an-tany vaovao.
+
+3. Tompo, ho avy Ianao
+	Handray ireo vokatra
+	Izahay rehetra izao
+	Hatao ao an-tsopitra.
+	Ny ahi-dratsy dorana,
+	Ny voa tsara angonina.
+	Ho to aminay ania
+	Ny fahasoavan-dehibe.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '267',
+  '267',
+  'NY VOADY ATAO ANIO',
+  'A. Razaka',
+  'A. Razaka',
+  'Do dia F 3/4 ',
+  'NY FIANGONANA',
+  'Ny batisa',
+  '
+1. Ny voady atao anio,
+	Izao batisa izao,
+	Ry Tompo ô ! tahio
+	Sy hamasinonao.
+	Ny fanekena izay ataon\'ireo ety,
+	Mba ho mandrakizay
+	Haharitra doria.
+
+ISAN\'ANDININY :
+	He faly, ravo re ny fo Jeso,
+	Tanteraka ny faniriana soa.
+	Ny fanekena izay ataon\'ireo ety,
+	Mba ho mandrakizay
+	Haharitra doria.
+
+2. Izao tontolo izao
+	Tsy handresy azy ireo.
+	Finoana avy aminao
+	Jesosy mba omeo.
+	Ny fiainany anjakao
+	Ry Jeso Tompo tia,
+	Ny fo sy saina koa
+	Ho Anao hatrety.
+	He faly, sns.
+
+3. Raha sendra harena be
+	Sy ny fiadanana,
+	Jesosy ô ! vonjeo
+	Tsy ho variana.
+	Raha sendra olana,
+	Omeo fitiavana.
+	Jeso hanakana
+	Ny fihemorana.
+	He faly, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '268',
+  '268',
+  'EKEKO ANIO',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia F 4/4 ',
+  'NY FIANGONANA',
+  'Ny batisa',
+  '
+1. Ekeko anio
+	Fa tsy mendrika aho
+	Noho ny ota vitako.
+	Tsapako izao fa Jesosy dia
+	Maty noho ny heloko.
+
+ISAN\'ANDININY :
+	Raiso re, Tompo ô ! (Ny tenako atolotro)
+	Mba sasaonao ary anjakao.(Onenan\'ny Fanahinao)
+	Diovy re, Jeso ô (Ny foko koa atolotro)
+	Amin\'ny ranao \'zay manavao 
+	(Ô ! mba vonoy ny ota manjaka ao)
+	1. Ekeko anio fa tsy mendrika aho noho ny ota vitako       
+	2. Vonoy re Jeso ny ota vitako, vonoy fa ifonako             
+	3. Tompo ô inty ny foko ho Anao. Raiso ka anjakao. Amen !
+
+2. Vonony re, Jeso, ny ota vitako
+	Vonony fa ifonako
+	Ny batisa izay ekeko anio
+	No fanoloran-tenako.
+	Raiso re, sns 
+
+3. Ny batisa no anekeko
+	Fa maty Jeso hanadio.
+	Ry Mpamonjiko, raiso ho Anao
+	Ny fiainako ka didio
+	Raiso re, sns 
+
+
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '269',
+  '269',
+  'AMPY AHY JESO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Ab 3/4 Moderato',
+  'NY FIANGONANA',
+  'Ny fanasan\'ny Tompo',
+  '
+1. Raha mbola velona aho ka miaina ety :
+	Ampy ahy Jeso, ampy ahy Jeso.
+	\'Zay no hany faniriako Tompo ô !
+	Ny hirakitra ao am-poko fa ampy ahy Jeso.
+	Handrandraiko anio ny maso hifantoka aminao
+	Tsy hijery akory \'zany ady hanafotra ahy.
+	Ny hany hitalahoako sy hangatahiko aminao :
+	Ô ! ampy ahy Jeso, ô  ! ampy ahy Jeso.
+
+2. 
+Raha mbola velona aho ka miaina ety :
+	Ampy ahy Jeso, ampy ahy Jeso.
+	\'Zay no hany faniriako Tompo ô !
+	Ny hirakitra ao am-poko fa ampy ahy Jeso.
+	Tano mafy aho mba hifikirako aminao.
+	Tsy ahoako \'zay valifatin\'ny tsy tia
+	Ny hany hitalahoako sy hangatahiko aminao :
+	Ô ! ampy ahy Jeso, ô  ! ampy ahy Jeso.
+
+3. 
+Raha mbola velona aho ka miaina ety :
+	Ampy ahy Jeso, ampy ahy Jeso.
+	\'Zay no hany faniriako Tompo ô !
+	Ny hirakitra ao am-poko fa ampy ahy Jeso.
+	Na ho jamba aza ireo masoko ireo
+	Ka esorina amiko ny aina sy ny feo
+	Ny hany hitalahoako sy hangatahiko aminao :
+	Ô ! ampy ahy Jeso, ô  ! ampy ahy Jeso.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '270',
+  '270',
+  'TOMPONAY O!',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Bb 3/4 ',
+  'NY FIANGONANA',
+  'Ny fanasan\'ny Tompo',
+  '
+1. Tomponay ô, Mpanjaka Tsitoha,
+	Be tokoa ny fitiavanao
+	Raha ny zanaka efa nania
+	No nomenao ny famindram-po.
+
+ISAN\'ANDININY :
+	Velomy ato am-ponay lalandava
+	\'Zay namonjenao anay (ry Ray).
+	Ka ho mendrika Anao Ray malala
+	Sy hanaraka ny sitrakao.
+
+2. Tomponay ô, Mpanjaka Tsitoha,
+	Vatolampy iorenanay
+	Ny fisaorana avy ao am-ponay
+	Dia atolotra Anao Tomponay.
+	Velomy ato, sns.
+
+3. Tomponay ô, Mpanjaka Tsitoha,
+	Ny firaisanay aminao,
+	Hamafiso hitohy tsy ho rava
+	Hanompoanay Anao Tomponay.
+	Velomy ato, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '271',
+  '271',
+  'TAZANAO VE NY MPAMONJY',
+  'G. Raharinjatovo',
+  'G. Raharinjatovo',
+  'Do dia G 4/4 Miadana',
+  'NY FIANGONANA',
+  'Ny fanasan\'ny Tompo',
+  '
+1. ?
+
+1
+	Tazanao ve ny Mpamonjy
+	\'Lay niaritra tety ?
+	Eo an-tanany ny vonjy.
+	Izy dia mifona ho anao, ary
+
+ISAN\'ANDININY :
+	Vonona aho (anio mba)
+	Hanolo-tena
+	Ho Anao Mpamonjiko
+	Ilay ran\'ny fanekena
+	(Ilay ra madio azo antoka)
+	Manavao ny fiainako
+	Aoka re ny sandrinao
+	No hitantana ny dia
+	Anio ho doria.
+
+2. Ankavanan\'ny Tsitoha
+	Raisiny ny otanao
+	Azo antoka tokoa
+	Ny famonjena raiso
+	Dieny anio izao.
+	Vonona aho anio, sns.
+
+3. Andrandrao ny fijery,
+	Aza miandry fa avia.
+	Raisonao ry olom-bery
+	Fa miantso anao
+	Ny Tomponao ary.
+	Vonona aho anio, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '272',
+  '272',
+  'NANDAO NY LANITRA IANAO',
+  'J. S. Bach',
+  'R. Randriamiandriray',
+  'Do dia Eb 4/4 ',
+  'NY FIANGONANA',
+  'Ny fanasan\'ny Tompo',
+  '
+1. Nandao ny lanitra Ianao
+	Nidina teto an-tany
+	Ka nahafoy ny ainao
+	saotra Jeso ho Anao.
+
+2. Mamelà, miantrà Jeso
+	Fa tsy mendrika izahay
+	Ka ny ranao teo Kalvary
+	No hanadio ny otanay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '273',
+  '273',
+  'NY RANAO SY NY HAMARINANAO',
+  '(Tsy fantatra)',
+  'A. Emiliarison',
+  'Do dia G 3/4 ',
+  'NY FIANGONANA',
+  'Ny fanasan\'ny Tompo',
+  '
+1. Ny ranao sy hamarinanao
+	No akanjom-boninahitro,
+	Na ratsy izao tontolo izao.
+	Hifay aho miandrandra Anao.
+
+2. Ho sahy aho hanatrika Anao
+	Amin\'ny fitiavanao
+	Satria efa nodiovinao.
+	He ! af-trosa aho izao.
+
+3. Ny hazo izay nijalianao
+	No nanafahana ahy izao
+	Tsy misy atahorako
+	Satria efa navotanao.
+
+4. Inoako fa ny ranao soa
+	No entinao manalalana
+	Eo anoloan\'ny
+	Seza fiandrianam-pahasoavana.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '274',
+  '274',
+  'IANAO RY TOMPO MPAMONJY',
+  'HL380',
+  'Raymond B. Rakotondrainibe',
+  'Do dia G 3/4 ',
+  'NY FIANGONANA',
+  'Ny fanasan\'ny Tompo',
+  '
+1. Ianao ry Tompo Mpamonjy
+	Nisolo, nanavotra,
+	Niaritra sy nilonjy
+	Nandresy ny sarotra.
+
+ISAN\'ANDININY
+
+Ry Tompoko, mamiko loatra
+	Ny avotra vitanao,
+	Fitiavana tafahoatra
+	Nomenao ho ahy izao
+
+2. Tsy misy tahaka Anao
+	\'Zay tena mpanisy soa
+	Fa izao tontolo izao
+	Mamitaka avokoa.
+	Ry Tompo mamiko, sns
+
+3. Raha maizina ny aleha
+	Ka tsy hita izay hatao.
+	Jeso dia tsy mba mamela
+	Fa hiaraka aminao.
+	Ry Tompo mamiko, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '275',
+  '275',
+  'FITIAVANA TSY HAY LAZAINA',
+  'B. D. Hackley',
+  'Raymond B. Rakotondrainibe',
+  'Do dia D 3/4 ',
+  'NY FIANGONANA',
+  'Ny fanasan\'ny Tompo',
+  '
+1. Fitiavana tsy hay lazaina
+	He, azoko avy aminao,
+	Tsy avela ho very maina
+	Ry Tompo ô! ny avotrao.
+
+ISAN\'ANDININY
+
+Jeso Mpamonjiko,
+	Jeso Mpamonjiko,
+	Ka Izy no hatoniko,
+	Jeso Mpamonjiko.
+
+2. Ny otako, ny halemeko,
+	Esory hiala amiko.
+	Ny herinao no hany ekeko
+	Hambabo ny fanahiko.
+	Jeso Mpamonjiko, sns.
+
+3. Ry Tompo ô,tariho aho
+	Hanaraka ny làlanao.
+	Ka aza avela fa araho
+	Fenoy ny fanambinanao.
+	Jeso Mpamonjiko, sns.
+
+4. Ianao irery re, ry Tompo
+	No afaka hamonjy ahy.
+	Ampio aho ho mpanompo
+	Hijoro sy ho tena sahy.
+	Jeso Mpamonjiko, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '276',
+  '276',
+  'AVIA, RY MANGETAHETA O!',
+  'Johanesa',
+  'Johanesa',
+  'Do dia G 3/4 ',
+  'NY FIANGONANA',
+  'Ny fanasan\'ny Tompo',
+  '
+1. Avia, ry mangetaheta ô !
+	Ka aza dia mba mamoy fo,
+	Fa indro misy rano velona,
+	Izay omena mba hamelona
+	Anao mahantra sy variana,
+	Ry zanak\'ondry very lalana.
+
+2. Ny mofon\'aina no atolony
+	Anao manaiky mba ho olony ;
+	Ny tenany no ho fihinana,
+	Mba hahazoana fiainana ;
+	Kanefa tsy mba novidiana anie,
+	Fa tena fanomezan-dehibe.
+
+3. Jesosy Tompo no nanolotra
+	Ny rany masina ho avotra ;
+	Izany raiso mba ho tanjaka
+	Sy toky ho anao, ry reraka ;
+	Ry mpivahiny sasatra ao am-po,
+	Avia re, ka manaràna fo !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '277',
+  '277',
+  'AROVY AHO TOMPO!',
+  'N. Selnecker',
+  'L. Dahle',
+  'Do dia D 4/4 ',
+  'NY FIANGONANA',
+  'Famaranana - Tsodrano',
+  '
+1. Arovy aho Tompo
+	Atolotro izao
+	Ny tenako hanompo
+	Sy hankalaza Anao ;
+	Omeo ahy hery
+	Sy faharetam-po ;
+	Arovy tsy ho very
+	Izay anjarako.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '278',
+  '278',
+  'TOMOERA AMINAY, TOMPO',
+  'M. Vulpius',
+  'A. R. Marnoël',
+  'Do dia Eb 4/4 ',
+  'NY FIANGONANA',
+  'Famaranana - Tsodrano',
+  '
+1. Tomoera aminay, Tompo
+	Mba hamonjy anay,
+	Fa ilay fahavalonay
+	Masiaka, mifofo.
+
+2. Ry hazavana doria,
+	Ny taratrao anie
+	Hitombo ho lehibe
+	Hitsilo soa ny dia.
+
+3. Raketo aty aminay
+	Ny Teny masinao,
+	Ka ny fampianaranao
+	No ho fiainanay.
+
+4. Ny ela-pamonjenao
+	No hanomba anay,
+	Ka enga anie izahay
+	Hiadana aminao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '279',
+  '279',
+  'RY TOMPO O, TAHIO NY TENY',
+  'A. Bost',
+  'A. R. Marnoël',
+  'Do dia C 3/4 Antonony',
+  'NY FIANGONANA',
+  'Famaranana - Tsodrano',
+  '
+1. Ry Tompo ô tahio ny Teny
+	\'Zay norenesinay
+	Mba tsy hiala anie ireny
+	Fa hotsarovanay.
+
+2. Ny herinao izay miasa
+	Mba hanavao anay
+	Matoky Anao \'zahay, fa lasa
+	\'Reo fahavalonay.
+
+3. Ny voa nafafinao mazàna
+	Mba tsy mamaka koa,
+	Ny fo mandalo fitsapana,
+	Ny saina mora voa.
+
+4. Irinay, Tompo, mba hitoetra
+	Am-po ny Teninao,
+	Ho tonga hery hampivoatra
+	Ny fo ho lapanao.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '280',
+  '280',
+  'RY JESO TOMPO NY HASOAVANAO',
+  'W. H. Monck',
+  'F. Ramanantsialonina',
+  'Do dia Eb 4/4 Miadana',
+  'NY FIANGONANA',
+  'Famaranana - Tsodrano',
+  '
+1. Ry Jeso, Tompo ny hasoavanao
+	No itokianay mpanomponao ;
+	Ka mitarika ny fiainanay.
+	Aza ilaozanao, mombà anay.
+
+2. Ilay Satana fahavalonay,
+	Izay mandresy sy mandratra anay,
+	Ry Jeso, Ianao no tanjakay,
+	Arovinao re ka mombà anay.
+
+3. Injao ny loza mampangovitra,
+	Ny tranolainay mety rovitra.
+	He ! fa matahotra ny zanakao,
+	O ! mba vangio re, arovinao.
+
+4. He ! kely hery ka mivadi-po
+	Sy olon\'osa sady ory koa.
+	Mila ny afanavotanao izao,
+	Mpamonjy tia ô, arovinao.
+
+5. Ka na midona aza ny manjo
+	Mila ho reraka, mamoy fo,
+	Ny ranomaso koa mitrahotraho,
+	Arovinao re ka mba iantrao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '281',
+  '281',
+  'NY FAHASOAVAN\'I JESO KRISTY',
+  'Ch. Grégor',
+  'A. R. Marnoël',
+  'Do dia D 2/4 Miadana',
+  'NY FIANGONANA',
+  'Famaranana - Tsodrano',
+  '
+1. Ny fahasoavan\'i Jeso Kristy Tompo anie,
+	Ny fitiavan\'ny Raintsika
+	Sy ny firaisana amin\'ny Fanahy,
+	Ho amintsika,
+	Ho amintsika, Amen !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '282',
+  '282',
+  'IANAO MPANDAHATRA',
+  'Air Silésien',
+  'F. Ramanantsialonina',
+  'Do dia F 4/4 ',
+  'NY FIANGONANA',
+  'Famaranana - Tsodrano',
+  '
+1. Ianao Mpandahatra,
+	Mpandefa hafatra,
+	Ka famonjena ho anay.
+	Ô ! raisonao, ry Ray,
+	Ny haja entinay,
+	Ny dera, ho fisaoranay.
+
+2. \'Lay fanomezana,
+	Fampaherezana
+	Natolotra ho anay, ry Ray,
+	Kristy anjara soa,
+	Fiadanana tokoa
+	Sy tena loharanon-tsoa.
+
+3. Ny hasoavana
+	Ny fihavanana,
+	Natobakao ho anay
+	No mampiray izao,
+	Sy saina vaovao,
+	Ka avy aminao, ry Ray.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '283',
+  '283',
+  'NY FITIAVANAO RY RAY',
+  'R. Allan Andreson - Mamy J. Ratsirison',
+  'D. Razakaria',
+  'Do dia F 4/4 ',
+  'NY FIANGONANA',
+  'Famaranana - Tsodrano',
+  '
+1. Ny fitiavanao ry Ray
+	Aoka ho aminay ;
+	Ny fahasoavanao
+	Omeo koa Jeso.
+	Ry Fanahy ô !
+	Masina Ianao :
+	Ny firaisana aminao
+	Tanteraho izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '284',
+  '284',
+  'VONINAHITRA HO ANAO',
+  'H. W. Greatorex',
+  'D. Razakaria',
+  'Do dia Eb 4/4 ',
+  'NY FIANGONANA',
+  'Famaranana - Tsodrano',
+  '
+1. Voninahitra ho Anao
+	Ray Zanaka Fanahy Masina
+	Anao hatry ny taloha
+	Ho Anao mandrakizay
+	MAndrakizay Amen,
+	Amen.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '285',
+  '285',
+  'TOY \'ZANY KOA NO ANIRAHAKO',
+  'John E. Peterson - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia Ab 4/4 ',
+  'NY FIANGONANA',
+  'Hafatra',
+  '
+1. Toy \'zany koa no anirahako anareo
+	Hanompo tsy mitady tombotsoa
+	Mba tsy ho tezitra na hanaiga feo
+	Ka ny ratsy hovaliana ny soa.
+
+ISAN\'ANDININY :
+	Toy ny Ray naniraka Ahy
+	No anirahako.
+
+2. Izaho koa maniraka anareo
+	Hamehy fery, hanasitrana.
+	Ka ny mahory ho toy ny tsy teo,
+	Ny masiaka dia ho tsra fanahy.
+	Toy ny Ray naniraka Ahy, sns.
+
+3. Izaho koa maniraka anareo
+	Hizaka esonteny, latsa koa.
+	Ka tsy hijanona hanandra-peo,
+	Hitory ny Filazantsara soa.
+	Toy ny Ray naniraka Ahy, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '286',
+  '286',
+  'ZIONA O, MIFOHAZA IANAO',
+  'James walch',
+  'N. Ravoninjatovo',
+  'Do dia Bb 4/4 ',
+  'NY FIANGONANA',
+  'Hafatra',
+  '
+1. Ziona ô ! mifohaza ianao
+	Tafionao ny herinao izao
+	He ! maizina izao tontolo izao
+	O ! mirotsaha amin\'ny asa izao.
+
+ISAN\'ANDININY :
+	O ! mitsangàna ka mihazavà,
+	Ny Tompo momba anao
+	Hamonjy anao.
+
+2. Ziona ô ! mifohaza ianao
+	Ireo fatoranao vahao izao
+	Ny fitafianao tsara tarehy
+	Tafionao ankehitriny izao.
+	O ! mitsangàna ka mihazavà, sns.
+
+3. Ziona ô ! mifohaza ianao
+	O ! mitsangàna ka mihazavà,
+	Indro ny voninahitr\'i Jehovah
+	Efa miposaka aminao izao
+	O ! mitsangàna ka mihazavà, sns.
+
+4. Ziona ô ! mpitondra teny soa
+	Endrey ny ho avy \'zay miandry anao
+	Indro manatona ny firenena
+	Mitady famonjena eo aminao.
+	O ! mitsangàna ka mihazavà, sns.
+
+5. Ziona ô ! mifalia izao
+	Indro fa tamy ny Mpampakatra
+	Ho hitanao \'reo olom-boavonjy
+	Hiaraka, hitsena an\'i Kristy.
+	O ! mitsangàna ka mihazavà, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '287',
+  '287',
+  'EFA MADIVA HIFARANA',
+  'R. Rabenasolo',
+  'R. Rabenasolo',
+  'Do dia C 4/4 ',
+  'NY FIANGONANA',
+  'Hafatra',
+  '
+1. Efa madiva hifarana re
+	Ny tantaran\'ity tanintsika.
+	\'Reo disadisa, antambo maro,
+	Ady sy loza ho tapitra e !
+	Indro havaozin\'ny Tompontsika
+	Izao rehetra ary izao (kanefa)
+	Moa fantatrao ve fa kaly sisa,
+	Hilaozanao ny ady mafy ety ?
+
+2. Tsy vita mora ny famonjena ;
+	Kanefa kosa indro omena.
+	Raiso anio dia ho tsapanao
+	Fa sarobidy tokoa ianao.
+	Ny lanitra no ho lovanao,
+	Ny fahoriana tsy ho fantatrao (Valio re)?
+	Moa sitrakao ve ny ho tafita ?
+	Ekeo ny famonjena efa vita.
+
+3. Mila finoana ny famonjena,
+	Safidinao fa tsy terena.
+	Ilaina koa ny faharetanao.
+	O ! aza kivy, ho mpandresy ianao.
+	Hifarana izao rehetra izao,
+	Hitsangana tokoa ianao (Hidera).
+	Ka hanansra-peo sy hankalaza :
+	<<Indro fa tonga Ilay nandrasana.>>
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '288',
+  '288',
+  '\'NJAO MIBITSIKA MANGINA',
+  'R. Rabenasolo',
+  'R. Rabenasolo',
+  'Do dia Eb 4/4 ',
+  'NY FIANGONANA',
+  'Hafatra',
+  '
+1. \'Njao mibitsika mangina
+	Ao am-po, toa tsy mitsahatra.
+	<<Mbola betsaka no liana
+	Tsy nandre ny hafatra>>
+
+ISAN\'ANDININY :
+	Ny finoana voasedra
+	Dia miasa ho an\'ny Tomponao,
+	Fitiavan-tsy voafetra
+	No nitiavany anao.
+
+2. Olona maro sesehena
+	Miangavy tsy mba mitsahatra
+	Ta handray ny famonjena,
+	Itorio ny hafatra.
+	Ny finoana voasedra, sns.
+
+3. Antso maika no mibaiko
+	Miasà ka aza mitsahatra,
+	Lehibe ny valin\'asa :
+	<<Satroboninahitra>>
+	Ny finoana voasedra, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '289',
+  '289',
+  'HE NY FOKO MIANDRY AN\'I JESO',
+  'Dorothy Masters',
+  'A. R. Marnoël',
+  'Do dia D 4/4 ',
+  'NY FIANGONANA',
+  'Hafatra farany',
+  '
+1. He ! ny foko miandry an\'i Jeso.
+	Tiako ho hita ilay tavany
+	Trotraka sy ana aho noho ny diako ety
+	Iriko ny hisehoany.
+
+2. Fiainan-tsarotra izao no eto
+	Tongava, Jeso, hamonjy ny olonao.
+	Aoka tsy ho reraka na hisentosento koa
+	Ireo fa hanao ny asanao.
+
+3. He ! ny foko miandry an\'i Jeso.
+	Fanahy ô, avia hanampy anay
+	mba hitory fainaga ilay vaovao tena soa :
+	Dia Jeso ho avy handray anay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '290',
+  '290',
+  'FEO MIANTSO MAFY',
+  'G. Raharinjatovo',
+  'G. Raharinjatovo',
+  'Do dia Ab 4/4 Mavitribitrika',
+  'NY FIANGONANA',
+  'Hafatra farany',
+  '
+1. Feo miantso mafy
+	Re anivon-danitra
+	Manao hoe :
+	<<Matahora an\'Andriamanitra
+	Sy miankohofa tsara eo anatrehany
+	Fa efa nanomboka ny fitsaràny>>
+
+ISAN\'ANDININY :
+	Henonao (ve) ny hafa-dehibe ?
+	Mitsangàna izao, mihazavà ianao
+	Mialà amin\'ny ataonao
+	(Ialao, ialao ny ataonao)
+	Ho avy indray ny Tomponao
+	(Tomponao)
+	O ! miomàna ianao
+	(Miomàna, miambena, sao neninao)
+	Ny fankatoavana sy ny finoana
+	(Fankatoavana sy finoana)
+	Ka (tsenao) tsenao ny Tomponao
+	Fa ho avy tsy ho ela
+	Avy handray anao.
+
+2. Feo miantso mafy
+	Mba ho fitsaharana.
+	Amin\'ny Babilona fihemorana
+	Jesosy Mpiandry tsara
+	Haka ny ondriny
+	Misy fitoerana \'zay namboariny
+	Henonao, sns.
+
+3. Feo miantso mafy
+	Ho fampitandremana
+	Hifarana ny androm-pahasoavana
+	Izay tsy mety mino no ho helohina
+	Renao ve ny antso ka tsy hanoina ?
+	Henonao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '291',
+  '291',
+  'AINGOA NY HIRANAO RY FIANGONANA O!',
+  'Josué A. Rabarison',
+  'Josué A. Rabarison',
+  'Do dia Db 4/4 ',
+  'NY FIANGONANA',
+  'Hafatra farany',
+  '
+1. Aingao ny herinao
+	Ry fiangonana ô.
+	Ny Tompo no mibaiko :
+	<<Efao ny adidinao,
+	Esory ny ahiahy,
+	Ario ny tahotrao,
+	O ! raiso ny ampingan\'
+	Ny Tompo Tsitoha.>>
+
+2. Jeso no miantso anao
+	Ry fiangonana ô.
+	Andeha re hafaingano
+	\'Lay andro lehibe.
+	Aza misalasala,
+	O, raiso ny anjara,
+	Torio ny fiavian\'
+	Ny Mpanjaka Tsitoha.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '292',
+  '292',
+  'O! ANDAO, MITSANGANA IZAO',
+  'D. B. Towner',
+  'D. Rasolonjatovo',
+  'Do dia C 4/4 ',
+  'NY FIANGONANA',
+  'Hafatra farany',
+  '
+1. O ! andao mitsangàna izao ianao
+	Ka lazao ny fitiavan\'Ilay Tomponao.
+	Mitoria, mifalia, ka avia, malakia.
+	Ilazao \'reo havanao, ilazao \'reo nania.
+	O ! avia, (O ! avia)
+	Mitoria, (mitoria)
+	Ny fitiavan\'Ilay Jeso tia.
+
+2. Tsofy mafy hanako ny trompetranao
+	Hilazàna fa ho avy ilay Mpanjakanao.
+	Efa akaiky Izy izao, tsy ho ela, injao !
+	Hanamafy ary koa hanome valisoa.
+	O ! andao, O ! andao,
+	Mba lazao, mba lazao
+	Fa ho avy Ilay Mpanjakanao.
+
+3. Mifohaza izao ka ovay ny fonao
+	Fa andrao na mitory, hatory ianao
+	Ialao ny otanao ka ny Tomponao no araho
+	Dia hadio sy ho vao ka hahomby ianao
+	Mijoroa, mijoroa
+	Mandrosoa, mandrosoa
+	Fa akaiky ny Mpamonjy soa.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '293',
+  '293',
+  'TOMPO O, AVIA',
+  'Smuel S. Wesley',
+  'A. R. Marnoël',
+  'Do dia G 6/4 Malefaka',
+  'FITORIANA NY FILAZANTSARA',
+  NULL,
+  '
+1. Tompo ô, avia
+	Hiaraka aminay.
+	Mba tantano tsy hania
+	Fa ho tonga eo amin\'ny Ray
+	Dia ho sambatra
+	Ao an-danitra.
+
+2. Lalan-tsarotra
+	Diavinay izao
+	Hitanay fa tsy ho tratra
+	Raha lavitra Anao
+	Hafanao ny fo
+	Mba ho mpankato.
+
+3. Hafainganonao,
+	Tompo ô, ny dia
+	Mba hanao ny asanao
+	Sy hamory ny mania
+	\'Zay mba ilainay
+	Dia omeo, ry Ray.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '294',
+  '294',
+  'EFA TONGA ATY IZAO',
+  'FFPM357',
+  'J. A. Houlder',
+  'Do dia G 6/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  NULL,
+  '
+1. Efa tonga aty izao
+	Teny fiainana
+	Raiso mba ho fiainanao,
+	Teny fiainana.
+	He ! ny teny tsara,
+	Teny manan-kery.
+
+ISAN\'ANDININY :
+	Tenin\'ny Ray, tsara tokoa,
+	Teny fiainana.
+	Tenin\'ny Ray, tsara tokoa,
+	Teny fiainana.
+
+2. Io no filazantsara soa,
+	Teny fiainana ;
+	Teny mamy indrindra koa,
+	Teny fiainana.
+	Raisonao ny teny,
+	Teny soa nomeny :
+	Tenin\'ny Ray, sns.
+
+3. Ry mpanota ! henoy izao,
+	Teny fiainana ;
+	Fa fiainana ho anao
+	Teny fiainana.
+	Kristy no nomena
+	Mba ho famonjena :
+	Tenin\'ny Ray, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '295',
+  '295',
+  'MITOERA, RY JESOSY',
+  'Musique Gallois',
+  'A. Rakotovao',
+  'Do dia A 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  NULL,
+  '
+1. Mitoera, ry Jesosy !
+	Ao an-tanimbolinao,
+	Ka amboary \'zao ny voly
+	Mba hitombo sy hamoa.
+	Tomoera, tomoera,
+	Iasao ny Nosinay, (Nosinay)
+	Iasao ny Nosinay.
+
+2. Mba onenanao ny lasy
+	Itoeranay izao,
+	Ka ovay ny Malagasy
+	Mba ho tena zanakao.
+	O ! monena ; O ! monena 
+	Hazavao ny Nosinay, (Nosinay)
+	Hazavao ny Nosinay.
+
+3. Akekezo \'reo mpania
+	Tafaverina aminao,
+	Ka tantano mba ho tia
+	Ny miresaka aminao.
+	O ! tariho ; O ! tariho
+	Ho Anao ny Nosinay, (Nosinay)
+	Ho Anao ny Nosinay.
+
+4. Dia fohazy ny mpitory
+	Mba hanao ny asanao.
+	Ka hamoha ireo matory
+	Mba handre ny sitrakao.
+	Hamasino, hamasino,
+	Ho Anao ny Nosinay, (Nosinay)
+	Ho Anao ny Nosinay.
+
+5. O ! Jesosy feno antra !
+	Dera, laza, ho Anao,
+	Ny lohalika rehetra
+	Handohalika aminao.
+	Mitoera, mitoera,
+	Fa Anao ny Nosinay, (Nosinay)
+	Fa Anao ny Nosinay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '296',
+  '296',
+  'RAHA MANGORAKA NY FO!',
+  'D. W. Whittle',
+  'J. Andrianaivoravelona',
+  'Do dia D 9/8 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Raha mangoraka ny fo !
+	Ao ny Ray be indrafo ;
+	He antsoiny hianao ;
+	Moa tsy hody va izao ?
+
+ISAN\'ANDININY :
+	O ! modia (O ! modia),
+	O ! modia (O ! modia),
+	Fa miandry Kristy \'zao.
+	O ! modia (O ! modia),
+	O ! modia (O ! modia),
+	Fa miandry Kristy \'zao.
+
+2. Miverena ankehitrio,
+	Tsy ampitso fa anio ;
+	Aza mba manary dia,
+	Fa modia anio, doria :
+	O ! modia, sns.
+
+3. \'Zay rehetra maminao
+	Tsy hahafa-po anao ;
+	Jeso no anjara soa
+	Hiadananao tokoa.
+	O ! modia, sns.
+
+4. Manatona, matokia ;
+	Mandrosoa, mifalia ;
+	Kristy no fiainanao
+	Sady voninahitrao.
+	O ! modia, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '297',
+  '297',
+  '\'NJANY MISY FEO',
+  'H. J. E. Holmes',
+  'J. Rabarijoël',
+  'Do dia Eb 4/4 Expressivo',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. \'Njany misy feo
+	\'Zay manao hoe :
+	Ry mpanota ô,
+	Henoy ny teny soa.
+	Manatona ahy
+	\'Zao anio izao.
+	Aza mba manahy
+	Noho ny otanao.
+
+2. Fa ny famonjeko
+	Tany Kalvary,
+	Ho Anao tokoa
+	Ka raiso hatrizao.
+	Atolory ahy
+	\'Zao anio izao,
+	Saina sy fanahy
+	Sy ny teninao.
+
+3. Tompo tena tia,
+	Vatolampiko ;
+	Indro ho Anao
+	Anio ny foko izao.
+	Na tsy mendrika aza
+	Sady tsy madio,
+	Tiako ny hilaza
+	Fa Anao anio.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '298',
+  '298',
+  'JESOSY TOMPO',
+  'Flora H. Cassel',
+  'F. Ramanantsialonina',
+  'Do dia E 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Jesosy Tompo no
+	Mandefa antso re ;
+	Valio haingana, tanora marobe ;
+	Fa ny tanora re no tena tiany
+	Ka manatona ianao
+
+ISAN\'ANDININY
+
+Mizora ry tanora ô !
+	Ka aza mba mihemotra
+	Fa matokia re.
+	Jeso alohanao,
+	Mpitarika hendry tokoa.
+
+2. Miantso mba hanao
+	Ady mangotraka
+	Izy hanampy re
+	Mba haharesenao
+	Hanohana anao
+	Mba tsy ho potraka
+	O ! manatona ianao.
+	Mizora, ry tanora, sns.
+
+3. Ny herin-tsandry be
+	Sy ny talenta koa,
+	Omeo Azy re, miaramila soa,
+	Ka milofosa re amin\'ny ady be.
+	Handresy no anjaranao.
+	Mizora, ry tanora, sns.
+
+4. Ho avy Jeso tia amin\'ny farany
+	Hitondra avotra
+	Hoan\'ny zanany
+	Tena nilofo mba
+	Handray marobe,
+	manajà ny anarany.
+	Mizora, ry tanora, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '299',
+  '299',
+  'TIANAO VE RY OLOM-BERY',
+  'Beethoven',
+  'J. Rabarijoël',
+  'Do dia F 2/4 Andantino',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. -BERY
+
+1
+	Tianao ve, ry olom-bery,
+	Ho mpandova lanitra ?
+	Manatona tsy an-tery
+	An\'Andriamanitra.
+
+2. Tianao ve handray ny hery
+	\'Zay nomen\'ny Tomponao ?
+	Aza miady samy irery,
+	Manatona Azy izao.
+
+3. Tianao ve ho masin-toetra ?
+	Hahresy ny otanao ?
+	Aoka ianao hitoetra
+	Eo anilany izao.
+
+4. Tianao ve hiara-paly
+	Amin\'ny Mpamonjinao,
+	Afak\'ady tsy hijaly ?
+	Manatona Azy izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '300',
+  '300',
+  'RY OLOM-BERY',
+  'Th. Bovert',
+  'J. Rabarijoël',
+  'Do dia D 3/4 Andante',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. -BERY
+
+1
+	Ry olom-bery,
+	Tsy manan-kery,
+	Fatoram-pahotana izao,
+	He ! misy vonjy,
+	Maty ho famonjena anao.
+
+ISAN\'ANDININY :
+	Avia izao,
+	Sao neninao.
+	He ! indro mbola mivoha
+	Ny lanitra, hidiranao.
+
+2. Raha efa resy
+	Misesisesy
+	Ka kivy ny fanahinaol,
+	He ! misy vonjy !
+	Ao ny Mpamonjy.
+	Manolo-pandresena anao.
+	Avia izao, sns.
+
+3. Raha toa Satana
+	Mila hitana
+	Anao ho babony izao,
+	He ! misy vonjy,
+	Kristy Mpamonjy
+	Anao ho babony izao,
+	Avia izao, sns.
+
+4. Tsy ela intsony
+	ho ao ambony
+	No hampidirana anao,
+	Ka mifalia,
+	Ny Rainao tia
+	Hamafa ranomasonao.
+	Ho sambatra,
+	haharitra,
+	Tsy hisy intsony ny ota
+	Voavelany ny helokao.
+	
+'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '301',
+  '301',
+  'ANIO DIA MANDONA',
+  'C. Malan',
+  'Rajoelison',
+  'Do dia G 6/4 Expressivo',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. 
+
+1
+	Anio dia mandona
+	Am-baravarana Aho ;
+	Maniry hiditra ao
+	Am-ponao hatrizao.
+	Miandry tokoa,
+	Mifona, mitalaho ;
+	Vohay re, vohay,
+	Izaho Tomponao.
+
+ISAN\'ANDININY :
+	Vohay, O, vohay !
+	Raha misy mamoha ny trano,
+	Dia hiditra Aho anio.
+	Raha misy mamoha ny trano,
+	Dia hiditra Aho anio.
+
+2. Injao fa mandona,
+	Raha vao maraina,
+	Raha indro mamiratra
+	Ny andronao,
+	Izaho Tomponao,
+	Henoy fa mitaraina :
+	Vohay re, vohay !
+	Hanisy soa anao.
+	Vohay, O, vohay ! sns.
+
+3. Hariva izao ;
+	He ! maizina ny tany,
+	Mangina avokoa
+	Ny feo izay renao ;
+	Izaho Tomponao,
+	Injao mandona ihany :
+	Vohay re, vohay !
+	Fotoana mety izao.
+	Vohay, O, vohay ! sns.
+
+4. Tsy tianao ve
+	Handray ankehitriny,
+	Ho Mpanjakanao
+	Manomboka anio,
+	Ilay Tomponao,
+	Nanolotra fahiny
+	Ny rany ho anao !
+	Aza ela re, fidio.
+	Vohay, O, vohay ! sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '302',
+  '302',
+  'RY FANAHY MANIRERY',
+  'S. B. Marsh',
+  'Rajoelison',
+  'Do dia F 6/4 Majeur Allegreto',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Ry fanahy manirery,
+	Misy tena tia anao ;
+	\'Lay mpikatsaka ny very,
+	Maty noho ny helokao.
+	Miandrandrà re ka jereo
+	Io Mpamonjy tia io.
+	Dia minoa ka ekeo
+	Izy ho anao anio.
+
+2. O ! ry fo misalasala,
+	Voahodidina haizim-be,
+	He ! Jesosy mahalala
+	Dia hanary toky ve ?
+	Moa tsy fantatrao ny fony
+	Dia mitepo ho anao ?
+	Aza miondrika intsiny
+	Fa miandrandrà izao.
+
+3. Ry Mpamonjiko malala
+	Raiso aho ho Anao.
+	Tano mafy tsy hiala,
+	Hiondana eo an-tsandrinao.
+	Eo am-pototr\'ilay hazo
+	Hitoerako hatrizao,
+	Eo izaho no hahazo
+	Fiadanana aminao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '303',
+  '303',
+  'RY MAHANTRA MAHONENA',
+  'G. Raterarison',
+  'G. Raterarison',
+  'Do dia G 9/8 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Ry mahantra mahonena,
+	Tojo ady mifanesy,
+	Ka maniry famonjena,
+	Resy, very toky koa.
+
+ISAN\'ANDININY :
+	Jereo Jesosy fa milonjy,
+	\'Zany otanao tontolo,
+	Nanolotra aina ho Mpamonjy
+	Sady he manolokolo.
+
+2. Ry fanahy malahelo
+	\'Zay mandalo fitsapana,
+	Malahelo anao Jesosy,
+	Otanao ho vahàna.
+	Jereo Jesosy, sns.
+
+3. O ! ry very ô ! avia,
+	Ry mahantra feno ota,
+	Manatona matokia,
+	Ho anao Gologota.
+	Jereo Jesosy, sns.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '304',
+  '304',
+  'FANTATRAO VE NAMAKO',
+  'H. P. Danks',
+  'Rajoelison',
+  'Do dia Eb 3/4 Miadana',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. ?
+
+1
+	Fantatrao ve namako,
+	\'Ry tanàna soa,
+	Misy \'Lay Mpanjakako ?
+	Ô ! jereo, mivoha.
+	Ao miandry ahy \'zao
+	Eny ka maniry anao,
+	Kristy Zanaky ny Avo,
+	Nefa tia ny lavo.
+
+2. FAntatrao ve havako
+	\'Ry tanàna tsara ?
+	Misy Ilay mpiandriko
+	Sy mpikarakara ?
+	Toa manetsika ahy izao,
+	Ary koa manasa anao,
+	Ho finaritra tokoa,
+	Na dia efa voa.
+
+3. O ! jereo sakaizako
+	\'ry Salema ambony
+	Ao ny fitsaharako
+	Eo amoron\'ony
+	He ! miandry ahy ao,
+	Sady manina anao
+	\'Lay nijay noho ny ota
+	Tany Gologota.
+
+4. Moa tsy tianao, valio,
+	Namako mijaly,
+	Hiandrandra ankehitrio
+	\'Lay tanàna faly ?
+	Ry mpanota sasatra,
+	Ho anao ny lanitra,
+	Koa ekeonao tsy terena
+	Re ny famonjena
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '305',
+  '305',
+  'ANTSO MALEFAKA FENO FITIA',
+  'W. L. Thompson',
+  'Rajoelison',
+  'Do dia Ab 6/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Antso malefaka feno fitia,
+	Tonga amiko sy aminao ;
+	Avy amin-Jeso Mpitady mania,
+	Mitady ahy sy ianao.
+	Avia, (avia) avia aty !
+	O, ry mpanota mahantra avia
+	He ! fitsaharana hatramin\'izao
+	Atolony ahy sy anao.
+
+2. Izy anatrehan\'ny Ray
+	Ao ambony
+	Mifona ho ahy sy ho anao ;
+	He ! feno hantra izao re ny fony
+	Mangoraka ahy sy anao.
+	Avia, (avia) avia aty !
+	O, ry mpanota mahantra avia
+	Famindram-po efa vonona izao
+	Hatafy ahy sy anao.
+
+3. Ety an-tany mandalo avokoa,
+	Izaho koa sy ianao ;
+	Any an-danitra feno ny soa
+	Ho ahy sy ho anao.
+	Avia, (avia) avia aty !
+	O, ry mpanota mahantra avia
+	Fahasambarana an-tany vaovao
+	Miandry ahy sy anao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '306',
+  '306',
+  'HE FITIAVAN-DEHIBE',
+  'H. Gabriel',
+  'Rajoelison',
+  'Do dia Ab 3/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. -DEHIBE
+
+1
+	He ! fitiavan-dehibe !
+	Moa fantatrao ?
+	Miantso anao sy ahy re,
+	Moa ve renao ?
+
+ISAN\'ANDININY :
+	Manatona izao anio
+	Mba hodiovina, (anio).
+	Ny fiainana mandrakizay fidio,
+	Aza lavina.
+
+2. \'Lay Tomponao sy ahy koa
+	\'Zao miantso izao ;
+	Ny fony tena tia tokoa.
+	O ! ekeonao.
+	Manatona, sns.
+
+3. Hariva izao ny andro aty
+	Ka ho lasana,
+	Madiva hiseho \'lay ary
+	\'Zay andrasanao.
+	Manatona, sns.
+
+4. Ny famonjena atolotra
+	O ! mba raisonao ;
+	Tsy ho ela dia ho fongotra
+	\'Zao rehetra izao.
+	Manatona, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '307',
+  '307',
+  'HE MISY LOHARANO SOA',
+  'D. Riemens',
+  'Rajoelison',
+  'Do dia C 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. He ! misy loharano soa,
+	Mangarangarana madio ;
+	Miboika tsy ho ritra koa.
+	Avia hatininao anio,
+	Ny lalana makeo mazava
+	Sy feno fitahiana,
+	Na dia zazakely aza
+	Hanovo am-pifaliana.
+
+2. Andeha hisotro ranon\'aina
+	Izay mangetaheta re,
+	Fanahy kivy, mitaraina,
+	Satria vesaran\'entam-be
+	Fiononana sy hery vaovao,
+	Fiainana mandrakizay
+	Atolotro tokoa ho anao
+	Avy eo am-pelatanan-dRay.
+
+3. \'Lay hazo tanam-bokovoko
+	An-tampon\'ny havoana ery
+	Misintona izao ny foko
+	Hanatona eny Kalvary.
+	Miboika eo \'lay loharano
+	Mitondra aina, hery koa,
+	Avia, hisotro isan\'andro,
+	Higoka eo, hanaram-po.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '308',
+  '308',
+  'RY MPANOTA MIJANONA',
+  'G. S. Stebbins',
+  'Rajoelison',
+  'Do dia F 3/4 Antonony',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Ry mpanota mijanona :
+	Haizim-be alehanao.
+	Miverena, manatona
+	An\'ilay Mpamonjinao.
+	Ry mpirenireny ory,
+	Trotraka sy kivy fo,
+	Tsy ho laviny akory
+	Fa ho raisiny tokoa.
+
+2. Ry mpanota mahonena,
+	Antra ano ny Tomponao ;
+	Fitiavan-tsy fefena
+	No mitepo ho anao.
+	Ry mpirenireny, ory,
+	Sy mitebiteby fo !
+	Tsy ho laviny akory,
+	O ! horaisiny tokoa.
+
+3. Ry mpanota mitomany
+	Noho ny vesa-kelokao,
+	Miverena fa ny rany
+	Ampy hahadio anao.
+	Ry mpirenireny, ory,
+	Sy manahy ao am-po !
+	Tsy ho laviny akory,
+	Fa havelany tokoa.
+
+4. Ry mpanota, aza ela,
+	O ! faingana ianao ;
+	Vonona tokoa hamela
+	\'Lay nanavotra anao.
+	Ry mpirenireny, ory,
+	Sy misalasala am-po !
+	Tsy ho laviny akory,
+	Manatona anio tokoa.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '309',
+  '309',
+  'EFA MANDROSO IZAO',
+  'HL308',
+  'J. Rabarijoël',
+  'Do dia F 2/4 Miadana',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Efa mandroso izao ny fitsrana
+	\'Zay andinihina ny toetranao ;
+	Aoka ny zavatra
+	Izay nandrarana
+	Samy havela sy hilaozanao,
+	Ny didy masina
+	Nonen\'ny Tompo,
+	Tandremo tsara fa fiainanao.
+
+2. Ny fahalemena maro
+	Izay tsy resy,
+	Manimba ny toe-panahinao ;
+	Ny fahalavoana misesisesy,
+	Misakana ny hamasinanao ;
+	Ka angataho
+	Mba hovan\'ny Tompo
+	\'Ndrao hahavery ny fanahinao.
+
+3. Ampandrosoy Jeso
+	Ho ao am-ponao,
+	Hitarika hatrizao ny dianao.
+	Ny heriny no tena mba ilainao,
+	Hanosika ilay fahavalonao
+	Ka angataho re ny Fanahy
+	Hanjaka ao amin\'ny toetranao.
+
+4. Ry Jeso tia ô, Mpisolovava
+	Tsy miafina aminao ny otako ;
+	Meteza Ianao hampisava
+	Ny zavatra izay atahorako.Aoka ny sandrinao
+	Mahery indrindra
+	No hiankinan\'ny fanahiko.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '310',
+  '310',
+  'MOA MBOLA MIVOHA',
+  'M. B. Wilson',
+  'Rajoelison',
+  'Do dia F 3/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Moa mbola mivoha hatrizao
+	Ny varavarana ?
+	Mbola azo atao ve hiditra ao
+	Ka tsy ho lavina ?
+	Moa mbola misy ny indrafo,
+	Ho an\'ny mahantra toy izao ?
+	Ka mbola misy sombin-tsoa
+	Mety ho azoko ary.
+
+2. Moa mbola tia ahy ve ny Ray
+	Na dia efa diso be ?
+	Vonona va Izy mba handray
+	Raha mibebaka e ?
+	Sao efa lasa mandrakizay
+	Ny andro mety hifonana,
+	Ka efa tapitra amin\'izay
+	\'Lay ora fanatonana ?
+
+3. O ! ry mpanota avia izao,
+	Avia, manatona.
+	Midanadana hidiranao
+	Ny varavarana !
+	Famindrampo, famelana re,
+	Homena izay torotoro fo ;
+	Ny soa an-danitra be dia be
+	Indro fa anao avokoa !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '311',
+  '311',
+  'TIANAO VE, O RY MPANOTA',
+  'Beethoven',
+  'J. Rabarijoël',
+  'Do dia F 2/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Tianao ve, ô ry mpanota,
+	Ny handova lanitra,
+	Avelao izao ny ota,
+	Halan\'Andriamanitra.
+
+2. Manatona ny Mpamonjy
+	Vonona handray anao ;
+	O ! ekeo izao ny vonjy
+	\'Ndrao dia hanenenanao.
+
+3. Ny miandry tsy mba mety
+	Fa mampidi-doza be ;
+	Tsy ho ela, vetivety
+	Dia ho neninao anie !
+
+4. \'Zao no androm-pamonjena
+	fa mivoha ny lanitra ;
+	Manatona tsy terena
+	An\'Andriamanitra.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '312',
+  '312',
+  'ANANANAO VA, NAMAKO',
+  'A. Deschamps',
+  'Rajoelison',
+  'Do dia G 3/4 Allegreto',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Anananao ve, namako
+	\'Lay toky sy fanantenana,
+	\'Zay tena hery mahatana,
+	Dia Jeso Vatolampiko !
+	Izaho dia tiany,
+	Tena tiany tokoa !
+	Miadana ny fo
+	Fa resy re ny fahotana.
+
+2. Raha kivy mafy ianao,
+	Fa be re ny fahotanao,
+	Toa tapitra ny fifaliana :
+	Moa misy fiononanao ?
+	Izaho dia tiany,
+	Tena tiany tokoa !
+	Ka ravo eram-po.
+	He ! velon-kira fihobiana.
+
+3. Raha toa takona aminao
+	Izay raketin\'ny ho avy,
+	Ny tananao miraviravy,
+	Moa misy hianteheranao
+	Izaho dia tiany,
+	Tena tiany tokoa !
+	Matoky \'zany fo
+	Ny tanako ao amin\'ny Azy.
+
+4. Nahoana re, ry namako,
+	No tsy ekenao manontolo
+	Mba ho anao Ilay Mpisolo
+	Ny otanao sy ny ahy koa ?
+	Ianao dia tiany,
+	Tena tiany tokoa !
+	Omeo anio ny fo,
+	Dia hovonjeny ho doria !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '313',
+  '313',
+  '\'NJAO MANDONA MORAMORA',
+  'H. Barbezat',
+  'J. Rabarijoël',
+  'Do dia G 3/4 Expressivo',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. \'Njao mandona moramora
+	Ny Mpanjakan-danitra.
+	Efa alim-be ny ora ;
+	O ! vohay, vohay izao !
+
+2. Efa ela no nandona
+	\'Lay fitiavan-dehibe ;
+	Mitaraina toa mifona,
+	O ! vohay, vohay izao.
+
+3. Moa tsy renao, sa tsy tianao
+	Hovohana Izy re ?
+	\'Ndrao dia lasa ka tsy renao
+	O ! vohay, vohay izao.
+
+4. Kely sisa no ho renao
+	Ny fandonany izao.
+	Aza ela, mitsangana,
+	O ! vohay, ny Tomponao.
+
+5. Ry Mpamonjiko malala
+	Diso aho hatrizao ;
+	Fa nandà tsy hahalala
+	Nt harem-pitiavanao.
+
+6. He ! vohako re, ry Tompo
+	Dieny mbola re ny feo ;
+	Mandrosoa ao am-poko,
+	Manjakà irery ao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '314',
+  '314',
+  'O, HENOY RE NY FEO',
+  'Ancien Choral 1704',
+  'J. Rabarijoël',
+  'Do dia G 4/4 Allegreto',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. O ! henoy re ny feo
+	Avy ao an-danitra,
+	Hafatra manehoeho
+	Nomen\'Andriamanitra ;
+	O ! henoy, ry vazan-tany,
+	Ry vahoaka marobe,
+	O, henoy, maneke.
+
+2. \'Njay ny feo manao hoe :
+	<< Matahora Azy re,
+	Indro fa mitsara Izy,
+	\'Lay Mpanjaka lehibe
+	Aoka re ny sitrapony
+	Hankatoavina tokoa,
+	Tontosao avokoa >>.
+
+2. Renao ve ? avy izao,
+	Avy mba handray anao
+	Kristy, \'Lay Mpamonjy tia
+	Ry mpanota ô, henoy !
+	Tapitra eo ny ady mafy
+	Sy ny fisentoanao
+	Mifalia hatrizao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '315',
+  '315',
+  'ZOVY NO HIARA-DIA',
+  'L. J. Raharijaona',
+  'L. J. Raharijaona',
+  'Do dia Ab 4/4 Andante',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. -DIA
+
+1
+	Zovy no hiara-dia.
+	Mba ho any an-danitra,
+	Fonenan-tsoa,
+	Namboarin\'i Jesosy, Zoky tia,
+	Zanak\'Andriamanitra ?
+	Raha izao tontolo izao
+	Dia mamitaka anao ;
+	Koa saino sy banjino
+	\'Lay Salema,
+	Lapan\'Andriamanitra.
+
+2. Ireo rendrarendran-tany
+	\'Zay mazàna tena manodoka anao,
+	Dia fandrika velarin\'i Satana
+	Hamitahana anao ;
+	Ka aza dia variana
+	Fa mandalo ny ety.
+	tsy ankoso-bolamena
+	Ilay Salema
+	Vonona hidiranao.
+
+3. Moa tena fanirianao
+	Ny ho ankohonan\'Andriamanitra ?
+	Mibebaha ary izao ankehitriny
+	Mba handraisany anao.
+	\'Ndrao dia tonga tampoka
+	Ny fahafatesana,
+	Ka ianao vesaran-keloka tsy zaka
+	Tsy hisy hivalozana.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '316',
+  '316',
+  'RAHA RE NY FEON\'I JESO TIA',
+  'Rajoelison',
+  'Rajoelison',
+  'Do dia Bb 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Raha re ny feon\'i Jeso tia
+	Miantso hoe : O ! aiza moa ianao ?
+	Ry mpanota very, mamalia ;
+	Fa andrao dia hangina Izy \'zao.
+
+ISAN\'ANDININY :
+
+Anio, misy famonjena,
+	Voavoatra ka atolotra.
+	Anio, nefa tsy terena, ;
+	Fidionao ka Kristy re ekena.
+
+2. Raha re fa Izy \'njao mandona
+	Ao am-po, maniry hiditra ao,
+	Ry mpanota, Izy anie mifona,
+	Miandry mafy hampidirinao.
+	Anio, misy famonjena, sns.
+
+3. Mbola re, kanefa vetivety
+	Dia hangina, lasan-davitra !
+	Ry mpanota, anio no andro mety
+	Rahampitso dia tsy fantatra !
+	Anio, misy famonjena, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '317',
+  '317',
+  '\'NJANY FEO MIANTSO MAFY',
+  'Raobojaona',
+  'Raobojaona',
+  'Do dia Eb 6/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Injany feo miantso mafy hoa :
+	Vonona ve ianao ?
+	Miomàna, mivonona re ;
+	Hoy ny Tompo aminao.
+	Manakaiky ny fotoana
+	Hamaliana ny natao.
+	Hararaoty hibabahana
+	Izao andronao izao.
+
+2. Famonjena tsy vidina
+	efa vita ho anao ;
+	Nefa Jeso mbola liana
+	Ta handre ny feonao.
+	O ! meteza ho vonjena,
+	Hamelana ny otanao,
+	Fa ny Tompo anie ka onena
+	Raha tsy mety ianao.
+
+3. Dieny mbola tsy mitsahatra
+	Ny antsom-pitiavana,
+	Dieny mbola tsy mifarana
+	Ny androm-pahasoavana,
+	O ! henoy ny feon\'i Jeso
+	Miangavy anao izao ;
+	Eny, Izy vonona tokoa
+	Ny handray anao izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '318',
+  '318',
+  'RY MPANOTA MAHANTRA',
+  'L. J. Raharijaona',
+  'L. J. Raharijaona',
+  'Do dia Eb 3/4 Dolce',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Ry mpanota mahantra
+	Manatona, avia !
+	Miantso anao Jeso,
+	Mpamonjy tia, (O ! avia).
+	Efa maty ianao,
+	Nefa novelominy ;
+	Very, nefa hitany.
+	He ! mivelatra anio ny sandriny
+	Vonona handray ano tokoa
+	Ny aina natolony
+	Lavinao sanatria
+	Avia re izao.
+
+2. Ampy anao tokoa
+	Ny hasoavany,
+	Fa malalany anie ianao ;
+	Fa Izy tsy mamitaka
+	Sady tsy miavona,
+	Antra sy mangoraka.
+	Adin-tsaina,
+	Ahiahy nanapaka anao,
+	Ento eo aminy avokoa ;
+	Ny mpanota toa anao
+	\'Ndeha samy hilazao,
+	Tia azy tokoa Jeso.
+
+3. Fiadanana feno, azo antoka,
+	Tsy mba misy takalony koa
+	Sady safononoka ary koa maharitra
+	Omeny ho anao anio ;
+	Dieny henonao anio ny feony,
+	Atolory Azy ny fonao
+	Ho dioviny, anio,
+	Ho fonena-masiny,
+	Avia, avia re !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '319',
+  '319',
+  'HO ANAO NY AIKO NO NAFOIKO',
+  'O. U. Linnereu',
+  'Rajoelison',
+  'Do dia Eb 3/4 Expressivo',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Ho anao ny aiko no nafoiko,
+	Ho anao, tany Kalvary.
+	Nozakaiko re ny toloko,
+	Mba hifalianao ary.
+	Fitiavan-tsy hita lany
+	No nasehoko anao.
+	Moa mba fantatrao izany ?
+	Ry mpanota, ô, lazao.
+
+2. Voninahitra tao ambony,
+	Ny fitsaohan\'anjely koa,
+	Tsy nofikiriko intsony
+	Hahazoanao re ny soa.
+	He ! nahantra teto an-tany
+	\'Zaho Izay Mpanjakanao ;
+	O ! mazàna mitomany 
+	Moa ve mba fantatrao ?
+
+3. Hitako ianao variana
+	Amin-java-mandalo ety ;
+	Aiza moa, mandra-pahoviana ?
+	Sao hanenina, ô avia !
+	Vativety dia ho rava
+	\'Reo \'zay isasaranao ;
+	Ny andro anie ka tsy ho lava,
+	Moa ve mba fantatrao ?
+
+4. O ! Jesosy \'zay tia ahy !
+	Eny, atolotro Anao
+	Tena, saina sy fanahy,
+	Ho Anao, Tompo, ankehitrio.
+	Mba tazony tsy hania
+	Fa hanara-dia Anao
+	Na aiza na aiza, Jeso tia !
+	RAiso aho ho Anao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '320',
+  '320',
+  'MADIVA HO LASA NY ANDRO',
+  'G. R. Root',
+  'Rajoelison',
+  'Do dia A 6/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Madiva ho lasa ny andro,
+	Mandroso ny aloka izao.
+	Moa Jeso, Ilay Masoandro,
+	No fanazavanao anao ?
+
+ISAN\'ANDININY :
+
+Anio, anio,
+	O ! mba vohay re ny fo.
+	Anio, anio
+	Mba hanjakany tokoa.
+
+2. Madiva ho tapitra koa
+	Ny fotoana mety izao.
+	Faingàna sao diso ny soa
+	Voaomana re ho anao.
+	Anio, anio, sns.
+
+3. Madiva hangina ny feo
+	\'Zay renao hatramin\'izao ;
+	Anio hararaoty, ekeo
+	Kristy \'zay nisolo anao.
+	Anio, anio, sns.
+
+4. Madiva hiseho \'lay Mpanjaka,
+	An-drahon\'ny lanitra izao ;
+	Iriny tokoa ny haka
+	Ny azy ary koa ianao.
+	Anio, anio, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '321',
+  '321',
+  'ONENA NY MPAMONJY',
+  'R. Rabenasolo',
+  'R. Rabenasolo',
+  'Do dia D 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Onena ny Mpamonjy re,
+	Onena ny mpanota.
+	Atsotrany ny tanany
+	Handray anao mpanota.
+	Ny sandriny mahery
+	No nitantara ny dia
+	hanavotra ny very,
+	Hamonjy ireo mania.
+	O ! aiza ianao, (Feo 1 sy 4)
+	O ! aiza moa ianao, (Feo 2 sy 3)
+	O ! aiza ianao, (Feo 1 sy 4)
+	O ! aiza moa ianao, (Feo 2 sy 3)
+	O ! avia meteza,
+	Na tsy mendrika aza,
+	Fa ianao indrindra no tadiaviny.
+	Tia anao tokoa, tia anao tokoa.
+	Jeso manatsotra anio ny tanany.
+
+2. Onena anao ny Tomponao,
+	Onena anao mpanota.
+	Ekeo anio ny helokao
+	Raiso Jeso tsy miova
+	Ny tanam-pitiavany,
+	He ! mandona moramora
+	Ny fonao no tadiaviny
+	Ekeo fa izao no ora.
+	O ! aiza ianao, (Feo 1 sy 4)
+	O ! aiza moa ianao, (Feo 2 sy 3)
+	O ! aiza ianao, (Feo 1 sy 4)
+	O ! aiza moa ianao, (Feo 2 sy 3)
+	O ! avia meteza,
+	Na tsy mendrika aza,
+	Fa ianao indrindra no tadiaviny.
+	Mba vohay ny fonao,
+	Mba vohay ny fonao.
+	Fa te hiditra ao Jeso Mpamonjy.
+
+3. Endrey Jeso Mpamonjy tia
+	\'Zany fitiavanao ahy
+	Miantso hoa : <<Avia, avia
+	Manatona Ahy.>>
+	Ovay ny foko ho Anao
+	Ho tia Anao tokoa
+	Hana \'zay rehatra sitrakao
+	Hiasa sy hamoa.
+	Inty aho Jeso (Feo 1 sy 4)
+	Inty aho Jeso (Feo 2 sy 3)
+	Inty aho Jeso (Feo 1 sy 4)
+	Inty aho Jeso (Feo 2 sy 3)
+	Fo \'zay ratsy indrindra
+	Nefa te hifindra ho eo anilanao
+	Diovy anjakao.
+	Mamiko tokoa, mamiko tokoa.
+	Raha Jeso monina ao am-poko ao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '322',
+  '322',
+  'MOA MISY FAMONJENA',
+  'George F. Root',
+  'D. Razakaria',
+  'Do dia Eb 3/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Moa misy famonjena
+	Ho ahy mpanota ?
+	Eny, misy, fa Jesosy
+	No manome azy.
+
+ISAN\'ANDININY :
+	Haleloia, Hosana
+	Ho an\'Andriamanintsika
+	Haleloia, Hosana
+	Ho an\'ny Mpamonjy.
+
+2. Moa misy fifaliana
+	Ho ahy mahantra ?
+	Eny, misy, fa Jesosy
+	No Tompo miantra.
+	Haleloia, sns.
+
+3. Moa misy antenaina
+	Raha mila ho kivy ?
+	Jeso \'Lay nanolotra aina,
+	Mampahery Izy.
+	Haleloia, sns.
+
+4. Na aiza tany misy anao,
+	Jeso tadidio.
+	Izy no tsy mba mandao
+	Raiso Izy anio.
+	Haleloia, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '323',
+  '323',
+  'HENOY, HENOY',
+  'John R. Sweney',
+  'Esther Bary',
+  'Do dia Bb 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Henoy, henoy
+	Injany feon\'i Jeso tia
+	Miantso antsika
+	Mba hitsangana.
+	Valio, valio, valio
+	Ny antso hoe : <<Avia>>
+	Ka mandrosoa
+	Ry mpanaraton\'i Jeso.
+
+ISAN\'ANDININY :
+	Asandrato avo
+	\'Zany fanevantsika, asandrato
+	Ny vaovao mahafaly
+	Torio ho ren\'izao tontolo izao,
+	Mahereza afafazo \'zany voa
+	Tanteraho ny baikon\'ilay Tompo soa
+	\'Lay fanahy hitarika, avelao ny ahiahy,
+	Jeso momba ny asa famonjem-panahy.
+
+2. Jeso, Jeso,
+	Tefeo, amboary izahay
+	Ho mendrika hitondra
+	Ny hafatrao.
+	Tendre, tendreo,
+	Tendreo ny molotray
+	Jeso mba ho ny teninao
+	No ambaranay.
+	Asandrato avo, sns.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '324',
+  '324',
+  'SAMBATRA, TRETRIKA',
+  '(Tsy fantatra)',
+  'N. Ravoninjatovo',
+  'Do dia C 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Sambatra, tretrika feno hafaliana
+	Raha Jesosy mitoetra ao am-po.
+	Indro ny tahotra sy ny hakiviana
+	Dia ho foana tsy hisy avokoa.
+	Atolory Azy ny fiainanao ;
+	Jeso Zoky dia miandry anao
+	Mandondona eo am-baravaranao Izy
+	Te hiditra ao am-ponao.
+
+2. Indro tsara tokoa ny fonenana soa
+	Namboarin\'ny Tompo izao.
+	Sambatra, tretrika feno haravoana
+	\'Reo voavotra tafiditra ao.
+	Maniry izahay ho diovinao
+	Ka ho mendrika \'lay tany vao.
+	Jeso Zoky tia, indreto izahay
+	Mandrosoa ao am-ponay izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '325',
+  '325',
+  'RY NAMAKO MAHANTRA',
+  'W. H. Doane',
+  'J. Andrianaivoravelona',
+  'Do dia Bb 6/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Ry namako mahantra
+	Manaram-po izao !
+	Ny ota no mandratra,
+	Sao simba ianao ;
+	Izay anao rehetra
+	Ho lasa avokoa,
+	Fatsy mba misy fetra,
+	Ho levona avokoa.
+
+2. Ny Tompo be fiantra
+	Mangora-po tokoa
+	Mahita anao mahantra
+	Fa tsy mahita soa :
+	Natolony nyh ainy
+	Ho vidin\'ny ainao,
+	Nalatsny ny rany
+	Mba hanadio anao.
+
+3. Ny Tompo malahelo,
+	tsy foiny ianao
+	Ny feo mamelovelo
+	Mibitsika aminao :
+	Onena anao ny fony
+	Ka mitaraina hoe :
+	Ny ota ajanony,
+	Mba ajanony re !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '326',
+  '326',
+  'MODIA, MODIA, O RY MPANOTA O!',
+  'Feon-kira amerikanina',
+  'C. Borchgrevink',
+  'Do dia Ab 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Modia, modia, ô, ry mpanota ô !
+	Tsy mba hitsangana va mba hiadananao ?
+	Tsy handosiranao va izao fomba ratsy izao ?
+	Indro mitady anao Andriamanitra,
+	Ka ta hampiditra ano any an-danitra,
+	Ka ta hampiditra ano any an-danitra !
+	Moa tsy tianao va ny mba ho velona ?
+	Koa dia aza mandà Azy mpamelona anao.
+	Jesosy miantso anao, ka mba henoinao,
+	Raiso ny tenniny izao, mba hamonjena anao,
+	Raiso ny tenniny izao, mba hamonjena anao !
+
+ISAN\'ANDININY :
+	O ! ry mpanota miovà
+	Fa ho sambatra tokoa,
+	Raha mody ianao,
+	Fa ho sambatra tokoa,
+	Raha mody ianao.
+
+2. Modia, modia, ô, ry mpanota ô !
+	Tsy mbola azonao va ny fiantsoany 
+	Sa ianao ta handà ny fitiavanay ?
+	Mba mankanesa aty, indro mivoha izao
+	Tranon\'ny Rainao ery, ka mba hidironao
+	O ! mba modia ianao, tranon\'ny Rainao ery,
+	O ! mba modia ianao, sao dia handatsa anao
+	Ny fikirizanao :
+	Koa katsaho izao ny voninahitra
+	Efa miandry anao any an-danitra
+	Efa miandry anao any an-danitra
+	O ! ry mpanota, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '327',
+  '327',
+  'NY MPAMONJY TE HIDITRA AM-PONAO',
+  'Ralph Carmichael',
+  'A. R. Marnoël',
+  'Do dia F 3/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. -PONAO
+
+1
+	Ny Mpamonjy te hiditra am-ponao.
+	O ! mba vohay Izy izao.
+	Raha misy misakana anao tsy hamoha,
+	Reseo re, raiso Jeso.
+
+ISAN\'ANDININY :
+	Efa ela no niandrasany teo.
+	Izao dia mbola miantso.
+	Ny misakana anao tsy handre ny feo,
+	Reseo ka raiso Jeso.
+
+2. Iriny tokoa re ny hamohanao
+	Ny varavaran\'ny fo.
+	Iriny ny hanjaka sy honina ao
+	Ekeo re, raiso Jeso.
+	Efa ela, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '328',
+  '328',
+  'MIANTSO ANAO JESOSY',
+  'M. Randriamiandriray',
+  'M. Randriamiandriray',
+  'Do dia F na Eb 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Miantso anao Jesosy izao
+	(Njao miantso anao Jesosy izao)
+	Hanolo-tena ho Azy anio.
+	Miangavy koa, (ô !) mitalaho
+	Am-pitiavana re ka mba valio.
+	Miantso anao Jesosy (re) anio
+	Nahoana no (dia) variana ianao 
+	\'Ndeha mba lazao
+	(Nahoana re, lazao).
+	Jesosy anie ka vonona
+	Ny handray anao,
+	Ka atolory Azy ny fonao.
+	Ny rà nalatsany dia ampy hanadio anao,
+	Ampy hanadio ny fonao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '329',
+  '329',
+  '\'NDEHA HILAZAKO',
+  'Baynard L. Fox',
+  'Samoela Lala James',
+  'Do dia D 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. \'Ndeha hilazako famonjena
+	\'Reo namako mila vonjy.
+	\'Ndeha hilazako ilay fitia,
+	Fitiavana \'zay lalina.
+
+ISAN\'ANDININY :
+	Jesosy maty mba hamonjy
+	Na iza na iza eto an-tany.
+	Ny rany indro nomeny
+	Mba hanadio ny otako izao.
+	Izany koa tiany omena
+	\'Reo namonono Azy tety.
+	Nefa indrisy ho be ny very.
+	Satria nandatsa \'lay fitia.
+
+2. \'Ndeha hilazako famonjena
+	Na dia ireo efa nandre,
+	\'Ndrao diso làlana izy ireny
+	Fa betsaka ireo sandoka.
+	Jesosy maty, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '330',
+  '330',
+  'MBA FIDIO JESO',
+  'Mic Thurber - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia G 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Mba fidio re Jeso, \'Lay nanavotra anao,
+	Ka ireo faho tana manimba ialao
+	Hadinoy avokoa ireo sorisorinao
+	Fa Jesosy be fitia vonon-kanome anao
+	Fifaliana doria.
+
+2. Tsy mba misy afaka hanome fahafaham-po
+	Afa-tsy \'Lay Mpamonjy nanavotra anao
+	Ny fitiavany re azo antoka koa
+	Tsy mba lefy satria, eny, tena mihavao
+	Tena tiany ianao.
+
+3. Mba hevero ange
+	\'Zay mba mety ho soa
+	Moa ve misy tokoa ?
+	Ambarao ary moa
+	Sa ve tsy mba fantatrao
+	\'Reo harena be ety
+	Dia tsy mahavonjy.
+
+4. Aza dia atakalo ireny Jesosy
+	\'Zay nifona ho anao
+	Anatrehan\'ny Ray
+	Tsy ho ela ho tonga
+	Ka mba handraso
+	Fa ho entiny ho anao
+	Fiainana mandrakizay
+	Hafaliana tokoa.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '331',
+  '331',
+  'RERAKA TAO AN\'EFITRY NY OTA',
+  'John W. Peterson - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia G 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Reraka tao an\'efitry ny ota aho
+	Ka tsy nahita fahafaham-po.
+	Nefa teo amin\'i Kristy indray andro
+	Nisy ranon\'aina niboika soa.
+
+ISAN\'ANDININY :
+	Eo am-pisotroana io rano io
+	Sambatra aho re, Tena afa-po tokoa.
+	Misotro ilay ranon\'aina soa
+	O ! mahagaga io ranon\'aina io.
+
+2. Mamy ny rano omen\'Andriamanitra
+	Dia ny famonjena avy ao Ziona.
+	Ahitam-pitahiana, voninahitra
+	Ary koa toky, fiononana.
+	Eo am-pisotroana io rano io, sns.
+
+3. Ry mpanota ô, hatony anio kalvary
+	Ao misy rano \'zay mahafa-po.
+	Avotry ny Mpamonjy \'zay maty tety
+	Ka omena anao an-kitsi-po.
+	Eo am-pisotroana io rano io, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '332',
+  '332',
+  'FENO ADIDY VE NY FONAO',
+  'Eulen Borton - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia Bb 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Feno adidy ve ny fonao
+	Ka tavela ny Tompo ?
+	Ataonao mosalahy ny vavaka
+	Sa vonona ny fonao
+	Handray voninahitra
+	Raha tonga anio ny Tomponao ?
+	Irinao ve ny hahita ny Tomponao
+	Amin\'ny fiverenany e ?
+	Iainanao ve 
+	\'Zay lazain\'ny vavanao ?
+	Tena tianao ho tonga ve Jeso ?
+
+2. Ianao miantso <<avia Jeso>> ;
+	Nefa raha tonga Izy anio,
+	Sao dia haneso anao ny tavany,
+	Noho ireo ota maro maminao 
+	Ka tsy voadio,
+	Ho henatrao mandrakizay doria.
+	Irinao ve ny hiavian\'Ilay Tomponao,
+	Efa vonona ve ianao ?
+	Ny ataonao ve toy izay torianao ?
+	Tena tianao ho tonga ve Jeso ?
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '333',
+  '333',
+  'MIHIRA AHO',
+  'Stuart Hamblen',
+  'Esther Bary',
+  'Do dia Bb 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Mihira aho mandra-piavinao re.
+	Jesosy ô, deraiko Ianao.
+	Mandreraka ny zava-mifamaho,
+	Tsy kivy aho, hira no asandratro.
+
+2. \'Zao tany izao ho simba ary ho lao
+	Jereo ange fa mikorontana.
+	Ho avy Jeso hanolo izany ho vaovao,
+	Fonenana \'zay hivantananao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '334',
+  '334',
+  'FOTOANA TOY INONA',
+  'Mosie Lister - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia Ab 3/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Fotoana toy inona no efa lasa
+	Hatramin\'ny niarahanao
+	Niresahanao tamin\'i Jeso ?
+	Noborahiny taminao
+	\'Reo tsiambaratelo
+	\'Zay nafeninao
+	Ka fiadanam-po no nomeny.
+
+ISAN\'ANDININY :
+	O ! ekeo re Jeso ho Sakaizanao.
+	Vinona Izy hamonjy anao.
+
+2. Fotoana toy inona no efa lasa
+	Hatramin\'ny nahatsapanao
+	Raha nivavaka nitalaho ianao
+	Saiky nandritry ny alina
+	tsaroanao maivana ny entanao
+	Nentinao teo amin\'i Jeso ?
+	O ! ekeo, sns.
+
+3. Fotoana toy inona no efa lasa
+	Hatramin\'ny nahalalanao
+	Fa vonona ny hihaino Jeso
+	Ka hamaly ny vavakao ?
+	Tsy maba mahafoy fa Sakaiza tia
+	Mitantana ny dia
+	O ! ekeo, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '335',
+  '335',
+  'JESO TOMPO NO MIANTSO',
+  'N. B. Herrell',
+  'A. R. Marnoël',
+  'Do dia Eb 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Jeso Tompo no miantso
+	ny olona tsyrairay.
+	Mba ho tonga hisakafo
+	Ao an-trano soan\'ny Ray.
+
+ISAN\'ANDININY :
+	Vonona izao ny nahandro
+	Ka avia hihinana.
+	\'Zay no antso isan\'andro
+	Ataon\'ny fitiavana
+	Ao Jeso no miandry izao
+	Faly hampandroso anao.
+
+2. Mba asao koa ny mpandalo
+	Eny amoron-dàlana.
+	Eny, na ny fahavalo,
+	Asao toy ny namana.
+	Vonona izao ny nahandro, sns.
+
+3. Ny mandringa, kilemaina,
+	Sy ny jamba, ory koa,
+	\'Reo toa halan\'ny miaina
+	Antsoy hanan-tombotsoa.
+	Vonona izao ny nahandro, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '336',
+  '336',
+  'NALATSAKA HO ANAO',
+  'J. E. White',
+  'Esther Bary',
+  'Do dia Ab 6/8 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Nalatsako ho anao,
+	Ho fanavotana,
+	\'Lay rako sarobidy
+	Satria tiako ianao.
+	Mba inona no foinao
+	Ho an\'ny Tompo tia
+	Nandatsaka ny rany soa
+	Ho famonjena anao ?
+
+2. Ny lapasoan\'ny Ray,Ny fiandrianany,
+	Nilaozako hankety
+	An-tany maizina.
+	Nilaozako ny zava-tsoa,
+	Nilaozako avokoa.
+	Ka inona no foinao
+	Ho Ahy re izao ?
+
+3. Ny fijaliana be,
+	Ny eso, latsa koa
+	niaretako avokoa
+	Ho famonjena anao.
+	Mba inona no zakainao
+	Noho ny amiko ?
+	Izay fandavan-tenanao
+	No Andrasako izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '337',
+  '337',
+  'JESOSY FITSAHARANA',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia Eb 6/8 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Jesosy fitsaharana
+	Mitady anao mpanota very dia
+	Jesosy fitsaharana
+	Miantso anao mpanota izay nania
+	Jesosy fitsaharana
+	Miantso, miangavy hoe : Avia
+	Jesosy fitsaharana
+	Omaly, anio,
+	Mandrakizay doria.
+
+ISAN\'ANDININY :
+	Mankanesa aty amiko ianareo
+	Izay miasa fatratra,
+	Mavesatra entana
+	Fa Izaho no hanome anareo
+	Fitsaharana
+	Jesosy \'Lay be fitia
+	Miantso anao.
+	Jesosy \'Lay be fitia
+	Miantso anao.
+
+2. Jesosy fitsaharana
+	Dia tia anao
+	Ho tonga zana-dRay
+	Jesosy fitsaharana
+	Maniry anao hateraka indray.
+	Jesosy fitsaharana,
+	Niaritra eso, latsa mahamay
+	Jesosy fitsaharana,
+	Ho fitsaharanao rahatrizay.
+	Mankanesa aty amiko, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '338',
+  '338',
+  'O! RY MAHANTRA SY ORY',
+  'R. Randriamandimbisoa',
+  'A. Emiliarison',
+  'Do dia F 6/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. O ! ry mahantra sy ory
+	Jeso miantso anao
+	Hividy ilay volamena voadio
+	Mba hanan-karena ianao.
+
+ISAN\'ANDININY :
+	Vohay, ô, vohay !
+	(Vohay ny fo ! Vohay ny fo !)
+	Vohay re honenan\'i Jeso.
+	Vohay ny fo anio tokoa !
+	O ! mba vohay re ny fo
+	(Vohay ny fo)
+
+2. Ry malahelo sy jamba,
+	Jeso mitady anao.
+	Nanomana odimaso izao
+	Hampahiratra anao.
+	Vohay ny fo, sns.
+
+3. Mitanjaka ve ianao ?
+	Vonona Jeso izao
+	Hanome fitafy fotsy sy vao
+	Tsy hisehoan\'ny henatrao.
+	Vohay ny fo, sns.
+
+4. Tompo Jeso no mandona
+	Ao am-ponao izao
+	He ! miangavy, mifona ho anao.
+	O ! mba vohay re ny fo.
+	Vohay ny fo, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '339',
+  '339',
+  'INJANY FEO MIANTSO',
+  'R. Rabenasolo',
+  'R. Rabenasolo',
+  'Do dia Eb 6/8 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Injany feo miantso,
+	Manako eran-tany,
+	Miangavy tsy miato,
+	Tsy renao va izany ?
+	Manasa ny mpanota
+	Hanatona ny Tompo,
+	Hibebaka tokoa,
+	Hiaiky heloka.
+
+2. Injao mamelovelo
+	\'Lay feon\'ny Tompo soa.
+	Ny fony malahelo,
+	Ianao tiany tokoa.
+	Ny onjam-pitahiana
+	Iriny ho anao,
+	Halany ny fahakiviana,
+	Izy no fiainanao.
+
+3. Ekeko avy hatrany,
+	\'Lay antso be fitia.
+	Jesosy irery ihany
+	No antenaiko ety.
+	Ry Jeso mofon\'aina
+	Sy loharanon-tsoa.
+	Ny foko karankaina,
+	Omeo fiadanam-po.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '340',
+  '340',
+  'O! HENOY',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Ab 3/4 Miadana',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. O ! henoy, O ! henoy
+	Fa injeo miantso anao
+	\'Lay Tomponao.
+	Mamalia fa Izy tia.
+	Ka miantso anao.
+	Mamalia dieny izao.
+
+ISAN\'ANDININY :
+	Mitsangàna, mitsangàna,
+	Aza ela miantso anao
+	\'Lay Tompo tia
+	Mitsangàna, mitsangàna,
+	Aza ela anio
+	Ary eny matokia.
+
+2. O ! jereo, O ! jereo
+	Fa indro eo
+	Izy maty ho anao.
+	Mitenena, manenena
+	Ka omeo ny fo
+	Hosoloiny vaovao.
+	Mitsangàna, mitsangàna, sns.
+
+3. O ! diniho, O ! diniho
+	Ka ario ny ota maro
+	Izay natao
+	Ka ario dieny anio,
+	O ! ario tokoa
+	Fa tsy mahasoa anao.
+	Mitsangàna, mitsangàna, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '341',
+  '341',
+  'O! MANDROSOA IZAO',
+  'SAH377',
+  'A. R. Marnoël',
+  'Do dia C 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. O! mandrosoa izao
+	Kristy miantso anao
+	Hiaraka aminy
+	Sy ho tantanany.
+	Tiany tokoa sy maminy
+	Izay miandany aminy.
+
+2. O! mandrosoa izao,
+	Ialao ny hevitrao.
+	Ianao ho mpandresy
+	An\'ady misesy
+	Fa Izy no hiaro anao ;
+	Ny fanahy hampahery anao.
+
+3. O! mandrosoa izao
+	Hodioviny ianao
+	Amin\'ny rany soa
+	Hahafahanao koa
+	Hanaraka ny lalany
+	Ka mba ho tonga zanany.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '342',
+  '342',
+  'NY MPAMONJY NO MITADY FIHAVANANA',
+  'I. D. Sankey',
+  'Rabary',
+  'Do dia G 9/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Ny Mpamonjy no mitady
+	Fihavanana aminao ;
+	Izy no manambitamby
+	Hanatonanao izao ;
+	Sao manjary fandatsana
+	Ny fifonana aminao,
+	Ka ny mety, mihavàna
+	Amin\'ny Mpamonjy izao.
+
+2. Diany misy hafanana
+	Ka mangoraka ny fo,
+	Manatona ny Mpamonjy
+	Sao dia mangatsiaka indray.
+	Izao no andro famonjena,
+	Ka vonjeo sao neninao :
+	Ry mpanota, miverena,
+	Izao ankehitriny izao.
+
+3. Sao ity no toriteny
+	Far-fanasana anao ;
+	Sao anio no fotoana
+	Fara-ahavelomanao ;
+	Ka aza mba misalasala,
+	Sao manjary neninao,
+	Raha tsy mety mahalala
+	Izao fotoana mety izao.
+
+4. Indrisy be ny fahotako,
+	Be ny ratsy vitako ;
+	Sao tsy raisin\'ny Mpamonjy
+	Ny mpanota tahaka izao ?
+	Miverena, fa ny rany
+	Ampy hahadio anao ;
+	Manatona hosasany
+	\'Zao ankehitriny izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '343',
+  '343',
+  'MANATONA, RY MPANOTA',
+  'J. Richardson',
+  'Ch. Rasoanaivo',
+  'Do dia Eb 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Manatona, ry mpanota
+	Ory, jamba, very koa !
+	Ianao simban\'ny ota,
+	Indro ao ny Tompo soa ;
+	Ry tsy mendrika ho vonjena,
+	Misy \'zay miantra anao ;
+	Fifaliam-be homena,
+	Famelana helokao.
+
+2. Mba henoy ny teny tsara
+	\'Zay lazaina aminao,
+	Sao very ny anjara
+	Soa tadiavinao ;
+	Feno antra, mana-kery
+	Jeso no mitaona anao ;
+	Ka ny mino tsy ho very
+	Manatona re izao.
+
+3. Ny miato tsy mba tsara
+	Ny halainanao ario ;
+	Sao helohin\'ny Mpitsara
+	Manatona re anio ;
+	He ! miandry ny Mpamonjy
+	Mba faingana ianao.
+	Raha te ho voavonjy,
+	Aza ela ianao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '344',
+  '344',
+  'MOA RENAO VE RY MPANOTA',
+  'J. Ratsiminah',
+  'J. Ratsiminah',
+  'Do dia A 3/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Moa renao ve ? ry mpanota ô,
+	Ny feon\'i Jeso miantso anao ?
+	Ny ainy no namonjena anao.
+	Todiho anio, ô ! mamalia.
+
+ISAN\'ANDININY :
+	Valio Jeso anio, (mba valio)
+	Henoy ny antso (ka raiso re)
+	Fiainana kanto, fiainana kanto
+	No nomaniny ho anao.
+
+2. Ekeo re fa ho anao
+	No nidinany an-tany ety.
+	Ho faly ireo nankato ny Ray
+	Ny helokao dia ho neninao.
+	Valio Jeso anio, sns.
+
+3. Tsy ho ela izao dia ho avy indray
+	Ny Mpanavotra ahy sy Mpamonjinao.
+	Meteza fa iJeso tia
+	Miangavy anao, ô ! mamalia
+	Valio Jeso anio, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '345',
+  '345',
+  'FANAHY VERY O, AVIA',
+  'L. Bourgeois',
+  'A. R. Marnoël',
+  'Do dia Ab 3/4 Mientanentana - Miadankadana',
+  'FITORIANA NY FILAZANTSARA',
+  'Antso',
+  '
+1. Fanahy very ô, avia !
+	Jeso mbola tia.
+	Indro ny tanany mitsotra
+	Hanavotra.
+
+2. Mpanota ô, avia ianao,
+	Mibebaha izao.
+	Ny ota \'zay ekena hadio
+	Anio, anio.
+
+3. Mivesatra entana ô, avia
+	Miantso ny Mesia.
+	Ny otanao toa tafahoatra
+	Voaisotra.
+
+4. O! ry fanahy manjoretra
+	ANA, sasatra,
+	Eo amin\'ilay vokovoko
+	Fiadanam-po.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '346',
+  '346',
+  'MBA TAOMY AHO E',
+  'R. Lowry',
+  'T. Rowlands',
+  'Do dia G 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. Mba taomy aho e,
+	Ry Tompo ô !
+	Ho tonga zanakao
+	Madio am-po.
+	Mba taomy aho e,
+	Ho tia Anao tokoa !
+	Ny fo atolotro,
+	Mba raisonao.
+
+2. Tariho aho e,
+	Ry Jeso ô !
+	Aza ilaozanao,
+	Fa be manjo,
+	Trotroy an-tratranao
+	Ny ondrikelinao
+	Ka ento mody \'zao
+	Ilay nania.
+
+3. Diovy aho e,
+	Fanahy ô !
+	Diniho sy hazavao
+	Ny toetro.
+	Diovy aho e,
+	Ny fo ovay ho vao,
+	Ka ny fanahiko
+	Honenonao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '347',
+  '347',
+  'NY ANDROM-PAHASAMBARANA',
+  '(Tsy fantatra)',
+  'F. Ramanantsialonina',
+  'Do dia G 3/4 Marisika',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. -PAHASAMBARANA
+
+1
+	Ny androm-pahasambarana
+	Mitondra fihavanana
+	Fa Jeso Andriamanitra
+	No iraky ny lanitra
+
+ISAN\'ANDININY
+
+Jeso no tokiko
+	Sy famonjena mahasoa.
+	Fa Izy no fiainana,
+	Nitondra fanarenana.
+	Avotra, tombotsoa
+	Fa Jeso no Mpamonjiko.
+
+2. Hamonjy sy hanavotra
+	Ny ondry \'zay naniasia,
+	\'Lay Zanaka no avotra,
+	Mpiandry tena be fitia.
+	Jeso no tokiko, sns
+
+3. Rodony izao ny hiranao,
+	Haleloia ! Hosana koa,
+	Fa tonga ny Mpanavotra
+	Mitondra fahasambarana.
+	Jeso no tokiko, sns
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '348',
+  '348',
+  '\'ZAHO TE HO TIA ANAO TOKOA',
+  'Johannes Beck',
+  'Rajoelison',
+  'Do dia E 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. \'Zaho te ho tia Anao tokoa,
+	Te ho tia Anao, Jeso.
+	Fa izany no ilain\'ny fo,
+	Ho tia Anao Jeso.
+	Tsy mba misy ety an-tany
+	\'Zay mahafa-ô izao ;
+	Ny iriko \'zao ihany :
+	Jeso ho tia Anao.
+
+2. \'Zaho te hanoa Anao tokoa,
+	Te hanoa Anao, Jeso.
+	\'Zany re no fifalian\'ny fo,
+	Hanoa Anao, Jeso.
+	Ny ota dia mampitomany,
+	Zioga mampahory izao,
+	Koa ny tiako izao ihany :
+	Jeso, hanoa Anao.
+
+3. \'Zaho dia maniry ho faty koa
+	Miaraka aminao, Jeso,
+	Sy hitsangana indray tokoa
+	Mba ho Anao, Jeso.
+	Mamy indrindra re izany
+	Tafakambana aminao ;
+	Ny iriko \'zao ihany ;
+	Jeso, ho tena Anao.
+
+4. \'Zaho te hiara-dia tokoa,
+	Hiaraka aminao Jeso,
+	Amin-dala-mora mafy koa,
+	Tsy handao Anao, Jeso.
+	Ny handroso hatrany hatrany
+	No ekeko hatrizao,
+	Mandra-pahatongako any,
+	Jeso, anilanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '349',
+  '349',
+  'ENDREY NY FANIRIAKO',
+  'H. Morris',
+  'Rajoelison',
+  'Do dia Bb 3/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. Endrey ny faniriako
+	Ny fiadanam-po !
+	Fa ety ny fifaliako
+	Miserana avokoa.
+	Eo aminao irery
+	Ry Tompo tsy mandao.
+	Mpanavotra ny very,
+	No tsara indrindra izao.
+
+ISAN\'ANDININY
+
+Ampidiro ato am-poko
+	\'Zao ny fitiavanao,
+	Ka hiorim-paka
+	Ary koa hanjaka
+	Hanahafako Anao.
+
+2. Izay haren\'ny tany
+	Dia tsy mahafa-po ;
+	Ianao irery ihany
+	No tena foto-tsoa.
+	Ho feno ilay kapoaka
+	Raha eo anilanao ;
+	Ny ratsy dia voaroaka
+	Ho resy sady lao.
+	Ampidiro ato am-poko, sns.
+
+3. Ny zava-tsoa indrindra
+	Iriko hatrizao
+	Hiaraka mamindra
+	Jesosy Aaminao,
+	Ho jiro hanazava
+	Ny dian\'ny maro re,
+	\'Zay tsinjo lalandava
+	Anaty alim-be.
+	Ampidiro ato am-poko, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '350',
+  '350',
+  'FITIAVANA MANDRAKIZAY',
+  'J. Rabarijoël',
+  'J. Rabarijoël',
+  'Do dia Ab 6/8 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. Fitiavana mandrakizay,
+	fitiavan-dehibe
+	No nitiavako anao,
+	Ka moa tsy fantatrao ve ?
+	Mpanota ô heveronao,
+	Fa very ianao,
+	Nandao ny lala-marina,
+	Lasa nivarina.
+
+2. Efa ela no nandavanao
+	Ny antsoko izao.
+	Moa mbola tsy ahoanao.
+	Tsy mampiraika anao.
+	Ny aiko no nomeko re
+	Hanavotra anao ?
+	He ! famonjena lehibe
+	Atolotro anao.
+
+3. Mpamonjy ô, he ! fantatro
+	Ny fitiavanao.
+	Indrisy meloka aho re,
+	Tsy mendri-kovonjenao.
+	Ekeko izao ny antsonao,
+	Tsy laviko tokoa.
+	Diovy re ny zanakao
+	Amin\'ny ranao soa.
+	
+'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '351',
+  '351',
+  'NANDAO ANAO ELA AHO RAIKO O!',
+  'G. C. Hugy',
+  'J. Rajoely',
+  'Do dia F 4/4 Milantolanto',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. Nandao Anao ela aho Raiko ô !
+	\'Zao dia te hody aho.
+	Maniry hiankina an-tratranao,
+	\'Zao dia te hody aho.
+
+ISAN\'ANDININY :
+	\'Nty tamy aho, Raiko malala,
+	Raiso ny tanako.
+	\'Nty tamy aho, Raiko malala,
+	Raiso ny tanako.
+
+2. Itambesaran\'ny ota natao,
+	\'Zao dia te hody aho.
+	Matoky anefa fa horaisinao,
+	\'Zao dia te hody aho.
+	\'Nty tamy aho, sns.
+
+3. Na dia tsy mendrika ho zanakao,
+	\'Zao dia te hody aho.
+	Ataovy isan\'ny mpanomponao,
+	\'Zao dia te hody aho.
+	\'Nty tamy aho, sns.
+
+4. Maniry hanana fiadanam-po,
+	\'Zao dia te hody aho,
+	Sy mba hivesatra ny zioganao ;
+	\'Zao dia te hody aho.
+	\'Nty tamy aho, sns.
+
+5. He ! indro tsinjoko ny sandrinao,
+	\'Zao dia te hody aho.
+	Mitsotra mba hisakambina re,
+	\'Zao dia te hody aho.
+	\'Nty tamy aho, Raiko malala,
+	Raiso ny tanako.
+	\'Nty tamy aho, Raiko malala,
+	Raiso ny zanakao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '352',
+  '352',
+  'O, HITAKO',
+  'G. C. Stebbins',
+  'F. Ramanantsialonina',
+  'Do dia A 3/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. O! hitako ka fantatro
+	\'Lay fiadanan-tsoa ;
+	Jesosy no Mpanavotro,
+	Ny foko ravo koa.
+	Ny fahotako marobe,
+	Ny rany no manasa ;
+	Ny androko \'zay sisa re,
+	Ho tsara noho ny lasa.
+
+2. O! tsapako, ry Raiko ô,
+	Ny fitiavanao.
+	Ny avotrao, ry Jeso ô,
+	Nanafaka ahy izao.
+	Ny ratsy izay nandoza, he,
+	Naringana tokoa.
+	Fahasambaran-dehibe
+	Nomenao avokoa.
+
+3. Izaho \'zay naniasia
+	Dia notadiavinao,
+	Nomenao hery mba ho tia
+	Ny famonjena izao,
+	Ho zanakao manokana,
+	Jeso no Rahalahy.
+	Ny ran\'ny fihavanana
+	No nanafahana ahy.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '353',
+  '353',
+  'HIARA-MANDEHA AMINAO',
+  'T. Melodier',
+  'Rajoelison',
+  'Do dia D 6/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. -MANDEHA AMINAO
+
+1
+	Hiara-mandeha aminao hatrizao,
+	Jeso no iriko tokoa.
+	O, raiso ny tanako atsotra aminao.
+	Fa atolotro koa ny fo.
+
+ISAN\'ANDININY :
+	Handroso isan\'andro na aiza haleha
+	NA mora na sarotra atao
+	Tsy hiala tokoa na hivadika re
+	Ambara-pahatonga aminao.
+	Ambara-pahatonga aminao.
+
+2. Hiara-mitondra aminao hatrizao
+	Ny hazo fijaliana,
+	Fa maivana izany raha anilanao
+	Ka hody fifaliana.
+	Handroso isan\'andro, sns.
+
+3. Hiara-miasa aminao hatrizao,
+	Hitady izay very koa,
+	Ka hanana fo antra toy ny Anao,
+	Hanarina ny efa voa.
+	Handroso isan\'andro, sns.
+
+4. Raha avy indray tsy ho ela Ianao,
+	Izaho handao ny ety ;
+	Hiaraka amin\'ny navotanao,
+	Handova ny lanitra ery.
+	Ho sambatra indrindra, ho tretrika koa
+	Hanatrika ny tavanao,
+	Kanefa izay hifaliako tokoa,
+	Hiara-mitoetra aminao,
+	Hiara-mitoetra aminao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '354',
+  '354',
+  'HE REKO \'ZAO',
+  'F. H. Bysho',
+  'Rajoelison',
+  'Do dia Eb 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. He ! reko \'zao ny antsonao,
+	Feon\'ny fitiavana
+	Manao hoe : <<Avia ianao>>.
+	Tsy sahiko re ny handà.
+
+ISAN\'ANDININY :
+	Atolotro Anao tokoa
+	Mba ho fanati-tsitrapo,
+	Ny foko, saina, hery koa,
+	Afoiko tsy hisy ho tanako.
+	An-tananao, ry Tompo soa.
+
+2. Jereko mantsy Kalvary
+	\'Zay nihombohanao,
+	Fitiavan-dehibe ery
+	Nasehonao ahy izao.
+	Atolotro, sns.
+
+3. An-tsitrapo, ateriko
+	\'Lay fo nandà Anao.
+	Jereo, fa indro laviko,
+	Tsy ho tompoiko intsony izao
+	Atolotro, sns.
+
+4. Ny mba ho voninahitrao
+	No hahavelomako ;
+	Hiomana hitsena Anao
+	No tena hiezahako.
+	Atolotro, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '355',
+  '355',
+  'REKO ANDROANY',
+  'P. P. Bilhorn',
+  'Rajoelison',
+  'Do dia Db 9/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. Reko androany, Jesosy tia,
+	Fa lehibe ny fitiavanao.
+	Fitiavana avo sy hodoria
+	Atolotra ahy ratsy izao.
+	Ekeko, Tompo ny famonjena,
+	Na dia tsy mendrika aho izao.
+	Ataoko anio \'lay fanekena
+	Fa hatrizao dia ho Anao.
+
+2. Reko androany, Jesosy Mpamonjy,
+	Fa na izaho irery aza re,
+	No hany very ka nila vonjy,
+	Ho nafoinao ny ainao e !
+	Voasintona aho hanolo-tena,
+	Ho velona sy ho faty koa,
+	Ho Anao Jeso \'zay famonjena.
+	O ! raiso ho Anao tokoa.
+
+3. Reko androanay fa miandry ahy
+	Hanolo-tena mba ho Anao
+	Ianao, Jesosy, ka toa manahy
+	\'Ndrao dia diso aoriana aho izao.
+	Tsy rahampitso, anio, ry Tompo,
+	Ny tenako ho fanatitra ;
+	Anao tontolo, ho tia hanompo,
+	Na ory, na finaritra.
+
+4. Reko androany, fa vetivety
+	Ianaio Jesosy, ho avy indray,
+	Hampody izay rehetra nety
+	Nanolo-tena ho amin-dRay !
+	O ! mba tsarovy, Mpamonjy tia,
+	Izaho fa efa navotanao,
+	Anao tontolo sy ho doria,
+	Jeso malala, entonao !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '356',
+  '356',
+  'APETRAKO AN-TANANAO',
+  'J. Rabarijoël',
+  'J. Rabarijoël',
+  'Do dia D 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. -TANANAO
+
+1
+	Apetrako an-tananao, ry Raiko,
+	Ny fiainako tontolo hatrizao ;
+	Tsy misy izay mahafa-po ny saiko
+	Izay rehetra hita sy atao.
+	Eo aminao no iononako
+	Eo aminao no itoerako
+	An-tananao ihany re no tiako
+	Fa eo no misy hery tokoa.
+
+2. Apetrako anilanao ny foko,
+	Ry Tompo ô, mba ho arovanao ;
+	Ny toeran-kafa dia mampitoloko,
+	Tsy mahatamana ahy, zanakao.
+	Anilanao no mamiko tokoa,
+	Anilmanao no ampoky ny soa.
+	Anilanao no toerana iriko
+	Fa eo tokoa no misy ny soa.
+
+3 
+	Apetrako mba ho Anao, ry Tompo,
+	Apetrako tsy hanananako,
+	Hanara-dia Anao sy mba hanompo,
+	Ny tenako sy ny fanahiko.
+	KA raiso ho fanati-tsitrakao,
+	Na dia tsy mendrika ny hajanao.
+	Apetrako tanteraka, ô ! ry Ray
+	An-tananao ho mandrakizay.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '357',
+  '357',
+  'TSY MANANA HATOLOTRA',
+  'I. D. Sankey',
+  'F. Ramanantsialonina',
+  'Do dia E 6/4 Malefaka',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. Tsy manana hatolotra,
+	Fa, he, maloto molotra.
+	Voagejan\'i Satana
+	Sy feno fahotana.
+	Avoty re, ry Ray,
+	Ho Anao indray anie.
+	Ka ho mpianatrao izahay
+	Anio ho mandrakizay.
+
+2. He ! mpandika lalàna koa
+	Mavesa-pahotana ery
+	Ny fonay tsy mahay manoa
+	Tsy afaka mitia
+	Havaozy, Tompo ô,
+	Dia raiso, hanjakao
+	Esory tao ny ota be
+	Soloy fanahinao re.
+
+3. Malemy mora lavo re
+	Tohano Tompo lehibe
+	Tsy af-mandeha irery
+	Tantano sao ho very.
+	Ampaherezo re
+	Omeo finoana be
+	Avoty sy ampionao
+	Ho tonga zanakao.
+
+4. Hikambana aminao tokoa
+	Handray ny tsiron\'aina soa
+	Ho sampana mamoa tokoa
+	Mamoa voa famonjena
+	Ka raha ho avi Ianao
+	Arahin\'ny anjelinao
+	Handray ireo navotanao
+	Ekeo \'zahay hitsena.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '358',
+  '358',
+  'O! MITSANGANA ANDEHA MITORIA',
+  '(Tsy fantatra)',
+  'Esther Bary',
+  'Do dia F 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. O ! mitsangàna andeha mitoria
+	Ianao izay mpiara-miasa amiko.
+	Fa indro Aho  momba sy miara-dia
+	Ka matokia, fa handresy ianao
+
+ISAN\'ANDININY
+	Inty aho, ry Jeso ô, ho irakao.
+
+2. Ny teny soa no aoka hampahery
+	\'Reo reraka am-pandehanana
+	Tapaho koa ny fatotry ny ota
+	Ento aty ireo fanahy ireo
+	Inty aho, ry Jeso ô, sns.
+
+3. Jesosy tia, Anao ny fahefana
+	Ka aoka aho hino sy hankato
+	Toky ho ahy ny asan\'ny Fanahy
+	Ka vonona tokoa hitombandahy
+	Inty aho, ry Jeso ô, sns
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '359',
+  '359',
+  'O! FANTATRAO, RY TOMPO',
+  '(Tsy fantatra)',
+  'Esther Bary',
+  'Do dia F 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. O ! fantatrao, ry Tompo,
+	Ny faniriako :
+	Dia ny hanompo Anao
+	Hatrany am-parany.
+	Ho Mpampianatro Ianao
+	Ho Sakaizako koa.
+	Dia tsy hanahy aho
+	Jeso Mpitarika.
+
+2. Aoka ho tsapako re
+	Fa akaikiko Ianao.
+	Ka na dia maro aza
+	\'Reo fahavaloko,
+	Ho resiko mihintsy
+	Izao tontolo izao.
+	Mba hakaikezo aho
+	handreseko ireo.
+
+3. Nampanantena aho
+	Fa hanompo Anao
+	Na aiza anendrenao, Jeso,
+	Ho any aho
+	Izay rehetra ataoko
+	Ho voninahitrao.
+	Hanara-dia Anao re,
+	Ry Mpampianatro.
+
+4. Nampanantena Ianao
+	Ry Jeso Tompo tia
+	Fa ny manaraka Anao
+	Ho aminao doria
+	Hiombom-boninahitra
+	Aminao Tompo soa
+	Ekeo, ry be fiantra
+	Ho eo izaho koa.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '360',
+  '360',
+  'AO AM-POKO RY JESO NY FITIAVANAO',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Db 3/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. -POKO RY JESO NY FITIAVANAO
+
+1
+	Ao am-poko ry Jeso ny fitiavanao.
+	Ao am-poko mamboatra ny fomba ho vao.
+	Tsy hohaiko intsony ny hiaina ety,
+	Raha tsy ahy tokoa ilay fitia(vanao).
+	Hasambarana mamy no mameno ny fo,
+	Hasambarana mamy dia mamy tokoa.
+	O ! anjarako hatramin\'izao.
+
+ISAN\'ANDININY :
+	Jesosy ô, ny fitiavanao,
+	Efa iainako tokoa, Jeso
+	Ny fitiavanao.
+	Tsy mba manam-paharoa
+	Tsy manam-petra koa
+	Ny fitiavanao.
+	Ivelomako hatrizao Jeso
+	Ny fitiavanao.
+	Hatrizao, ho doria, doria.
+
+2. Ho masoandro hanazava ny fitiavanao,
+	Hampisava ny rahona izay mitatao,
+	Ho fanilon\'ny foko mba hamirata ery
+	Ka hiraiko tokoa ilay fitiavanao.
+	Hafaliana no heno mameno ny fo,
+	Hafaliana no tonga manjaka ao am-po,
+	Hasambarako hatramin\'izao.
+	Jesosy ô, ny fitiavanao, sns.
+
+3. Tsy ho haiko hadinoina ny fitiavanao
+	Fa fitia \'zay mambabo ny fo tsotra izao
+	Hokoboniko mafy ao anaty satria,
+	He ! fitia tsy mba roe \'lay fitiavanao.
+	Haravoana tsy hay tantaraina tokoa,
+	Haravoana tsy roa aman-tany, tsy roa,
+	He ! mangeja ahy hatramin\'izao.
+	Jesosy ô, ny fitiavanao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '361',
+  '361',
+  'INDRISY OLONA MAHANTRA',
+  'A. Razaka',
+  'A. Razaka',
+  'Do dia F 4/4 Haingana',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. Indrisy olona mahantra
+	iza no hanafaka ity gadra ?
+	Jereo Jeso \'zay afaka
+	Hanome ny fiadanam-po.
+
+ISAN\'ANDININY :
+	:,: Raha Jeso re no manafaka anao
+	(Raha Jeso ho afaka tokoa, tokoa ianao)
+	Ho sambatra koa sy hiadana soa.
+	(Sambatra, hiadana). :,:
+	Tsarovy ry olona mahantra
+	Jeso mpanafaka ny gadra.
+	Tsarovy re Jeso fiadananao.
+
+2. Raha sendra kivy sy toa ory
+	Noho ny vesatry ny ota,
+	Antsoy Jeso ka mitrakà
+	Sy miravoa fa ho afaka.
+	Raha Jeso re, sns.
+
+3. Raha mikasa hanao ny tsara,
+	Nefa manao izay voarara,
+	Nahoana re, ianao Jeso
+	No miantehitra amiko ?
+	Raha Jeso re, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '362',
+  '362',
+  'EFA ELA NO NIKASA',
+  'Héritage Singers',
+  'D. Rasolonjatovo',
+  'Do dia Db 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. Efa ela no nikasa mba handao.
+	Ka hanadino ireo lasa izay fanao
+	Kanjo indrisy hatrizao
+	Ao anaty tratrako ao
+	Tsy afaka ao
+	Mbola ao anatiko ao.
+
+ISAN\'ANDININY :
+	Mba vonjeo, ry Ray
+	\'Ty mahantra kely ity.
+	Hiasanao, ry Ray
+	Tsy hifikitra ety.
+	Ka manomboka anio
+	Ho voasasanao madio,
+	Madio, madio.
+	Ho tena zanakao.
+
+2. Efa ela no nizotra tao an-johy
+	Ka dia tsy afaka nipoitra, toa nafoy
+	Haizim-pito tsy mba roa
+	No nandrakotra ny fo
+	Ka endrey fa nirepirepy tao.
+	Mba vonjeo, ry Ray, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '363',
+  '363',
+  'APETRAKO EO AN-TANANAO',
+  'B.M.C.',
+  'D. Rasolonjatovo',
+  'Do dia Ab 3/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. -TANANAO
+
+1
+	Apetrako eo en-tananao
+	Ny fiainako manontolo
+	Ry Tompon\'ny fanahiko
+	Fa Ianao nisolo.
+
+ISAN\'ANDININY :
+	Tompo malala ô, tano ho Anao.
+	Mba tsy hiala eo an-tananao.
+	Tariho ny diako ho aminao
+	Ny faniroako an-tananao.
+
+2. Endrey naniasia izao
+	Ry Ray ny zanakao.
+	Nanara-po sy nilalao
+	He ! lavitra Anao.
+	Tompo malala ô, sns.
+
+3. Izao rehetra hita izao
+	He ! mahasondriana ahy.
+	Nandositra ny tavanao
+	\'Lay Tompon\'ny fanahy.
+	Tompo malala ô, sns.
+
+4. Tsy ho haiko intsony hatrizao
+	handao ny làlanao.
+	Tantano re, ampio aho
+	tariho ny tananao.
+	Tompo malala ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '364',
+  '364',
+  'EFA ELA IANAO JESO',
+  'M. Randriamiandriray',
+  'M. Randriamiandriray',
+  'Do dia Eb 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. :,: Efa ela Ianao Jeso
+	No nandona tato am-poko.
+	Niangavy am-pitiavana
+	Mba honina ato am-poko
+	Be \'reo zavatra taloha
+	Ireo rendrarendra sy filàna,
+	Nibosesika eo aloha,
+	Manakona ilay Kanana. :,:
+	:,: Ankehitriny Jeso tia
+	Dia ny foko no atolotro,
+	Ka ny saiko sy ny foko
+	Sy ireo vatako rehetra.
+	Dia tiako mba hanompo
+	Hanompo Anao tsy misy fetra. :,:
+	O ! arovy Jeso tia\'Ty mpanompokelinao
+	Ka aza avela haniasia
+	Fa taizao ho mpianatrao.
+	Fa taizao ho mpianatrao.
+	Fa taizao ho mpianatrao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '365',
+  '365',
+  'MAMIN\'NY FOKO',
+  'P. P. Knapp',
+  'Razafimahefa',
+  'Do dia D 9/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Valin\'ny antso',
+  '
+1. Mamin\'ny foko ry Jeso ô !
+	Ny famonjena izay vitanao
+	Ny hadisoako navelanao
+	Tena afaka aho mandrakizay
+
+ISAN\'ANDININY :
+	Jeso malala ô ! Mpamonjy soa !
+	Indro ny aiko raiso ho Anao.
+	Velon-kanompo, velon-kanoa,
+	Vonon-kanao izay sitrakao.
+
+2. Tano ny foko, ry Jeso tia !
+	Zaza tsy mahasaraka Anao ;
+	Mbola malemy, mora mania
+	Tano hifikitra ao aminao.
+	Jeso malala ô, sns.
+
+3. Aoka ny foko sy ny fonao
+	Hiara-mitepo tena iray ;
+	Aoka ny saiko sy ny sainao,
+	Hiray safidy mandrakizay.
+	Jeso malala ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '366',
+  '366',
+  'MAMAFAZA VOA',
+  'K. Shaw',
+  'Rafiringa',
+  'Do dia C 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Asa misiônera',
+  '
+1. Mamafaza voa
+	Ka aza mba malaina
+	Fa tsy fantatrao re
+	\'Zay ho vonona ;
+	Na amin\'ny hariva,
+	Na amin\'ny maraina,
+	Mamafaza voa tsy mijanona.
+
+ISAN\'ANDININY :
+	Matokia re, matokia re,
+	Hisy amboara ho anao anie
+	Matokia re, matokia re,
+	Hisy amboara ho anao anie.
+
+2. Mamafaza voa amin\'ny mahantra,
+	Ka aza mba mifidy
+	\'Zay hasian-tsoa ;
+	Fa ny fo mazoto sady feno hantra
+	Dia homen\'ny Tompo
+	Valisoa tokoa :
+	Matokia re, sns.
+
+3. Mamafaza voa amin\'ny malemy,
+	Hatanjaho \'reo
+	\'Zay reraka ao am-po ;
+	Asehoy Jesosy loharanon-kery,
+	Ao no hanovozy \'zay ilain\'ny fo :
+	Matokia re, sns.
+
+4. Miasà sakaiza ! milofosa tsara
+	Dieny misy asa azonao atao ;
+	Matahora sao tsy vita ilay anjara
+	\'Zay napetraky ny Tompo aminao :
+	Matokia re, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '367',
+  '367',
+  'MISY BAIKO RE',
+  'MT100',
+  'Rajoelison',
+  'Do dia F 4/4 Marisidrisika',
+  'FITORIANA NY FILAZANTSARA',
+  'Asa misiônera',
+  '
+1. Misy baiko re, tonga aminao
+	Mba hirotsaka ao an-toby izao
+	Krissty eo aloha koa
+	Dia mandrosoa
+	Mba hiady sy handresy koa.
+
+ISAN\'ANDININY :
+	O ! mandehana ianao anio,
+	Ny herinao dia tafio,
+	Fa indro Kristy momba anao,
+	Kapiteny izay tsy mba resy izao.
+
+2. Manda mafy no manoloana anao,
+	Fahavalo koa lian-dra izao.
+	\'Njany misy feo toa mitoreo,
+	Miandry vonjy aminao ireo.
+	O ! mandehana, sns
+
+3. Aza ketraka na dia kely ianao
+	Fa banjino re ny faneva izao.
+	He ! ny sabatra fa mamiratra,
+	Dia ny tenin\'Andriamanitra.
+	O ! mandehana, sns
+
+4. Babo marobe no ho azonao,
+	\'Zay hanaiky re an\'i Kristy \'zao.
+	\'Reny ho vatosoa, ravakao tokoa,
+	Satroboninahitra tsy ho lo.
+	O ! mandehana ianao anio,
+	Ny herinao dia tafio,
+	Fa, indro Kristy avy re,
+	Hanome anao fitsaharam-be.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '368',
+  '368',
+  'LAZAO \'LAY TANTARAN\'NY VONJY',
+  'C. H. Gabriel',
+  'Rajoelison',
+  'Do dia C 9/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Asa misiônera',
+  '
+1. Lazao \'lay tananan\'ny vonjy.
+	Lazao, tena mamiko re.
+	Lazao fa Kristy no Mpamonjy
+	Lazao \'lay fitiavany be.
+
+ISAN\'ANDININY :
+	Tantaran\'ny nitiavany ahy
+	(O ! tantara mamy, o ! tantara mamy)
+	Nisoloana ny heloko
+	(Nisoloan\'i Jeso \'zao ny heloko)
+	He ! ravo ny fanahy afaka ahiahy
+	(He ! ravo re fa afaka ahiahy izao)
+	Fa voavonjinao ry Ray.
+	(Fa voavonjinao, eny, ho mandrakizay)
+
+2. Tery an-kavoanan\'i Gologota
+	Kristy nihombo ho ahy re ;
+	Nilanja ny vesatry ny ota,
+	Nafoy tao anaty alim-be.
+	Tantaran\'ny nitiavany ahy, sns.
+
+3. Lazao mba ho lazaiko koa
+	Ilay tantara lehibe ;
+	Lazao mba handre avokoa
+	Ny olom-bery marobe.
+	Tantaran\'ny nitiavany ahy, sns
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '369',
+  '369',
+  'MITSANGANA IZAO',
+  'Ancien Choral 1701',
+  'Rabarijoël',
+  'Do dia B 4/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Asa misiônera',
+  '
+1. Mitsangana izao,
+	Ry Ziona sambatra ô ;
+	\'Zay mitondra teny soa,
+	Teny mampionona,
+	Miakara an-kavoana,
+	Asandrato ny feonao ;
+	Asandrato izao.
+
+2. O ! ry Jerosalema,
+	Iraka Andriamanitra,
+	Ambarao hanako mafy
+	Eram-pirenena izao
+	Teny soa mahafaly,
+	Tenin\'Andriamanitra.
+	Ambarao hatrizao.
+
+3. Jeso, Mpanjakanao,
+	Heni-boninahitra,
+	Indro Izy fa miseho
+	Eo an-drahon-danitra.
+	Tonga mba hamaly soa
+	Sy hitondra ny azy koa
+	Miomàna izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '370',
+  '370',
+  'ERAN\'NY TANY',
+  'J. S. Bach',
+  'Ratovondrahety',
+  'Do dia Bb 3/4 Majeur ',
+  'FITORIANA NY FILAZANTSARA',
+  'Asa misiônera',
+  '
+1. Eran\'ny tany no itoriana
+	Ilay Jesosy Kristy Mpamonjy.
+	He ! sambatra tokoa \'zay mihaino
+	Ka manaiky izao am-po,
+	Fa tsy misy anarana hafa.
+	Mba hahazoana famonjena
+	Afa-tsy ny anran\'i Jesosy Kristy.
+
+2. Mpamonjinay ô, \'zao no irinay,
+	Mba hatanjahonao ny finoanay.
+	Omeonao hery mba hijoroanay
+	Amin\'ny fanompoana Anao.
+	Ankatoavinay ny fanendrena
+	Ho vavolombelona hanambara
+	\'Lay lova : Fiainana mandrakizay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '371',
+  '371',
+  'VELOMY MAFY MBA HO RE',
+  'S. Martin',
+  'Rajoelison',
+  'Do dia Bb 6/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Asa misiônera',
+  '
+1. Velomy mafy mba ho re,
+	Hanako eran-tany izao,
+	\'Lay antso mahafaly hoe :
+	Jesosy no Mpamonjinao.
+	Velomy mafy (velomy re)
+	Mba ho re aty,
+	Velomy mafy (velomy re)
+	Mba hanako ary.
+	Misy olona ory anie,
+	Miandry sy misento e
+	Anaty alim-be,
+	Izy ta handre.
+
+2. Velomy mafy mba ho re,
+	\'Reo lakolosin-danitra,
+	Fa, indro tafaverina e
+	Ilay nania lavitra.
+	Velomy mafy (velomy re)
+	Mba ho re aty,
+	Velomy mafy (velomy re)
+	Mba hanako ary.
+	Misy kivy fo anie,
+	Resy, mitomany e,
+	Anaty alim-be,
+	Izy ta handre.
+
+3. Velomy mafy mba ho re,
+	Fa, indro avy Kristy izao.
+	Fanantenana mamy re ;
+	Ho avy Izy haka anao.
+	Velomy mafy (velomy re)
+	Mba ho re aty,
+	Velomy mafy (velomy re)
+	Mba hanako ary.
+	Misy izay sondriana anie
+	Amin\'ny mandalo e,
+	Anaty alim-be,
+	Aoka mba handre.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '372',
+  '372',
+  'MITSANGANA KA MIHAZAVA',
+  'L. J. Raharijaona',
+  'L. J. Raharijaona',
+  'Do dia Ab 4/4 Marisidrisika vonona',
+  'FITORIANA NY FILAZANTSARA',
+  'Asa misiônera',
+  '
+1. :,: Mitsangàna ka mihazavà !   
+	Mitsangàna ka mihazavà !
+	Fa tonga ny fahazavanao
+	Ary efa miposaka aminao :,:
+	:,: Ny hazavan\'i Jehovah        
+	Miposaka aminao anio
+	Fa aminao kosa
+	No hiposahan\'i Jehovah !
+	Atopazy manodidina
+	Ny masonao ka mba jereo. :,:
+	Ny firenena rehetra
+	Dia mankaty aminao.
+
+2. :,: Mitsangàna ka mihazavà !   
+	Mitsangàna ka mihazavà !
+	Fa tonga ny fahazavanao
+	Ary efa miposaka aminao :,:
+	:,: Ny firenena rehetra
+	Dia manantena anao anio
+	Fa aminao kosa
+	No hiposahan\'i Jehovah !
+	FA ianao no vavolombelona
+	Mitondra ny
+	Hazavan\'i Jehovah. :,:
+	Hitarika ny firenena
+	Mba hahazo ny lova.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '373',
+  '373',
+  'AMPIONONY NY OLOKO',
+  'L. J. Raharijaona',
+  'L. J. Raharijaona',
+  'Do dia F 4/4 Allegreto',
+  'FITORIANA NY FILAZANTSARA',
+  'Asa misiônera',
+  '
+1. Ampionony ny oloko
+	(Ampionony ny oloko)
+	Ampionony ny oloko
+	(Hoy Andriamanitra)
+	Ry mitondra teny soa mahafaly !
+	Antsoy mafy mba ho re
+	(Antsoy mafy mba ho re)
+	Mba ho faly izay mandre
+	(Ry Jerosalema)
+	Ry Jerosalema
+	\'Zay efa nahazo famindram-po !
+	Fa efa vita ny adiny
+	Sady voavela ny helony (voavela)
+	Koa mifalia sy miravoa !
+	Ry Jerosalema ô, miravoravoa.
+
+2. Ry Ziona mihainoa
+	(Ry Ziona mihainoa)
+	Ry Jerosalema ô !
+	(\'Zay mitondra teny)
+	Izay mitondra teny soa.
+	Asandrato mafy ny feonao ;
+	Indro Andriamanitra
+	(Indro Andriamanitra)
+	Avy amin\'ny heriny
+	(Hiandry ny ondry)
+	Hiandry ny ondry
+	Sy hanangona ny zanak\'ondry
+	Ka ho trotroiny an-tratrany,
+	Satria lehibe
+	Ny fitiavan\'i (Jehovah)
+	Fa Izy tsy miova fa tokoa
+	Mpanota rehetra : <<Malalany>>.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '374',
+  '374',
+  'RY MPITORY TENY TSARA',
+  'Th. Hastings',
+  'Rajoelison',
+  'Do dia D 3/4 Mientanentana',
+  'FITORIANA NY FILAZANTSARA',
+  'Asa misiônera',
+  '
+1. Ry mpitory teny tsara,
+	Asandrato ny feonao !
+	Aza kivy manambara
+	Fa avy re, ny Tomponao.
+	Tsy ho ela dia ho lasa ny alim-be.
+	Mifohaza, ry mpanota very e !
+	Mifohaza, ry mpanota very e !
+
+2. Ry mpititly, miambena
+	Eo ambony mandanao
+	Aza kivy, mitenena,
+	\'Ndrao hadinina aminao.
+	Indro avy, avy re ny alim-be,
+	Sao sondriana, ry mpanota very e !
+	Sao sondriana, ry mpanota very e !
+
+3. Ry mpiady, mahereza,
+	Moa ho ketraka ianao ?
+	Aza kivy fa meteza
+	Ho tantanany izao.
+	Tsy ho kivy, ao ny fitsaharam-be.
+	Mahareta, ry miaramila e !
+	Mahareta, ry miaramila e !
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '375',
+  '375',
+  'MOA MBA HENONEO VA RE',
+  'I. DE. Sankey',
+  'A. R. Marnoë',
+  'Do dia G 3/4 Mientanentana',
+  'FITORIANA NY FILAZANTSARA',
+  'Asa misiônera',
+  '
+1. ?
+
+1
+	Moa mba renao va re ?
+	Mahavonjy Jeso.
+	\'Zao no hira be mpandre :
+	Mahavonjy Jeso.
+	Antso mafim-pamonjena,
+	Hira izay mampanantena
+	famonjena firenena.
+	Mahavonjy Jeso !
+
+2. O ! ry tany mihirà :
+	Mahavonjy Jeso.
+	Fa miteny amin\'ny ra.
+	Mahavonjy Jeso.
+	Jeso miantso anao hilaza
+	Sy hampiely koa ny laza,
+	Mba handre na dia ny zaza :
+	Mahavonjy Jeso !
+
+3. Ny fo toro ilazao :
+	Mahavonjy Jeso.
+	Olon-dratsy ilazao :
+	Mahavonjy Jeso.
+	Itorio koa ny Nosy,
+	Ny fatorana aitosy.
+	Ilazao \'zay mikorosy :
+	Mahavonjy Jeso !
+
+4. Re hatrany an\'efitra :
+	Mahavonjy Jeso.
+	Any ampita lavitra :
+	Mahavonjy Jeso.
+	Eny eram-bazan-tany
+	\'Njany heno any ho any
+	\'Zany hira mamy \'zany :
+	Mahavonjy Jeso.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '376',
+  '376',
+  'FEON\'I KRISTY NO MIANTSO',
+  'Kirkpatrick',
+  'A. R. Marnoël',
+  'Do dia G 3/4 ',
+  'FITORIANA NY FILAZANTSARA',
+  'Asa misiônera',
+  '
+1. Feon\'i Kristy no miantso :
+	Mifohaza ianao !
+	Milonjehitra ny voa,
+	Iza no hiasa ao ?
+	Ny Mpamonjinao miantso,
+	Antso alefa aminao,
+	O! valio fa antso maika :
+	<< Inty aho ho irakao >>
+
+2. Na tsy lasa lavitra aza
+	Ianao, mba mitoria.
+	Vitsy mantsy ny mpilaza
+	Ny tantaran\'i Kristy.
+	Midadasika ny saha,
+	Kaly ny finoanao,
+	Nefa Jeso Tompon\'asa
+	No hanampy hery anao.
+
+3. Ny talentan\'ny fiteny,
+	Mety tsy hanananao ;
+	Misy hafa \'zay nomeny,
+	Ampiasao, ampiasao !
+	Azo atao ny milaza
+	Soa be noraisinao,
+	Na dia tsy amin\'ny vava,
+	Amin\'ny asa soa atao.
+
+4. Aoka tsy ho re intsony
+	Ny fiteny toa mandà
+	Fa ny Ray \'zay ao ambony
+	No mibaiko : Miaingà !
+	Tsy ho ela dia ho vita
+	\'Zany asa iraisana ;
+	Tamy ao ny Tompontsika
+	Valiny handraisana.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '377',
+  '377',
+  'TOMPO Ô, OVAY NY FOKO',
+  'G. C. Stebbins',
+  'G. Cousins',
+  'Do dia F 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. 
+TOMPO Ô ! OVAY NY FOKO
+	1. Tompo ô ! ovay ny foko
+	Mba ho mora anarina
+	Toy ny an\'ny zazakely
+	Tsotra sady marina,
+	:,: Tsy mialona, tsy maditra,
+	Fa manai ny sitrakao. :,:
+
+2. Zaza, ka tsy te hifidy
+	Izay homenao ahy anio ;
+	Ny ho azoko ampitso
+	Dia ankinina aminao ;
+	:,: Koa tsy manahy aho,
+	Fa efa niantohanao. :,:
+
+3. Zaza tsy maharo tena,
+	Fa miankina amin-dRay,
+	Tsy mahery, tsy mba hendry
+	Ary tsy mahay mandeha ;
+	:,: Ianao no Raiko tia,
+	raiko be fahari-po. :,:
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '378',
+  '378',
+  'MAHANTRA AHO',
+  'L. J. Raharijaona',
+  'L. J. Raharijaona',
+  'Do dia F 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. MAHANTRA AHO
+	1
+Mahantra aho ka mba aiza,
+No hahita izany fifaliana.
+Sa mbola tia Ilay Sakaiza
+Jeso Fitiavan ?
+Mavesatra ny fahotana
+Izay manapaka ahy e !
+Mahery koa ny fahosana
+Ray malala mijere !
+
+2
+Menatra aho fa mpanota ;
+Nefa mba manam-pikasana.
+Handao ny ratsy sy ny ota
+ka hahazo famelana !
+Koa mba ampio fa kely hery,
+Tafio fahamarinana,
+Tazony koa mba tsy ho very
+Ry Jeso fitiavana.
+
+3Maro ny andro nilibana.
+Nandaozako lavitra Anao.
+Be sitrapo sy hadalana
+Ka nandà \'zay sitrakao.
+Mazàna aho no misaina
+Ny tsy hahazo indrafo.
+Noheveriko ho very maina
+Ilay fitiavanao soa !
+
+4
+Raiso anio, ry Tompo tia,
+Ny voady atolotro izao.
+Tantano aho tsy hania,
+Raiso ho Anao hatrizao.
+Ny ady mafy miantsampy
+Dia tsy ahoako intsony re
+fa ny herinao \'zay ampy
+Mba hitarika ahy e !
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '379',
+  '379',
+  'RAY O! TODIHONAO',
+  '(Tsy fantatra)',
+  'Rajoelison',
+  'Do dia Ab 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Ray ô, todihonao
+	Fa indro mitady Anao.
+	Izaho zanakao
+	Naniasia
+	Ny fahotako be
+	Manindry mafy re,
+	Ianao hamela anie,
+	Ray be fitia.
+
+ISAN\'ANDININY
+	Avy manatona
+	Ity zanakao.
+	Aza akatona
+	Ny lanitrao
+
+2. Tano akaikinao
+	Hijary tsara Anao,
+	Hanana ny endrikao
+	Mamiratra.
+	Raha sendra izay manjo
+	Ka ketraka ny fo,
+	Atrehonao tokoa
+	\'Ndrao trotraka.
+	Avy manatona, sns.
+
+3. Ray ô, marihonao
+	Ho isan\'ny Anao
+	\'Zay fifalianao
+	Mandrakizay !
+	Tsinjovy raha ety
+	Mandra-pahatonga ary
+	Anilanao, doria,
+	Rahatrizay !
+	Avy manatona, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '380',
+  '380',
+  'AVY AHO MANATONA',
+  'W. G. Fisher',
+  'Rajoelison',
+  'Do dia G 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Avy aho manatona,
+	Tompo, eo an-tongotrao ;
+	Aoka tsy ho lavinao,
+	Raiso fa navotanao.
+
+ISAN\'ANDININY
+	Ianao no tokiko,
+	Zanak\'Ondry Masina ô,
+	Maty noho ny heloko
+	Koa dia isaorako.
+
+2. Fantatrao ny otako,
+	Tsy miafina aminao ;
+	Nefa ibebahako :
+	Ô ! diovy aho izao !
+	Ianao no tokiko, sns.
+
+3. \'Zany fiadananao,
+	Aoka re handramako ;
+	Ary ny fiainanao
+	No mba hivelomako.
+	Ianao no tokiko, sns.
+
+4. Raiso fa ateriko
+	Ho fanatitra doria,
+	Fo sy saina, heriko,
+	Raisonao, Mpamonjy tia.
+	Ianao no tokiko, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '381',
+  '381',
+  'RY ZANAK\'ONDRY VOAVONO',
+  'C. Malan',
+  'A. R. Marnoël',
+  'Do dia F 3/4 Antonony',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Ry zanak\'Ondry voavono
+	Ekenay ny fitiavanao
+	Ilay ranao nandresenao
+	Ho anay \'zay navotanao
+
+ISAN\'ANDININY
+
+Indreto hisakafo izahay
+	Hidera ny fitiavanao.
+	Sady miandry ny fiverenanao
+	Izay hanefa ny famonjena.
+
+2. Teo min\'ilay vokovoko
+	Fiadanana no hitako
+	Ka sitrana tokoa ny foko
+	Fa nosoloin\'ny ratranao.
+	Indreto hisakafo, sns.
+
+3. Tafio ny fahamarinanao re
+	\'Zahay mpanompo vory izao
+	Ka mba hahazo tombotsoa be
+	Hiditra ao an-danitrao.
+	Indreto hisakafo, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '382',
+  '382',
+  'RY VATOLAMPY MANDRAKIZAY',
+  'Fr. Gay',
+  'A. R. Marnoël',
+  'Do dia Eb 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Ry Vatolampy mandrakizay,
+	Nikorianan\'ny aina ho anay,
+	He! mora lavo aho, fantatrao.
+	Mitolona, nefa resy koa.
+	\'Ty tamy aho ka raisonao,
+	Ry Vatolampy mpanisy soa.
+
+2. Diovy ny fo, sasao, Tompo !
+	Hamasino fa mahantra am-po.
+	Mangovitra ny tanako foana
+	Tsy manan-katolotra Anao,
+	Ry Vatolampy manoloana,
+	Fa miankina amin\'ilay Rranao.
+
+3. Raha ketraka aho, tohanonao
+	Manda amin\'ny loza koa Ianao,
+	Ry Vatolampy \'Zay voakora
+	Nefa tsy mihontsona tokoa.
+	Isan\'andro, isan\'ora,
+	Aminao no hieren\'ny fo.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '383',
+  '383',
+  'HE ! NY SANDRY',
+  'HL283',
+  'A. R. Marnoël',
+  'Do dia G 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. He ! ny sandry
+	Tsy hiandry
+	Fa atsotrako \'zao,
+	Ka hilofo
+	Sy hiroso,
+	Handray ny Anao,
+	Hiara-miezaka aminao
+	Hanatratra toetra vao.
+	O, Hatony,
+	Ka tazony
+	\'Ndrao diso Anao.
+
+2. Eto an-tany
+	Mitomany,
+	Resin\'ny manjo.
+	Ao an-koatra
+	tsara loatra,
+	Mahafaly fo.
+	O ! omany aho \'zao
+	Mba ho mendrika ho ao.
+	Omeo ahy
+	Ny Fanahy
+	Hitondra hakao.
+
+3. Be ny ratsy
+	\'Zay mandrafy
+	Ho toheriko,
+	Ray malala,
+	Aza miala,
+	Ianao no heriko,
+	Raha mandresy fantatrao
+	Fa ho voninahitrao ;
+	Aza miala, Ray malala,
+	Handreseko \'zao.
+
+4. Raha sendra
+	Ny famindra
+	tsy dia afaka,
+	Ka malama
+	Tsy voatana
+	Fa solafaka,
+	Eny potraka tokoa.
+	Iantrao, ry Tompo soa
+	Hatanjaho
+	Mba ho taho
+	Mivesatra voa.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '384',
+  '384',
+  'NY FAHOTANA',
+  'J. Randrianarison',
+  'J. Randrianarison',
+  'Do dia Eb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Ny fahotana izay nanjo
+	Ka tafasaraka koa ny fo
+	Taminao Andriamanitra,
+	nahatonga ahy ho mahantra.
+
+ISAN\'ANDININY :
+	\'Ndrao anio no andro \'zay natao
+	Mba hihaonako aminao
+	Andriamanitra,
+	Ka ny fomba ratsy sy fanao
+	halaviriko hatramin\'izao.
+
+2. Amin\'ny maraina vao mifoha
+	Na atoandro na hariva koa,
+	Vonona aho hihaino ny Tsitoha,
+	Hampiseho toetra tena soa.
+	\'Ndrao anio, sns.
+
+3. Ao koa ny asa izay fanao,
+	Ny fitenyh koa izay atao
+	Sy ny famindran\'ny tongotrao
+	Mba ho fanajana ny Tomponao.
+	\'Ndrao anio, sns.
+
+4. Ny fahazavana asehoy
+	Ny fahamarinana atoroy
+	Ho tarafin\'ny hafa avy eo
+	Hampamirapiratra, azy ireo
+	\'Ndrao anio, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '385',
+  '385',
+  'ENDREY, NY HAMAROAN\'NY SOA',
+  'P. P. Bilhorn',
+  'J. Andrianaivoravelona zanany',
+  'Do dia A 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Endrey ny hamaroan\'ny soa (ny soa)
+	Nomenao Ray ho ahy koa ! (tokoa)
+	Ny aiko, he, navotanao,
+	Ny heloko vonoinao.
+
+ISAN\'ANDININY :
+	Eny, Raiko,
+	He, fa ravo tokoa (tokoa)
+	Ity zanakao voavonjy re,
+	Ka velombelona ery.
+
+2. He, azoko tokoa Jeso,
+	\'Lay peral soa, madio sy vao ;
+	Ny zava-tsoan\'ny tany re
+	Dia tsy ahoako tokoa.
+	Eny, Raiko, sns.
+
+3. Tsy haiko ny hilaza izao
+	Hamisavisa re, ry Ray :
+	Ny fanomezan-dehibe
+	Dia tsy voatonoko koa.
+	Eny, Raiko, sns.
+
+4. Ny foko no hidera izao,
+	Hisaotra sy hanaja Anao,
+	Hanoa, ho vonona hanao
+	Ny sitrakao rehetra.
+	Eny, Raiko, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '386',
+  '386',
+  'O! NY TANANAO TOMPO TIA',
+  'William J. Gaither',
+  'D. Rasolonjatovo',
+  'Do dia F 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Ô ! ny tananao Tompo tia,
+	Tanan\'izay tena tia,
+	No namonjy tamin\'ny ota,
+	Nanavotra ny fiainako.
+
+ISAN\'ANDININY :
+	Io tanano io
+	No namonjena ahy
+	Fanasitranana ahy Ianao.
+	Tompo ô, Tompo ô,
+	Ô ! ny tananao
+	Ho avy hisintona ahy ho ary.
+
+2. Jeso Tompo, Jeso tia,
+	Aoka re ny tananao
+	No hanosotra ahy hatrany
+	Mba hiderako ny Anaranao.
+	Io tananao io, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '387',
+  '387',
+  'INONA E NO HOLAZAIKO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Eb 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Ô ! inona e, no holazaiko
+	Eto anatrehanao ry Tsitoha ?
+	Tonga eto hifona aminao.
+	Tsy mendrika aho, diso tokoa.
+	Ny fitiavano no antenaiko
+	Fa mavesatra ato am-poko ato
+	Ny ota natao.
+	Tsy miafina eo aminao
+	Ny ao am-poko, ao Jeso.
+	
+
+2. Atolotro, Ray malala ô,
+	Ny tenako maba hodovinao.
+	Tsy izaho intsony no velon fa
+	Ianao no ao anatiko ao.
+	Ka ny zavatra hany ato an-tsaiko
+	Dia ny famonjena
+	Izay nataonao tao Kalvary,
+	Satria, ry Tompo,
+	Manomboka anio
+	Dia fo vaovao no omenao ahy.
+
+3. Tantano aho, Ray Malala ô,
+	Ka ny finoako koa hatanjaho
+	Ataovy velona anatiko ao
+	Ny didinao, ny teninao.
+	Ampidino koa ny Fanahy
+	Mba ho ren\'ny fiangonanao
+	anio ny antsonao.
+	Ho maro anie no hitsangana izao
+	hanolo-tena ho Anao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '388',
+  '388',
+  'FALY AHO, TRETRIKA AHO',
+  'William J. Gaither',
+  'M. RAndriamiandriray',
+  'Do dia F 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Faly aho, tretrika aho,
+	Fa ankohonan\'ny Ray,
+	Voadio sy voasasan\'ny ran\'i Jeso,
+	Mpiar-mandova amin\'i Jeso tia,
+	Fa anisan\'ny ankohonan\'Andriamanitra.
+	Mifampiantso rahalahy
+	rahavavy izahay
+	Fianakaviana iray izahay
+	Mifamatotra am-po
+	Ny fo malahelo iray
+	Ampaherezinay
+	Ary ny fandresena iray
+	Fifaliana ho anay.
+	Ny fonenan\'ny kamboty,
+	Ny Mpanjaka koa,
+	Tafakambana avokoa
+	Ka hiraiko izao :
+	Mahantra sy mpanana
+	Kely sy lehibe
+	Ka isaorako Ianao Tompo ô !
+	Fa ankohonanao aho.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '389',
+  '389',
+  'MPANOTA AHO, TOMPO',
+  '(Tsy fantatra)',
+  'A. R. Marnoël',
+  'Do dia F 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Mpanota aho, Tompo,
+	Mavesa-keloka.
+	Tsy mba miadana am_po
+	Fa olo-meloka,
+	Fa olo-meloka.
+
+2. Tsy zakako intsony
+	Ny otako, Jeso,
+	Ka mba sasao sy vonoy
+	Amin\'ny ranao soa,
+	Amin\'ny ranao soa.
+
+3. Irony halemena
+	Ota mambabo koa,
+	Ry Rain\'ny famonjena,
+	Esory avokoa,
+	Esory avokoa.
+
+4. Mba soloy ho tonga vao
+	Ny fokore, ry Ray,
+	Ka omeo fo toy ny Anao :
+	Fo tia mandrakizay,
+	Fo tia mandrakizay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '390',
+  '390',
+  'HO MARINA AHO',
+  'Joseph Yates Peek - Mamy J. Ratsirison',
+  'Esther Bary',
+  'Do dia F 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Ho marina aho
+	Satria itokiana.
+	Hadio aho, fa ao
+	\'Reo mievitra ahy.
+	hahery aho,
+	Ny sarotra sedraiko.
+	Hatanjaka aho, na inona hanjo.
+	Hatanjaka aho, na inona hanjo.
+
+2. Ho namana aho,
+	tsy hanam-pahavalo
+	Hanome aho, amim-pitiavana.
+	Hanetry tena, tsy hizahozaho.
+	Hiandrandra aho,
+	Hitsiky sy ho tia.
+	Hiandrandra aho,
+	Hitsiky sy ho tia.
+
+3. Hianatra isan\'andro isan\'andro
+	Ny lesona omen\'ny Raiko aho.
+	Hihaino ny feony malefaka aho
+	Ho vonona hanao \'zay reko aho,
+	Ho vonona hanao \'zay reko aho.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '391',
+  '391',
+  'ZANAKA ADALA',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia Eb 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Zanaka adala,
+	Tompo malala,
+	Mba raiso aho
+	Ho mpanomponao
+	Ny halemena
+	Aza jerena :
+	Hiverina aho
+	Ka amindrao fo.
+	Ovay ho vao.
+
+ISAN\'ANDININY :
+	Tsy tafandry (Mitoetra tsy tafandry)
+	fa miandry (Fa efa ela no niandry)
+	Ilay sandry (manantena ilay sandrinao)
+	Hitondra ahy, ô ! avia, (Miantso aho hoe : Avia !)
+	Mpamonjy tia, (Malakia Mpamonjy tia)
+	Hiaraka aminao aho, aho
+
+2. Fa manantena
+	Ny famonjena,
+	Tompo malala aho izao
+	Mba omeo hery
+	Ho sahy hijery
+	\'Lay lanitra
+	Sy tany vao
+	Fiandriananao
+	Tsy tafandry, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '392',
+  '392',
+  'JESO HANY FIEREKO',
+  'P. P. Bilhorn ',
+  'Rajoelison',
+  'Do dia Eb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Jeso hany fiereko
+	Sady fiononako,
+	Izy irery no jereko
+	F\'Izy no Mpamonjiko
+	(Mpamonjiko)
+
+ISAN\'ANDININY :
+	Ô ! afeno,
+	Tompo tia, ô afeno
+	Ao ambany elatrao,
+	Fa Ianao no tsy mandao.
+	(Tsy mandao)
+
+2. Raha indro manirery
+	Mahatsiaro toa nafoy
+	Andrandraiko ny fijery :
+	Ianao tsy mahafoy
+	(Tsy mahafoy)
+	Ô ! afeno, sns.
+
+3. Eo am-pototr\'ilay hazo
+	Izay nihomboanao
+	Eo ny foko no hahazo
+	\'Zany fiadananao.
+	(Fiadananao)
+	Ô ! afeno, sns.
+
+4. Tsy ho ela, kely sisa
+	Raha ho avy Ianao,
+	Vavahadim-paradisa
+	No hidirako izao.
+	(Tsy ho ekla izao)
+	Ô ! afeno,
+	Tompo tia, ô afeno
+	Ao ambany elatrao,
+	Dia ho tody aminao.
+	(Aminao)
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '393',
+  '393',
+  'RY MPAMONJY TOMPO SOA',
+  'L. Hartsough',
+  'J. H. Andrianjafy',
+  'Do dia D 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Ry Mpamonjy, Tompo soa !
+	Avy izahay izao,
+	Mba hanaiky sy hanoa,
+	Ka hiverina aminao.
+	Ianao no ranon\'aina
+	Mahavelona ny fo ;
+	Ianao no antenaina
+	Mba hanala ny manjo.
+
+2. Indreto izahay mpanota
+	Efa diso taminao,
+	Mamonje sy manavota
+	Ny fanahinay izao.
+	Ianao no mahavonjy
+	Izay miankina aminao ;
+	Koa raiso, ry Tompo Mpamonjy !
+	Ny fifonanay izao.
+
+3. Ry Jesosy be fitia
+	Mba tantanonao izahay,
+	Fa ho lavo sy hania
+	Raha tsy hazoninao.
+	Tsy mba misy mety very
+	Eo am-peletananao.
+	Fa aminao no misy hery
+	Mahatanjaka ny fo.
+
+4. Tompo ô, mba tanteraho
+	Izay rehetra mahasoa
+	Ka ny otanay afaho
+	Fa manimba anay tokoa.
+	Mampianara any haniry
+	Mba hanao ny sitrakao,
+	Hahazoanay ny hery
+	Eo am-pelatananao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '394',
+  '394',
+  'MIHIRA, RY MPONINA AO AN-DANITRA',
+  'G. F. Root',
+  'Ramala, Andriamampihantona, Rajaobelona, C. Borchgrevink',
+  'Do dia G 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. -DANITRA
+
+1
+	Mihirà, ry mponina ao an-danitra,
+	Tonga izao ny very fahizay,
+	Ka ny Rainy faly sy finaritra
+	Mba handray ny zanany indray;
+
+ISAN\'ANDININY :
+	Mihobia re, ry lanitra,
+	Ka derao Andriamanitra.
+	Eny, mihobia re, ry mino ô,
+	Ka hirao ny fihiram-baovao.
+
+2. Mihirà, ry mponina ao an-danitra,
+	Fa ilay very dia hita izao
+	Voaray ho zanak\'Andriamanitra,
+	Efa tonga olona vaovao.
+	Mihobia re, sns.
+
+3. Mihirà, ry mponina ao an-danitra,
+	Lehibe ny fifalianay,
+	Ka derao izao Andriamanitra,
+	Fa ny maty, velona indray !
+	Mihobia re, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '395',
+  '395',
+  'TSY MIAFINA AMINAO',
+  'L. A. Peace',
+  'S. Razanajatovo',
+  'Do dia Ab 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fibebahana - Fiovam-po',
+  '
+1. Tsy miafina amina, ry Tompo,
+	Izay rehetra ao am-po.
+	Ny herin\'ny fijerinao
+	Dia fantatray fa ampy izao,
+	Eny, ampy hanavao.
+
+2. Diniho ny saina sy fanahy,
+	Jereo \'zay mapiahiahy
+	Ka aoka, nohon\'ny herinao,
+	Ho lao \'reo toetra ratsy ao ;
+	Ho lao tokoa izao
+
+3. Diovy ho tonga lapanao
+	\'Lay fo naloto hatrizao,
+	Iraho koa ny Fanahy
+	Mba hanamasina anay
+	Dia ho masina izahay.
+
+4. Amin\'izay dia mba hazoto
+	Hanompo tsara an-tsitrapo
+	Anao \'zahay, ry Topo tia ;
+	Ho vonona hanara-dia
+	Anao, doria, doria 
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '396',
+  '396',
+  'MOA VE JESO',
+  'J. Lincoln Hall',
+  'Rajoelison',
+  'Do dia Eb 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Moa ve Jeso, dia mihevitra
+	Ny momba ny fiainako ?
+	Moa jereny ve isan\'andro e
+	Izay lalan-kizorako
+
+ISAN\'ANDININY :
+	He, fantatro, he, fantatro
+	Fa akaiky Izy \'zao.
+	Izy tena tia anio, doria.
+	Akaiky Izy \'zao.
+
+2. Moa ve Jeso, dia mandre tokoa
+	Ny feo fitarainako ?
+	Moa henoiny ve ka valiany e
+	\'Zany antso sy sentom-po ?
+	He, fantatro, sns.
+
+3. Moa ve Jeso dia manafaka
+	Raha mafy ny ady ety ?
+	Moa ampiany ve ka vonjeny e
+	\'Zao \'ty olo-mahantra ity ?
+	He, fantatro, sns.
+
+4. Moa ve Jeso mahafantatra
+	Olay ora farany ?
+	Moa akaiky ve, hamikirana e
+	\'Zao ny sandrim-pitiavany ?
+	He, fantatro, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '397',
+  '397',
+  'RAHA NY FITSAPANA',
+  'S. Lane',
+  'Rajoelison',
+  'Do dia Db 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Raha ny fitsapana
+	No mamely re,
+	Ka tsy mahatana,
+	Fa malemy e!
+
+ISAN\'ANDININY :
+	Ray ô, akekezonao,
+	Ô, vonjeo \'ty zanakao.
+	Mba omeo ny hery
+	Handreseko \'zao.
+
+2. Raha ny zava-poana
+	No mitaona izao,
+	Ka ny fo mirona,
+	Toa handao Anao !
+	Ray ô, akekezonao, sns.
+
+3. raha ny sitrapoko
+	No mandà Anao ;
+	Ka indro ny finoako
+	Mila ho resy izao :
+	Ray ô, akekezonao, sns.
+
+4. Aza afoy mihintsy
+	Re \'ty zanakao
+	Aoka ho mahitsy
+	Ny aleha izao.
+	Ô, tantanonao ny dia
+	Mandra-pahatonga ary.
+	Any hiderako Anao
+	\'Lay Mpamonjy tia, Amen.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '398',
+  '398',
+  'RAHA MAIZIM-BE NY LALANA',
+  'E. M.',
+  'Rajelison',
+  'Do dia D 3/4 - 4/4  ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. -BE NY LALANA
+
+1
+	Raha maizim-be ny làlana
+	Ka feno tahotra ny fo,
+	Atsotrako ny tanako
+	Ho raisinao, Mpamonjy soa.
+
+ISAN\'ANDININY :
+	An-tananao Jeso, \'Zay voahombo.
+	No ametrahako ny fiainako (tokoa)
+
+2. Raha be ny tebiteby \'zao
+	\'Zay mampangirifiry fo,
+	Tadiaviko ny tavanao
+	\'Zay hampisava ny manjo.
+	An-tananao Jeso, sns.
+
+3. Raha mafy koa ny ady re
+	Ka toa kivy \'zany fo,
+	Eo aminao ny hery be
+	\'Zay hampandresy ahy tokoa.
+	An-tananao Jeso, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '399',
+  '399',
+  'IZA NO ANY AN-DANITRA',
+  'W. L. Thomson',
+  'Rajoelison',
+  'Do dia Ab 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. -DANITRA ?
+
+1
+	Iza no any an-danitra ?
+	Iriko toa Anao ?
+	Ry Tompom-boninahitra,
+	Ianao no ahy izao.
+	\'Reo volamena, vatosoa
+	manganohano, soa tokoa,
+	Tsy hampianina ny fo
+	Fa Ianao.
+
+2. Tsy \'reo anjely sambatra
+	Izay midera Anao,
+	Mihira mahafinaritra,
+	No ahy fa Ianao.
+	Ianao no he nanolotra
+	Ho faty mba ho avotra,
+	\'Lay lahitokan-danitra,
+	Ho ahy izao.
+
+3. Ety an-tany, iza koa
+	No tena ahy re ?
+	Moa tsy Ianao, ry Tompo soa ?
+	Ny sisa : aloka e !
+	Toa voninkazo manitra ;
+	Nefa indro tsy maharitra,
+	malazo \'zao.
+
+4. Ianao no ahy hatrizao
+	Sy ho mandrakizay,
+	Tsy misy hamoizako Anao
+	Ry Tompo iray.
+	Na velona aza ny ety,
+	Izaho koa handao ity,
+	Ianao anjarako ary
+	An-danitra !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '400',
+  '400',
+  'TSY FANTATRAO ANIO',
+  'J. M. Granaham',
+  'Rajoelison',
+  'Do dia Ab 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Tsy fantatrao anio izao
+	Ny fiasan\'ny fitiavako ;
+	Kanefa kosa antenao
+	Ary hazava aminao.
+
+ISAN\'ANDININY :
+	Apetrako aminao tokoa,
+	Ry Tompo, ny fiainako anio.
+	Matoky fatratra ny fo
+	Satria Ianao Mpamonjiko.
+
+2. Mavesatra ny tanako
+	Ka mila tsy ho zakanao ;
+	Nefa ampy ny hasoavako
+	Ary hazava aminao.
+	Apetrako aminao tokoa, sns.
+
+3. Na dia mandrahona anio ;
+	Izaho Masoandronao,
+	Ny lanitra dia mbola hadio
+	Ary hazava aminao.
+	Apetrako aminao tokoa, sns.
+
+4. << Rehefa hazava aminao
+	Ny fitondrako mahasoa,
+	Dia ho fisaorana izao
+	Ary hameno ny fonao. >>
+	Apetrako aminao tokoa, sns.
+	
+'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '401',
+  '401',
+  'RAHA SENDRA NY ZAVA-MAHORY',
+  'Lawrence F. Taylor',
+  'Samoely Lala James',
+  'Do dia F 6/8 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. -MAHORY
+
+1
+	Raha sendra ny zava-mahory,
+	Ka to mbola mafy ny aleha,
+	Ny fiainanao tsy misy heviny,
+	Fa kivy hatrany ny fo.
+
+ISAN\'ANDININY :
+	Jeso tsy mba mety mandao \'zao,
+	Fa vonon-kanampy tokoa ;
+	Ny tanany mitsotra anio,
+	Ô ! raiso fa miandry anao.
+	Fikiro, aza avela hiala,
+	Minoa fa Izy tia anao,
+	Ny sento mameno ny fonao,
+	Ho foana.
+
+2. Niandry \'zay olon-kanampy,
+	Hitondra ny vonjy ho anao ;
+	Kanefa mainka niavosa indray
+	Ny fahoriana izay manjo.
+	Jeso tsy mba, sns.
+
+3. Anio atrakao ny fijery,
+	Hibanjina an\'i Kalvary
+	Fa teo Jeso nanolo-tena ho anao,
+	Mba ho anao ny lanitra.
+	Jeso tsy mba, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '402',
+  '402',
+  'JESOSY MAHAY MANOVA NY ANDRO',
+  'Richard Mullan',
+  'A. R. Marnoël',
+  'Do dia C 6/4 Milantolanto',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Jeso mahay manova ny andro
+	Sy mampitony ny onjan-drano be.
+	Ny alina ovàny ho antoandro.
+	Izy no mifeny ny ali-maizim-be.
+	Izy no miambina ny rehetra.
+	Ny heriny tsy mba manam-petra koa
+	Ny fahalemena ibebahana
+	Inoy fa avelany.
+
+2. Tanterahany ireo nofinonfy,
+	Ny raho-mainty ho lanitra manga,
+	Ny kamory dia ovany ho nosy.
+	Hitany na ny tsy mbola mitranga.
+	Ny marary kasihiny, sitrana.
+	Fantany ny tsy mety ataonao.
+	Ny halemena tsy ifikirana
+	Esoriny aminao.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '403',
+  '403',
+  'ATAON\'NY FO AHOANA',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Db 4/4 Allegreto',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Ataon\'ny fo ahoana no tsy hisaotra Anao ?
+	Tsapa sy tsaroana mibaribary izao
+	Ny soa sesehena natolotrao anay,
+	Natolotrao anay.
+	Ny antra, famonjena avy aminao, ry Ray.
+
+ISAN\'ANDININY :
+	Mandraisa anio ny saotra atolotray,
+	Atolotray Anao, Anao mandrakizay
+	Atolotray Anao ny voninahitra,
+	Ho Anao mandrakizay
+
+2. Misento re mazàna, mifaly indraindray,
+	Tao ny fitsapana, \'zay toa nivaivay,
+	Izany rehetra izany no tonga taminay
+	Dia nanamboatra hatrany ny finoanay Anao.
+	Mandraisa, sns.
+
+3. Tolory saina mino hahatsiaro tsara Anao
+	Ka tsy hanadino fa tia anay Ianao
+	Ny taona nifanolo, milaza ny asanao
+	\'Ty mety bobongolo, soloinao vaovao
+	Mandraisa, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '404',
+  '404',
+  'JESO RE NO HERIKO',
+  'John E. Campbell - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia C 4/4 Mitaraindraina',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Jeso re no heriko,
+	Izy no miaro ahy.
+	Izy re no hiarahako,
+	Ny akaikiny hery ho ahy.
+
+ISAN\'ANDININY :
+	Ny iriko, Tompo ô,
+	Hiaraka akaikinao ;
+	Isan\'andro akaikinao.
+	Ekeo re, ry Tompoko ô.
+
+2. Raha be ny fandrika
+	Aroko sy heriko Izy
+	Ka ny enta-mampiondrika,
+	Zakaiko raha anilany.
+	Ny iriko, Tompo ô, sns.
+
+3. Raha ana, sasatra aho ;
+	Eny, lany koa ny androko,
+	Na be ny mifamahofaho,
+	Izy ihany no ho tanjako.
+	Ny iriko, Tompo ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '405',
+  '405',
+  'TSY MISY SAKAIZA MAMIKO',
+  'James Row',
+  'R. Tsimaitoarivo',
+  'Do dia Eb 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Tsy misy sakaiza mamiko
+	Raha tsy Jesosy ihany.
+	Tsy misy izay itokiako
+	Raha tsy Jesosy irery.
+
+ISAN\'ANDININY :
+	Jeso, Jeso,
+	Tena tiako Ianao.
+	Jeso, Jeso,
+	Tena mamiko
+	Ny miantso ny anaranao.
+	Jeso, Jeso,
+	Tena tiako Ianao.
+
+2. raha sendra ka mila ho kivy aho,
+	Antsoiko \'Lay Sakaiza.
+	Tsy misy izay hampionona ahy
+	Raha tsy Jesosy irery.
+	Jeso, Jeso, sns.
+
+3. He ! miramirana ny endriko
+	Satria Jesosy ihany
+	No mitoetra ao am-poko ao
+	Ka& mampifaly ahy.
+	Jeso, Jeso, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '406',
+  '406',
+  'NY MIARAKA AMINAO RY TOMPO TSARA',
+  'I. B. Sergei - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia C 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Ny miaraka aminao,
+	Ry Tompo tsara,
+	No tena hasambarako izao.
+	Izaho sy ianao
+	mamaky ny tantara
+	Izay voarakitry ny teninao
+	Ianao no hany namana itokiako,
+	Mihaino ny tsiambarateloko.
+
+2. Amin\'ireo fotoana
+	mamy indrindra,
+	\'Njay reko any mikarantsana
+	Ny feonao kanto sy mirindra,
+	Mamelovelo ao an-tsofika.
+	Manangana ahy
+	Handray Anao Sakaiza
+	\'Zay mety hiara-dàlana amiko.
+
+3. tantara hotsarovako hatrany
+	Ny drafitra nataon\'ny lanitra,
+	Manolo-pamonjena tena mamy
+	Ho ahy \'zay nania lavitra.
+	Tsy ahy samy irery nefa izay,
+	Ho anao koa ny fitiavany.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '407',
+  '407',
+  'AMIM-PINOANA NY TOMPO',
+  'John W. Peterson',
+  'A. R. Marnoël',
+  'Do dia F 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. -PINOANA NY TOMPO
+
+1
+	Amim-pinoana ny Tompo no androsoako
+	Ka amin-kafaliam-po no ikaloako.
+	Na mananontanona aza re ny tafiotra izao,
+	Mbola hatoky ihany aho, Izy tsy handao.
+
+ISAN\'ANDININY :
+	Sakaiza tsra, faly mba handray
+	Ianteherako, ho mandrakizay (ho mandrakizay)
+	Amim-pinoana ny Tompo no androsoako
+	Ka amin-kafaliam-po no ikaloako.
+	Na mananontanona aza re ny tafiotra izao,
+	Mbola hatoky ihany aho, Izy tsy handao.
+
+2. Na làlan-tsarotra aza re no hitondrany
+	Ka feno fanahiana be, mampitomany
+	Dia mbola hatoky azy aho, tsy hihemotra,
+	Fa hivavaka hitalaho, tsy hiahotra.
+	Sakaiza tsra, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '408',
+  '408',
+  'TSY MAHALALA NY AMPITSO AHO',
+  'Iva Stamphill',
+  'A. R. Marnoël',
+  'Do dia Bb 4/4 Milantolanto',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Tsy mahalala ny ampitso aho
+	Fa ny andronay ihany no ahy.
+	Jeso no ivelomako anio
+	Sy mitari-dàlana ahy.
+	Tsy mba fantatro ny ho avy ;
+	Nefa kosa inoako izao
+	\'Lay miahy sy mahalala
+	Izay mety alehako.
+
+ISAN\'ANDININY :
+	\'Zay hitranga rahampitso
+	Dia tsy hay fantarina.
+	Jeso Tompon\'ny ho avy
+	Izy no hitantana.
+
+2. Raho-mainty mitatao,
+	Entam-be mavesatra,
+	Mitambaby an-tsorokao
+	Amin-dray mandingana.
+	Nefa ao Jesosy toky,
+	Ampy anao ny heriny
+	Hampisava ny aizina anio
+	Hiantoka ny ho avy koa.
+	\'Zay hitranga rahampitso, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '409',
+  '409',
+  'MIARAKA AMIN\'I JESO',
+  'D. B. Towner',
+  'A. R. Marnoël',
+  'Do dia D 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Miaraka amin\'i Jeso
+	Tsy mampanahy ;
+	Na aiza itondrany
+	Ety an-tany ety.
+	Ny misaraka aminy
+	Tsy mahafaly ahy.
+	Miaraka aminy
+	Tsy misy tahotra.
+
+ISAN\'ANDININY :
+	Na aiza na aiza aleha,
+	tsy hatahotra.
+	Eo anilalny,
+	Mandeha tsy miahotra.
+
+2. Miaraka aminy aho
+	Tsy ilaozany.
+	Ny sakaiza hafa dia mety mandao
+	Fa izaho kosa sakambininy.
+	Na aiza na aiza
+	Jeso no arahonao.
+	Na aiza na aiza aleha, sns.
+
+3. Miaraka amin\'i Jeso matory soa
+	Na mikitroka aza re ny haizina.
+	Azo antoka fa Izy no hamoha,
+	Izay trano itoerany milamina.
+	Na aiza na aiza aleha, sns.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '410',
+  '410',
+  'RAHA MAIZINA NY ALEHAKO',
+  'Raymond B. Rakotondrainibe',
+  'Raymond B. Rakotondrainibe',
+  'Do dia Db 2/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Raha maizina ny alehanao
+	Ka manjombona aminao ny lanitra,
+	Aza miondrika ianao
+	Fa banjino kosa Andriamanitra
+
+ISAN\'ANDININY :
+	Mbola ao ny Andriamanitra
+	\'Zay mijery sy miahy anao.
+	Manatona Azy izao,
+	Izy hanaisotra ny tahotrao.
+
+2. Raha saro-dàlana koa ianao
+	Ka mivilivily, mety lavo koa ;
+	Jesosy Tompo akaiky anao
+	Izy handray anao an-tanan-droa.
+	Mbola ao, sns.
+
+3. Tsy misy lova maharitra
+	Ny eto an-tany na dia iray ;
+	Fa mivonona hiatrika ilay lova soa
+	Sy ho mandrakizay.
+	Mbola ao, sns.
+
+4. Endrey izany fitiavana
+	Izay asehonao aminay, ry Ray,
+	Fa manome tsy mba tapaka
+	Izay rehetra mety tadiavinay.
+	Mbola ao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '411',
+  '411',
+  'HE! MATOKY AHO, TOMPO',
+  'J. Zundel',
+  'J. A. Houlder',
+  'Do dia Bb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. He ! matoky aho, Tompo,
+	Azoko ny teninao ;
+	Teny soa mahafaly,
+	Teny avy aminao.
+
+ISAN\'ANDININY :
+	He ! matoky aho, Tompo,
+	Azoko ny teninao ;
+	Teny soa mahafaly,
+	No omenao ahy izao
+
+2. Tahotra aman\'ahiahy
+	Dia iraiko izao ;
+	Fa nomenao toky aho
+	Sady to ny teninao.
+	He ! matoky aho, sns.
+
+3. Izay rehetra fahotana
+	Entiko hesorinao ;
+	Ianao no mahadio,
+	Ka diovy aho izao.
+	He ! matoky aho, sns.
+
+4. Mahasasa, mahadio,
+	Mahavonjy Ianao,
+	Ka mandray sy mahatondra
+	Tsara ho an-tranona.
+	He ! matoky aho, sns.
+
+5. Jeso Tompo ! avy aho,
+	Avy hankalaza Anao ;
+	Raisonao re izay omeko :
+	Vola, tena, aina koa.
+	He ! matoky aho, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '412',
+  '412',
+  'INONA RE NO HATAKALOKO',
+  'Johanesa',
+  'Johanesa',
+  'Do dia D 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Inona re, no hatakaloko
+	An\'i Jesosy Izay Mpisoloko ?
+	Ny zavatra izay ho simba va
+	Sy mora levona ?
+	Raha mbola hazoniko ny To,
+	Ka tsy maty ny jiro ao am-po
+	Jesosy tsy soloako
+	Na inona na inona.
+
+2. Indro Jesosy no fiainako,
+	Izy no landa fiarovako ;
+	Izaho efa maty,
+	Nefa novelominy indray.
+	Ka na dia mahantra aza aty
+	Ka tsy mbola nafindra ho ary,
+	Jesosy no anjarako,
+	Ka ampy ahy re izay.
+
+3. Ô ! ry Jesosy Tompo tsara ô !
+	Aza mamela ny fanahiko
+	Hisaraka aminao,
+	Fa tano aho ho mpanomponao.
+	Mba  velomy ny fitiavako,
+	Ka tohano ny fandehanako,
+	Mba hanarahako ny làlana
+	Izay nalehanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '413',
+  '413',
+  'TSY MISY MIADANA KA AFA-PO',
+  'P. P. Bliss',
+  'Ranjoanina',
+  'Do dia D 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. -PO
+
+1
+	Tsy misy miadana ka afa-po
+	Izay monina eto an-tany ;
+	Fa izay tia sy mino ny Tompo Jeso
+	No hahazo ny soa tsy ho lany.
+
+ISAN\'ANDININY :
+	Mba irio, mba irio
+	Ny  hananana an\'i Jeso
+
+2. Raha misy mahory mahazo ety,
+	Jeso no hanala izay ;
+	Tsarovy ny avotra tao Kalvary,
+	Fa nalatsany tany ny rany.
+	Mba irio, sns.
+
+3. Izaho maniry hanaraka Anao,
+	Ry Tompo Mpanafaka ota !
+	Fa fantatro tsara hatramin\'izao
+	Ny fitiavanao ahy mpanota.
+	Mba irio, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '414',
+  '414',
+  'IRINAY JESO TIA',
+  'FFPM468',
+  'J. A. Houlder',
+  'Do dia Eb 4/4 Miadana',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Irinay, Jeso tia, mpanota izahay,
+	Ka misy alahelo aty anatinay ;
+	Irinay, ry Mpamonjy hiseho ho anay,
+	Hanafaka ny ota mba hifalianay.
+
+2. Irinay, Jeso tia, mba hanazava anay,
+	Fa maizina ny saina, ka diso izahay ;
+	Irinay Jeso Kristy hanolon-tsaina anay,
+	Irinay Jeso hendry mba hianaranay.
+
+3. Irinay, Jeso tia, ho tonga aminay,
+	Hiantra sy hiaro sy hanadio anay ;
+	Na dia malely aza ka reraka izahay,
+	Rehefa voavonjy, matanjaka indray.
+
+4. Ry Tomponay malala ! ry Jeso tianay !
+	Ry havanay mahery ! ry rahalahinay !
+	Vonjeo izahay mpanonta miankina aminao,
+	Tahio izahay mahantra mivavaka aminao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '415',
+  '415',
+  'JEHOVAH O! HIANAO NANDINIKA AHY',
+  'L. V. Bethoven',
+  'Philippe Rajoanesa',
+  'Do dia G 3/4 Miadana dia miadana',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Jehovah ô !
+	Ianao nandinika ahy,
+	Ka fantatrao
+	Ny toe-piainako ;
+	Ny fo sy saina
+	Mbamin\'ny fanahy
+	Tsy miafina aminao,
+	Ry Tompoko !
+	Ny fo sy saina
+	Mbamin\'ny fanahy
+	Tsy miafina aminao,
+	Ry Tompoko !
+
+2. Ka na mipetraka aho,
+	Na mandeha,
+	Izay rehetra
+	Ataoko hitanao,
+	He, fantatrao
+	Ny lalana aleha,
+	Ny androko
+	Dia eo an-tananao.
+	He, fantatrao
+	Ny lalana aleha,
+	Ny androko
+	Dia eo an-tananao.
+
+3. Na velona aho,
+	Eny, maty aza,
+	Ny tenako dia eo imasonao,
+	Ka toerana aiza,
+	Lalana mankaiza
+	No hialako
+	Tsy ho hitanao ?
+	Ka toerana aiza,
+	Lalana mankaiza
+	No hialako
+	Tsy ho hitanao ?
+
+4. Ry Tompo !
+	Tena mahagaga loatra
+	Ny asanao
+	Sy ny fiainanao ;
+	Tsy misy saina
+	Mety mahatratra
+	Ny fahendrenao
+	Sy ny herinao.
+	Tsy misy saina
+	Mety mahatratra
+	Ny fahendrenao
+	Sy ny herinao.
+
+5. Izao no hany
+	Zavatra iriko :
+	Velaro indrindra
+	Ny fitiavanao,
+	hahaizako 
+	Hametraka ny foko
+	Hionona
+	Eo am-pelatananao.
+	hahaizako
+	Hametraka ny foko
+	Hionona
+	Eo am-pelatananao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '416',
+  '416',
+  'MISY DIDY TENA TSARA',
+  'Mc Granaham',
+  'G. Mondain',
+  'Do dia C 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Misy didy tena tsara
+	\'Zay nomen\'ny Tompo hoe :
+	Mba mifankatiava tsara
+	Ianareo \'zay mino e !
+	Ka miraisa, ka miraisa,
+	\'Zao no didy lehibe.
+	Ka miraisa, ka miraisa,
+	\'Zao no didy lehibe.
+
+2. Tonga Jeso mba hanompo
+	Sy mba hampiavana ;
+	Tsy mpanaraka ny Tompo
+	\'Zay tsy tia namana.
+	Ka tadiavo, ka tadiavo
+	\'Zay ho fampiraisana
+	Ka tadiavo, ka tadiavo
+	\'Zay ho fampiraisana
+
+3. Fa iray tokoa ny Loha,
+	Dia Jesosy Zanaka,
+	Endriky ny Ray tsitoha,
+	\'Zay halaina tahaka.
+	Tsy ho resy, tsy ho resy,
+	Raha miray ny tafika.
+	Tsy ho resy, tsy ho resy,
+	Raha miray ny tafika.
+
+4. Jeso no ilay foto-kazo,
+	Tena voaloboka ;
+	Ka ny sampana halazo,
+	Raha tafasaraka.
+	Ikambano, ikambano,
+	Ka aza mba mihataka.
+	Ikambano, ikambano,
+	Ka aza mba mihataka.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '417',
+  '417',
+  'FITIAVANA RANO VELONA',
+  'J. N. L. Schjorring - S. E. Jorgensen',
+  'H. S. Thompson',
+  'Do dia Bb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. Fitiavana rano velona,
+	Loharano lalina
+	Ka miafina
+	Ao aanatiny
+	Ny fiainan-danitra !
+
+2. Fitiavana no nirahina
+	Avy tamin-Jehovah ;
+	Ô ! Mba raisonao,
+	Dia ho fantatrao
+	Ny fahasambarana.
+
+3. Fitiavana didy tokana
+	Ary didy lehibe ;
+	Mitoera ao,
+	Hitoeranao
+	Amim-piadanam-be.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '418',
+  '418',
+  'NANANAN-TROSA AHO E',
+  'T. P. Hamilton',
+  'A. R. Marnoël',
+  'Do dia F 3/4 Malefadefaka',
+  'FIAINANA KRISTIANA',
+  'Fitiavana sy Finoana',
+  '
+1. -TROSA AHO
+
+1
+	<< nananan-trosa aho e :
+	Nefa tsy nahaonitra >>
+	<< Trosa ohatrinona moa re ? >>
+	<< Tsy fantatrao, mavesatra >>.
+
+ISAN\'ANDININY :
+	Hoatrinona, ry Tompo ô !
+	No onintry ny avotra
+	handoavanao ny trosako ?
+	<< Mpanota ô ! fitiavana >>
+
+2. Jeso niady mba ho ahy
+	Irery tao Getsemane,
+	Niaritra hanafaka ahy.
+	Hoatrinona ? mavesatra e !
+	Hoatrinona, ry Tompo, sns.
+
+3. \'Lay hazo fijaliana
+	\'zay nilatsahan\'ny ranao,
+	Moa azoko onerana ?
+	Hoatrinona, Tompo, lazao ?
+	Hoatrinona, ry Tompo, sns.
+
+4. Jesosy ô ! fitiavam-be
+	Nandoavanao ny trosako.
+	Ampio aho hanao hoe :
+	<< Ho tiako koa Jesosiko >>
+	Hoatrinona, ry Tompo, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '419',
+  '419',
+  'NY EO AKAIKINAO RY RAY',
+  'I. D. Sankey',
+  'J. Andrianaivoravelona zanany',
+  'Do dia Eb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Ny eo akikinao, ry Ray,
+	No mamiko izao,
+	Hanjary tena tafaray
+	Ny foko sy ny Anao.
+	Soa re, ry Raiko ô !
+	Raha eo anilanao.
+	Ny hazo fijaliana
+	Ho tonga maivana.
+
+2. Ny eo akikinao, ry Ray,
+	No herin-janakao ;
+	Ianao irery no mahay
+	manampy ahy izao.
+	Soa re, ry Raiko ô !
+	Raha eo anilanao.
+	Ny ota tsy hanapaka
+	Ny olona afaka.
+
+3. Ny eo akikinao, ry Ray,
+	No mandako tokoa ;
+	Ny ratsy dia tsy hahay
+	Handrombaka ahy koa.
+	Soa re, ry Raiko ô !
+	Raha eo anilanao.
+	Ny ora izay manjombona
+	Ho fiadanana.
+
+4. Ny eo akikinao, ry Ray,
+	No fifaliako izao,
+	Ny tanako dia hifandray
+	Amin\'ny tananao.
+	Soa re, ry Raiko ô !
+	Raha eo anilanao.
+	Fenoinao fanambinan-tsoa
+	Ilay kapoakako.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '420',
+  '420',
+  'AKAIKINAO RY TOMPO',
+  'J. H. Lesier',
+  'Rajoelison',
+  'Do dia D 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Akaikinao, ry Tompo tia,
+	Ho tena akaikinao,
+	No faniriako ka avia,
+	Hatony aho izao.
+
+2. Akaikinao no mahatamàna,
+	Ny tena akaikinao,
+	Fa eo dia lavitra Satana
+	Satria resinao.
+
+3. Akaikinao no misy hery,
+	Dia eo akaikinao ;
+	Hizorana andalan-tery
+	Mankany aminao.
+
+4. Akaikinao no fahoriana,
+	Raha tena akaikinao,
+	Dia mody re ho fifaliana
+	Sy fitahiana izao.
+
+5. Akaikinao no hahitana,
+	Eny, eo akaikinao,
+	Ny tavanao \'zay fahazavana
+	Sy tokiko izao.
+
+6. Akaikinao tsy ho ela intsony
+	Ho tena akaikinao,
+	Rehefa tonga any ambony
+	Eo antrehanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '421',
+  '421',
+  'EO AMINAO RY MPAMONJY MALALA',
+  'I. D. Sankey',
+  'Rajoelison',
+  'Do dia Eb 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Eo aminao, ry Mpamonjy malala,
+	Eo aminao izay feno ny soa,
+	Eo no aleha tsy hisalasala,
+	Eo hianinan\'ny fonay tokoa
+
+ISAN\'ANDININY :
+	Eo aminao, Jesosy ô,
+	Fanantenan\'ny very,
+	Eo aminao, Jesosy ô;
+	No misy toky sy hery.
+
+2. Eo aminao raha mamely Satana
+	Ka manangoly handavo anay ;
+	Ianao irery no afaka hitana
+	Eo aminao dia handresy izahay.
+	Eo aminao, sns.
+
+3. Eo aminao raha vesaran\'ny ota
+	Ka toa hilofika re izahay
+	Eo aminao, ry \'Lay antra mpanota
+	Eo aminao no fitsaharanay.
+	Eo aminao, sns.
+
+4. Eo aminao raha mandrahona ny andro
+	Ka feno tahotra re ny fonay,
+	Eo aminao, ry Ilay masoandro,
+	No hiverenan\'ny toky indray.
+	Eo aminao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '422',
+  '422',
+  'MAMIKO LOATRA',
+  'Mendelssohn',
+  'D. Rasolonjatovo',
+  'Do dia F 4/4 Adagio',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Mamiko loatra
+	Ny eo akaikinao, ry Ray.
+	Lavitra sento,
+	Tsy misy manjo.
+	Eo \'zany \'zaho
+	Hitoetra mandrakizay,
+	Anilanao, ry Ray,
+	\'Zaho sambatra.
+
+2. Akaikinao,
+	Mangidy toa mamy ;
+	Eo \'zany foko
+	Ampoky ny soa.
+	Ny fahoriana,
+	loza izay ho tamy,
+	Anilanao
+	Dia tonga zava-tsoa.
+
+3. Akaikinao
+	No misy famonjena ;
+	He! very toky
+	Raha hilaozanao.
+	Lavitra Anao
+	Milofika ny tena.
+	Tariho, Ray,
+	Eo akaikinao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '423',
+  '423',
+  'JESOSY IRERY NO FAMONJENA',
+  'HLxxx',
+  'Raqjoelison',
+  'Do dia F 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Jesosy irery no famonjena
+	Ampy \'zay, ampy \'zay.
+	Izy no avotra izay ekena
+	Ampy \'zay, ampy \'zay.
+	Indro ny ainy no nafoiny,
+	NAtolony tao Kalvary.
+	Ny olom-bery izao antsoiny.
+	Ampy \'zay, ampy \'zay.
+
+2. Jesosy irery no fahendrena,
+	Ampy \'zay, ampy \'zay !
+	Ny toro-heviny dia harena.
+	Ampy \'zay, ampy \'zay !
+	Ny baiboly no manambara
+	Ny sitrapony masina,
+	Ny teny soan\'ny filazan-tsara.
+	Ampy \'zay, ampy \'zay !
+
+3. Jesosy irery no andrandraina,
+	Ampy \'zay, ampy \'zay !
+	Izy no herin\'ny fo sy saina,
+	Ampy \'zay, ampy \'zay !
+	Izy ihany no vatolampy
+	\'Zay mafy tsy mihetsika,
+	He ! fialofana tena ampy
+	Ampy \'zay, ampy \'zay !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '424',
+  '424',
+  'NY FIAINAN\'NY LANITRA AMBONY',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia B 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Ny fiainan\'ny lanitra ambony
+	Dia andramako sahady ety ;
+	Fa fiainana kanto sy tony,
+	Hasambarana fatratra ery.
+	He ! Jesosy no ato am-poko ;
+	Fa izaho no tempolin\'ny Ray
+	Fiadanana tsy hosoloiko !
+	Hasambarana mandrakizay.
+
+2. \'Njao ny foko fa mamolivoly
+	Te hidera aho satria nandre
+	Ny antema hirain\'ny tempoly,
+	Mifalia any an-danitra e.
+	Ny fisorana ataony any koa
+	Ho an\'Ilay Zanak\'ondrin\'ny Ray
+	Dia manainga ny saiko hifoha,
+	Hankalaza azy mandrakizay.
+
+3. Kerobima mihira ao ambony
+	Fa izaho mihira eto koa.
+	Haleloia, tsy hitsahatra intsony
+	No hasandratro ho Anao, ry Tsitoha.
+	\'Reo anjelin\'ny lanitra avo
+	Ho tahafiko eto indray,
+	Ny fanahiko faly sy ravo !
+	Hasambarana mandrakizay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '425',
+  '425',
+  'NY FAHASOAVANAO',
+  'Dottie Rambo',
+  'Samoely Lala James',
+  'Do dia C 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Ny fahasoavanao no tononkirako
+	Fa avy aminao ny fahafahako.
+	Tsy takatro, nahoana aho no maminao,
+	Nohadinoinao koa ny otako ?
+	Nifantoka teo Kalvary ny masoko,
+	Nibanjina an\'i Jesosy tia.
+	mhatalanjona ny fahasoavany
+	Izay nanova ahy ho zanany.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '426',
+  '426',
+  'MISY MAMENO NY FIAINANY',
+  'Haldor Lillenas',
+  'D. Razakaria',
+  'Do dia Eb 6/8 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Misy mameno ny fiainany
+	Amin\'ny harena ety.
+	Fa ny amiko aleoko tokoa
+	Ilay tsy manam-paharoa (Tsy mba roa).
+
+ISAN\'ANDININY :
+	Kristy no anton\'ny hirako
+	Fa mampahery ny fo (Mampahery ny fo)
+	Ny taratry ny fitiavany
+	Mamirapiratra ery. (Tena tsara ery)
+	Mitsinjo ahy ny masiny,
+	Mitantana ahy ny tanany,
+	Matoky aho ka sambatra koa
+	Manana ny Tompoko.
+
+2. Tahaka ny andro mamiratra
+	Amin\'ny maraina soa
+	Ny tantarany mahafinaritra
+	Sy mamelombelona fo, (Tena soa)
+	Kristy no anton\'ny hirako, sns.
+
+3. Jesosy loharanon\'ny soa
+	No fototry ny hirako
+	Fa tsara tokoa, tsy manam-paharoa
+	\'Lay Tompo sy Mpamonjiko (Vonjiko)
+	Kristy no anton\'ny hirako, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '427',
+  '427',
+  'ANARANA TSY MANAM-PAHAROA',
+  'Lela Long',
+  'D. Rasolonjatovo',
+  'Do dia Eb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. -PAHAROA
+
+1
+	Anarana tsy manam-paharoa
+	Anarana \'zay mamiko tokoa.
+	Tsara loatra re,
+	Tiako mba ho re,
+	Ilay anaran\'i Jesosy.
+
+ISAN\'ANDININY :
+	Ny anaranao, ry Jeso tia,
+	Mamiko tokoa,
+	Velona ao am-po,
+	Hohamasiniko tokoa satria :
+	Ny anarana no ivelomako.
+
+2. Tsy misy anarana an-tany ety
+	\'Zay mendri-kaja,
+	Mendrika fitia.
+	Andriamanitra an\'ny lanitra,
+	Ialy anran\'i Jesosy.
+	Ny anranao, ry Jeso tia, sns.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '428',
+  '428',
+  'NA HAIZIM-BE \'ZAY MANDRATRA FO',
+  'Ira F. Stamphill',
+  'A. R. Marnoël',
+  'Do dia F 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. -BE \'ZAY MANDRATRA FO
+
+1
+	Na haizim-be \'zay mandratra fo
+	Dia tsy ahiako, Jeso eo aloha,
+	Fa kely loatra ny fahalalako.
+	Aoka Izy hanao izay mahasoa.
+
+ISAN\'ANDININY :
+	Tsy ho ela intsony dia hazava io
+	Fa horesahin\'ny Tompoko.
+	Hasehony ahy ny anton\'ireny
+	Ka dia ho hita fa nahasoa.
+
+2. Azo antoka ny fitondrànay
+	na maizina aza ny lohasaha.
+	Ekeo ny baiko, minoa ihany,
+	Izy no Mpitari-draharaha
+	Tsy ho ela intsony, sns.
+
+3. Ny aretim-ponao tsindrio hehy
+	Dia mahareta tsy ho ela,
+	Haseho anao ny anton\'ireny :
+	Ianao, hadio toa volamena.
+	Tsy ho ela intsony, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '429',
+  '429',
+  'HE HAHITA MPAMONJY AHO',
+  'A. H. Ackley',
+  'A. R. Marnoël',
+  'Do dia C 4/4 Falifaly',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. He ! nahita Mpamonjy aho,
+	Jeso, aim-panahiko.
+	\'Zay mihaino ny mitalaho,
+	Mampifaly fo tokoa.
+
+ISAN\'ANDININY :
+	Jeso fifalian\'ny foko,
+	Izy no manjaka ao.
+	\'Zaho azy manontolo,
+	Eny, azy hatrizao.
+	Ny lazainy no hataoko,
+	Any no halehako.
+	Jeso fifalian\'ny foko,
+	Sy Sakaiza mamiko.
+
+2. He ! mandroso mihatsara
+	Ny fiainako izao
+	Ka mahazo manambara
+	Jeso anie mba tia anao.
+	Jeso fifalian\'ny foko, sns.
+
+3. Fahendrena avy any ambony,
+	Hery mahasambatra
+	No omeny \'zay trotroiny
+	Eo an-dalan-tsarotra.
+	Jeso fifalian\'ny foko, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '430',
+  '430',
+  'NY TAHOTRO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Db 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Ny tahotro
+	Mbola ao am-po
+	Fa lavitra
+	Tokoa ny aleha
+	Ny tebiteby
+	Sy ahiahy
+	Mbola ao anatiko ao.
+
+ISAN\'ANDININY :
+	Tafio ny herinao,
+	Ary omeo toky, ry Tompo,
+	Fa vonon tokoa ny hanoa Anao.
+	\'zay fikasana ao anatiko ao
+	Fenoy ny fitiavanao.
+
+2. Ny halemeko
+	Dia fantatrao,
+	Tsy misy miafina
+	Eo aminao,
+	Kanefa inoako
+	Fa ny herinao
+	Omenao \'zay tia Anao.
+	Tafio ny herinao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '431',
+  '431',
+  'HATRIZAY NANOMPOAKO IZAY',
+  'William J. Gaither - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia Ab 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Hatrizay nanompoako izay,
+	Nandraisako an\'i Jeso,
+	Sy nanarahako ny Ray,
+	Dia tsy nihena Ny fitiavany ahy.
+
+ISAN\'ANDININY
+	Araka ny anompoana Ny Tompo
+	No itomboan\'ny fitiavana Azy ;
+	Ka isan\'andro
+	Miboika avy ao am-po,
+	Mitombo hatrany
+	Ny fitiavana Azy
+
+2. Omeny izay mahasoa,
+	Fahasoavan-dehibe
+	Ka mazava ery ny diako,
+	Araky ny anompoako isan\'andro.
+	Araka ny anompoana Ny Tompo. sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '432',
+  '432',
+  'AINGAO NY HIRANAO',
+  'Robert Lowry',
+  'A. R. Marnoël',
+  'Do dia G 6/8 Antonony',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Aingao ny herinao,
+	Ry olon\'ny Tompo,
+	Fa hiakatra any Ziona izao.
+	Samia mihira eram-po
+	Ka fenoy hira vao
+	Ny lapan\'i Jeso.
+
+ISAN\'ANDININY :
+	Andeha ho any Ziona,
+	Tanànan\'Andriamanitra
+	Andeha ho any Ziona,
+	Tanàna mahasambatra.
+
+2. Na dia ireo mandà
+	Aoka hanandra-peo.
+	Dia ny tsy mba mahalala
+	Fa zanaka Mpanjaka ireo
+	Aoka izy \'reo haneho
+	Ny fifaliany eo
+	Andeha ho any Ziona, sns.
+
+3. Ziona, havoana
+	Maneho hatsarana.
+	Mialoha ny fotoana,
+	Fotoana hahatrarana
+	Ilay tanàna soa
+	Volamena avokoa.
+	Andeha ho any Ziona, sns.
+
+4. Ny hira hanala
+	Ny ranomasonao
+	Aoka isika hahalala
+	Fa mankany Ziona izao
+	Tanàna tsra ery,
+	Tsy toy ny hita ety.
+	Andeha ho any Ziona, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '433',
+  '433',
+  'TE HIARAKA IRERY AMINAO',
+  'J. B. Coats',
+  'A. R. Marnoël',
+  'Do dia Eb 6/8 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Te hiaraka irery aminao,
+	Hiresaka aminao Jeso,
+	Ny soa mahafaly omenao
+	Tsy tapaka amiko tokoa.
+	Esorinao ny tahotro
+	Sy ny mahory,
+	Hamaivaninao koa
+	Ny entana entiko.
+
+ISAN\'ANDININY :
+	He ! tiako loatra Jeso Tompo !
+	Ao aminy aho tsy mba ory.
+
+2. Tiako hiaraka irery aminy
+	Izy no mba hareko ety
+	Faly aho mandre ny tenniny :
+	\'Zaho tsy hamela anao \'rery
+	\'Zaho tsy handao Na hahafoy anao akory
+	Homba anao aho
+	Na aiza na aiza ianao mandeha.
+	He ! tiako loatra, sns.
+
+3. Jesosy irery no hany soa.
+	Hery Izy tsy mitandro
+	Lilia an-dohasaha, Jeso,
+	Ki ntana fitarikandro,
+	Fialofana, tilikambo Sy vatolampy,
+	Loharanom-pitahiana
+	Ampy ho anao.
+	He ! tiako loatra, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '434',
+  '434',
+  'HO AKAIKINAO KOKOA',
+  'Robert Harkness - Mamy J. Ratsirison',
+  'Esther Bary',
+  'Do dia C 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Ho akaikinao tokoa,
+	Honina eo aminao,
+	Jeso tia, tokikio Ianao,
+	Voaro eo nilanao.
+
+ISAN\'ANDININY :
+	Ho akaikinao tokoa,
+	Jeso, eo akaikinao.
+	Hararaotiko ny ora
+	Hiarahako aminao.
+
+2. Ho akaikinao tokoa,
+	Tiako ho tsara fanahy
+	ka Ianao no hatoniko.
+	Sitrano re ny izaho.
+	Ho akaikinao, sns.
+
+3. Ho akaikinao tokoa
+	Hahita ny herinao
+	No mba iriko, Jeso ô !
+	Tantano hanoa Anao.
+	Ho akaikinao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '435',
+  '435',
+  'EFA NOMEKO HO ANAO',
+  'William J. Gaither - Mamy J. Ratsirison',
+  'D. Razakaria',
+  'Do dia Ab 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Efa nomeko ho Anao
+	Ny foko, ry Jeso.
+	Efa fantatrao ny fiainako,
+	Tsy miafina eo imasonao.
+
+ISAN\'ANDININY :
+	Endrey ny fifaliako
+	Manana Anao
+	Mitantana sy momba ahy,
+	Tompo ô !
+	Ny hanompo Anao 
+	No tarigetrako.
+	Ho voninahitrao ny ataoko anie.
+
+2. Izay ilaiko dia omenao
+	Faly aho, afa-po.
+	Ampoky ny fahasoavanao
+	Ny fiainako,
+	Misaotra, Jeso.
+	Endrey ny fifaliako, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '436',
+  '436',
+  'MANDRERAKA IZANY DIA',
+  'Roy Pendleton - Mamy J. Ratsirison',
+  'Esther Bary',
+  'Do dia F 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Mandreraka izany dia
+	Lavitra ny lalana
+	Nefa faly aho mihira ;
+	Misy anjely momba ahy
+	Mirotsaka ny haizina
+	Maha-raiki-tahotra
+	Nefa faly aho mihira
+	Misy anjely momba ahy.
+
+ISAN\'ANDININY :
+	Ô ! izy no mitantana,
+	Miaro sy mitahy.
+	Miara-dia eny an-dàlana
+	\'Zaho sy ny anjeliko.
+	Ny namako mety handao
+	Ary dia irery aho
+	Nefa faly aho mihira
+	Misy anjely momba ahy.
+
+2. Raha mila tsy ho zaka
+	Ny entana izay entiko.
+	Mahazo hery aho ka tony
+	Fa ny anjely momba ahy.
+	Raha toa semban-drahona
+	\'Zany androm-piainako,
+	Mahazo hery aho ka tony
+	Fa ny anjely momba ahy.
+	Ô ! izy, sns.
+
+3. Eny an-dranomasina
+	Sy an-tendrombohitra,
+	Tsy hatahotra satria
+	Misy anjely miambina ahy.
+	Rehefa mifarana
+	Ny fivahiniako ety
+	Dia ho hitako
+	\'Lay anjely miambina ahy.
+	Ô ! izy, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '437',
+  '437',
+  'MAZANA MISY FEO',
+  'Alfred B. Smith - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia F 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Mazàna misy feo
+	Aseran\'ny ankaso
+	Raha toa mavesatra
+	Ny fitsapana.
+	Toa feon-dakolosy
+	Mipaika maraina,
+	Mibitsika mangina hoe :
+	\" Andraso.\"
+
+ISAN\'ANDININY :
+	Miandrasa ihany, hoy ilay feo,
+	Miandrasa re fa tsy ho ela
+	Fa ny tanan\'ny Ray tsy hamela
+	Fa hanaisotra ireo ratsy ireo.
+
+2. Raha manjavona
+	Ny fitondran\'ny Raiko
+	Ka toa ho loza re
+	No hiafarany,
+	Injao henoko mibitsika ihany :
+	\" Mahatoky ny fiasany, andraso \"
+	Miandrasa ihany, sns.
+
+3. Raha toa maharitra
+	Ka tsy andrin\'ny maso
+	Iro teny fikasana nomena
+	Injao henoko \'lay teny volamena
+	\" Na toa ela, dia ho avy, andraso \"
+	Miandrasa ihany, sns.
+
+4. Ny ratsy izay mahomby,
+	Indro fa maneso ;
+	Fa ny marina mazàna toa voa.
+	Moa ve ny ratsy
+	hataontsiaka hoe soa ?
+	\" Ô ! ry foko mitandrema, andraso. \"
+	Miandrasa ihany, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '438',
+  '438',
+  'HE SAMBATRA NY FO',
+  'J. David Ranaivo',
+  'J. David Ranaivo',
+  'Do dia G 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. He ! sambatra ny fo
+	Izay matoky Anao, Jeso,
+	Fa tsy mba manana ahiahy
+	Na fijaliana koa.
+	Ny zava-tsarotra,
+	Manjary fitahiana soa.
+	He ! sambatra aho,
+	He ! sambatra aho
+	Manompo Anao, ry Jeso.
+
+ISAN\'ANDININY :
+	Ô ! tsy matahotra aho
+	Raha miaraka Aminao
+	Ka ny voady entina :
+	\" Ho Anao mandrakizay \"
+
+2. Raha tojo ny tafiotra mafy,
+	Mila ho kivy fo,
+	matoky fa ny sandrinao,
+	Jeso, anilako.
+	Mampahery ny fo,
+	Manolo-pitahiana koa.
+	He ! sambatra aho,
+	He ! sambatra aho
+	Manompo Anao, ry Jeso ô !
+	Ô ! tsy matahotra aho, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '439',
+  '439',
+  'AN\'I JEHOVAH AHO',
+  'A. Rabenasolo',
+  'A. Rabenasolo',
+  'Do dia G 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. An\'i Jehovah aho,
+	An\'i Jehovah aho
+	Ka ankiniko aminy
+	Ny androko rehetra ety.
+	Izy no fiainako
+	Sy hery mahavonjy.
+	Faly aho satria
+	Efa an\'ny Tompo tia
+	Na sendra sarotra aza,
+	Izy re no tokiko.
+	Na dia mandao ny sakaiza,
+	Izy amiko.
+	An\'i Jehovah aho,
+	An\'i Jehovah aho
+	Ny amiko rehetra
+	Dia ankiniko aminy.
+
+2. An\'i Jehovah aho,
+	An\'i Jehovah aho
+	Tsy hisy hatahorako,
+	Izy ato aminko, Izy no aroko
+	Sy hery mahavonjy.
+	Faly aho satria
+	Efa an\'ny Tompo tia.
+	Raha tojo fitsapana,
+	Izy re tsy mahafoy,
+	Fa ny sandriny mitana,
+	He tsy mba fohy.
+	An\'i Jehovah aho,
+	An\'i Jehovah aho
+	Izy no amiko ;
+	Tsy hisy hatahorako.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '440',
+  '440',
+  'ARIO NY TAHOTRAO',
+  'W.E. Cousins',
+  'Ratany',
+  'Do dia D 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Ario ny tahotrao, ry olon osa fo !
+	Izay lazain\'ny Tomponao, tsy hisy tsy ho to ;
+	Ny fisentonao dia reny avokoa,
+	Ny feon\'ny fitarainanao, valiny tokoa.
+
+2. Mpanjaka lehibe no itokianao ;
+	Ny tanany mahery re no hamonjena anao ;
+	Tsy misy mahalà \'zay tiany hatao :
+	Handositra amin-tahotra ny fahavalonao.
+
+3. Ny fitondrany soa no iankinanao ;
+	Koa aoka hofidiany koa izay halehanao ;
+	Na dia tsy takatrao ny sainy lalina.
+	Izay tendreny ho anao, ekeo ho marina.
+
+4. Ry Tompo tsara ô ! mijere anay,
+	Na reraka aza re ny fo, tohano izahay :
+	Ovay ny hevitray, ny fonay hazavao,
+	Izay hatoronao anay, hizoranay izao.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '441',
+  '441',
+  'INONA NO METY HATAOKO',
+  'J. Kirkpatrick',
+  'D. Razakaria',
+  'Do dia G 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Inona no mety hataoko
+	Mba handraisako ny soa ?
+	Hanavotana ny aiko,
+	Hamonjena ahy koa tokoa.
+
+ISAN\'ANDININY :
+	Jeso, Jeso, inty aho,
+	Mino sy matoky Anao
+	Jeso, Jeso, inty aho,
+	Omeo fiainam-baovao.
+
+2. Tompo, ampianaro aho
+	Mba hahay ny hanakato
+	Ka esory ny izaho,
+	Dia havaozy re ny fo.
+	Jeso, Jeso, sns.
+
+3. Inty aho ry Mpamonjy
+	Fa te ho mpanomponao
+	Atolory ahy ny vonjy,
+	Raiso aho ho Anao.
+	Jeso, Jeso, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '442',
+  '442',
+  'HE IRIKO IZAO',
+  'Raobijaona',
+  'Raobijaona',
+  'Do dia C 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. He ! iriko izao
+	Ny ho sakaizanao,
+	Hipetraka eo anilanao,
+	Handre ny feonao.
+	Eo \'zany zaho hahita
+	Ny endrikao, ry Jeso.
+	Hahazo voninahitra
+	Sy hery vaovao.
+
+2. He ! iriko izao
+	Ny ho eo akaikinao.
+	Ho tonga zanakao tokoa,
+	Hitovy aminao.
+	Eo \'zany zaho
+	Hiara-manjaka aminao,
+	Handray ny lova atolotrao,
+	Izay navotanao.
+
+3. He ! iriko izao
+	Ny ho eo akaikinao.
+	Ho lavitra ny tahotra,
+	Ny tebiteby koa.
+	Eo \'zany zaho sambatra
+	Fa mialoka aminao
+	Ho sambatra mandrakizay
+	Fa ampoky ny soa.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '443',
+  '443',
+  '\'ZAY TIANAO, RY TOMPO',
+  'A. P. Berggreen',
+  'Rajoelison',
+  'Do dia Eb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. \'Zay tianao, ry Tompo no mba tiako ;
+	Ny teninao harahiko izao
+	Na sarotra, na mora re ny diako :
+	\'Zay tianao, Jeso, \'zay tianao.
+
+2. Tsy sahiko hitoky \'zahy saiko ;
+	Ny heriko dia zava-poana izao,
+	Fa ny Anao no tena andrandraiko :
+	\'Zay tianao, Jeso, \'zay tianao.
+
+3. Tsy fantatro : ho tsiky sa toloko
+	Ny anjara izay miandry aloha ao
+	kanefa izao no vavaky ny foko :
+	\'Zay tianao, Jeso, \'zay tianao.
+
+4. Izao, Jeso, no hany faniriako :
+	Tazony aho eo an-tananao !
+	Ny sisa re : \'zay tianao no tiako,
+	\'Zay sitrakao efao, \'zay sitrakao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '444',
+  '444',
+  'NY TSINTSINA AZA AHIANY',
+  'Charles H. Gabriel',
+  'D. Razakaria',
+  'Do dia Db 6/8 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Nahoana aho no kivy ka alahelo fo ?
+	Nahoana no hisento ka hamoy fo ?
+	Mitantana ahy Jesosy (Jesosy) Sakaiza tia tokoa (tokoa)
+	Ny tsintsina aza ahiana, maika fa izaho moa ?
+	Ny tsintsina aza ahiana, maika fa izaho moa ?
+
+ISAN\'ANDININY :
+	Mihira aho fa faly (fa faly)
+	Satria pmeny soa (ny soa) ;
+	Ny tsintsina aza ahiana
+	Maika fa izaho moa ?
+
+2. << Aza manahy ianao fa matokia Ahy >>,
+	Hoy ny feon\'i Jesosy \'zay mampahery ahy
+	Na maizina ny tany (nytany) ka tsy ho haiko ny hanjo ;
+	Ny tsintsina aza ahiana, maika fa izaho moa ?
+	Ny tsintsina aza ahiana, maika fa izaho moa ?
+	Mihira aho fa faly, sns.
+
+3. Raha toa alaim-panahy, tataovan-drahona,
+	Very fanantenana, sehatra vahona,
+	Hatoniko ny Tompo (ny Tompo) hialan\'ny tahotro ;
+	Ny tsintsina aza ahiana, maika fa izaho moa ?
+	Ny tsintsina aza ahiana, maika fa izaho moa ?
+	Mihira aho fa faly, sns.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '445',
+  '445',
+  'MAHATOKY IANAO, RY TOMPO TIA',
+  'C. H. Morris',
+  'Rajoelison',
+  'Do dia Db 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Mahatoky Ianao, ry Tompo tia,
+	Ny fitiavanao maharitra,
+	Mitoetra mafy anio sy ho doria,
+	Tsy voafetra na voafaritra.
+
+ISAN\'ANDININY :
+	Ianao tokoa, ry Ray,
+	No Vatolampinay
+	Na miovaova
+	Ny fiainana ety
+	Ny teninao
+	Ho fanilon\'ny dia,
+	Mitarika anay ho tody ery.
+
+2. Ny famindramponao
+	Dia andon\'aina,
+	Mamelombelona sy manadio.
+	Eny, havaozinao isa-maraina,
+	Ka ampoky ny soa re anio !
+	Ianao tokoa, ry Ray, sns
+
+3. Na toa takona ny masoandro
+	Dia mbola miasa re mangina ao
+	\'Lay tananao miahy, mitandro,
+	Mitantana izao tontolo izao !
+	Ianao tokoa, ry Ray, sns
+
+4. An-tananao, ry Ray, no amelako
+	Ny fiainako raha mbola ety ;
+	Ny fitokiako Anao tsy mba hovako
+	Fa manda mafiko ilay fitia !
+	Ianao tokoa, ry Ray, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '446',
+  '446',
+  'RAHA SEMBAN-DRAHONA NY ANDRO',
+  'Emily D. Wilson',
+  'A. R. Marnoël',
+  'Do dia Ab 4/4 Malefadefaka',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. -DRAHONA NY ANDRO
+
+1
+	Raha semban-drahona ny andro
+	Ka toa mahakivy re
+	Vavaka no asandratro ;
+	\" Jeso ô ! tariho re ! \" (tariho).
+
+ISAN\'ANDININY :
+	Jeso no mpitarika ahy.
+	Izy no tokin\'ny fo.
+	Koa tsy mba hanahiahy
+	Fa hatoky Azy tokoa (eny tokoa)
+
+2. Raha mamaky onja mafy
+	Ny sambom-piainako
+	Ka toa ho potika, vaky,
+	Tsy hisy horaisiko,
+	Jeso no Mpitarika, sns.
+
+3. An-dalana notendreny,
+	Izy Mpitarika soa ;
+	Na misy ady eny ho eny
+	Dia ho resiny tokoa.
+	Jeso no Mpitarika, sns.
+
+4. raha sendra tody ny dia
+	Ka tratrako Kanana
+	Jeso hiantso : \" Avia ! \"
+	Handova ny tanàna.
+	Jeso no Mpitarika, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '447',
+  '447',
+  'MITEHAFA TANANA',
+  'D. Razafindramanana',
+  'D. Razafindramanana',
+  'Do dia F 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. Mitehafa tanana
+	Rankizy kely ô !
+	Mitehafa tanana ho an\'i Jeso,
+	Fa Mpanjaka lehibe
+	Sady Zoky be fitia,
+	Tia ankizy marobe (ka)
+	Mitehafa tanana re
+	Rankizy izao.
+
+2. Mitehafa tanana
+	Rankizy kely ô !
+	Mitehafa tanana ho an\'i Jeso,
+	Fa Mpamonjy tena soa
+	Sady mahafinaritra,
+	Tia ankizy marobe (ka)
+	Mitehafa tanana re
+	Rankizy izao.
+
+3. Mitehafa tanana
+	Rankizy kely ô !
+	Mitehafa tanana ho an\'i Jeso,
+	Fa Sakaiza tia tokoa
+	Sady be famindram-po
+	Tia ankizy marobe (ka)
+	Mitehafa tanana re
+	Rankizy izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '448',
+  '448',
+  'IZA TOMPO HAHAROMBAKA',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia C 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fifaliana sy Fahatokiana',
+  '
+1. ISAN\'ANDININY :
+	Iza, Tompo, haharombaka
+	Ny an-tananao
+	(Iza no haharo, haharombaka)
+	Iza, Jeso, haharombaka
+	Ny an-tananao
+	(Ny eo an-tananao Tompo ô)
+	Iza, iza, inona hatahoranay
+	(Inona hatahoranay)
+	Raha eo an-tananao.
+
+1
+	\'Reo fahavalo, Tompo ô,
+	Mitady hanakivy anay.
+	Mandrahona hampiemotra
+	\'Reo irakao.
+	Kanefa matoky Anao izahay.
+
+2. Mandroso hatrany ny irakao
+	Na dia maro ny sakana.
+	Satria Ianao tena miaro
+	Ny asanao ;
+	Ka mampahery anay,  Tompo ô.
+
+3. Misasasasa toa ranobe
+	Ny antso avonao, ry Tsitoha ;
+	Fa ny olona tsy maintsy mandre
+	Ny hafatrao.
+	Satria Ianao no mandeha eo aloha.
+
+4. Tafio hery ny olonao
+	Mba ho mpandresy ao aminao.
+	Ho sambatra tafatambatra
+	An-danitra.
+	Fa efa manina Anao izahay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '449',
+  '449',
+  'TOMPO O! AN-TANANAO TOKOA',
+  'O. Ahnfelt',
+  'Rajoelison',
+  'Do dia Eb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. -TANANAO
+
+1
+	Tompo ô ! an-tananao tokoa,
+	Hatrizao sy ho mandrakizay,
+	Ny androko na ratsy na ho soa,
+	Raha eo matoky aho ry Ray.
+	Koa na tahotra na ahiahy,
+	Tsy handresy ahy intsony re.
+	Tafatoetra mafy ny fanahy
+	Aminao Mpamonjy lehibe.
+
+2. Isan\'andro, eny isan\'ora,
+	Manakaiky ahy Ianao.
+	Mampahery amin-teny mora
+	Sy manoro lalana ahy izao.
+	Sambatra aho re, ry Tompo tia,
+	Mampiorina aminao ny fo ;
+	Vonona hanohy \'zany dia
+	Sy hiaritra izay manjo.
+
+3. Mamy re ny teny fikasana
+	Ivelomako an-tany ety.
+	Soa indrindra koa ilay Kanana
+	\'Zay miandry ao an-koatra ary.
+	Fitiavana mitafotafo
+	No mameno ny kapoakako !
+	He ! ny aiko novidiany lafo ;
+	Azo antoka ny lovako.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '450',
+  '450',
+  'JESO O! AVIA',
+  'C. H. Gabriel',
+  'Rajoelison',
+  'Do dia E 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Jeso ô, avia, diovinao tokoa,
+	Aoka ho lapanao, ny foko re anio.
+	Ô, tsy mendrika fa he nandà ny soa ;
+	Nefa, Jeso, ny ranao dia mahadio.
+	Jeso (Jeso tia)
+	Eny, Jeso : (Jeso tia)
+	Iriko \'zao ny fanadiovanao, Jeso.
+
+2. Jeso ô, avia, manjakà tokoa
+	Ao am-poko re, izay vohako izao
+	\'Lay fiadananao, mandresy ny manjo,
+	Aoka hameno ny kapaokan-janakao,
+	Jeso (Jeso tia)
+	Eny, Jeso : (Jeso tia)
+	Iriko \'zao ny fiadananao, Jeso.
+
+3. Jeso ô, avia, entonao izao
+	Ato am-poko re, hanjary toetrako
+	Ny hamasinanao \'zay tena endrikao
+	Mba hanavao ny saina sy fanahiko
+	Jeso (Jeso tia)
+	Eny, Jeso : (Jeso tia)
+	Iriko \'zao ny hamasinanao, Jeso.
+
+4. Jeso ô, avia, raiso avokoa
+	\'Zao ny fiainako ho voninahitrao ;
+	Ho fanilo re, hitarika tokoa
+	\'Reo namako ho tonga eo an-tongotrao.
+	Jeso (Jeso tia)
+	Eny, Jeso : (Jeso tia)
+	Iriko \'zao ny voninahitrao, Jeso.
+	
+'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '451',
+  '451',
+  'HANARAKA NY DIANAO',
+  '(Tsy fantatra)',
+  'Rajoelison',
+  'Do dia G 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Hanaraka ny dianao,
+	Jeso no mba iriko izao ;
+	Na amin\'ny mora,
+	Na be ny akora,
+	Hanaraka ny dianao.
+
+2. Hanahaka ny toetranao,
+	Jeseo, no mba iriko izao,
+	Halemy fanahy
+	Kanefa ho sahy ;
+	Hanahaka ny toetranao !
+
+3. Hiara-miasa aminao,
+	Jeso, no mba iriko izao :
+	Hamonjy ny very,
+	Hamehy ny fery :
+	Hiara-miasa aminao !
+
+4. Hiara-miaritra aminao,
+	Jeseo, no mba iriko izao,
+	Ka na dia hijaly
+	Dia hahay mifaly :
+	Hiara-miaritra aminao.
+
+5. Hiara-monina aminao
+	Jeseo, no mba iriko izao :
+	Hitoetra eo ambony,
+	Tsy hanota intsony :
+	Hiara-monina aminao.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '452',
+  '452',
+  'RY TOMPO O, ATOLOTRO ANAO',
+  'I. A. Ramboniarisoa',
+  'I. A. Ramboniarisoa',
+  'Do dia Eb 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Ry Tompo ô, atolotro Anao
+Ny tenako Anio ;
+Fa vonona hanompo Anao.
+Raiso ho Anao doria.
+
+2
+Ny masoko tariho, Jeso,
+Hijery tsara Anao,
+Hifidy lalana marina
+Izay tinendrinao.
+
+3Ny feoko havaozy anio,
+Hitory ny hafatrao.
+Ho fiderana ny herinao,
+Raiso ho Anao, Jeso.
+
+4
+Ny tanako atolotro koa.
+Hanao ny asanao.
+He ! sitrako ho tantananao,
+Raiso ho Anao anio.
+
+5
+Ny tongotro ho fanirakao,
+N\'aiza n\'aiza aleha
+Fa raha Ianao no Mpitarika
+Tsy misy tsy handeha.
+
+6. Ny heriko, ny fahaizako,
+Atolotro Anao
+Satria Ianao no heriko ety
+\'Zay ifikirako.
+
+7. Ny fiainako, ekeko hatrizao
+Hitoeranao, Jeso,
+Fa anilanao dia mahasambatra
+Feno hafaliana.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '453',
+  '453',
+  'NITADY \'LAY MPIANDRY',
+  '(Tsy fantatra)',
+  'Rajoelison',
+  'Do dia F 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Nitady \'Lay Mpiandry
+Nitady ahy, re ;
+Ka tsy tafandry mandry
+Na dia alina e,
+Nijery tao am-bala,
+Ka indro fa tsy tao
+\'Ty ondry \'zay malala.
+Niainga Izy \'zao.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '454',
+  '454',
+  'JESOSY NO MANJAKA',
+  'De Fellemberg',
+  'S. Razanajatovo',
+  'Do dia Eb 6/8 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Jesosy no manjaka
+	Aty am-poko izao.
+	Izaho koa hitoetra
+	Anilany hatrizao.
+	Nandao ny lanitra Izy,
+	Nitady ahy mpania.
+	Niantso, niangavy :
+	<<Mpanota ô, avia>>.
+
+2. Jesosy no mibaiko
+	Ny fiainako izao.
+	Ny feony no henoiko
+	Hatrany, hatrizao.
+	Tsaroako dia tsaroako
+	Ny nanatonany ahy
+	Niteny tao am-poko :
+	<<Izaho Mpamonjy tia>>.
+
+3. Jesosy no jereko
+	Hatrany, hatrizao
+	Ny tiany no ataoko
+	Fa mamiko izao
+	Tsy mba very intsony
+	Izay manolo-tena
+	Fa efa voavonjin\'
+	Ny ran\'ny fanekena.
+
+4. Jesosy no mitondra
+	Ny diako hatrizao.
+	Ny tanany mitsotra
+	Fihiniko izao.
+	Tsy mba ireri intsony,
+	Noho <<\'lay fanekena>>,
+	Fa olom-boavonjy
+	<<Hisatro-diadema>>.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '455',
+  '455',
+  'AZOKO ANIO',
+  'D. Razafinadramanana',
+  'D. Razafinadramanana',
+  'Do dia Eb 12/8 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Azoko anio \'zao
+	Ny famonjenao,
+	Ry Tompo masina ô,
+	Mpamonjy soa.
+	Ny fanavotana vitanao
+	Ho fifalian\'ny fo.
+	Atolotro Anao manokana
+	Ny tenako ho fanatitra anio ;
+	Kanefa indrisy, nofo malemy,
+	Mora mirona, mora mania
+	Ka ny herinao no andrasako.
+
+2. Izay alehako, jereo Jeso ô
+	Fa saro-dalana, mahaketraka.
+	Ny loza sy ny antambo koa
+	Manampy trotraka.
+	Korontam-bato, fiakaram-be,
+	Hantsana lalina, hain\'andro koa,
+	Ny rivo-doza, ny onjan-drano
+	Indray mitrena, mianjera koa
+	Ka ny sandrinao no tanjako.
+
+3. Ny fanantenako ny fiavianao
+	No manazava ny aizin\'ny fo ;
+	Ary ny finoako izany re
+	No manda mafiko.
+	O! tsy ahoako ny eso manjo,
+	Ny latsa sy fanenjehana koa.
+	Fampahoriana an-tery setra,
+	Tsy mahakivy ny olonao
+	Fa ny tananao no tazoniko.
+
+4. \'Zao no fivavako, Jeso, henoinao,
+	Sento mangina ao am-poko izao :
+	Na sarotra aza re ny aleha,
+	Tohizako ny dia.
+	Enga anie ka ny sitraponao
+	No ho ekeko manomboka anio.
+	Na maro aza ireo mpankahala,
+	\'Zaho jeso ô ! hanaraka anao.
+	Manomboka anio, ho mandrakizay.
+	Amena !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '456',
+  '456',
+  'REKO \'ZAO',
+  'R. K. Carter',
+  'Rajoelison',
+  'Do dia F 3/4 Malefaka sy miadana',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Reko \'zao ny feon\'ny Tompo
+	Miantso hoe : avia ianao,
+	Raiso koa ny vokovoko,
+	Manaraha Ahy \'zao.
+
+ISAN\'ANDININY :
+	Eny, mandra-pahafaty
+	Hanarahako Anao ;
+	Ka na iza hanabanty
+	\'Zaho tsy handao anao.
+
+2. Nefa anie ka lala-mafy
+	\'Zay mankany Kalvary,
+	Feno tahotra sy rafy
+	\'Lay mitondra mankary.
+	Eny, mandra-pahafaty, sns.
+
+3. \'Ngamba hafoin\'ireo malala
+	Ka tebahiny tokoa,
+	Holazaina hoe : adala !
+	Ka mangirifiry fo.
+	Eny, mandra-pahafaty, sns.
+
+4. Tombotsoa sesehena,
+	Voninahitra sy zo,
+	Laza soa sy harena,
+	Mety hilaozaza avokoa.
+	Eny, mandra-pahafaty, sns.
+
+5. Jeso ô, handeha ihany
+	\'Zaho \'zay navotanao
+	Raha mbola eto an-tany,
+	Ny iriko : ho tia Anao.
+	Eny, mandra-pahafaty, sns.
+
+6. Eo an-dranon\'ny batisa
+	Hanarahako Anao ;
+	Ka ny androko \'zay sisa
+	Holaniako anilanao.
+	Eny, mandra-pahafaty, sns.
+
+7. Ho mpanompo mahatoky
+	Hatrety ka hatrary 
+	Ô! ampionao ry Zoky,
+	Dia ho tody soa ary.
+	Eny, mandra-pahafaty, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '457',
+  '457',
+  'HANARAKA ANAO',
+  'W. S. Martin',
+  ' Rajoelison',
+  'Do dia Bb 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Hanaraka Anao no iriko,
+	Na aiza no alehanao,
+	Jesoy, \'zay re no tiako :
+	Handeha eo anilanao.
+
+ISAN\'ANDININY :
+	Isan\'andro sy isan\'ora
+	Ho Anao, ho Anao,
+	Ka na iza no hanakora :
+	Ho Anao, aminao.
+	(Tsy hiala aminao).
+
+2. Hanaraka Anao mba hanompo ;
+	Na aiza iantsoana,
+	Ho tahaka Anao, er ry Tompo,
+	Tsy kivy na sarotra atao.
+	Isan\'andro, sns.
+
+3. Hanaraka Anao na dia mafy
+	Ny adin\'i Getsemane,
+	Hiara-mandresy \'lay rafy
+	Amim-pivavahana e !
+	Isan\'andro, sns.
+
+4. Hanaraka Anao any ambony
+	\'Zay be voninahitra ary
+	Ka tsy hahitana intsony
+	Ny zava-mahory ety.
+	Isan\'andro, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '458',
+  '458',
+  'RY JESOSY MASINA Ô',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Ab 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. RY JESOSY MASINA Ô !
+	1. Ry Jesosy Masina ô,
+	Mpampihavana,
+	Tompo sy fanasina,
+	Fitiavana.
+	Hira no ventesinay
+Hidera Anao.
+Ka ny saotra entinay
+	Ho raisinao.
+
+ISAN\'ANDININY :
+
+Fanatitra atolotray
+	Ny fo, fanahinay.
+	Ary izany tenanay,
+	Ho Anao mandrakizay.
+	Ekeo re ho sitrakao
+	Ka ho fonenanao,
+	Fa izany indrindra
+	No tadiavinao.
+
+2. Jeso ô, ekeo anio
+	Ny fisaoranay.
+	Mihainoa ka mba valio
+	\'Zany vavakay.
+	Tianay ho tempolinao
+	\'Zany tenanay,
+	Ka hihavana aminao
+	Tokoa \'zahay.
+	Fanatitra, sns
+
+3. Jeso ô, miandrandra Anao
+	Ny madinikao?
+	Miandry Anao mba hanavao
+	\'Zao tontolo \'zao.
+	Ka ny hira maminay,
+	Tompo sy Mpitahy,
+	Dia ventesinay indray :
+	Fanatitra, sns
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '459',
+  '459',
+  'NY FOKO RY MPAMONJY',
+  'A. Hawks',
+  'Rakoto sy Rabary',
+  'Do dia Ab 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. NY FOKO RY MPAMONJY (TA459)
+	1. Ny foko ry Mpamonjy !
+	Mangetaheta Anao,
+	Maniry lalandava
+	Hikambana aminao.
+
+ISAN\'ANDININY :
+
+Tsy afaka ao am-poko
+	Ny faniriana Anao,
+	Oneno re ny, foko,
+	Ho lapanao !
+
+2. Ny androm-pahoriana,
+	Raha lapanao ny fo,
+	Manjary fitahiana
+	Izay manadio ny fo.
+	Tsy afaka ao, sns.
+
+3. Ny ora fifaliana,
+	Raha ao anilanao,
+	Mamelom-paniriana
+	Hanao ny sitrakao.
+	Tsy afaka ao, sns.
+
+4. Ho lao ny fahotako
+	Raha akaikezinao,
+	Tsy misy hadalako
+	Izay tsy afakao.
+	Tsy afaka ao, sns.
+
+5. Finaritra ny saiko
+	raha ipetrahanao,
+	Fa reraka ny aiko
+	Raha halavirinao.
+	Tsy afaka ao, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '460',
+  '460',
+  'AN-TANANAO, RY RAY MALALA',
+  'A. H. Ackley',
+  'Rajoelison',
+  'Do dia Bb 3/4 Majeur Milantolanto',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. An-tananao, ry Ray malala,
+	Ny fiainako tontolo izao
+	Tazony aho tsy hiala,
+	Ho mahatoky aminao.
+
+ISAN\'ANDININY
+
+Na saro-dàlana na mora,
+	Hanaraka Anao tokoa.
+	Eny, isan\'andro, isan\'ora
+	Ho eo an-tananao ny fo.
+
+2. He! fantatrao ny fahalemeko,
+	Ny ady mafy \'zay manjo;
+	Tsy takona aminao ny sento.
+	Tohano ny finoako.
+	Na saro-dàlana,sns.
+
+3. Raha toa lavitra ny fetra
+	Ka kivy re \'ty zanakao,
+	Tafio ny herinao rehetra,
+	Hanohy indray ny dia izao.
+	Na saro-dàlana,sns.
+
+4. An-tananao, ry Ray Tsitoha,
+	Ny hasambarako ety ;
+	Ho eo ihany raha hifoha.
+	Handray ny lova soa ary !
+	Na saro-dàlana,sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '461',
+  '461',
+  'O! ANARANA MAMIKO INDRINDRA',
+  'Jeanne Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia F 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. O ! anarana mamiko indrindra,
+	Kanto loatra, sy mirindra,
+	Nanolorana ny famonjena izao,
+	Jeso ny anara-masinao.
+
+ISAN\'ANDININY :
+	Jeso ô, Mpamonjy tena tia,
+	Jeso \'Zay Mpitantana ny dia.
+	Jeso, raiso hanjakanao
+	\'Zany foko re ho lapanao.
+
+2. Raha sendra andro mibaliaka
+	Miramiran\'endrika, sariaka,
+	\'La anaranao tsy manam-paharoa
+	No deraiko fatratra tokoa.
+	Jeso ô, Mpamonjy tena tia, sns
+
+3. Raha ho avy Ianao, Mpamonjy tia,
+	Ka hifarana hatreo ny dia
+	O ! Jesosy, \'Lay anaranao indray
+	No anjarako mandrakizay.
+	Jeso ô, Mpamonjy tena tia, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '462',
+  '462',
+  'SAMY MANEHO NY LAZANY',
+  'Tyrolese Carol',
+  'Esther Bary',
+  'Do dia F 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Samy maneho ny lazany
+	Ireo mpirehareha.
+	Fahaizana sy harena
+	Aderaderany.
+	Raha \'zany no asandrany,
+	Ny antsika kosa re ?
+	Ny tenantsika atolotra
+	\'Lay Mpanjaka lehibe.
+
+2. Fo tia Anao sy misaotra
+	Midera sy manoa,
+	No indro aterinay ho Anao
+	Ho fanomezana.
+	Ho rakitra maharitra,
+	Omena an-tsitrapo,
+	Omenay, ry Tompo Tsitoha,
+	Ho voninahitrao.
+
+3. Ny andraikitra madinika
+	Omeny dia atao.
+	Jeso ho faly
+	Ny mandinika ny asa \'zay atao.
+	\'Zay re no fanomezana
+	Atolotray Anao,
+	Raiso fa nikelezao
+	Tompo ô mba ekeo.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '463',
+  '463',
+  'ATAOVY AO AM-BAVAKO',
+  'Harold A. Miller',
+  'Esther Bary',
+  'Do dia Eb 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Ataovy ao am-bavako
+	\'Zay hoteneniko.
+	Ny hira sy vavaka
+	Mba ho toy ny Anao.
+
+ISAN\'ANDININY :
+	\'Zaho te hitovy
+	Aminao Jesosy.
+	Ampio aho, Tompo ô,
+	Hitombo isan\'andro.
+
+2. Ny fomba fihevitro,
+	Ny asa sy fiainako,
+	Entiko eo aminao
+	Hotarihinao.
+	\'Zaho te hitovy, sns
+
+3. Fa mihelina tokoa
+	Sy mandalo ny ety,
+	Eo aminao Tompo soa
+	Mahatsara ahy.
+	\'Zaho te hitovy, sns
+
+4. Ampianaro mba hahay
+	Hampijoro ho iray
+	Ny fo, saina sy fanahy
+	Ry Tompo mpiahy.
+	\'Zaho te hitovy, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '464',
+  '464',
+  'DISO NY LALAN\'NY FIAINANA',
+  'Georges S. Schuler - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia C 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Diso ny lalan\'ny fiainana,
+	Maro ny ory tokoa,
+	Ento ny mazava handresy
+	Ny haizina;
+	Ovay ny ratsy ho soa.
+
+ISAN\'ANDININY :
+	Amboary aho mba ho mpanasoa,
+	Ka avy amiko hiseho Jeso.
+	Amboary, Tompo,
+	Mba ho mpanasoa.
+	Amboary ho mpanasoa aho anio.
+
+2. Tantarao ny fitiavan\'i Kristy
+	Sy ny famelany koa.
+	Hino ny hafa raha lazainao ity
+	Ka arahinao tokoa.
+	Amboary aho, sns
+
+3. Manomeza toy ny nandraisanao,
+	Mitiava toy ny Tompo.
+	Ampio ny ory \'zay mila anao
+	Ataovy an-tsitrapo.
+	Amboary aho, sns
+
+4. Nampanantena aho
+	Fa hanompo Anao
+	Na aiza hanendrenao,
+	Ho any aho.
+	Izay hataoko
+	Ho voninahitrao
+	Hanara-dia Anao
+	Ry Mpampianatro.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '465',
+  '465',
+  'TOA MANONTANY TENA AHO',
+  'Harry E. Storrs',
+  'A. R. Marnoël',
+  'Do dia G 4/4 Moramora',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Toa manontany tena aho, Jeso ;
+	\'Zay soa mba vitako ho Anao
+	Izay nanetry tena ka voaeso,
+	Maty, nanavotra ahy toy izao
+
+ISAN\'ANDININY :
+	Moa mba mikaroka
+	Ny very ve aho ?
+	Moa nanafaka ny mifatotra
+	Sy nanampy,
+	Namonjy sy mitalaho
+	Mba hizaka ny avotrao ?
+
+2. Be ny fotoana verivery foana
+	Fa vitsy no nomena Anao
+	Ny fitiavako Anao tsy lalim-paka
+	Fa voasinton\'izao tontolo izao.
+	Moa mba mikaroka, sns
+
+3. Tsy hangina intsony aho, Jeso,
+	Fa hilaza ny aminao.
+	Ry namako, andeha mba venteso
+	Ka zarao ny avotra izay natao.
+	Moa mba mikaroka, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '466',
+  '466',
+  'AMPANGINO NY IZAHO-KO',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia A na B 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Ampangino ny izahoko, ry Tompo ô.
+	Ampangino hihainoako ny feonao.
+	Fa manelingelina ny hidiranao ato am-po.
+	O ! ampangino tanteraka Tompo ô.
+
+ISAN\'ANDININY :
+	Ianao izay neken\'ny rivotra Jeso ô,
+	Ianao neken\'ny ranomasina
+	Ianao nibaiko ny afo
+	O ! ampangino ny izahoko.
+
+2. Raha mila te ho sosotra ilay izahoko,
+	Dia teneno moramora re, ry Tompo ô.
+	Mba hitandro voninahitra ho Anao irery e !
+	Fa fihavanana no sitrakao.
+
+3. Raha mila te hirehareha, Tompo ô,
+	Te hanindrahindra \'reo talenta nomenao.
+	Ampangino, ampangino ny izaho ato am-po
+	Fa tsinontsinona aho re, Tompo ô.
+
+4. Raha tia fanakianana aho, Tompo ô,
+	Fanakianana tsy mba mamokatra ho Anao.
+	Ampangino, aza avelanao hiteniteny re
+	F\'zaho koa tsy mahavita be.
+
+5. Raha levona tanteraka ny izahoko
+	Ka tsy izaho intsony re no velona ato am-po,
+	Dia ny herinao anie hanosika ahy hankato
+	O ! tanteraho \'zay sitrakao, Tompo ô.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '467',
+  '467',
+  'EO AM-PELATANANAO',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Db 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. -PELATANANAO
+
+Eo am-pelatananao, Ray ô,
+	No apetrako izao.
+	Ny fiainako tontolo
+	Eo am-pelatananao.
+	Marobe ny fahavalo
+	Te hamotraka ahy izao ;
+	Nefa ianao miaro
+	Ny eo am-pelatananao.
+	(An-tananao)
+	Na ho mora na ho mafy
+	\'Zao fiainako izao,
+	Dia vonona aho hihafy
+	Fa am-pelatananao
+
+2. Eo am-pelatananao, Ray ô,
+	No apetrako tokoa.
+	Ny fiainako rehetra,
+	Na ho ratsy na ho soa.
+	Eny, izao rehetra izao
+	Miovaova sy mora lo;
+	Ny eo am-pelatananao.
+	No haharitra tokoa.
+	(An-tananao)
+	Na ho mamy na hangidy
+	Ny fiainako (ety),
+	Apetrako ny safidy
+	Ho eo am-pelatananao.
+
+3. Eo am-pelatananao, Ray ô,
+	Ho anio sy rahatrizay.
+	Ny eo am-pelatananao, Ray ô,
+	Ray ô, tsy hangaihay.
+	Na ny eso na ny latsa
+	Tsy hampaninona ahy izao
+	Fa ho sitrana ny ratra
+	Eo am-pelatananao.
+	(An-tananao)
+	Hatrizao sy ho doria
+	Ho anao dia ho anao,
+	Mamy loatra ny fitia
+	Eo am-pelatananao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '468',
+  '468',
+  'IANAO, RY KRISTY TOMPO',
+  'I. D. Sankey',
+  'J. Andrianaivoravelona zanany',
+  'Do dia E 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Ianao, ry Kristy Tompo,
+	No hasiniko izao,
+	Avy aho fa mpanompo
+	Hiankohoka aminao,
+	Raisonao ny dera, saotra
+	Tena mendrika ho Anao ;
+	He ! ny foko faly loatra,
+	Faly mba hanaja Anao.
+
+2. \'Zao no tena faniriako :
+	Ny velona aminao,
+	Ka hitoeranao ny foko,
+	Fa tsy holalovanao ;
+	Eny, Tompo ô ! monena,
+	Mba monena ao tokoa,
+	\'Zay no tena famonjena,
+	\'Zay no mahafatra-po.
+
+3. Tsy ho orin-java-tsoa
+	\'Zay rehetra itoeranao,
+	Tena sambatra tokoa,
+	Raha ny fo no lapanao,
+	Mandrosoa, fa vohako
+	Ho anao ny foko \'zao ;
+	Eny, Tompo, fa vohako,
+	Koa midira Ianao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '469',
+  '469',
+  'RY JESO KRISTY TOMPO',
+  'S. W. Martin',
+  'H. Rabehasy',
+  'Do dia F 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Ry Jeso Kristy Tompo,
+	O ! ampio ny olonao !
+	Ampianaro mba hanompo
+	Sy hanao ny sitrakao ;
+	Malemy aho re
+	Ka omeo ny herinao
+	Tsy hivily tsy hania
+	Fa hanara-dia Anao.
+
+ISAN\'ANDINY :
+	O ! vonjeo, ô ! vonjeo,
+	Ka tantano sy jereo ;
+	Aza afoy izahay,
+	Fa Ianao no avotray.
+
+2. Ny foko mba diovy,
+	Ry Mpamonjy lehibe !
+	Ka ambeno sy arovy,
+	Sao dia very aho re :
+	Iriko indrindra koa
+	Ny hitombo sy hamoa,
+	Ka ny voka-tsoa rehetra
+	Ho Anao, ry Jeso ô !
+	O ! vonjeo, sns
+
+3. Mba raisona, ry Tompo !
+	Ho Anao tokoa izao
+	\'zay anananay rehetra,
+	Ka anarano fo izao,
+	Fa maty Hianao
+	Noho ny fitiavanao,
+	Ka tsy hainao hadinoina
+	Ny fitiavanao anay :
+	O ! vonjeo, sns
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '470',
+  '470',
+  'IRIKO E, RY JESO',
+  'J. Andrianaivoravelona',
+  'J. Andrianaivoravelona',
+  'Do dia E 4/4 Miadankadana',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Iriko e, ry Jeso !
+	Hitovy aminao
+	Izay tsy manan-keloka,
+	Fa masina tokoa ;
+	Iriko e, ry Jeso !
+	Ho tonga toa Anao,
+	Namonjy sy nanafaka
+	fanahy, aina koa.
+
+2. Iriko, ry Mpamonjy
+	Mba ho sakaizanao,
+	Hiaraka ory aminao ;
+	Iriko, ry Mpamonjy !
+	Hanara-dia Anao
+	Ny hazo fijaliana
+	Ho entiko izao.
+
+3. Iriko, ry Mpandresy !
+	Hiaraka aminao
+	Ho eo an-toby lehibe,
+	Ho miaramilanao ;
+	Iriko, ry Mpandresy !
+	Hanaraka Anao,
+	Mitondra ny fanevanao,
+	Handray ny herinao.
+
+4. Iriko, ry Mpanjaka !
+	Ho ao an-dapanao
+	Hiara-paly aminao
+	Fa tonga zanakao ;
+	Iriko, ry Mpanjaka !
+	Ho eo anilanao
+	Handray ny lova atolotrao,
+	mpanjaka be fitia !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '471',
+  '471',
+  'MBA OMEO AHY',
+  'P. P. Bliss',
+  'G. Mondain',
+  'Do dia Eb 12/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. Mba omeo ahy
+	Fo madio tokoa,
+	Afaka ahiahy
+	Ho Anao tokoa.
+	\'Zaho dia malaina,
+	O ! mba hafanao re
+	Mba hikely aina
+	Hahefako be
+
+2. Mbola manangoly
+	Ny fakam-panahy,
+	Ao koa ny devoly
+	Ta hamotraka ahy.
+	Tompo ô ! ampio
+	Ny mpanomponao \'zao,
+	Ary mba tafio
+	Herim-po vaovao.
+
+3. Atolory ahy
+	Zotom-po sy hery,
+	Fahendrem-panahy,
+	Fo mahay mietry,
+	Ampianaro ako
+	Mba hanolo-tena,
+	Ka mba hatanjaho
+	Ny finoako.
+
+4. Dia hamasino
+	Ny saiko, ry Tompo !
+	Ka omeo fo mino,
+	Fo mahay manompo,
+	Fo mahay mihafy,
+	Fo miravoravo,
+	Na dia voa mafy
+	Fo toy ny Anao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '472',
+  '472',
+  'HE MANOLO-TENA AHO',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia G 4/4 Mieritreritra',
+  'FIAINANA KRISTIANA',
+  'Fanoloran-tena sy Fanamasinana',
+  '
+1. He ! manolo-tena aho, Tompo ô.
+	Mba ho Anao,
+	Ho Anao mandrakizay.
+	Ka ny andro sisa hiainako
+	Homeko Anao, raiso, izao
+
+ISAN\'ANDININY :
+	O ! mba tohano Tompo ô
+	(Tohano Tompo ô)Ny diako, ny voadiko
+	(\'Zany, \'zany voadiko)
+	Mba hanompo Anao
+	(\'Zaho ta hanompo, ta hanompo Anao)
+	Mandrakizay, mandrakizay
+	(Ho mandrakizay).
+
+2. Ampy izay ny fiainana lasa
+	\'Zay nampalahelo Anao, ry Tompoko.
+	Ka manomboka anio, Jeso ô,
+	Ampio aho ho Anao.
+	O ! mba tohano, sns
+
+3. Aoka izay ny filalaovan-dratsy
+	Nampisaraka ahy taminao ;
+	Fa ny ho mpandova lanitra
+	Iriko izao, Jesosy ô.
+	O ! mba tohano, sns
+
+4. O, ry Jesosiko be fitia
+	Izay nifidy ahy ho ondrinao
+	Mba tantano re izany dia,
+	Ho tonga any aminao!.
+	O ! mba tohano, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '473',
+  '473',
+  'RAHA AZOKO IZAO TANY IZAO',
+  'Swedish Hymn - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia D 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fahononan-tena',
+  '
+1. Raha azoko izao tany izao
+	Nefa tsy azoko Jeso Mpamonjy,
+	Dia ho aiza re no hisy ahy
+	Raha ho rava izao tontolo izao ?
+	Raha azoko izao tany izao
+	Nefa tsy azoko Jeso Mpamonjy,
+	Moa ny fifalian\'izao tany izao
+	Hitovy amin\'ny an\'i Jeso ?
+
+2. Mahafaly ahy amin\'i Jeso :
+	Azoko ny zavatra rehetra.
+	Ireo otako voavela tokoa,
+	Ny alehako zakainy koa.
+	Na tsy manana aho afa-tsy i Jeso,
+	Tsy misy ilaiko intsony eto
+	Fa ahy ny zavatra rehetra
+	Ao amin\'i Jeso Tompoko.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '474',
+  '474',
+  'INJAO MIROHONDROHONA',
+  'Sankey',
+  'E. Razafiniavo',
+  'Do dia E 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Injao mirohondrohona
+	Ny ranomasim-be
+	Ny onja manoloana
+	Mamely mafy re
+	Ka very hevitra
+	Ny firenena re.
+	Ny feon\'ny rivotra
+	Mihamitsoka re.
+
+2. Tsy misy raha eto
+	\'Zay mandry fahizay
+	fa ady mampisento
+	Sy tebiteby indray.
+	Eo aminao, Jeso,
+	No fiadanana.
+	Mionona e ny fo,
+	Fahasambarana.
+
+3. Ny fon\'ny manan-daza
+	Ho reraka izao,
+	Matahotra ny loza
+	Hitranga ao ho ao.
+	Mikaroka ny soa
+	Dia fiadanana
+	Kanefa ny mifoha
+	Fikorontanana.
+
+4. Ianao irery Tompo
+	No iantsampazako,
+	Raha he mifofofo
+	Ny onja tazako,
+	Ianao ry Jeso tia
+	Tsy atakaloko,
+	Fihiniko satria
+	Mpanonjy aroko.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '475',
+  '475',
+  'SINTONY AHO',
+  'C. H. Morris',
+  'Rajoelison',
+  'Do dia E 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Sintony aho,
+	Anilanao.
+	He, mitalaho,
+	Henoinao !
+	Eo irery ihany
+	No mamiko.
+	:,:Ny eto an-tany
+	Tsy mahafa-po.:,:
+
+2. Tompo malala,
+	Anilanao,
+	Eo tsy hiala,
+	Iriko izao.
+	Hahita indrindra
+	Ny tavanao,
+	:,:Mandra-pifindra
+	Any aminao.:,:
+
+3. Eo re ny ratsy
+	Ho resiko.
+	Eo misy vatsy
+	Ho entiko.
+	Eo ny tomany
+	Ho tapitra.
+	:,:Eo izaho izany
+	Ho sambatra.:,:
+
+4. Tompo sintony
+	Akaikinao.
+	Tsy tiako intsony
+	Hiala aminao.
+	Ô! tano mafy
+	Hanara-dia
+	:,:Ilay nihafy
+	Fony tety.:,:
+
+5. Eny tsy ho ela
+	Hafoy ity,
+	Sady havela
+	Fa ho ary !
+	Hanatri-tava
+	\'Lay Tompo tia
+	:,:Ho lalandava
+	Eny, doria.:,:
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '476',
+  '476',
+  'AO ZIONA AMBONY',
+  'J. H. Rosenkrang',
+  'Rajoelison',
+  'Do dia F 12/4 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Ao Ziona any ambony
+	Misy re fonenan-tsoa
+	Any tsy mba hisy intsony
+	Ranomaso, sento koa
+
+ISAN\'ANDININY :
+	Eny ao an-danitra avo,
+	Eo anatrehan-dray,
+	Feno hira maharavo
+	No hihaonantsika indray.
+
+2. Any misy an\'i Jeso,
+	\'Lay Mpamonjy tena tia,
+	Ka niaritra ny eso
+	Mba hampody ny mpania.
+	Eny ao an-danitra, sns
+
+3. Ao hifankahita tava
+	Amin-kavana tety,
+	Fa ilay alim-be sisava,
+	He ! mazava ny ary.
+	Eny ao an-danitra, sns
+
+4. Koa mahereza ary,
+	Mijere ny Tomponao
+	Dia hahalavorary
+	Sy handresy ianao.
+	Eny ho sambatra ao ambony
+	Eo anatrehan-dray
+	Tsy hisaraka intsony
+	Eny, ho mandrakizay.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '477',
+  '477',
+  'RAHA NY FIAINANA ETY',
+  'D. Razafindramanana',
+  'D. Razafindramanana',
+  'Do dia F 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Raha ny fiainana ety
+	No mampitomany anao,
+	Mijere lavitra.
+	Nitomany i Jeso,
+	Nitomany anao.
+	Ory, nisento koa,
+	Nety nijaly re
+	Hamonjena anao.
+	Indro raiso izao.
+
+2. Raha mandreraka ny fo
+	Adin-tsaina lalina,
+	Mijere lavitra.
+	Efa maty Jeso,
+	Maty tao Kalvary ;
+	Nivesatra tokoa,
+	Nety ho sasatra,
+	Fianarana
+	Harahinao
+
+3. Raha manonja mafy re
+	\'Zany alon-drano be,
+	Mijere lavitra.
+	Indro avy Jeso,
+	Avy tsy ela re ;
+	Ny fahoriana ve,
+	Ny ranomaso koa,
+	Fijaliam-be,
+	Hofoanany.
+
+4. Raha ny fiainana ety
+	No mampitanondrika anao,
+	Mijere lavitra.
+	Efa akaiky Jeso,
+	Avy handray anao ;
+	Ny fahasasaranao,
+	Hadino faingana ;
+	Fiadanam-be,
+	No hasolony.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '478',
+  '478',
+  '\'NJANY MISY ANTSO MAFY',
+  'P. P. Bliss',
+  'F. Ramanantsialonina',
+  'Do dia G 2/4 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. \'Njany misy antso mafy,
+	Miandrandrà ianao.
+	Fa Mpamonjy lehibe, no,
+	Avy handray anao.
+
+ISAN\'ANDININY :
+	Avy aho : miadia,
+	Hoy ny Tomponao.
+	Miezaha, matokia
+	\'Zaho homba anao.
+
+2. He! mangotraka ny ady,
+	Resy Satana.
+	Tano mafy re ny voady
+	Aza ialana.
+	Avy aho, sns.
+
+3. Ny finoana asehoy
+	Ho fanevanao ;
+	Ilay rafy dia hikoy,
+	Ho mpandresy ianao.
+	Avy aho, sns
+
+4. He ! hifarana ny ady,
+	Indro Kristinao.
+	\'Zay mpitarika mpiady,
+	Nampandresy anao.
+	Avy aho, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '479',
+  '479',
+  'O! MIJOROA FA JESOSY MPANJAKA',
+  'F. Ambresin',
+  'F. Ramanantsialonina',
+  'Do dia Eb 3/4 Kingakinga',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. O ! mijoroa fa Jesosy Mpanjaka,
+	No mampahery sy miaro anao.
+	Ka na dia mafy ny ady ho zaka,
+	Resy Satana, Jeso momba anao.
+	Ka na dia mafy ny ady ho zaka,
+	Resy Satana, Jeso momba anao.
+
+2. O ! Miadia aza reraka akory
+	Ary manàna finoana ianao
+	Ka na dia be \'reo zava-mahory,
+	Jeso antsoy mba hanafaka anao.
+	Ka na dia be \'reo zava-mahory,
+	Jeso antsoy mba hanafaka anao.
+
+3. \'Reo fahavalo manimba ny tena,
+	Aza manahy fa Jeso no jereo
+	Afaka hanampy anao amin-kery
+	Mba handovana ilay tany vao.
+	Afaka hanampy anao amin-kery
+	Mba handovana ilay tany vao.
+
+4. O ! ry sakaiza mpitolona mafy
+	Jeso Mpandresy sy miaro anao
+	Izy niaritra sadi nihafy
+	Koa aza ketraka foana ianao.
+	Izy niaritra sadi nihafy
+	Koa aza ketraka foana ianao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '480',
+  '480',
+  'O! RY NAMAKO AVIA',
+  'W. Bradbury',
+  'F. Ramanantsialonina',
+  'Do dia G 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. O ! ry namako avia
+	\'Ndeha isika hiara-dia
+	Mahereza miomana,
+	Atrakao ny lohanao.
+	Fa na sarotra ny ady
+	Mijoroa ho kiady
+	He ! manàna fikasana,
+	Ao Kanana lovanao.
+
+2. Ao ny Tompo mampahery,
+	Olombery tiany
+	Izy tena tsy mandao ;
+	Vonona handray anao.
+	Aza lavinao \'lay feo
+	\'Zany antso mba ekeo.
+	Ka Jesosy no jereo.
+	Dia handresy ianao.
+
+3. Na dia sarotra ny dia,
+	Aza ketraka ianao.
+	Fa Jesosy zoky tia
+	No mpiantoka anao.
+	Ao ny lovanao ry mpino
+	Ka ny lanitra banjino,
+	Eny, kely sisa izao,
+	Dia hiadana ianao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '481',
+  '481',
+  'RAHA MAFY IZAO NY MAHORY',
+  'H. H. Lemmel',
+  'Rajoelison',
+  'Do dia F 3/4 Milantolanto',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Raha mafy izao ny mahory
+	Ka mila ho kivy ny fo,
+	Tsarovy, tsy lavitra akory
+	Kristy fa akaiky tokoa.
+
+ISAN\'ANDININY :
+	O ! andrandrao re ny maso
+	Jereo \'lay nanavotra anao
+	Dia inoy na be ny ankaso
+	Fa Izy tia ka mihevitra anao.
+
+2. Raha sendra tsy tazana intsony
+	Ny tany \'zay nilaozanao,
+	Fa onja \'zay toa tsy hitony
+	No vonon-kitelina izao.
+	O ! andrandrao, sns
+
+3. Raha indro mikiky ny aina
+	Ny ota izay vitanao,
+	Ka na dia ao ny maraina
+	Toa alina re aminao.
+	O ! andrandrao, sns
+
+4 
+	He ! vitany tomboka vatsa
+	An-tanany ny anaranao ;
+	Na eso, na kapoka, latsa
+	Niaretany noho ianao.
+	O ! andrandrao, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '482',
+  '482',
+  'MPIVAHINY NANJENJENA AHO',
+  'Alfred B. Smith',
+  'D. Razakaria',
+  'Do dia D 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Mpivahiny nanjenjena aho,
+	Tsy nahita ny lalan-kaleha,
+	Efa reraka ka nitalaho
+	Soa ihany Jesoi fa nandre.
+
+ISAN\'ANDININY :
+	Fahasoavana, famindram-po
+	Ho hanaraka ahy
+	Amin\'ny andro rehetra iainako;
+	Fahasoavana, famindram-po
+	Ho hanaraka ahy
+	Amin\'ny andro iainako.
+
+2. Nofenoiny ny herim-panahy.
+	Novokisahy hafaliam-po
+	Ny fiainako ka tsy manahy
+	Fa matoky ny Mpamonjiko.
+	Fahasoavana, sns
+
+3. Raha mamaky ny lohasaha
+	Aloky ny fahafatesana aho,
+	Tsy matahotra any loza aho,
+	Fa Jesosy eo anilako.
+	Fahasoavana, sns
+
+4. Raha tonga \'lay andro malaza
+	Hisehoan\'i Jeso Tompo tia,
+	Dia ho faly ny foko hilaza
+	Fa tanteraka soa ny dia.
+	Fahasoavana, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '483',
+  '483',
+  'TSY FANTATRO, TOMPO',
+  'Ruth Harms Calkin - Mamy J. Ratsirison',
+  'D. Razakaria',
+  'Do dia Eb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Tsy fantatro, Tompo, nahoana no tianao
+	Ny hitondrako fahoriana toy izao :
+	Nahoana, Tompo ô, \'ty fatiantoko,
+	Nefa re tombony no nangatahiko ?
+	Nefa mino aho fa tsy hafionao
+	Ary ny lalanao dia azo antoka.
+
+ISAN\'ANDININY :
+	Eny, mino aho ary matoky Anao
+	Fa hisava ny haizina ka hohaiko.
+
+2. Tsy fantaro, Tompo, nahoana no tianao
+	Ny hamakiako ity lala-maizina ity
+	Nahoana Tompo ô, no dia sitrakao
+	Ny hamoizako ny nofinonfy tiako ?
+	Nefa mino aho, sns
+
+
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '484',
+  '484',
+  'JESO MAMPAHERY NY FO',
+  'Thoro Harris',
+  'A. R. Marnoël',
+  'Do dia Eb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Jeso mampahery ny fo
+	Raha tena ao Izy.
+	Manitsy, manadio tokoa ;
+	Faly ny manana Azy.
+
+ISAN\'ANDININY :
+	Jeso no ambony indrindra
+	Noho ny aina anananao
+	Fa ny kanto sy mirindra
+	Aminy no raisinao.
+
+2. Ny fitiavany omeny
+	Fahasoavan-dehibe
+	Eny, ambony dia ambony
+	Nefa koa dia lalim-be
+	Jeso no ambony, sns
+
+3. Eo amoron-drano kanto
+	\'Zaho sy ny voavonjy,
+	No hihira tsy hiato
+	Hidera ny Mpamonjy.
+	Jeso no ambony, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '485',
+  '485',
+  'TSY HO ELA DIA HIFALY IANAO',
+  'W. S. Martin - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia D 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Tsy ho ela dia ho faly ianao
+	Hiditra ao an-tranon\'ny Ray.
+	Eo hifarana re \'zany dianao
+	Any no hanjakanao indray.
+
+ISAN\'ANDININY :
+	Ao an-tany vaovao
+	Tsy ho faty intsony re,
+	Hazavana no lambanao
+	Ka hihira rodobe
+
+2. Tsy ho ela dia hifaly ianao
+	Ao tsy hisy alina intsony.
+	Hafaliana tsy ho tapitra no ao
+	Fa hitony ny sentom-ponao.
+	Ao an-tany vaovao, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '486',
+  '486',
+  'AIZA ILAY EDENA FAHIZAY',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia Eb 6/8 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Aiza ilay Edena fahizay ?
+	Mba iriko fatratra
+	Moa mbola hiverina indray
+	Hialako sasatra ?
+
+ISAN\'ANDININY :
+	O ! ry Ray malala,
+	Moa ho nofy ve (ho nofy)
+	Ny hiala sasatra eo anilanao.
+	O, ry Ray malala,
+	Moa ho nofy ve
+	Ilay Jerosalema vaovao ?
+	Aiza ilay Edena fahizay ?
+	Moa hiverina indray ?
+
+2. Eto tsy hisy fitsaharana
+	Ady isan\'andro izao.
+	Tsy mba misy hasambarana
+	Aiza Ilay Edena izao ?
+	O ! ry Ray malala, sns
+
+3. Mafy loatra Ray ny ady atao
+	Fo, fanahy mila ho lao.
+	Ka mba mitalaho aminao
+	O ! ny lalako hazavao.
+	O ! ry Ray malala, sns
+
+4 
+	E ! mba tena sambatra tokoa
+	\'Zay manao ny sitrakao.
+	Fa handray anjara lova soa :
+	\'Lay Edene vaovao
+	O, ry Ray malala, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '487',
+  '487',
+  'RAHA SENDRA FAHAKIVIANA',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia C 3/4 Milantolanto',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Raha sendra ka voan\'ny
+	Fahakiviana
+	Ka mila hamoy fo,
+	Ao Jesosy,
+	Ilay hany manome hery anao
+	Hanitra.
+
+ISAN\'ANDININY :
+	O ! mahareta, aza miala 
+	Fa indro tonga Jeso izao.
+	O ! mahareta, aza miala,
+	Aza mba ketraka ianao.
+
+2. \'Zao rehetra izao
+	Tsy maharitra intsony
+	Ho levona avokoa
+	Ny finoako izao
+	Dia hitombo hatrany
+	Satria ho avy Jeso
+	O ! mahareta, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '488',
+  '488',
+  'HANGINA AHO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Eb 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Hangina aho, ry Tompo,
+	Hangina tokoa
+	Fa mamolivoly ny fo.
+	Tsy haiko lazaina,
+	Tsy tratry ny saiko
+	Ilay niaretanao
+	Ho fanavonana ahy.
+	Ho takatry ny saiko ve
+	Ny haben\'ny fitiavanao
+	Ka nitondranao mafy tahaka izao ?
+	Ho haiko tantaraina ve
+	Ny fomba namonoana Anao
+	Ka nentinao tany Kalvary ?
+	Hangina aho, ry Tompo,
+	Hangina tokoa
+	Ho rakitra ato am-poko
+	Ny fitiavanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '489',
+  '489',
+  'RY MIARAMILA ! MANDROSOA IZAO',
+  'S. Baring-Gould',
+  'J. T. Price',
+  'Do dia F 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Ry miaramila ! mandrosoa izao,
+	Kristy Kapiteny mialoha anao ;
+	Ao aloha tafita,
+	Loza, ratra be,
+	Fitsaharana tsy misy
+	Misikina re:
+
+ISAN\'ANDININY
+
+Ry miaramila ! mandrosoa izao,
+	Kristy Kapiteny mialoha anao.
+
+2. Any lehy ratsy no manotrika,
+	Any ny tsipika no milatsaka ;
+	Tano ny finoana
+	Ho ampinganao,
+	Entonao ho fandresena
+	Izao rehetra izao :
+	Ry miaramila ! sns.
+
+3. Aza miamboho na miherika,
+	Ao an-tratranao ny fiarovana ;
+	Aza mba matahotra
+	Fa sahia, fandrao
+	Raha tsy mandresy
+	Dia ho resy ianao ;
+	Ry miaramila ! sns.
+
+4. Dia mandrosoa ianao izao,
+	Ka miraisa-dia aminay ho ao
+	Milofosa fatratra,
+	Aza ketraka,
+	<< Miadia ady tsaran\'ny finoana >>
+	Ry miaramila ! sns.
+
+5. Kristy Kapiteny tapitra ohatra
+	Izy no mpiaro ny mpanafika ;
+	Miankina aminy
+	Mafy ianao,
+	Ka aza mba ny tenanao
+	No itokianao :
+	Ry miaramila ! sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '490',
+  '490',
+  'TSY HAIKO INTSONY, JESO TIA',
+  'G. Guillod',
+  'Rajoelison',
+  'Do dia Eb 4/4 Majeur Miadana',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Tsy haiko intsony, Jeso tia
+	\'Zany handà ny antsonao.
+	Indro, ny foko \'zay nania
+	Fa atolotro ho Anao.
+
+ISAN\'ANDININY
+
+Raiso Tompo, Anao tokoa,
+	Ho fanananao hatrizao,
+	Fa apetrako avokoa
+	Ambony alitaranao.
+
+2. He! hitanao, Jeso malala,
+	Fa be ny halemeko izao ;
+	\'Ndre maro koa ny mpankahala!
+	Ô, tafio ny herinao !
+	Raiso Tompo,sns.
+
+3. Raha fantatrao re fa ilaina
+	Ny fitsapana ka hanjo,
+	Mba hatanjaho \'zany saina,
+	Fandrao dia mamoy fo !
+	Raiso Tompo,sns.
+
+4. Ny tena iriko, Tompo tsara,
+	Hanahaka ny endrikao ;
+	Indrindra koa hanambara
+	Ny hasoan\'nyfitiavanao.
+	Raisonao tontolo, doria,
+	Anjakao manomboka anio,
+	\'Zao ny foko, Jesosy tia,
+	Dia ento an-danitra madio !
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '491',
+  '491',
+  'HIADY, JESO O!',
+  'E. L. Budry',
+  'A. R. Marnoël',
+  'Do dia Bb 4/4 Décidé',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Hiady, Jeso ô,
+	No iantsoanao anay
+	Indreto izahay re
+	Hanao ny sitrakao.
+	Hanao ny sitrakao
+	No itsangananay.
+
+ISAN\'ANDININY
+
+Tafio \'zahay ;
+	Tafio ny fo
+	Tafio fiadanana izahay
+	Handresy ho voninahitrao.
+	Tafio \'zahay.
+	Tafio ny fo.
+
+2. Tafio finoana re
+	Ka hafanao ny fonay;
+	Ny hery, fahendrenay
+	Ampitomboy, ho be
+	Areheto izahay
+	Ho mpandresy mahay.
+	Tafio \'zahay, sns.
+
+3. Hasandratray tokoa
+	any hazo fijaliana,
+	Ka amim-pifaliana
+	No handresenay koa.
+	Ny ran\'ny Tomponay
+	No hampandresy anay.
+	Tafio \'zahay, sns.
+
+4. Miadia, miareta re
+	Fa handresy isika.
+	Hatao an-dohantsika
+	\'Lay diadema anie.
+	Miadia, miareta moa
+	HAnjakantsika koa.
+	Tafio \'zahay, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '492',
+  '492',
+  'NA DIA MAFY NY ADY ATAOKO',
+  'John R. Sweney',
+  'D. Razakaria',
+  'Do dia F 6/8 ',
+  'FIAINANA KRISTIANA',
+  'Ady sy Fandresena',
+  '
+1. Na dia mafy ny ady ataoko,
+	Na dia sarotra tokoa ny dia ;
+	Na dia takona ny eo anoloako,
+	Dia jereko ny Mpamonjy tia.
+
+ISAN\'ANDININY :
+	Hojereko ny tavan\'ny Mpamonjiko ;
+	Ilay tava feno fitia,
+	Dia ho lasa tokoa ny haizim-pito
+	Ka hazava ny lalako ety.
+
+2. Hobanjiniko hatray ny Tompo
+	Amin\'ny fihazakazahako ;
+	Ka na hisy ny ratsy hisoko,
+	Tsy ho voafingana ny tongotro.
+	Hojereko ny tavan\'ny Mpamonjiko, sns
+
+3. Raha mitatao ny raho-mainty,
+	Raha misy rivo-doza be ;
+	Raha milatsaka ny oram-baventy,
+	Hoy aho hoe :
+	<<Tompo ô ! mamonje !>>
+	Hojereko ny tavan\'ny Mpamonjiko, sns
+
+4. Kely sisa aho dia hanoloana
+	An\'ilay tsy manam-paharoa ;
+	Ka ny maso fa tsy ny finoana
+	No hijereko ny Tompoko.
+	Dia ho faly ny fo,
+	Hankalaza tokoa anao
+	Ry Andriamanitray.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '493',
+  '493',
+  'AZA MBA MANDALO AHY',
+  'FFPM579',
+  'Ramboatiana',
+  'Do dia Ab 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Aza mba mandalo ahy,
+	Ry Mpamonjy ô !
+	Aza mba manary ahy,
+	Jeso Tompo ô !
+
+ISAN\'ANDININY :
+	Ry Mpanjaka, mihainoa re !
+	Mamonje fa mitaraina
+	Ny vahoakao.
+
+2. Fantatrao fa malahelo
+	Ny mpanomponao ;
+	Raha mbola eto aho,
+	Mba tsinjovinao ;
+	Ry Mpanjaka, sns
+
+3. Indro ! fa miandry eto
+	Ny navotanao ;
+	Aoka tsy mba halahelo,
+	Mba falio izao :
+	Ry Mpanjaka, sns
+
+4. Eny, manomeza hery
+	Mba ho ahy re,
+	Ka hahery sy handresy
+	Ny mpanomponao :
+	Ry Mpanjaka, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '494',
+  '494',
+  'TSY MBA LAVITRA JESO AKORY',
+  'Mac Granaham',
+  'Rajoelison',
+  'Do dia F 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Tsy mba lavitra Jeso akory
+	Fa akaiky eo anilanao
+	O ! ry namako \'zay tena ory
+	Ka he rera-po izao
+
+ISAN\'ANDININY :
+	Antsoy re Jeso anio (anio)
+	Antsoy re Jeso anio (anio)
+	Ny fony dia tia sady antra ano,
+	Antsoy re Jeso anio.
+
+2. Raha toa ka mandao \'reo sakaiza
+	Eny, havana, ray, reny koa,
+	Aza ketraka fa tsy mankaiza
+	Jeso, aminao tokoa !
+	Antsoy re Jeso anio, sns
+
+3. He ! ny rany dia tsy notsitsiny
+	Fa nafoiny mba ho avotrao ;
+	Ny ainao koa indro novidiny
+	Malalany indrindra ianao.
+	Antsoy re Jeso anio, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '495',
+  '495',
+  'JESO O! NA MAIZINA AZA ATY',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Bb 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Jeso ô, na mizina aza aty
+	Ho Mpitarika ahy Ianao.
+	\'Zay mihatra ekeko fa satria
+	Fiononako tokoa Ianao.
+	Fa Ianao aza teto
+	Dia nijaly noho izao
+	Tompo tia ô ekeko
+	Izay rehetra sitrakao.
+
+2. Ny finoako miorina aminao
+	No velomy hatanjaho
+	Mba handreseko koa tahaka Anao
+	Mendrika ny fitiavanao.
+	\'Zao tontolo izao jereko
+	Fahoriana no hitako ao
+	Tompo tia ô ekeko
+	Izay rehetra sitrakao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '496',
+  '496',
+  'O, AZA MATAHOTRA',
+  'C. F. O.',
+  'A. R. Marnoël',
+  'Do dia C 3/4 Haingana',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. O, aza matahotra
+	\'Zaho homba anao.
+	Toky tsara loatra,
+	Misy aina vao.
+	Na manjombona aza
+	Ny alehako,
+	\'Zaho dia hilaza :
+	Jeso eo anilako.
+
+ISAN\'ANDININY :
+	Tsia, tsy irery aho,
+	Tsia, tsy irery aho
+	Jeso Mpamonjy, Mpiaro,
+	No miaraka amiko.
+	Tsia, tsy irery aho,
+	Tsia, tsy irery aho
+	Jeso Mpamonjy, Mpiaro,
+	Tsy misaraka amiko.
+
+2. Raha ny masoandro
+	Semban-drahona,
+	Jeso hainandro
+	Tsy mba takona.
+	Raha toa tsy hita
+	\'Rony kintana,
+	Jeso miara-mita
+	sy manoro lalana ahy.
+	Tsia, tsy irery aho, sns
+
+3. Ao \'reo loza maro
+	\'Zay tsy hitako ;
+	Fa Jeso Mpiaro
+	No ampingako.
+	Izy no miteny
+	Dia matoky aho
+	Fa ho resy ireny
+	Raha izaho mitalaho.
+	Tsia, tsy irery aho, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '497',
+  '497',
+  'AMPIDINO ETO ANIO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Eb 3/4 Moderato',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Ampidino eto anio, Ny herinao Ray ô 
+	Henoy ny vavakay avy ao am-po 
+	Trotroinay Aminao Ka mba jereo 
+	’Reto zanakao. 
+
+(1e)  Henoy ny vavakay,  
+	(3e, 4è ) Hinoanay fa hitarik’azy Ianao 
+	(2e, 3e, 4è ) N’aiza n’aiza aleha hiambin’azy Ianao 
+	(1e)  Ka valio izahay
+	(2e, 3e, 4è ) Satria fantatray fa tia azy Ianao
+	(All) Ka ambany elatrao, no hialofany 
+	( 1e, 3e, 4è) Raha sendra ny manjo
+	 ( 2è) Raha sendra ny ady sarotra e!
+
+2. Irianay koa ny hasoavanao Ray ô 
+	Tsy hisaraka’aminay n’aiza aleha 
+	Famirapiratrao ho tazanay 
+	Fa tia azy Ianao. 
+
+3. Aza avela ho resy ireo Ray ô 
+	Aza ilaozanao f’ efa anao 
+	Ny asa ataony anie mba hombanao 
+	Sy Hiderany anao.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '498',
+  '498',
+  'RAHA MANDIA LALAN-TSAROTRA',
+  'W. S. Martin',
+  'Rajoelison',
+  'Do dia C 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. -TSAROTRA
+
+1
+	Raha mandia lalan-tsarotra,
+	Jehovah momba anao.
+	Koa aza dia resin-tahotra,
+	Fa Izy momba anao.
+
+ISAN\'ANDININY :
+	Jehovah momba anao,
+	Ka matokia.
+	Fa Izy tia,
+	Tsy hahafoy tokoa.
+	He ! Izy momba anao
+	(Momba anao)
+
+2. Raha manjombona ny andr anio,
+	Jehovah momba anao.
+	Dia aza kivy fa tadidio
+	Fa Izy momba anao.
+	Jehovah momba anao, sns
+
+3. Fantany izay manjo anao,
+	Jehovah momba anao.
+	Hitany ny ranomasonao,
+	Ka mahereza re.
+	Jehovah momba anao, sns
+
+4. Ento aminy izao ny entanao
+	Jehovah momba anao.
+	Dia raiso ny fitsaharana
+	Fa atolony anao.
+	Jehovah momba anao, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '499',
+  '499',
+  'MOA MAFY IZANY ALAHELO',
+  'E. L. Lorenzo',
+  'Rajoelison',
+  'Do dia Bb 4/4 Moderato',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Moa mafy \'zany alahelo !
+	Ilazao Jeso, ilazao Jeso.
+	Ho renao ilay feo mamelovelo;
+	\'Ndeha ilazao Jeso.
+
+ISAN\'ANDININY :
+	Eny, mba lazao,
+	Aza efeninao,
+	entonao eo avokoa.
+	O, mba sahia
+	Fa Izy tena tia,
+	Lazao azt tokoa.
+
+2. Tebiteby ve sa fifaliana ?
+	Ilazao Jeso, ilazao Jeso.
+	Fahotana koa, ady fahoriana ?
+	\'Ndeha ilazao Jeso.
+	Eny, mba lazao, sns
+
+3. Moa maro ve ny ahiahy ?
+	Ilazao Jeso, ilazao Jeso.
+	Izy tokinao, andrin\'ny fanahy.
+	\'Ndeha ilazao Jeso.
+	Eny, mba lazao, sns
+
+4. Ary raha mamely izany rafy
+	Ilazao Jeso, ilazao Jeso.
+	Ny fitiavany dia manda mafy
+	\'Ndeha ilazao Jeso.
+	Eny, mba lazao, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '500',
+  '500',
+  'JESO SAKAIZANAY',
+  'Rainizafimanga',
+  'Rainizafimanga',
+  'Do dia G 4/4 Marisika',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Jeso Sakaizanay,
+	sakaiza rahateo !
+	Indreto izahay, vonjeo
+	Fa be ny adinay.
+
+ISAN\'ANDININY :
+	Jeso Sakaizanay, (Jeso),
+	sakaiza rahateo (Jeso),
+	Indreto izahay, vonjeo
+	Fa be ny adinay.
+
+2. Jeso Sakaizanay,
+	sakaiza be fitia !
+	Tariho izahay hanao
+	Ny zava-tianao :
+	Jeso, sns
+
+3. Jeso Sakaizanay,
+	sakaiza tsy mandao !
+	Na dia mpanota aza re
+	Izahay mpanomponao :
+	Jeso, sns
+
+4. Jeso Sakaizanay,
+	sakaiza tsy mamoy,
+	Na ory na finaritra
+	Izahay ankehitrio :
+	Jeso, sns
+
+5. Jeso Sakaizanay,
+	Omaly sy anio,
+	Ka mbola ho Sakaizanay
+	Mandrakizay doria :
+	Jeso, sns.
+	
+'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '501',
+  '501',
+  'FANTATRO FA MISY ANARANA TSARA',
+  'Haldor Lilinas',
+  'A. R. Marnoël',
+  'Do dia Bb 2/4 Malefadefaka',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Fantatro fa misy anarana tsara
+	\'Zay mampifalifaly ny fo tokoa
+	Ka raha sendra tsy zaka izay anjara
+	Izy no mahay mampionona ny fo.
+
+ISAN\'ANDININY :
+	Anarana tsy manam-paharoa,
+	Anarana soan\'i Jeso.
+
+2. Fantatro fa misy anarana tsara
+	\'Zay mampitony ny tafio-drivotra
+	Ary koa ny onja misamboaravoara
+	Tonga tony ka tsy mampangovitra.
+	Anarana, sns.
+
+3. Fantatro fa misy anarana tsara
+	\'Zay atahoran\'ny devoly tokoa,
+	Anarana mandrindra koa ny tantara,
+	Miahy ary manao \'zay mahasoa.
+	Anarana, sns.
+
+4. Anarana iankohofan\'ny anjejy
+	Sy mamoha ny lanitra ho anao.
+	Io no anarana tena mampahery
+	Anaran\'i Jeso \'zay Mpamonjinao.
+	Anarana, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '502',
+  '502',
+  'TOY NY ZAZA MITADY RENY',
+  'Mosie Lister - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia C 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Toy ny zaza mitady reny
+	\'Zay tsy misy mpikarakara
+	Izaho no hitany
+	Dia noraisiny tsara.
+
+ISAN\'ANDININY :
+	Ny Tompo no nandray ahy.
+	Nampihiratra ny fiainako.
+	Tsy misy mampanahy
+	Fa Jeso aroko.
+
+2. Toy ny jamba mandeha tsy mahita
+	No haniriako ny hazavana.
+	Teo aho no hita
+	Ka nomeny fahafahana.
+	Ny Tompo no nandray, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '503',
+  '503',
+  'NY EO AKAIKINAO RY RAY',
+  'C. B. Mac Afee - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia Db 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Ny eo akaikinao, ry Ray,
+	Akaikin\'ny fonao
+	Ka dia fihino izahay
+	Tsy hisaraka aminao.
+
+ISAN\'ANDININY :
+	Ry Jeso Mpanavotra ô
+	Nirahina ho anay
+	Afeno ao am-ponao
+	Ho akaikinao \'zahay.
+
+2. Eo tsy mba misy toerana
+	Ho an\'ny ota koa.
+	Ho foana ny fitserana
+	Hiadana ny fo.
+	Ry Jeso, sns
+
+3. Ny eo akaikinao, ry Ray,
+	Dia fifaliam-be.
+	Haharitra ny andronay,
+	Eo hoby no ho re.
+	Ry Jeso, sns.
+
+4. Ho hita maso eo tokoa
+	Jeso Mpamonjinay
+	Hameno ho anay ny soa
+	Doria mandrakizay.
+	 Ry Jeso, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '504',
+  '504',
+  'TENA TOERAM-PIADANANA',
+  'C. B. Mac Afee - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia Db 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. -PIADANANA
+
+1
+	Tena toeram-piadanana
+	Eo amin\'i Jeso
+	Tsy azon\'ota somparana
+	Akaikin\'i Jeso.
+
+ISAN\'ANDININY :
+	Ry Jeso, Mpanavotra ô,
+	\'Zay tao amin\'ny Ray
+	Tazony akaiky izahay
+	Akaikin\'ny fonao.
+
+2. Misy toeran-kanto tokoa
+	Eo amin\'ni Jeso.
+	Eo ny Mpamonjy hitako,
+	Akaiky ao Jeso.
+	Ry Jeso, Mpanavotra ô, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '505',
+  '505',
+  'NY TOMPO ANIE NO HANOME',
+  'Johnny Lang et Johnny Duncan - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia C 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Ny Tompo anie no hanome
+	Ny ala-olana ilaiko.
+	Izy nampanantena ahy
+	Ny fanampianay.
+	Izy anie hiaraka amiko
+	Raha maizina ny lalako
+	Aza matahotra hoy Izy,
+	Izaho momba anao.
+	Tsy harena no ilaiko,
+	Nanome be Izy :
+	Ireo zavaboariny,
+	\'Zay fifaliana ho ahy,
+	Isaorako ny Tompo ireo
+	Fa fahasoavan-dehibe.
+	Haingana no amaliany ahy
+	Raha mivavaka aho.
+	Izy vonona hamaly anao koa
+	Raha mangataka ianao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '506',
+  '506',
+  'JESOSY TOMPO IANAO',
+  'William J. Gaither - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia F 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Jesosy Tompo,
+	Ianao Tompon\'ny hoa avy koa.
+	Ny lasa sy ny anio dia alahatrao
+	Mba hahasoa anay.
+
+ISAN\'ANDININY :
+	Tompo ô, Tompo tia,
+	Anao izao rehetra izao
+	Aoka re ho tsapako izany
+	Tompon\'ny Tompo ianao.
+
+2. Ny fihevitro fantatrao,
+	Tsy miafina aminao
+	Ny zava-drehetra,
+	Ry Jesosy ô,
+	Toroy anaro aho.
+	Tompo ô, sns
+
+3. Ny faniriako tsapanao,
+	Tompo, tantano aho.
+	Ny tsy fahaizako
+	Entiko aminao,
+	Ampio hivoatra aho.
+	Tompo ô, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '507',
+  '507',
+  'AVIA RE RY TOMPO',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia E 12/4 Miadan',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. :,: Avia re, ry Tompo,
+	Avia mipetraha
+	Fa izaho mana-kolazaina aminao.
+	Avia re, mihainoa,
+	Avia mipetraha
+	Fa izaho te hiresaka aminao.
+	Te hiresaka aminao. :,:
+
+ISAN\'ANDININY :
+	:,: Indro efa akaikiko Ianao
+	Ka tsy avelako intsony
+	tsy avelako handeha intsony Ianao
+	Raha tsy efa namonjy ahy.
+	Ny faniriako lalina uindrindra izao
+	dia ny mba hipetrahanao
+	Eto anilako hatramin\'izao
+	Tompo ô, anilako mandrakizay. :,:
+
+2. Indro efa akaikiko Ianao
+	Ka tsy havelako intsony
+	tsy havelako handalo intsony Ianao
+	Fa honina ato amiko
+	satria efa mitady ahy ela Ianao
+	izao dia eto anilako
+	tsy tiako hisaraka amiko Ianao
+	Satria Ianao no zokiko (in-3)
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '508',
+  '508',
+  'JESOSY FAMONJENA',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia G 2/4 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Jesosy ô, famonjena,
+	Jereo ny ady ety.
+	O ! reraka aho mitenena,
+	Mpamonjy ô, midina, avia.
+
+ISAN\'ANDININY :
+	(Fa aina)
+	Aina hivelomako Ianao, Jeso,
+	(Jesosy)
+	Aina mitempo anatiko ao ny avotrao
+	O ! sambatra aho
+	tretrika tokoa
+	Fa mitoetra eo aminao, Jeso.
+
+2. Jesosy ô, mofon\'aina,
+	Antom-piainako Ianao.
+	Ny foko he ! karankaina,
+	Tondray Fanahy avy Aminao.
+	Aina hivelomako, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '509',
+  '509',
+  'MIHAINOA MPAMONJY',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia E 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Mihainoa Mpamonjy,
+	Mandrenesa ahy.
+	Ny foko milonjy
+	Feno ahiahy.
+	Mba ampaherezo
+	Tsy ho manirery.
+	Mihainoa, mihainoa,
+	Mpamonjy mahery.
+
+ISAN\'ANDININY :
+	Ampo-dranomaso ny faniriako,
+	Lanin\'alahelo e ! ny masoko,
+	Efa mihozohozo koa ny taolako,
+	Ka mba vonjeo ry Tompo.
+
+2. Mihainoa ny feoko,
+	Mitaraina aho.
+	Henoy ny toreoko,
+	Jeso ô, afaho.
+	Iantrao ry Tompo ka vonjeo
+	Sao very.
+	Mamonje, mamonje,
+	Mpamonjy mahery.
+	Ampo-dranomaso, sns
+
+3. Mihainoa fa mafy
+	raha ny ady eto.
+	Mamely ny rafy,
+	Sasatry ny sento.
+	Ny foko malemy
+	Tsy mahari-pery.
+	Mijere, mijere,
+	Mpamonjy mahery.
+	Ampo-dranomaso, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '510',
+  '510',
+  'JESOSY NO ANTOM-PIAINAKO',
+  'R. Rabenasolo',
+  'R. Rabenasolo',
+  'Do dia Eb 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. -PIAINAKO
+
+1
+	Jesosy no antom-piainako,
+	Hiraiko isan\'andro.
+	Miova ny fisainako
+	Raha Jesosy no banjiniko.
+	Atokako ho Azy avokoa
+	Ny androko rehetra,
+	Anjarako sy lovako
+	Ilay Tompo Jeso, Mpamonjiko.
+
+2. Jesosy no zava-drehetra,
+	Tsy misy hafa intsony.
+	Fitiavana tsy voafetra
+	Nomeny avy any ambony.
+	Atolotro manokana
+	Ho Azy izao ny foko
+	Anjarako sy lovako,
+	Ilay Zanaka Lahitokana.
+
+3. Jesosy no iantsampazako
+	Raha sendra fahoriana.
+	Anilany tsy hialako
+	Fa feno fifaliana.
+	Fa tokiko sy heriko
+	Jesosy Ilay Mpanavotro
+	Anjarako sy lovako
+	Ilay Jesosy antom-piainako.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '511',
+  '511',
+  'AKAIKINAO RY JESO TOMPO',
+  'A. Rabenasolo',
+  'A. Rabenasolo',
+  'Do dia Eb 6/8 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Akaikinao ry Jeso Tompo
+	No iriko indrindra
+	Akaikinao, akaikinao
+	Ny fiainako mirindra.
+	Akaikinao ry Jeso tia,
+	No tena mahafa-po
+	Akaikinao mampionona ahy
+	Raha sendra ny manjo.
+
+2. Ny ho eo an-tongotrao Jeso
+	No fifalian\'ny foko.
+	An-tongotrao, an-tongotrao
+	Ny zioga ho zakako.
+	An-tongotrao, ry Jeso tia,
+	Eo no aroko izao,
+	Ny eo an-tongotrao, Jeso,
+	No herin-janakao.
+
+3. Akaikinao, anilanao
+	Tsy hiala eo intsony.
+	Anilanao, anilanao
+	No tena mampitony,
+	Anilanao, ry Jeso tia,
+	No tena fiadanam-po
+	Anilanao, akaikinao,
+	Ry Jeso Tompo soa.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '512',
+  '512',
+  'MANDAKO JEHOVAH',
+  'J. Rakotomananjanahary',
+  'J. Rakotomananjanahary',
+  'Do dia Eb 4/4 Milamindamina',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Mandako sy aroko Ianao, Jehovah ô,
+	Koa tsy manahy aho mandrakizay
+	Indro fantatro fa tsy matory
+	Ny vatolampiko, Jehovah Ray.
+
+ISAN\'ANDININY :
+	Tsy hangozohozo ny fanahiko
+	Fa napetrako aminao mandrakizay.
+	Ny fahamasinana tadiaviko
+	Omenao Jehovah Ray (satria)
+	Mandako sy aroko Ianao, Jehovah ô,
+	Koa tsy manahy aho mandrakizay
+	Indro fantatro fa tsy matory
+	Ny vatolampiko, Jehovah Ray.
+
+2. Na mifofofofo ny tafiotra be
+	Ka mihilana ny sambom-piainako,
+	Moa halaky kivy, hitomany ve,
+	Ianao iankinako.
+	Tsy hangozohozo, sns
+
+3. Ireo ady mafy \'zay atrehiko
+	Dia tsy hampahory ny mpanomponao,
+	Fa ny faniriana nokotrehiko
+	Dia ny ho voninahitrao.
+	Tsy hangozohozo, sns
+
+4. Na dia mafy sady kinga no mahay
+	Ilay fahavalo te hisarika,
+	Tokiko ny fanatrehanao, ry Ray,
+	\'Zay Mpitana marika.
+	Tsy hangozohozo, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '513',
+  '513',
+  'IZA NO AMPY HAMPAHERY',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia Bb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Vonjy sy Fampiononana',
+  '
+1. Iza no ampy hampahery
+	raha ketraka ny fo
+	Afa-tsy Jesosy irery,
+	\'Lay Tompo soa ?
+
+ISAN\'ANDININY :
+	Tsy ho haiko ny milaza
+	Raha ety an-tany ety (ety)
+	Ny fanahiko hankalaza
+	\'Lay Jesosy Tompo tia.
+
+2. Tsy ho takatry ny saina
+	Ny fitiavan\'i Kristy ;
+	Tsy vidiana fa zaraina :
+	Ry mpanota mifalia.
+	Tsy ho haiko, sns
+
+3. Izy no manome ahy
+	\'Zay rehetra ilaiko ety
+	O ! tsy misy mampanahy,
+	Azo antoka ny dia.
+	Tsy ho haiko, sns
+
+4. Hiaraka amin\'ny voavonjy
+	\'Zaho koa hidera Anao
+	Mba hisaotra Anao Mpamonjy
+	Any an-tany vaovao.
+	Tsy ho haiko, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '514',
+  '514',
+  'MANIRY IZAHAY',
+  'J. Montgomery',
+  'Mrs J. H. Peake',
+  'Do dia G 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Maniry izahay
+	Ho any aminao.
+	Jerosalema tanananay,
+	Tanàna masina ;
+	Ny trano lay aty
+	Tsy maintsy rovitra,
+	Kanefa tazanay ery
+	\'Lay tsara lavitra :
+	Tazanay, tazanay
+	Ny tany masina.
+
+2. Mba tanterahonao,
+	Ry Tompo tia anay !
+	Ny fikasan\'ny zanakao
+	Nataony taminay :
+	<<Ho any amiko
+	 Ilay nomenao ahy,
+	Fa tiako ho hitany
+	Ny voninahitro>>
+	Tazanay, tazanay
+	Ny tany masina.
+
+3. Mankany aminao
+	Izao ny dianay,
+	Na sarotra ny lalana
+	Mihira izahay ;
+	Ny hasasaranay
+	tsy misy intsony izao,
+	Fa tazanay sahady re
+	Ny tany masina :
+	Tazanay, tazanay
+	Ny tany masina.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '515',
+  '515',
+  'HE TAZAKO JEROSALEMA',
+  'A. P. Berggren',
+  'J. Rabarijoël',
+  'Do dia A 2/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. He tazako ilay Jerosalema,
+	\'Lay tanàna tsara tokoa.
+	Feno vatosoa sesehena :
+	Topaza sy berila soa,
+	Jaspy sy sardoniksa koa.
+
+2. He, tazako ny volamena
+	\'Zay mamiratra avokoa.
+	Kanto indrindra izay jerena :
+	Tsy misy maloka tokoa,
+	Fa hazavain\'ny Tompo soa.
+
+3. Tsy misy ozona intsony,
+	Fa ny ota dia levona,
+	Ka fiainana tena tony
+	No ho anjarako izao,
+	Efa miandry ahy ao.
+
+4. Jesosy ô, tantano aho
+	Mba ho tody soa aminao.
+	Hamasino sy hatanjaho
+	Handresy ny ota toa Anao,
+	Hiara-monina aminao.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '516',
+  '516',
+  'MISY ANTENAIKO INTSONY VE ETY',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Eb 3/4 Moderato',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. ?
+
+1
+	Misy antenaiko intsony ve tey ?
+	Misy hametrahako ny fo ?
+	Ry Mpamonjiko midina ka avia
+	He, jereo \'ty maty lo.
+
+ISAN\'ANDININY :
+	Andrandraiko anio ny loha
+	Hanantena Anao Tsitoha
+	Fifalia-mihelina no hitako ety
+	Ry Mpamonjiko avia.
+
+2. Fa ny faniriako dia fantatrao,
+	Tsy miafina aminao ny dia,
+	\'Zay fanantenako dia hitanao,
+	Ry Mpamonjiko, avia.
+	Andrandraiko anio, sns
+
+3. Fahoriana foana izao tontolo izao
+	Inoko ny ho velona ety ?
+	Raha hadisoako izany, avelao.
+	Ry Mpamonjiko, avia.
+	Andrandraiko anio, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '517',
+  '517',
+  'MIZOTRA IZAO NY DIANAY',
+  'Mendelsohn',
+  'Rabarijoël',
+  'Do dia Eb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Mizotra izao ny dianay
+	Ho any aminao,
+	Jerosalema tianay,
+	Tanàna masina.
+	Tsy miatoato izahay ;
+	Fa miezaka hankaminao.
+	Ilaozanay izao ny trano lay
+	Nonenanay.
+
+2. Tsy andrinay hahita Anao,
+	Jerosalema soa.
+	Ny hatsaran\'ny endrikao,
+	Manintona tokoa.
+	Ny ety efa ho rava izao,
+	Tsy ho ela dia hifarana,
+	Ny fonay kosa efa lasanao re
+	Hatrizao.
+
+3. Tongava haingana, ry andro
+	Mahasambatra.
+	Hanaovanay hira hoe :
+	Haleloia, amen.
+	Eny, tsy ho ela intsony re
+	Dia hiakatra an-danitra,
+	Hiara-monina amin\'i Kristy,
+	Doria, doria.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '518',
+  '518',
+  'NY LANITRA FIANDRIANANAO',
+  'O. Kane',
+  'F. Ramanantsialonina',
+  'Do dia A 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Ny lanitra fiandriananao
+	No tiako honenana izao
+	Ka hiara-mifaly aminao
+	No tena iriko tokoa.
+
+ISAN\'ANDININY
+
+Mihobia, miderà
+	Ho velona mandrakizay
+	(miderà)
+	Miderà, mihirà, miderà
+	Ho velona mandrakizay.
+
+2. Hiadana mandrakizay
+	Hahita iro havana
+	Ka ho tretrika rahatrizay
+	Aminao, Jeso, izahay.
+	Mihobia, miderà, sns
+
+3. Hiara-midera ny Ray
+	Izaho sy ny anjeliny e,
+	Jeso no Imanoelanay
+	Sady fahasambarako re.
+	Mihobia, miderà, sns
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '519',
+  '519',
+  'RAHOVIANA RE',
+  'Hiram-bahoaka',
+  'A. R. Marnoël',
+  'Do dia A 6/4 Haingakaingana',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Rahoviana re ho hitanay
+	\'Lay tanjon\'i Kanana ?
+	Hifarana eo ny dianay
+	Ary ny fitsapana,
+	Fa ao ny Tompo Mpiandry
+	Hanolotra ny sandry
+	Handray anay mba hiditra
+	Ho ao an-danitra.
+
+ISAN\'ANDININY
+
+Ho tena sambatra,
+	Sambatra, sambatra,
+	Ho tena sambatra
+	Raha ao an-danitra.
+	Hifankahita tava,
+	Hifaly toy ny zaza
+	Hihira hoe: 
+	<< Haleloia, ho Anao Jehovah ô! >>
+	
+
+2. Akory re amin\'izay
+	Nyh hatsaran\'ny hira,
+	Hataon\'ireo zana-dRay
+	Sy irony miaramila.
+	Isika tsy hangina,
+	Hiaraka mihira
+	Hiredona toa ranobe
+	Fa voavonjy e !
+	Ho tena sambatra,sns.
+
+3. \'Reo voavonjy marobe
+	Miakanjo lava fotsy
+	Mihoby aok\'izany re
+	Ny avotr\'i Jesosy
+	Ny hobim-pandresena
+	Hitohy sesehena
+	<< Ha an\'ny Zanak\'ondry anie ny saotra, laza be >>
+	Ho tena sambatra,sns.
+
+4. Akory re amin\'izay 
+	Ny hafaliantsika,
+	Hahita maso Ilay Ray
+	\'Zay tena tia antsika
+	Hakamban\'ny fitia
+	Ho tena ira doria
+	Fialonana, ditra, ady koa
+	Soloiny zava-tso
+	Ho tena sambatra,sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '520',
+  '520',
+  'ARY AN-KOATRA ARY',
+  'R. Henriksen',
+  'Rajoelison',
+  'Do dia D 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Ary, ankoatra ary,
+	Fanantenana soa.
+	Fonena-mamy doria
+	Fanantenana soa.
+	Ao hihaonantsika indray
+	Eo anatrehan\'ny Ray,
+	Sambatra mandrakizay
+	Fanantenana soa.
+
+2. Ary, tapitra tokoa,
+	Fanantenana soa.
+	Tomany sy sento koa,
+	Fanantenana soa.
+	\'Ndreny mamiratra ery
+	\'Reo volamena ary :
+	Lapa tsy fahita ety,
+	Fanantenana soa.
+
+3. Henoy, feo manako re,
+	Fanantenana soa.
+	Mireona toa rano be
+	Fanantenana soa !
+	Lokanga tsara feo,
+	Miharo antsa, maneho ;
+	Lavi-tsento sy toreo
+	Fanantenana soa.
+
+4. Ary, tsy ho ela izao,
+	Handray ilay lova ao,
+	Fanantenana soa.
+	Kristy avy indray
+	hampody antsika amin-dRay
+	Eny, ho mandrakizay !
+	He, fanantenana soa !
+	Fanantenana soa.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '521',
+  '521',
+  'HE FALY NY FONAY',
+  'J. P. E. Hartmann',
+  'Rajoelison',
+  'Do dia Eb 6/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. He ! faly ny fonay Jeso
+	Miara-midera Anao
+	Izay niaritra eso
+	Noho ny fitiavanao.
+
+2. Ny lanitra izay mazava,
+	He, indro nilaozanao,
+	Mba hahitanay \'lay tava
+	Endriky ny Rainao.
+
+3. Matetika nitomany
+	ianao noho ny helokay
+	nijaly tety an-tany
+	Mba ho fifalianay.
+
+4. Nitady ny olom-bery
+	Tanatin\'ny alim-be.
+	Nitondra toky sy hery,
+	Ho an\'ilay kivy e !
+
+5. Izao Ianao mifona
+	Ho anay ao an-koatra ao,
+	Ka indro koa mandona
+	Ao amn\'ny fo izao.
+
+6. Ho avy eny an-danitra avo,
+	Hitondra any ho aminao,
+	Irinay re ny ho ravo
+	Eo am-pitsenana Anao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '522',
+  '522',
+  'MBA MIVAVAHA',
+  'FFPM271',
+  'Rajaonina',
+  'Do dia C 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Mba mivavaha raha vao maraina
+	Tsarovinao Ilay Mpanao anao.
+	Izay niaro ny fanahy sy aina
+	Mba ho salama toy izao.
+
+ISAN\'ANDININY :
+	Tsarovy re, ny Tomponao
+	\'Zay Mpiaro anao.
+
+2. Rehefa tonga koa ny atoandro,
+	O ! miambena tsara ianao,
+	Fa manangoly saina isan\'andro
+	Ilay devoly rafinao :
+	Tsarovy re, sns
+
+3. Raha alina mangina, ka hatory,
+	Tsarovy eo ny ota izay natao,
+	Ka dia ifony mafy sy itsory
+	Fandrao maningotra anao :
+	Tsarovy re, sns.
+
+4. Na aiza na aiza ianao mitoetra
+	Satana fahavalo ao tokoa
+	Ka aza kivy na mba manjoretra
+	Fa mivavaha tsy ho voa.
+	Tsarovy re, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '523',
+  '523',
+  'ARY ANKOATRA ARY',
+  'Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia Bb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Ary an-koatra ary
+	Ilay foenana soa
+	Ary an-koatra ary
+	Ilay foenana soa
+	Ary an-koatra ary
+	Ilay foenana soa
+	\'Zay izorako.
+
+ISAN\'ANDININY :
+	\'Ndeha re hiara-miakatra ao
+	\'Ndeha re hiara-miakatra ao
+	\'Ndeha re hiara-miakatra ao
+	Ao an-danitra.
+
+2. Mpamonjy ahy Jeso
+	Kanefa mety ho anao
+	Mpamonjy ahy Jeso
+	Kanefa mety ho anao
+	Mpamonjy ahy Jeso
+	Kanefa mety ho anao
+	Raiso Izy izao.
+	\'Ndeha re, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '524',
+  '524',
+  'RAHA MIPOSAKA NY MASOANDRO',
+  'B. Kerr Brock',
+  'Samoely Lala James',
+  'Do dia D 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Raha miposaka ny masoandro,
+	Maraina kanto no indro re !
+	Rava tsy hita ; \'reo ranon\'ando,
+	Ny hazavana mamiratra e !
+
+2. Raha nisinda \'lay haizim-pito
+	Dia indro tamy maraina vao
+	Tsy re intsony ny feon-tafiotra,
+	Indro mitoera, fiadanana.
+
+3. Nitarika ny diako hatrany,
+	Jeso Mpamonjy, filohako.
+	\'Reo loza maro, \'zay toa tsy hisava,
+	Nisinda teo, resy tokoa.
+
+4. Ho avy tsy ho ela, maraina vaovao
+	Kristy Mpamonjy, ho avy re
+	Maraina kanto, tsy hisy tomany
+	Fahasambarana ho anao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '525',
+  '525',
+  'TSY MISY INTSONY',
+  'Samuel Stennett',
+  'Samoely Lala James',
+  'Do dia Eb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Tsy misy intsony
+	\'Zay nampitomany tety
+	Fa levona mandrakizay,
+	Kristy no indro avy re !
+
+ISAN\'ANDININY :
+	Vonona aho ny handova
+	\'Lay tany vaovao nataon\'i Jeso
+	Faly sy sambatra tokoa,
+	Fa Jeso no Mpanjakako.
+
+2. Ny ady \'zay mandrava,
+	Mandripaka aina re !
+	Hisolo fiadanana,
+	Ka ny olona sambatra e !
+	Vonona aho, sns.
+
+3. Ho tafaray ny maro,
+	\'Zay nosarahin\'ny ota
+	Jesosy, ireo voavotra
+	Toy ny fianakaviana iray.
+	Vonona aho, sns
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '526',
+  '526',
+  'TSY HAIKO RE RAHOVIANA',
+  'Herbert Johnson - Mamy J. Ratsirison',
+  'A. R. MLarnoël',
+  'Do dia F 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Tsy haiko re rahoviana
+	No hahitako zavatra.
+	\'Zay tena tsy hay jerena :
+	Fidirana an-danitra ;
+	Kanefa re hiandry aho
+	fa poa toy izay ho hitako.
+	Fantatro koa fa raha hiseho
+	Ny tavany, hatrehiko.
+
+ISAN\'ANDININY :
+	Ho hitako ny endriny
+	Sy ny an\'ny olo-masina.
+	Ho hitako ny tavany,
+	Izaho koa horaisina.
+
+2. Ao ny ratsy, ao koa ny soa,
+	Mivadibadika ny ety.
+	Raha misy mahafaly fo
+	Dia mba mihena ny manjo
+	Kanefa tsy haharitra,
+	Mihalina dia lasa indray.
+	Rehefa any an-danitra
+	No hisy ny mandrakizay.
+	Ho hitako ny endriny, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '527',
+  '527',
+  'SADY MANANTENA NO MAMPAHAFAIGANA',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia Eb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Sady manantena
+	No mampahafaingana
+	Ny fiavian\'ny Tompotsika
+	(Ho avy)
+	Koa mitsangana
+	Mba hamonjy namana
+	Fa ho avy \'Lay andrasantsika.
+
+ISAN\'ANDININY :
+	:,: Mifohaza, miasà
+	Mba hanafaingana
+	Ny fiavian\'ny Tompotsika
+	(Ho avy)
+	Mifohaza, miasà
+	Mba hanafaingana
+	Ny fiavian\'Ilay Jesosintsika. :,:
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '528',
+  '528',
+  'TOMPO O! TONEO',
+  'Franz Schubert',
+  'A. Emiliarison',
+  'Do dia F 3/4 Malefaka',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Tompo ô ! toneo re \'zany adin-tsaina.
+	Tompo ô ! fefeo re, fa maningotr\'aina
+	O ! ry Vatolampy, miantso fa manahy.
+	Ianao no ampy hampahery ahy.
+
+2. Mpamonjy afaho, nofoko malemy.
+	Ary hatanjaho, sehatry ny memy.
+	Miantso Anao Mpamonjy, 
+	Miantso mitalaho.
+	Ny foko milonjy, Tompo, ô, afaho.
+
+3. Ry fanantenana, toky sady hery :
+	An-dala-maha ana, aza avela irery.
+	Any indray andro any hiaraka aminao
+	Fiainan-tsy ho lany, tany vaovao.
+
+Fa Anao ny dera sy ny voninahitra !
+	Fa Anao ny laza ho mandrakizay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '529',
+  '529',
+  'NOHON\'NY FAHASOAVANAO',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia Bb 3/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Nohon\'ny fahasoavanao,
+	Ry Tompo tia ô,
+	Nohon\'ny famindramponao,
+	Ny ranao masina.
+	No anandratako izao
+	Ity hirako ity, ankasitraho re.
+	O, mba raisonao
+	Ny ventsom-poko re.
+
+ISAN\'ANDININY :
+	Tena sambatra aho re,
+	(Tena sambatra)
+	Ry Tompo ô, tena sambatra
+	(Tena sambatra, tena sambatra ô)
+	O, tena sambatra
+	(Tena sambatra)
+	Eny, afaka aho fa nafahanao.
+	(Haleloia)
+	Haleloia ho Anao.
+	Ry Tompo Andriamanitra ô !
+	Haleloia ho Anao,
+	Ry Tompo Andriamanitra ô !
+	Ry Tompo ô, ry Tompo
+	Andriamanitray.
+
+2. Ny fahotako marobe
+	Tsy mba nafeniko Anao
+	Satria Ianao no nanome
+	\'Reo teny fikasana
+	Fa raha mihaiky aho e
+	Ary torotoro fo
+	Dia vonona Ianao   ) Choeur
+	Ny fahotako re     )          
+	Tena sambatra aho, sns.
+
+3. Ianao Jeso ô niantso ahy,
+	Ianao koa nifidy ahy.
+	Ianao no nanamarina ahy
+	Sy nanamasina ahy.
+	Hiraiko an-kira ankehitrio
+	Izany fitiavanao
+	Ka mba henoy, Jeso,
+	O, mba raisonao  ) Choeur
+	Izao hirako noe : )           
+	Tena sambatra aho, sns.
+
+4. Mba tehirizo, Tompo ô,
+	Izany hasambarako
+	Hatreto an-tany ka hatrary
+	No hananako Anao
+	Ho hirako mandrakizay
+	Ho rirako doria, doria
+	Ho voninahitrao
+	Ny famonjenao        ) Cheour
+	Ataoko an-kira hoe : )           
+	Tena sambatra aho, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '530',
+  '530',
+  'TSARA LOVA, JESO O',
+  'W. Butcher',
+  'W. E. Cousins',
+  'Do dia Eb 6/4 Miadana',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. Tsara lova ry Jesosy ô,
+	Ny mpanota voavotrao,
+	Fa fonenana soa
+	Amboarinao ao,
+	Hanefana ny teninao.
+
+ISAN\'ANDININY :
+	Ho amin\'io tany io tokoa
+	No izoran\'ny dianay ;
+	Jeso Tompo no ao,
+	Sady efa manao
+	Trano soa ipetrahanay.
+
+2. Tsara lalana, Jeso ô !
+	Ny vahiny tarihinao ;
+	Raha misy manjo,
+	Tsy mba kivy ny fo
+	Fa tohanan\'ny herinao :
+	Ho amin\'io, sns.
+
+3. Tsara vatsy, ry Jeso ô !
+	Ny mpandeha fahananao,
+	Fa ny teninao soa
+	Mofon\'aina tokoa
+	Iveloman\'ny olonao :
+	Ho amin\'io, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '531',
+  '531',
+  'AZA MANGINA',
+  'J. Ramahaisahy',
+  'J. Ramahaisahy',
+  'Do dia Eb 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. 
+	Aza mangina, ô ! mifohaza
+	Efa akaiky re Jeso
+	Miraisa hina hifampilaza
+	Fa efa akaiky re Jeso
+
+Aza variana na be ahiana
+	Efa akaiky re Jeso
+	Aza sondriana, mahimahina
+	Fa efa akaiky re Jeso
+
+:,: O ! miomana ianao,
+	Hitsena Azy izao
+	Ka asandrato re ny maso
+	Fa indro ny Mpanjakanao.
+	Ka asandrato avo ny maso
+	Indro ny Mpanjakanao.(Fa ho avy)
+	O ! miomana ianao,(hitsena)
+	Hitsena Azy izao :,:
+	 
+	O ! mba faingana re ry Tompo
+	Miandry ny olonao (Olonao)
+	Zavaboary miara-misento
+	Miara-misento hoe : Avia (Faingana)
+	Faingana re ianao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '532',
+  '532',
+  '\'NDRAY ANDRO ANY',
+  'Robert Harness',
+  'D. Razakaria',
+  'Do dia G 4/4 ',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. \'Ndray andro any
+	Ho reko ny antsonao
+	Hiditra any an-tany vaovao,
+	Hiakatra ho anay an-danitra.
+	Jeso, Jeso, tena sambatra aho, Jeso.
+	Hifarana hatreo ny haizina, Ny alahelo koa
+	Ary ny manjo sy ny ranomasoko tety.
+	Jeso, Jeso, tena sambatra aho, Jeso.
+
+2. Ho avy ilay maraina vaovao,
+	\'Lay mazava soa mandrakizay
+	Hitoerako any aminao.
+	Jeso, Jeso, tena sambatra aho, Jeso.
+	Hifarana hatreo ny haizina,
+	Ireo ota koa foana avokoa,
+	Voasolo fiainam-baovao.
+	Jeso, Jeso, tena sambatra aho, Jeso.
+
+3. Hifanatrika amiko Ianao,
+	Ry Mpamonjy izay nanavotra ahy.
+	Hofihiniko ny tananao.
+	Jeso, Jeso, tena sambatra aho, Jeso.
+	Hoderaiko ny fitiavanao.
+	Saotra eram-po, no atolotro,
+	Hiankohoka aho hihira hoe :
+	Jeso, Jeso, tena sambatra aho, Jeso.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '533',
+  '533',
+  'AO AM-PONAY \'ZAO',
+  'W. Hooper',
+  '(Tsy fantatra)',
+  'Do dia Ab 4/4 Allegro',
+  'FIAINANA KRISTIANA',
+  'Fanantenana',
+  '
+1. -PONAY \'ZAO
+
+1
+	Ao am-ponay \'zao ny fanantenana
+	Fa ho avy indray ny Tomponay.
+	(Avy Izy izao)
+	Inoanay \'reo teny fikasana.
+	Nataony teto fahizay (teto fahizay)
+
+ISAN\'ANDININY :
+	Tsy ho ela intsony re
+	Izahay hihira hoe :
+	Haleloia, haleloia,
+	Tonga ny Mpanjakanay !
+	He, ny fonay \'zao,
+	Faly manantena
+	Ny fiavian\'ny Tomponay.
+
+2. Miandry Anao \'zahay, Jesosy tia.
+	Faingàna mba handray anay.
+	(Mba handray anay)
+	Ny feonay miantso hoe : <<Avia.
+	Ry Tompo sy Mpanjakanay>>
+	Tsy ho ela, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '534',
+  '534',
+  'NY ALINA HO LASA',
+  'C. Urhan',
+  'T. Rowlands',
+  'Do dia Ab 4/4 ',
+  'FOTOANA SAMY HAFA',
+  'Maraina',
+  '
+1. Ny alina ho lasa,
+	Na ela aza re,
+	Hipoaka ny andro
+	Mahafinaritra ;
+	Ny zavona hisava
+	An-tendrombohitra ao,
+	Ny vavahady tsara
+	Ho tsinjoko izao.
+
+2. Mba sarotra tokoa
+	Ny fiakarana e ;
+	Mamely mafy koa
+	Ny rivo-doza be ;
+	Fa he ny mpivahiny
+	Izay efa trotraka
+	tantanan\'ny mpamonjy
+	Tsy ho solafaka.
+
+3. Ny famonjen\'i Kristy,
+	Ny fanavotany,
+	No loharano soa
+	Mangarangarana ;
+	Nandramako sahady
+	Ny rano velona,
+	Ka dia nahazo hery
+	Am-pandehanana.
+
+4. Ny ranobe hitànay,
+	Ny fefy tsilo koa,
+	Ny làlana mahàna
+	ho afaka avokoa :
+	Ka dera, Haleloia,
+	No mendrika atao
+	Ambara-pahatonga
+	Am-pitsaharana.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '535',
+  '535',
+  'HE MARAINA RAY',
+  'L. Neiss',
+  'A. R. Marnoël',
+  'Do dia Eb 4/4 Mavitribitrika',
+  'FOTOANA SAMY HAFA',
+  'Maraina',
+  '
+1. He! maraina, Ray
+	\'Zao ny andro
+	Ka iriko ny tavanao
+	Hamiratra toa masoandro
+	Mba hanazava ny diako
+	Hamiratra toa masoandro
+	Hanazava ny diako \'zao.
+
+2. Ô! Ray, mba tsilovy ny foko
+	Amin\'ilay lalànao soa,
+	Ka diovy ny faniriako
+	Mba hanaiky ny sitrakao
+	Ka diovy ny faniriako
+	Mba hanaiky sy mba hanoa.
+
+3. Ô! tahio Ray, ny saiko kely,
+	Ny fiteny sy ny asako,
+	Mba tsy hanenenako ireny
+	Amin\'ny fara-androko
+	Mba tsy hanenenako ireny
+	Amin\'ny fara-androko
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '536',
+  '536',
+  'MAZAVA SY MAMIRATRA',
+  'I. D. Sankey',
+  'L. J. Raharijaona',
+  'Do dia G 4/4 ',
+  'FOTOANA SAMY HAFA',
+  'Maraina',
+  '
+1. Mazava sy mamiratra aok\'izany
+	Ny masoandro raha miposaka.
+	Misinda izao ny haizina an-tany,
+	Mazava soa no injay mirotsaka.
+
+ISAN\'ANDININY :
+	Tonga ao am-po Jesosiko malala,
+	Fanazavana ahy hatrizao,
+	Mpamonjy soa tsy mba manan-tsahala
+	Mitondra toky, hery, aim-baovao.
+
+2. Ravo tokoa ny fo raha isan\'andro
+	No monina ao \'Lay Tompo Lehibe.
+	Jesosy Kristy Ilay Masoandro
+	Mamelona fanahy ka : <<O, endrey>>.
+	Tonga ao am-po, sns.
+
+3. Fahasambarana feno tokoa
+	Sy fifaliana safononoka,
+	Ny tebiteby, ahiahy koa,
+	Raha ao am-po Jeso dia afaka.
+	Tonga ao am-po, sns.
+
+4. Raha toa saron-drahona ny andro
+	Ka misy ady tena sarotra
+	Tokiko dia Ilay Masoandro :
+	Tonga ao am-po hanala tahotra.
+	Tonga ao am-po, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '537',
+  '537',
+  'MISAOTRA ANAO RY RAY',
+  'L. D. Randriamampandry',
+  'L. D. Randriamampandry',
+  'Do dia G 4/4 Milantolanto',
+  'FOTOANA SAMY HAFA',
+  'Maraina',
+  '
+1. Misaotra Anao, ry Ray,
+	Nofohazinao indray.
+	NY andon\'ny maraina
+	Mamelona ny saina.
+	Tokinay \'zao hita izao
+	Fa Ianao dia tsy mandao.
+
+2. Ny hira tian-katao,
+	Ny hankalaza Anao.
+	Fa nomenao ny hery
+	Ka tsy hiasa irery.
+	Ny anjely irakao
+	Indreo koa alefanao.
+
+3. Tantano, Tompo ô,
+	Ny zanakao anio
+	Hitory famonjena
+	Handeha tsy hivena
+	fa hanao ny asanao
+	Izahay mpanomponao.
+
+4. Vimbino izahay
+	Anio, rahatrizay,
+	Ny tavanao, ry Rainay,
+	No aoka hialoha
+	Dia hatoky izahay
+	Fa Ianao no aminay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '538',
+  '538',
+  'HENOINAO',
+  'Iary Ramboniarisoa',
+  'Iary Ramboniarisoa',
+  'Do dia A 4/4 Andante',
+  'FOTOANA SAMY HAFA',
+  'Maraina',
+  '
+1. :,: Henoinao anie
+	(Mba henoinao anie)
+	Ny feon\'ny Tompo mandona
+	Ao am-ponao izao
+	Mitady anao
+	Ka miangavy indrindra,
+	Vohay izao
+	Ny Tomponao.
+	Na ela aza ianao no nandà
+	tsarovy fa mbola tia anao koa.
+	Ny fitiavany anao tokoa
+	No nanekeny nijaly tety.
+	Ny feony tia
+	No miantso anao
+	Ka valio ny Tomponao. :,:
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '539',
+  '539',
+  'HE MIPOSAKA AO AM-PO',
+  'J. David Ranaivo',
+  'J. David Ranaivo',
+  'Do dia Ab 4/4 ',
+  'FOTOANA SAMY HAFA',
+  'Maraina',
+  '
+1. -PO
+
+1
+	He ! miposaka ao am-po, Jesosy,
+	Ny fitiavanao anay.
+	Efa narovanao fatratra
+	Ka tratry ny maraina vao.
+
+ISAN\'ANDININY :
+	He ! faly re (tokoa)
+	\'Zahay zanakao (anio)
+	Miampy iray (indray)
+	Ny taonanay (anio) ;
+	Omeo fo hendry asy fiarovana
+	Ho taona vao ho Anao Jeso.
+
+2. Ka ny fifaliana
+	Mitoetra ao anatinay izao
+	Dia entinay hiderana
+	mandrakizay ny anaranao
+	He ! faly re, sns.
+
+3. Ianao Jeso mahay
+	Mandahatra ny andro iainanay
+	Ka ny sisa mbola homenao
+	hahaizanay hanoa tokoa.
+	He ! faly re, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '540',
+  '540',
+  'HIDERA AN\'ANDRIAMANITRA',
+  'Alfredo Colum M.',
+  'D. Rasolonjatovo',
+  'Do dia Eb 4/4 ',
+  'FOTOANA SAMY HAFA',
+  'Maraina',
+  '
+1. Hidera an\'Andriamanitra aho
+	Raha vao maraina
+	Fa Izy ihany re
+	No azoko antenaina.
+	Izay mandray ny fitarainako ao ambony
+	Ka manome fiainan-tsambatra sy tony.
+	Ny tanany mahery no mamonjy
+	\'Ty foko manirery sy milonjy.
+	Ka na mitsoka aza ny tafiotra,
+	Eny, hoderaiko ny anarany Tsitoha.
+
+2. Raha manakaiky
+	Ny alim-be tsy hahitana,
+	Ny foko falifaly
+	Sady manantena
+	\'Lay fiadanany natolony ho ahy,
+	Injao mamelombelona aina sy fanahy.
+	na dia nilentika az ny hazavana,
+	Jesosy irery no fanantenana
+	Ka ho ventesiko hanako hatrany,
+	Ny hirako hidera Anao, ry Ilay Tsitoha.
+
+3. Na dia mamaky lohasahan-dranomaso,
+	Ka toa mangeja irony loza sy ankaso
+	Ny tanano, ry Tompo tia, no mampahery,
+	Manandratra avo ity mpanompo saika very.
+	Ka ho deraiko, eny ho deraiko
+	Ilay fitiavanao \'zay antenaiko,
+	Ny famonjena izay natolotra ahy
+	No hiderako Anao ry Tompon\'ny fanahy.
+
+4. O ! indro tazako eo an-kazo fijaliana
+	Ny satro-tsilo sy ilay rany mikoriana,
+	Ilay fitiavany manolo-pamonjena,
+	No iandrasako ny satro-diadema.
+	Ka hoderaiko, eny ho deraiko
+	Ilay fitiavam-be izay lalaiko,
+	O ! hafaliana tsy haiko lazaina
+	Hahita Anao, ry Tompo
+	Haleloia, Amena.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '541',
+  '541',
+  'MOMBA ANAY',
+  'H. B. Lyte',
+  'J. S. Sewell',
+  'Do dia Eb 4/4 ',
+  'FOTOANA SAMY HAFA',
+  'Hariva',
+  '
+1. Mombà anay ry Jeso Tompo ô !
+	Fa maizina ny alina aty ;
+	Tsy misy vonjy raha tsy aminao :
+	Mpamonjy tia ô ! mombà anay.
+
+2. Mandalo koa ny andronay ety,
+	Ka mihalo ny fifalianay ;
+	Miovaova izao rehetra izao ;
+	Ry tsy miova ô ! mombà anay.
+
+3. Aza mba mivahiny aminay,
+	Aza mihavitra ny helokay ;
+	Aoka ho be ny famindrànao fo ;
+	Ry Jeso Tompo ô ! mombà anay.
+
+4. Tsy mahaleo tena izahay,
+	Fa mora resy, mora kivy koa ;
+	Ry Jeso Tompo ! aoka honenanao
+	Ety an-dasin\'ny mpanomponao.
+
+5. Ny teninao no fifalianay ;
+	Ny masonao mitari-dàlana ;
+	Ary ny herinao no tanjakay ;
+	Sakaiza tsara  ô ! mombà anay.
+
+6. Rehefa tonga ny fotoana
+	Hitànay lehy ony maizina,
+	Aoka ny tavanao hazava ao,
+	Amin\'izay re mombà anay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '542',
+  '542',
+  'INDRO HARIVA',
+  'Flemming',
+  'A. R. Marnoël',
+  'Do dia A 4/4 Antonony',
+  'FOTOANA SAMY HAFA',
+  'Hariva',
+  '
+1. Indro hariva, Tompo,
+	\'Zao ny andro ;
+	Nisoaka mora teoiny masoandro.
+	Mitodika aminao \'ty mpanomponao :
+	Diovy nyh foko.
+
+2. Isaorako ny soa nomenao ahy,
+	Asa no vita, Ianao nitahy.
+	Maro ny tsiny
+	Noho ny halemena
+	Ka mba mamelà.
+
+3. Ambany elatrao, ry Tompo tia,
+	Eo misy aro, loza sanatria.
+	Eo torimaso
+	Toy ny an\'ny zaza
+	Na maizina aza.
+
+4. Eo misy toky fa hifoha indray,
+	\'Lay Jeso Zoky no hamoha anay
+	Amin\'ny marainan\'ny
+	Tany Vaovao
+	Manatrika Anao.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '543',
+  '543',
+  'ALINA NY ANDRO IZAO',
+  'D. Razafindramanana',
+  'D. Razafindramanana',
+  'Do dia G 4/4 ',
+  'FOTOANA SAMY HAFA',
+  'Hariva',
+  '
+1. Alina ny andro izao,
+	Mangina ny tontolo.
+	KA torimaso mamy
+	Irinay, ry Tompo ô !
+
+2. Miangavy aminao
+	Iraho anjely maro.
+	Hitoby hiaro anay
+	Irinay, ry Rainay ô !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '544',
+  '544',
+  'NISOKA VE NY MASOANDRO',
+  'L. D. Randriamampandry',
+  'L. D. Randriamampandry',
+  'Do dia Ab 4/4 Milantolanto',
+  'FOTOANA SAMY HAFA',
+  'Hariva',
+  '
+1. Nisoka ve \'zany masoandro
+	Hitsaharan\'ny voary izao ?
+	Mirotsaka kosa ny ando soa,
+	Hanondraka re ny asanao.
+
+2. Jehovah Tompo Ianao Mpiaro,
+	Isaoranay ny anaranao ;
+	\'Reo soa be ary ny antra maro,
+	Dia fanomezana lehibe.
+
+3. Milatska ny alina izao,
+	Ka asandrato ny lohanay,
+	Hitalaho amin\'ny Mpamonjinay,
+	Mba homeny fiadanana.
+
+4. Hikitroka re ny haizim-pito
+	Tsy misy \'zay hatahoranay ;
+	Fa ny Mpiandry eto anilanay,
+	Jesosy Tompo, no tokinay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '545',
+  '545',
+  'HARIVA IZAO NY ANDRO',
+  'A. R. Marnoël',
+  'A. R. Marnoël',
+  'Do dia Ab 4/4 Milantolanto',
+  'FOTOANA SAMY HAFA',
+  'Hariva',
+  '
+1. Hariva izao ny andro
+	Ry Jehoah Ray;
+	Ka indreto izahay
+	Mba hanolotra indray
+	Dera, saotra, hery, haja
+	Noho ny soa noraisinay.
+	Ny vita, ny asa,
+	Ray ô, isaoranay !
+
+2. Hariva izao ny andro
+	Ry Jehoah Ray;
+	Entinay eto aminao
+	\'Rony halemenay,
+	Hadisoana vitanay re
+	Dia hifonana aminao.
+	Ny otanay anie
+	Ry ô ! havelanao.
+
+3. Hariva izao ny andro
+	Ry Jehoah Ray,
+	Ny Fanahy Masinao
+	Arotsahy aminay
+	raha hianatra izahay izao
+	Sy handray ny teninao.
+	Fenoy finoana vao,
+	Ray ô ! ny olonao.
+
+4. Hariva izao ny andro
+	Ry Jehoah Ray,
+	O ! avia hiaro anay,
+	Hanavao hery indray.
+	Mba ho entinay hanompo
+	Sy hanao ny asanao.
+	Atolotray, Tompo,
+	Ny fo, ka anjakao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '546',
+  '546',
+  'JESOSY O, HARIVA NY ANDRO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia G 3/4 ',
+  'FOTOANA SAMY HAFA',
+  'Hariva',
+  '
+1. Jesosy ô, hariva ny andro ;
+	Mitoera aminay.
+	Efa hidify izao ny masoandro,
+	Matahotra izahay.
+	Hiari-tory foana izahay
+	Raha tsy Ianao
+	No miambina anay.
+	Jesosy ô, meteza hitoetra
+	Ety an-dasinay.
+
+2. Jesosy ô, Ianao no mazava,
+	Hiposaka aminay.
+	Ny tahotray hisinda, ho rava,
+	Ho sambatra izahay.
+	Ny tsy finoana, esory aminay.
+	O ! misehoa mba ho tokinay.
+	Jesosy ô, Ianao no antenaina,
+	Ianao no aronay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '547',
+  '547',
+  'JESO TOMPO BE FITIA',
+  'S. J. Vail',
+  'Rajoelison',
+  'Do dia G 3/4 Allegreto',
+  'FOTOANA SAMY HAFA',
+  'Fampakaram-bady',
+  '
+1. Jeso Tompo be fitia
+	Tonga anatrehanao.
+	\'Reo zatovo hiara-dia
+	Mila ho tantananao.
+	Arotsahy eto anio
+	Arotsahy eto anio
+	Mba hameno \'zao ny fony
+	\'Lay fitiavana madio.
+
+2. Jeso Tompo Fanekena,
+	Ny voady \'zay natao
+	Sitrapo fa tsy terena,
+	Aoka ho hamafisinao.
+	Akambano izy roa
+	Akambano izy roa
+	O, midina ao am-pony,
+	Ampiraisonao tokoa.
+
+3. Jeso Tompo Vatolampy
+	Azo ifaharana,
+	Fiarovana \'zay ampy
+	Sy ho fitsaharana.
+	Aoreno aminao
+	Aoreno aminao
+	Dia hatoky \'zao ny fony
+	Na mamely ny manjo.
+
+4. Jeso Tompo Fitahiana,
+	Mba omeo raha sitrakao,
+	zanaka ho fifaliana
+	Atolory azy izao.
+	Dia ho fantany tokoa
+	Dia ho fantany tokoa
+	Fa ho velona ao am-pony
+	Ny afom-pitiavanao.
+
+5. Jeso Tompo Fandresena,
+	Aoka ho tantananao,
+	Tsy ho resy na hivena
+	\'Reto ondrikelinao.
+	Ho tontosa anie ny dia
+	Ho tontosa anie ny dia
+	Tomoera ao am-pony
+	Mandra-pahatonga ary.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '548',
+  '548',
+  'RY TOMPO O, OMEO !',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia D 4/4 ',
+  'FOTOANA SAMY HAFA',
+  'Fampakaram-bady',
+  '
+1. Ry Tompo ô, omeo
+	Ny fitahianao,
+	ny vavakay ekeo
+	Akarina aminao.
+	Ireto havanay
+	Manatrika Anao,
+	Maniry mba handray
+	Ilay tso-dranonao.
+
+2. Fitiavana madio
+	Toy ny an\'ny lanitra
+	No mampiray anio
+	Ka dia haharitra.
+	Ho tonga lapa soa
+	Ny tokantranony
+	Raha Ianao tokoa
+	Mitoetra aminy.
+
+3. Ianao \'zay Mpanome
+	Ny tena mahasoa
+	No irinay hahato
+	Ny fiainan\'izy roa
+	Eny, hitantana
+	Ny diany ety
+	Ka tsy ho sampona
+	Ho tody hatrery.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '549',
+  '549',
+  '\'NDRETO MISY OLON-DROA',
+  'J. Faustin Saïd',
+  'A. R. Marnoël',
+  'Do dia Eb 3/4 Milantolanto',
+  'FOTOANA SAMY HAFA',
+  'Fampakaram-bady',
+  '
+1. -DROA
+
+1
+	\'Ndreto misy olon-droa
+	Nifanaiky hiaraka,
+	Hifanampy, hifanasoa,
+	Tsy hifandao tsy hisaraka.
+	Mila Anao hanampy azy
+	Fa aminao ny hery, Jeso,
+	Ka mba tsy ho vazivazy
+	Fa ho tokantrano soa.
+
+2. Tonga eto izy, Tompo
+	Mila fitahiana.
+	Mahatsiaro fa mpanompo,
+	Zaza ho tarihina.
+	Koa meteza Ianao
+	Hanome ny fitahiana
+	Mba ho voninahitrao
+	Fiainam-pifaliana.
+
+3. Jeso Tompo, hakaikezo
+	Izy ireo fa zanakao.
+	Ka ny ratsy aelezo
+	Hanjakan\'ny herinao.
+	Raha sendra ny mahory,
+	hakaikezo, Tompo tia,
+	Mba tsy hirodana akory ;
+	Tokantrano ho doria.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '550',
+  '550',
+  'ANKASITRAHANAO RE RY RAY',
+  'J. Faustin Saïd',
+  'A. R. Marnoël',
+  'Do dia Ab 4/4 Kingakinga',
+  'FOTOANA SAMY HAFA',
+  'Fampakaram-bady',
+  '
+1. Ankasitrahanao re, ry Ray,
+	Ny hikambanan\'ny olon-droa
+	Koa indro manoloana anay
+	Manam-pikasana soa
+	Hiaraka mipetraka
+	Hikambana ho tena iray,
+	Hifanampy ka tsy mba hisaraka
+	Fa hifankatia ho mandrakizay.
+	Hiara-manorin-tokantrano iray
+	Ka Ianao no tiany mba hiaraka
+	Hanorina izany
+	Hatrety ka hatrany.
+	2. O ! mba ekeo re, ry Tomponay,
+	Ny mba hitahianao ireo
+	Ho fitahiana mandrakizay
+	Ka tsy mba hiala teo.
+	O ! hamasinonao izao
+	Ka Ianao, ry Tompo,No hanjaka ao
+	An-tokantranon\'izy roroa.
+	Mba hitahy sady hanasoa
+	Ka aza miala ao,
+	Ry Tompo tianay,
+	Fa ny hasoavanao
+	Homba ireo mandrakizay.
+	
+'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '551',
+  '551',
+  'TAONA MARO EFA LASA',
+  'J. J. Randrianantenaina',
+  'J. J. Randrianantenaina',
+  'Do dia C 4/4 ',
+  'FOTOANA SAMY HAFA',
+  'Fampakaram-bady',
+  '
+1. Taona maro efa lasa tokoa
+	No nitondra ny fiaiananay
+	Niaraka tamin\'Ilay Jeso be fitia,
+	Ka dia resy ny herin\'i Satana.
+
+ISAN\'ANDININY :
+	Asandrato ny Tompo Mpamonjy
+	(Asandrato ny Tompo)
+	Fa ny fahasoavanay
+	Nitondranay tena
+	Teto amin\'izao tontolo izao.
+
+2. Tsy mba nisy ireo tebiteby
+	Na ireo fanahiana koa
+	Tamin\'ny hatanorana,
+	Hazazana koa
+	Fa satria Izy no nitantana.
+	Asandrato, sns.
+
+3. Tsapanay fa Jeso dia nifidy
+	Olon iray sahaza tokoa
+	Lehilay iray, vehivavy iray,
+	Samy zanak\'Andriamanitra.
+	Asandrato, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '552',
+  '552',
+  'RAY O! ISAORANAY ANAO',
+  'Ch. Gabriel',
+  'Josué A. Rabarison',
+  'Do dia G 4/4 ',
+  'FOTOANA SAMY HAFA',
+  'Fampakaram-bady',
+  '
+1. Ray ô ! isaoranay Anao,
+	Izao fotoana mamy izao,
+	Satria tanteraka tokoa,
+	Ny fanirian\'ny zanakao.
+
+ISAN\'ANDININY :
+	Ambino re \'ty tokantrano
+	Izay vao naorinao.
+	Ka hamasino sy tantano,
+	Hanjakan\'ny fitiavanao.
+
+2. Jeso Ianao no loharano
+	Sy anton\'ny fiainanay,
+	Naorinao ny tokantrano,
+	Ho fo, fanahy sy saina iray.
+	Ambino re, sns.
+
+3. Fenoy ny fiadananao
+	Ny tokantranon\'izy ireo.
+	Ka mba hamirapiratra ao,
+	Ny fivavahana aminao.
+	Ambino re, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '553',
+  '553',
+  'RY RAY O, JEREO',
+  'C. C. Hoffmann',
+  'Rabarijoël',
+  'Do dia C 4/4 Moderato',
+  'FOTOANA SAMY HAFA',
+  'Fampakaram-bady',
+  '
+1. Ry Ray ô, jereo ankehitrio
+	Fa tonga anatrehanao
+	Hangataka fitahiana anio,
+	\'Zahay mba ho an\'ny zanakao
+	\'Zay vonon-kiara-dia izao
+	Anio sy ho mandrakizay.
+	Ry Ray ô, arotsahy re
+	Ny fahasoavan-dehibe.
+	Henoy re, henoy ny vavakay.
+
+2. Ry Ray ô, ny fitiavanao
+	No arotsahy ankehitrio
+	Hameno ny fony hatrizao
+	\'Lay tene fitiavana madio.
+	Ny herinao no ampanjakao
+	Ao amin\'ny fiainany izao
+	Ho fiainana tanteraka
+	Hiezaka tsy ho reraka
+	Hizotra ao an-danitra aminao.
+
+3. Na miditra na mivoaka
+	Arovinao ny tenany.
+	Raha sendra ka misolafaka
+	Sao dia kivy ny fanahiny.
+	Ry Ray ô, tohano sy ampio
+	Hazony akaikinao izao
+	Tantano ao an-dàlana
+	Na inona no misakana
+	Ho tonga aminao ny diany.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '554',
+  '554',
+  'TOKANTRANO SAMBATRA',
+  'J. H. M. Naughton',
+  'Razafimahafaly',
+  'Do dia Ab 4/4 Antonony',
+  'FOTOANA SAMY HAFA',
+  'Fianakaviana',
+  '
+1. Tokantrano sambatra
+	Toy ny lanitra,
+	Anjakam-pitiavana,
+	Faly mirana.
+	Haravoam-po tokoa,
+	Halemem-panahy koa,
+	Raha ny fitiavana
+	Mampikambana.
+	Irario soa tokoa
+	Enga ka hanjaka ao
+	Ny fitiavana.
+
+2. Tokantrano sambatra
+	Toy ny lanitra,
+	Miara-paly avokoa,
+	Miaraka ory koa.
+	Entana mavesatra
+	Asa mahasasatra
+	rehefa ny fitiavana
+	mampikambana.
+	Irario soa tokoa
+	Enga ka hanjaka ao
+	Tokantrano soa.
+
+3. Tokantrano sambatra
+	Toy ny lanitra,
+	Tena mahafinaritra
+	raha maharitra.
+	Manda fikirizana
+	Toeram-pamaharana
+	Raha ny fitiavana
+	mampikambana
+	Ray ô, arovinao,
+	Mba haharitra tokoa
+	Tokantrano soa
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '555',
+  '555',
+  'NOHAMARININA AHO',
+  'L. D. Randriamampandry',
+  'L. D. Randriamampandry',
+  'Do dia G 3/4 Milamindamina',
+  'FOTOANA SAMY HAFA',
+  'Fianakaviana',
+  '
+1. Nohamarinina aho, Afaka aho Jeso
+	Na dia meloka aho Dia nodiovinao (Dia nodiovinao)
+	Sahy koa milaza Fa voavonjy re.
+	Nosaronanao (Nosaronanao) Ny fahotako be
+	Eny, ny Hosana Izay asandratro
+	Dia novalianao Ny famindrampo.
+
+2. Dia noraisina aho ho mpandova Anao
+	Nefa tsy nanao \'zay tokony hatao
+	fahafatesana no tamby mendrika ahy
+	Nefa izao soloanao fifaliam-panahy
+	Raisonao ny saotra \'zay atolotro
+	Sy ny vavaka lazain\'ny molotro.
+
+3. Na any an-danitra aza, tsy hangina koa
+	Mbola hilaza fa heni-java-tsoa
+	Koa ny anjely hahita marina
+	Fa Mpamonjy Ianao ka manamarina
+	Izay rehetra miaina mankalaza Anao ;
+	Fa izay ho very no tsy mino Anao.
+
+4. Vonona aho Jeso hanatona Anao
+	Na dia hoe ho faty, mety ka iraho
+	Anjely alinkisa no mijey izao
+	Fa amin\'ny Batisa no hanatonako Anao.
+	Zava-dehibe imasonao, ry Ray
+	Ny fahafatesan\'olo-masina iray
+
+Fa voalaza hoe :
+	Na iza na iza manaiky fa hatao batisa
+	hanamarina an\'Andriamanitra
+	Ka mifaly ny anjely an-danitra.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '556',
+  '556',
+  'JESOSY VE MIHAINO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Eb 4/4 ',
+  'FOTOANA SAMY HAFA',
+  'Fianakaviana',
+  '
+1. ?
+
+1
+	Jesosy ve mihaino,
+	Jesosy ve mandre,Ka mety hamaly koa
+	Ny sentompon\'ireo \'Zay toa very
+	Sy miady irery aty ?
+	Mihaino ve Jeso, (Mamaly koa),
+	Fantany ve \'zao vavako izao ?
+	Ekeo fa mamaly
+	Ny vavaka izay atao, Jeso.
+
+2. Jesosy ve mahita Ary mijery koa 
+	Ny fahoriana eto ?
+	Fantany ve \'zao ady
+	Izay mila ahakivy eto \'zao ?
+	Mahita ve Jeso, Mijery koa ?
+	Ampiany ve \'reo olony \'reo
+	Ekeo fa tsy mandao
+	Izat te hiaraka Aminy, Jeso.
+
+3. Jesosy ve akaiky Ary ho avy koa
+	Fa efa trotraka sy Ana ka mety ho resy
+	Ireo ondriny vitsy sisa ireo ?
+	Akaiky ve Jeso Ho avy koa
+	Hanafaka \'reo ondriny \'reo
+	Minoa fa tsy ho ela
+	Ho avy hanampy \'reo tokoa, Jeso.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '557',
+  '557',
+  'TOMPO MALALA',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia D 3/4 ',
+  'FOTOANA SAMY HAFA',
+  'Fianakaviana',
+  '
+1. Tompo malala ô, 
+	\'Zao vavako izao Mba henoinao, 
+	Ny fanahiako esory tsy ho ao,
+	Aoka ho hitako ny herinao.
+	Sarotra loatra \'Zao lalako izao,
+	Tiako tokoa ny tantananao
+	Tompo malala ô, midina, avia
+	fa sao aho ho very ety.
+
+2. Tompo malala ô, 
+	Eo an-tànanao, Eo an-tongotrao 
+	No hitondrako Izao fiainako izao,
+	Enga anie ho vimbininao.
+	\'Zay fikasako, Ry RAy, fantatrao,
+	Ny faniriako dia efa hitanao,
+	Nefa, ry Ray ô, izay sitrakao
+	Tokoa anie no atao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '558',
+  '558',
+  'ENTINAY AMINAO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Eb 3/4 ',
+  'FOTOANA SAMY HAFA',
+  'Fianakaviana',
+  '
+1. Entinay aminao, Tomponay ô,
+	(Entinay ho eo aminao, Tomponay ô)
+	Ny fisaoranay.
+	(Ho Anao ny fisaoranay)
+	Fahendrena tsy tratry ny saina
+	(Fahendrena \'zay tsy ho tratry ny saina)
+	Ny fitondranao.
+
+ISAN\'ANDININY :
+	Mino izahay fa mihaino Ianao,
+	Ary ho mandrakizay
+	No hiarovanao, hitahianao
+	Ny tokantranonay.
+
+2. Fitiavana Ianao, omponay ô,
+	(Jeso ô, fitiavana Ianao, Tomponay)
+	Jereo izahay.
+	(Avia jereo izahay)
+	Ianao irery no toky
+	(Ianao irery ihany no toky)
+	Hiankinanay.(Hery \'zay hiankinanay)
+	Mino izahay, sns.
+
+3. Mitoera aminay, Tomponay ô,
+	(Mitoera ety aminay, Tomponay ô)
+	Tahio izahay.
+	(Ka mba tahio izahay)
+	Hamasino ho fonenanao
+	(Tompo hamasino ho fonenana)
+	\'Zay hiraisanay (Ho Anao \'zay hiraisanay)
+	Mino izahay, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '559',
+  '559',
+  'MISAOTRA ANAO IZAHAY',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Eb 3/4 ',
+  'FOTOANA SAMY HAFA',
+  'Fianakaviana',
+  '
+1. Misaotra Anao izahay
+	Mankalaza Anao, Jeso ô :
+	Mitafotafo tokoa
+	Aminay ny fitiavanao.
+
+ISAN\'ANDININY :
+	Jeso, henoy \'zahay
+	(Tomponay ô)
+	Mihainpoa ny vavaka atao anio
+	Mitoera eto aminay, Jeso,
+	Ho feno hatrany hatrany
+	Aminay ny fiadananao.
+
+2. Apetrakay, Jeso ô,
+	Aminao manomboka anio
+	Ny sainay ary ny fo
+	Mba ho lapa honenanao.
+	Jeso, henoy \'zahay, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '560',
+  '560',
+  'MIHAINOA JESO O!',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia D 3/4 ',
+  'FOTOANA SAMY HAFA',
+  'Fianakaviana',
+  '
+1. Mihainoa, Jeso ô,
+	Entinay aminao
+	Ny hetahetanay avy ao am-po.
+	Manatreha Jeso ô,
+	Mba ho mandrakizay
+	\'zao voady atao izao.
+
+ISAN\'ANDININY :
+	Iraho \'Lay Fanahy Mpanazava
+	Mba hitondra ny fiainanay
+	Hitoetra aminao lalandava.
+	Eo anilanao mandrakizay.
+
+2. Ampidino, Jeso,
+	Ilay Fitiavanao
+	Hanamafy ny fitiavanay ;
+	Ka meteza, Jeso,
+	Hamasino izahay
+	Nampiraisinao mandrakizay.
+	Iraho \'Lay Fanahy, sns.
+
+3. Mijere, Jeso ô,
+	Mitantàna ny dia,
+	lalan-tsarotra no mbola aleha.
+	Ka na inona hanjo,
+	Dia matoky \'zahay
+	Fa eo akaikinay tokoa Ianao.
+	Iraho \'Lay Fanahy, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '561',
+  '561',
+  'JESOSY O! MPANAVOTRA AHY',
+  'L. E. Jones',
+  'D. Rasolonjatovo',
+  'Do dia Eb 3/4 ',
+  'FOTOANA SAMY HAFA',
+  'Fianakaviana',
+  '
+1. Jesosy ô, Mpanavotra ahy,
+	Ianao no antom-piainako.
+	He ! ravo ny fanahiko
+	Fa novidin\'ny ranao soa.
+
+ISAN\'ANDININY :
+	Jesosy ô, \'zaho ho Anao,
+	Ianao ahy hatrizao,
+	Fa ivelomako tokoa
+	Ny fitiavanao Jeso.
+
+2. Ianao no fiononako
+	Hamelombelona fanahy.
+	Manala ny otako aoa am-po
+	Mpanjaka Tompo Mpitahy.
+	Jesosy ô, sns.
+
+3. Ianao Jeso \'zay tena tia
+	No antenaiko lava izao.
+	Mikatsaka ahy \'zay nania,
+	Sambatra aho voavonjinao.
+	Jesosy ô, sns.
+
+4. Raha lavitra Ianao, Jeso,
+	Hanjavona ny ho aviko.
+	Akaikinao no tiako izao,
+	Eo no fahasambarako.
+	Jesosy ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '562',
+  '562',
+  'IZAY MAHAKOLOKOLO',
+  'I. D. Sankey',
+  'J. Andrianaivoravelona zanany',
+  'Do dia Ab 6/4 Marisidrisika',
+  'FOTOANA SAMY HAFA',
+  'Fianakaviana',
+  '
+1. \'Zay mahakolokolo
+	No manana ny soa
+	\'Zahao ny tanimboly,
+	\'Zay fatratra tokoa,
+	Fa he \'reo voninkazo
+	Mamerovero ao,
+	Toa nofy \'zay handazo,
+	Andeha mba jereo.
+
+2. Ireo \'zay mahavatra
+	Handray ny voka-tsoa,
+	Ka tena tsy hahantra,
+	Tsy reraka tokoa ;
+	Jereo \'reo taninketsa
+	Mampanantena voa,
+	Fa soa tsy manam-petra
+	Sy hanim-be tokoa.
+
+3. \'Zahay, ry ray sy reny,
+	No voninkazo koa,
+	Hamerovero any
+	An-tokantrano soa ;
+	Tezao mba hihatsara
+	Ny fofo-manitray,
+	Mba tsy harahin-tsento
+	Ny toetra anananay.
+
+4. \'Zahay no toy ny ketsa
+	Ho vanona tokoa,
+	Hamoa tsy misy fetra,
+	Sy tena hahasoa ;
+	Ny fiangonantsik
+	Hahita valiny,
+	Ny fivavahantsika
+	handroso hery koa.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '563',
+  '563',
+  'TSY HANGINA NY FO',
+  'George Berverly Shen',
+  'Samoely Lala James',
+  'Do dia Bb 3/4 ',
+  'FOTOANA SAMY HAFA',
+  'Taom-baovao',
+  '
+1. Tsy hangina ny fo fa hidera
+	Satria feno ny hasoavanao.
+	Fitahiana lehibe tokoa, Ray ô,
+	Fa tafita ny taona vaovao.
+
+ISAN\'ANDININY :
+	Fifaliana, Jeso ô,
+	No mameno ny fo
+	Noho ny fitiavanao.
+	Enga anie, ka ho aminay
+	Ny famindraponao, Tompo tia,
+	Anio sy doria.
+
+2. Tsy hangina ny fo, hankalaza
+	Ny fitiavanao, Tompo tia ô,
+	Velon\'aina tokoa sy tafita re
+	Noho ny famindraponao, Ray
+	Fifaliana, Jeso ô, sns.
+
+3. Tsy hangina ny fo, fa voavonjy
+	Tamin-dranao soa, Jeso tia
+	Namindranao fo
+	Na dia mpanota re
+	Mba hiova hanahaka Anao.
+	Fifaliana, Jeso ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '564',
+  '564',
+  'HE TAONA VAOVAO INDRAY',
+  'J. Baptiste Calkin - Mamy J. Ratsirison',
+  'Jeanne Ratsirison',
+  'Do dia Eb 4/4 ',
+  'FOTOANA SAMY HAFA',
+  'Taom-baovao',
+  '
+1. He ! taona vaovao indray
+	No indro omenao, ry Ray,
+	Ka hira fiderana izao
+	No entinay manaja Anao.
+
+2. Havaozo, Jeso, ny fonay
+	Ho mendrika ho Anao indray.
+	Esory ho afak avokoa
+	\'Reo ota ka hadio ny fo.
+
+3. Ry lakolosy manenoa
+	Mba hikarantsana tokoa
+	Hilaza fa akaiky \'zao,
+	Akaiky \'Lay Mpanjakanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '565',
+  '565',
+  'MISY FEO MIRINDRA',
+  'L. B. Bridgers - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia Ab 4/4 ',
+  'FOTOANA SAMY HAFA',
+  'Fanosorana mpitandrina',
+  '
+1. Misy feo mirindra ato am-po
+	Feo mamin\'i Jeso \'zao :
+	Matokia aza mivadi-po,
+	Izaho no momba anao.
+
+ISAN\'ANDININY :
+	Jeso be fitia
+	Mamiko Ianao
+	Avia hiara-dia
+	Tantano aho hahatratra Anao.
+
+2. Endrey \'zany miaraka aminao,
+	Faly sy mihira koa ;
+	Mitsiky amiko ny endrikao
+	Ka ravo ery ny fo.
+	Jeso be fitia, sns.
+
+3. Ho avy tsy ho ela Ianao
+	hitsena ahy valaka,
+	Hampiditra ao an-tranonao,
+	Hihaona ny mpiaraka.
+	Jeso be fitia
+	Mamiko Ianao
+	Aza ela, avia,
+	Hy ny mpiaraka aminao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '566',
+  '566',
+  'DIOVY, JEHOVAH Ô!',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Eb 3/4 ',
+  'FOTOANA SAMY HAFA',
+  'Fanosorana mpitandrina',
+  '
+1. DIOVY JEHOVAH Ô !
+	1
+Diovy Jehovah ô !
+Ity havanay ity
+Esory ny ota izay natao.
+O ! esory,
+O ! esory nyota natao.
+O ! esory, o ! esory
+Ka mba diovy ity havanay ity
+Ho Ano, mmm.
+
+2
+Tahio, Jehovah ô,
+Ity havanay ity
+Ho mendrika hanao ny asanao.
+O ! tahio, o ! tahio,
+Hanao ny asanao.
+O ! tahio, o ! tahio,
+Tahio, ry Ray ô, ity havanay ity
+Ho Ano, mmm.
+
+3Hamasinonao, ry Ray,
+Ity havanay ity
+Ho mendrika hitondra ny anaranao.
+Hamasino, hamasino
+Ho mendrika Anao.
+Hamasino, hamasino
+O ! hamasino, ity havanay ity
+Ho Ano, mmm.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '567',
+  '567',
+  'ZANAHARY NO MAHELA',
+  '(Tsy fantatra)',
+  'Maintimolaly',
+  'Do dia Eb 3/4 ',
+  'FOTOANA SAMY HAFA',
+  'Eo amin\'ny fiainana',
+  '
+1. ZANAHARY NO MAHELA
+	1
+Zanhary no mahela
+\'Zay fe-taona iainanay,
+Ka miantra sy mamela
+tombon\'andro ho anayh
+Nefa vitsy, nefa vitsy,
+No ho andronay aty.
+Nefa vitsy, nefa vitsy,
+No ho andronay aty.
+
+2
+Betsaka ny andro lany
+nanaranam-po izao ;
+Misy feo manontany :
+<<Vita va ny asanao ?>>
+Miezaha, miezaha,
+Avy re ny alim-be.
+Miezaha, miezaha,
+Avy re ny alim-be.
+
+3Mamindrà fo, Zanahary !
+Mamelà ny helokay ;
+Tompo ! aza mba manary,
+\'Ndrao ho very izahay ;
+Mihainoa, mihainoa,
+Ny mifona aminao.
+Mihainoa, mihainoa,
+Ny mifona aminao.
+
+4
+Ry Jehovah ! manomeza
+\'Zay ilainay olonao ;
+Mitahia, mampahereza,
+Mba ho tonga ao aminao,
+Ka hahazo, ka hahazo,
+Satroboninahitrao.
+Ka hahazo, ka hahazo,
+Satroboninahitrao.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '568',
+  '568',
+  'JEHOVAH TOMPO O!',
+  'J. P. Holbrook',
+  'W. E. Cousins',
+  'Do dia G 3/4 ',
+  'FOTOANA SAMY HAFA',
+  'Eo amin\'ny fiainana',
+  '
+1. Jehovah Tompo ô !
+	Tahio sy hatsarao
+	Ny taninay ;
+	Tahio ny namanay
+	Ho tia ny teninao
+	Dia ampahazavao
+	Ny nosinay.
+
+2. Ovay ny fombanay
+	Ho foin\'ny taninay
+	Ny sampiny ;
+	Omeo fo marina
+	Izao rehetra izao,
+	Ka dia mba hiantrao
+	Ny nosinay.
+
+3. Jehovah Tompo ô !
+	Tahio ny olonao
+	Ny zanakay ;
+	Tahio ho zanakao,
+	Tahio ho marina,
+	Ka dia ho taninao
+	Ny nosinay.
+
+4. Izay mpitondra anay
+	Tahio ho tia Anao,
+	Jehovah ô !
+	Omeo sai-marina
+	Hanao ny sitrakao,
+	Ka ampanompoy Anao
+	Ny nosinay.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '569',
+  '569',
+  '\'ZAY IRIKO TOMPO TSARA',
+  'B. B. Ackley',
+  'Rajoelison',
+  'Do dia G 6/4 ',
+  'FOTOANA SAMY HAFA',
+  'Eo amin\'ny fiangonana, fandevenana',
+  '
+1. \'Zay iriko, Tompo tsara,
+	Ny ho toa Anao (Anao)
+	Ary koa hanambara
+	Ny fitiavanao.
+
+ISAN\'ANDININY :
+	Mora re ny zioganao
+	Fitsaharana tokoa
+	Maivana ny entanao
+	Fifalian\'ny foko.
+
+2. \'Zay iriko, Tompo mora,
+	Ny hanoa Anao (Anoa)
+	Isan\'andro, isan\'ora,
+	Hiaraka aminao.
+	Mora re, sns.
+
+3. \'Zay iriko, ry Mpamonjy,
+	Ho eo anilanao (Anao)
+	Mba handraisako ny vonjy 
+	Diany ety izao.
+	Mora re, sns.
+
+4. \'Zay iriko mafy indrindra
+	Ho any aminao (Anao)
+	Raha avi Ianao hamindra
+	Ny vahoakanao.
+	Mora re, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '570',
+  '570',
+  'HE MAMIRAPIRATRA ERY',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Bb 4/4 ',
+  'FOTOANA SAMY HAFA',
+  'Eo amin\'ny fiangonana, fandevenana',
+  '
+1. He ! mamirapirata ery
+	Ny voninkazo eny an-tsaha.
+	Nefa ny endriny \'zay tena soa,
+	Mihelina sy vetivety koa.
+	Fa izaho koa mandalo
+	Sady mpivahiny ety.
+	Ka ny hivelomako Jeso
+	Dia ny fitiavanao.
+
+2. Raha hihintsana \'zao nofo \'zao,
+	Ho simba ary koa ho lo,
+	Rah ho rava koa izao hita izao,
+	Heriko ny fitiavanao.
+	Ny hany zavatra iriko,
+	Angatahiko aminao :
+	Ho velomina ao anatiko ao,
+	Jeso, ny fitiavanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '571',
+  '571',
+  'EO ANOLOAN\'IZAO NOFO IZAO',
+  'A. R. Marnoël',
+  'A. R. Marnoël',
+  'Do dia F 9/4 Milantolanto',
+  'FOTOANA SAMY HAFA',
+  'Eo amin\'ny fiangonana, fandevenana',
+  '
+1. Eo anoloan\'izao nofo izao
+	\'Zahay misaotra Anao ry Ray
+	Fa mbola velona sy toy izao
+	Na dia ao koa ny ota maronay.
+	Na malahelo nohon\'ny fisarahana
+	Amin\'ny havana malalanay.
+	Ny fonay, ry Ray, ô ! mamahana
+	Amin\'ny teny natao ho anay.
+
+2. Haterinay ny nofony ho ao
+	An-tany nanalàna azy
+	Ka ao no hiandrasana Anao
+	Ambara-panangananao azy.
+	Rehefa tonga any am-parany Ianao,
+	Hitondra fandresena ho anay,
+	Hampaneno ny trompetranao,
+	O ! atsangano koa \'ty havanay.
+
+3. Ry Tompo ô ! ampionony re
+	Izao ny fo hanompo Anao
+	Fa ny adidinay dia mbola be
+	Eo amin-kavana sy aminao
+	O ! aoreno ny finoanay Anao
+	Ka andrandrao izao ny masonay
+	Hijery ny fiavianao
+	Hitondra famonjena ho anay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '572',
+  '572',
+  'RY JESO ZOKY BE FITIA',
+  'G. F. Root',
+  'V. Rasamoelina',
+  'Do dia G 3/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. Ry Jeso, Zoky be fitia !
+	Avia, mitantàna,
+	Fandrao \'zahay maniasia
+	Avilin\'i Satana.
+
+ISAN\'ANDININY :
+	Ry Jeso ô ! tahio \'zahay
+	Fa mbola kely saina
+	He ! tsy mba hendry, tsy mahaymahay,
+	Ka mora ambakaina.
+
+2. Maniry izahay, Jeso !
+	Ho zandry \'zay manoa,
+	Ka dia ampaherezonao
+	Ho tia Anao tokoa.
+	Ry Jeso ô, sns.
+
+3. Indreto izahay, Jeso !
+	Tariho hahalala
+	Hanaraka ny sitrakao
+	\'Zay Zokinay malala.
+	Ry Jeso ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '573',
+  '573',
+  'JESO IANAO NO ZOKIKO',
+  'D. Razafindramanana',
+  'D. Razafindramanana',
+  'Do dia F 6/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. Jeso, Ianao no Zokiko,
+	Ekeko re izao ;
+	Ianao koa no namako.
+
+ISAN\'ANDININY :
+	Sakaiza tsara ery Ianao,
+	Ka tiako sy hatoniko
+	Ianao Jeso.
+
+2. Jeso, Ianao no mendrika
+	Ka itokiako re,
+	Faniloko Ianao, Jeso.
+	Sakaiza tsara, sns.
+
+3. Izaho dia zaza bodo re,
+	Mangataka aminao
+	Ny herinao ho aroko.
+	Sakaiza tsara, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '574',
+  '574',
+  'VENTESO \'ZAO RANKIZY',
+  'G. C. Stebbins',
+  'F. Ramanantsialonina',
+  'Do dia C 6/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. Venteso \'zao rankizy
+	\'Lay hira maminao.
+	Fa tia zaza Izy
+	Jesosy Tomponao.
+	Derao ka ifalio
+	Fa mendrika Azy \'zany.
+	Lazao ka ihobio
+	\'Zany fitiavan-dehibe.
+
+2. Ianao ry tanora
+	Tiany ho sakaizany
+	Ka tonga izao ny ora
+	Hanompoana Azy izao
+	Avia, ô malakia,
+	Fa maro ny adidy
+	Efao, eny vitao
+	Ny asa nekenao.
+
+3. Ianao no olom-bery
+	Tiany havotana.
+	Tsy foiny ho irery
+	Ny ota, loza anie.
+	Ialao ny ota anio
+	Manimba ny fanahy
+	Ekeo ka mba fidio
+	Jeso Mpanafaka.
+
+4. Isika novonjena
+	Mba miezaha re
+	Hanampy tsy terena
+	Ny olo-marobe
+	Torio, eny lazao
+	Izay tsy mbola nandre
+	Torio, eny ambarao
+	\'Lay fitiavan-dehibe.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '575',
+  '575',
+  'DIENY MBOLA ZAZA',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Eb 4/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. Dieny mbola zaza aho
+	Sy mbola kely \'zao
+	Dia hanolo-tena
+	Ho Anao, ry Jeso soa
+	Mamiko tokoa ny hankato Anao
+	Koa tafio hery aho hanao
+	\'Zay sitrakao.
+
+2. Tiako, ry Mpamonjy
+	Ny miaraka aminao
+	Toy ireo anjely
+	\'Zay fanirakirakao
+	Sitrako tokoa
+	hanao ny asanao
+	Ka ny foko kely
+	Dia ho fonenanao.
+
+3. Ao Edena ambony
+	Mihira avokoa
+	Tsanta-karavoana
+	Ho Anao, ry \'Layt Mesia
+	Izaho dia kely,
+	He ! fa mihira koa
+	Anao, Zanak\'ondry,
+	Maty tany Kalvary.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '576',
+  '576',
+  'JESO, JESO !',
+  'S. Welbe',
+  'Rajoelison',
+  'Do dia Ab 3/4 Antonony',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. Jeso, Jeso no tiako \'zao,
+	Ny foko mankalaza
+	Ilay anara-masinao,
+	Izay mamin\'ny zaza.
+
+2. Jeso, Jeso deraiko \'zao,
+	Na dia mbola kely,
+	iriko indrindra ny hanao
+	\'Lay hiran\'ny anjely.
+
+3. Jeso, Jeso sakaizako,
+	Ety an-dalan-tery,
+	Akaiky sady tia tokoa
+	Ka nofy \'zay ho very.
+
+4. Jeso, Jeso tompoiko
+	Ny ziogany dia mora,
+	Ny didiny harahiko
+	Fanilonay tanora.
+
+5. Jeso, Jeso hambarako
+	Fa tia ny mpanota,
+	Ny rany no anjarako
+	Nomeny tao Gologota.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '577',
+  '577',
+  'IANAO RY MINO',
+  'E. O. Excell',
+  'B. Ranorohanta',
+  'Do dia G 4/4 Antonony',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. Ianao, ry mino,
+	Hoy ny Tomponao,
+	No fahazavan\'izao
+	Tontolo izao.
+
+ISAN\'ANDININY
+	Maizina ny tany
+	Mitsangàna re
+	asandrato avo
+	Ny fanilo, e !
+
+2. Aoka ho madio
+	Ny fiteninao,
+	Tsara sady masina
+	Ny toetranao.
+	Maizina ny tany, sns.
+
+3. Efa mby akaiky
+	\'Lay Mpanjakanao,
+	Tanteraho faingana
+	Ny asanao.
+	Maizina ny tany, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '578',
+  '578',
+  'TSAROVY E! RANKIZY',
+  'S. Salvatory',
+  'Rainizafimanga',
+  'Do dia G 2/4 Faingapaingana',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. Tsarovy e ! rankizy
+	Ilay Mpanao anao !
+	Ka tadiavo Izy !
+	Dieny hitanao ;
+	Dieny mbola kely
+	tsarovy rahateo,
+	Ka aza manadino
+	Ilay Mpanao anao.
+
+2. Tsarovy, ry zatovo.
+	Ilay Mpanao anao.
+	Ilaozy ny mpanota,
+	Fandrao manimba anao,
+	Tsarovy ny Jehovah
+	namorona anao,
+	Mampanantena lova
+	Sy naha toy izao.
+
+3. Tsarovy, ry sakaiza
+	Jehovah Tomponao !
+	Fa Izy no mitaiza
+	Sy manasoa anao ;
+	Koa aza manadino
+	Ilay Mpanao anao ;
+	Ny teniny araho,
+	Fa Izy no Rainao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '579',
+  '579',
+  'NY SAKAIZAN\'NY TANORA',
+  'Mc. Granaham',
+  'J. Andrianaivoravelona',
+  'Do dia Eb 4/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. Ry Sakaizan\'ny tanora !
+	Zoky be fitia,
+	Sakambino moramora
+	Izahay mpania.
+
+ISAN\'ANDININY :
+	Tompo ô ! arovy,
+	(Tompo,  Tompo ô ! arovy)
+	Ny madinikao
+	(Tompo ny madinikao)
+	Aza afoy fa mba tsarovy.
+	Tano mafy ho Anao
+	Eny, aza afoy fa mba tsarovy
+	Tano mafy ho Anao (ho Anao).
+
+2. Ry Sakaizan\'ny tanora !
+	Tsinjonao ary
+	\'Zany ady tsy mba mora
+	Hitanay ety.
+	Tompo ô ! sns.
+
+3. Ry Sakaizan\'ny tanora !
+	Tanonao \'zahay
+	He ! fa be ny mpanakora
+	Raha lavo indray
+	Tompo ô ! sns.
+
+4. Ry Sakaizan\'ny tanora !
+	Eny, sitrakay,
+	Isan\'andro, isan\'ora
+	Ho Anao \'zahay.
+	Tompo ô ! sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '580',
+  '580',
+  'JESO BE FITIA',
+  'S. B. Gould',
+  'T. Rowlands',
+  'Do dia Ab 4/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. Jeso, be fitia !
+	zaza izahay
+	Avy mitaraina
+	Mihainoa anay.
+
+2. Bodo sy adala
+	Indreo ny zanakao;
+	Jeso ô, malala !
+	Aza lavinao.
+
+3. Mpiandry ondry mora !
+	Mba tarihonao ;
+	Tano tsy hania
+	Ny ondrikelinao.
+
+4. Aza avela hitady
+	Laza aman-jo !
+	Fa Ianao irery
+	No mahafa-po.
+
+5. Tianao ny zaza,
+	Jeso ! fantatray,
+	Ka manolo-tena
+	Ho Anao \'zahay.
+
+6. Jeso, be fitia !
+	zaza izahay
+	Avy mba hidera ;
+	Mihainoa anay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '581',
+  '581',
+  'O! RANKIZY MITSANGANA',
+  'W. Rakotondranaivo',
+  'W. Rakotondranaivo',
+  'Do dia C 2/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. O ! rankizy mitsangàna
+	Misy feo miantso anao.
+	Aza ela fa faingàna
+	Ka vonjeo \'reo namanao
+	Fa mbola marobe tokoa
+	\'Reo diso làlana,
+	Tandindomin-doza koa
+	Sy fahafatesana.
+
+ISAN\'ANDININY :
+	:,: Andao hanao dia be
+	(Andao, andao),
+	Hiaraka mandeha
+	(Handeha, handeha)
+	Hiaraka mandeha
+	Hitaona namana. :,:
+
+2. Feo haizina ny tany
+	Mila ny fanilonao.
+	Mijoroa hatrany hatrany
+	Ny hakiviana ialao.
+	Faingàna sy mahereza re
+	Jehovah momba anao.
+	Toky tena lehibe
+	Hodian-tsy hita ve ?
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '582',
+  '582',
+  'HE FALIFALY IZAHAY',
+  'Suzette Ratsimba',
+  'Suzette Ratsimba',
+  'Do dia F 4/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. He ! falifaly izahay
+	Tratr\'izao Sabata izao
+	Hirahira maminay
+	No asandratray ho Anao.
+	He ! falifaly izahay
+	Tratr\'izao Sabata izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '583',
+  '583',
+  '\'ZAHO HITADY NY MPAMONJY',
+  '(Tsy fantatra)',
+  'Esther Bary',
+  'Do dia Ab 3/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. \'Zaho hitady ny Mpamonjy,
+	Na dia mbola kely re.
+	Fa maniry ho voavonjy,
+	Toy ny mpino marobe.
+
+ISAN\'ANDININY :
+	Tiako Jeso, tiako tokoa,
+	Hianatra ny aminy aho.
+	Dia ataoko antso avo,
+	\'Zany fanavotany.
+
+2. Miantso ahy Ianao.
+	Mba hanao ny asanao
+	Ry Tompo ô, inty aho
+	Iraho fa mba hanao.
+	Tiako Jeso, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '584',
+  '584',
+  'TOMOERA AMINAY',
+  'William J. Gaither - Mamy J. Ratsirison',
+  'Esther Bary',
+  'Do dia F 3/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. TOMOERA AMINAY
+
+1
+	Tomoera aminay ankizy,
+	Ry Fanahy Masina ? !
+	Meteza re ho tanjakay.
+	Raiso, iasao izahay.
+
+ISAN\'ANDININY :
+	Fanahy Masina ? avia.
+	Fa mila Anao \'zahay.
+	Miangavy Anao, tongava
+	Ampiasao izahay.
+
+2. Tomoera amin\'izay ory.
+	Ampionony ireo
+	Mba itondray balisama
+	Ny olo-malahelo.
+	Fanahy, sns.
+
+3. Fanahy ?, ampaherezo
+	\'Reo reraka am-panahy.
+	Ny herinao avelao
+	Hitondra fiainana.
+	Fanahy, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '585',
+  '585',
+  '- MAFY TOA ONJA \'ZAY MANAFOTRA',
+  'W. G. Hathaway',
+  'A. R. Marnoël',
+  'Do dia C 6/8 Antonony',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. Mafy toa onja
+	\'Zay manafotra
+	Ny fitian\'i Jeso
+	\'Lay Mpanavotra.
+	Na mafy re, ny onja be,
+	Jeso mamily ny samboko.
+	Na mafy re, ny onja be,
+	Izy no tokiko (tokiko).
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '586',
+  '586',
+  'JESO NO SAKAIZANAY',
+  'A. R. Marnoël',
+  'Esthe Bary',
+  'Do dia F 4/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. JESO NO SAKAIZANAY
+
+1
+	Jeso no Sakaizanay
+	Zaza madinika
+	Miaraka aminy izahay
+	Ka he ! faly ery.
+
+2. Jeso ?, ampio aho
+	Mba hiezaka.
+	Ho madio fo sy saina,
+	Ho mendrika.
+
+3. Jeso ?, tarihonao re
+	Ny famindrako.
+	Raha akaikiko Ianao
+	Tsy ho potraka aho.
+
+4. Jeso ?, Ianao no tiako
+	Ho Sakaizako
+	Ka ny toetra anananao
+	Dia ho toetrako.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '587',
+  '587',
+  'FALIFALY AVOKOA',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Ab 4/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. FALIFALY AVOKOA
+
+1
+	Falifaly avokoa
+	\'Zao rehetra izao.
+	Ary isika ankizy koa
+	Dia samy hanandra-peo
+	Fa Sabata ny andro anio,
+	Fitsaharana madio.
+	\'Zay manaiky ny Tsitoha,
+	Hovonjeny koa.
+
+ISAN\'ANDININY :
+	Mifalia, mihir?
+	Noho izao Sabata izao,
+	Mihobia, mider?,
+	Fa Jesosy tia anao
+	Hasambarana tokoa
+	Ny eo akaikin\'ny Tsitoha
+	Fitahiana omena anao
+	\'Zao Sabata izao.
+
+2. Any an-danitra any koa
+	Rehefa eo Jeso,
+	Dia hivory avokoa
+	Raha Sabata toy izao
+	\'Reo voavonjy marobe
+	Ka hihira mafy hoe :
+	Voninahitra ho Anao
+	Tompo lehibe.
+	Mifalia, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '588',
+  '588',
+  'MIARAKA AMINAO JESOSY',
+  'L. D. Randriamampandry',
+  'L. D. Randriamampandry',
+  'Do dia Bb 3/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. MIARAKA AMINAO JESOSY
+
+1
+	Miaraka aminao, Jesosy Zoky,
+	Misy fifaliana, misy toky.
+	Zaza sambatra ny eo aminao
+	Fa ny fombanao no tiany atao.
+
+2. Ireo teny ratsy tsy fanao,
+	Tsy mba heno ao, tsy sitrakao,
+	Fa ny hiran-danitra milanto,
+	Ikaloana ny zava-kanto.
+
+3. Mampianatra any ny baiboly
+	Hanoheranay ny mpanangoly
+	Ka raha ho avy indray Ianao
+	Raisonao izahay rehetra izao.
+
+4. Ary Dadanay sy Neninay,
+	Raiso fa nitaiza anay.
+	Aoka samy tsy hangaihay,
+	Fa ho tody soa ka ho tafaray.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '589',
+  '589',
+  'MIFALIA RE RANKIZY O',
+  'J. Ramahaisahy',
+  'J. Ramahaisahy',
+  'Do dia G 4/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. MIFALIA RE RANKIZY ? !
+
+1
+	Mifalia re, rankizy ?
+	Fa notahian\'i Jeso.
+	Asandrato mafy re ny feo
+	Hidera Azy \'zao.
+
+ISAN\'ANDININY :
+	Mifalia re, mihobia koa,
+	Fa samy tratry ny taona isika
+	Izay manoloana.
+
+2. Aza avela ho very maina re
+	Ny andro izay nomena anao.
+	Atolory re ny tenanao
+	Ho an\'ny Tomponao.
+	Mifalia re, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '590',
+  '590',
+  'FAHATOKIANA',
+  'R. Tsimaitoarivo',
+  'R. Tsimaitoarivo',
+  'Do dia F 4/4 Moderato',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. FAHATOKIANA
+
+ISAN\'ANDININY :
+	:,: Fahatokiana, fahatokiana,
+	Fahatokiana :
+	No toetra vaovao
+	Nianaranay ankizy
+	Ka fantatray tokoa.
+	fahatokiana
+	An\'Andriamanitra,
+	Fahatokiantsika Azy. :,:
+
+OLON-TOKANA :
+	1
+	Fiarovana avy amin\'ny Tompo,
+	Mihaino Azy koa sy tia manompo,
+	Miasa tsara, eny tia ny hafa,
+	Mamafy voa tsara tarigetranay.
+	Fahatokiana, sns.
+
+2. Vavaka mafana, fanajana
+	Mamela heloka, matoky koa
+	Tarihin\'Andriamanitra isan\'andro
+	Manaiky ihany koa izay mahasoa.
+	Fahatokiana, sns.
+
+*******
+	Miaraka daholo ny ankizy rehetra
+	aminin\'ny voalohany izay miverina in-droa.
+	Rehefa avy eo kosa dia misy iray miventy
+	ny andininy 1
+	Miaraka indray ny rehetra, manao toy izay natao
+	tamin\'ny voalohany. Misy iray hafa koa miventy 
+	ny andininy 2. Miaraka daholo ny rehetra amin\'ny famaranana azy
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '591',
+  '591',
+  'NANAIKY JESO FA HO MPIANDRY AHY',
+  'Scott Lawrence',
+  'A. R. Marnoël',
+  'Do dia C 6/4 Falifaly',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. Nanaiky Jeso fa ho Mpiandry ahy,
+	Hany ka tiako ery.
+	He ! ny ankizy antsoiny toa ahy.
+	Tena tiako Izy.
+
+ISAN\'ANDININY :
+	He, tiako Jeso,
+	He, tiako tokoa,
+	Satria tia ahy taloha
+	Raha sedraina aho,
+	Hakekezina koa,
+	Tiako tokoa Jeso.
+
+2. Ny ondry malemy, trotroiny.
+	O ! tiako re Jeso.
+	tsy misy iray \'zay mba hadinoiny
+	Tena tiako Jeso.
+	He, tiako Jeso, sns.
+
+3. Izy manomana toerana soa
+	Any an-danitra
+	Hiarahako monina aminy koa
+	Ka ho finaritra.
+	He, tiako Jeso, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '592',
+  '592',
+  'TIAKO JESO',
+  'Lanny Wolfe',
+  'A. R. Marnoël',
+  'Do dia F 3/4 Haingakaingana',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. Tiako Jeso, tiako tokoa
+	Jeso Tompo.
+	Izay no hany teniko re :
+	Tiako Jeso.
+	Mba tiako raha ny fiainako
+	Hilaza izany koa ;
+	Hilaza hoe : tiako Izy,
+	tena tiako tokoa.
+
+2. Ilaiko Izy, eny ilaiko
+	Jeso Tompo
+	Izay no hany teniko re :
+	Ilaiko Izy
+	Mba tiako raha ny fiainako
+	Hilaza izany koa ;
+	Ilaiko Izy, ilaiko,
+	tena ilaiko tokoa.
+
+3. Derao Izy,
+	Derao re Jeso Tompo.
+	Izao no hany teniko re :
+	Derao Jeso.
+	Mba tiako raha ny fiainako
+	Hidera an\'i Jeso.
+	Hoderaiko, deraiko,
+	Hoderaiko Jeso.
+
+4. Isaorako, isaorako
+	Jeso Tompo.
+	Izao no hany iriko re :
+	Hisaotra Azy.
+	Mba tiako raha ny fiainako
+	Ho fisaorana koa.
+	Hisaotra Azy, hisaotra,
+	Hisaotra an\'i Jeso.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '593',
+  '593',
+  'JESO BE FITIA',
+  'J. H. Rosekranz',
+  'F. Ramanantsialonina',
+  'Do dia Ab 4/4 ',
+  'TANORA',
+  'Ho an\'ny ankizy madinika',
+  '
+1. Jesosy be fitia,
+	Mpiaro ahy Ianao.
+	Mpitantana ny dia
+	Amoron-drano ao.
+
+ISAN\'ANDININY
+	Jeso ?, jereo
+	Ny ondrikelinao
+	Raiso ka ekeo
+	Ho eo anilanao.
+
+2. Vonjeo fa mitaraina,
+	Ry Tompo be fitia,
+	Ianao no avotr\'aina
+	mamonjy ny mania.
+
+3. Ny masoko atodiho
+	Hibanjina Anao
+	Ny tanako tariho
+	Hanao ny asanao.
+
+4. Ny sofiko halady
+	Hihaino ny hafatrao
+	Ny tongotro ho tomady,
+	Hanaraka Anao.
+
+5. Ny vavako ho kinga
+	Hanambara Anao.
+	Baiboly no hapinga
+	Hiaro ny didinao.
+
+6. Ny foko syny aiko
+	Omeko anjakao
+	Ny tenako, ny saiko
+	Diovy ho lapanao.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '594',
+  '594',
+  'RY JEHOVAH RAINAY',
+  'Peet Steenberg',
+  'Rabenadimby',
+  'Do dia D 4/4 Maesteso',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. RY JEHOVAH RAINAY
+
+1
+	Ry Jehovah Rainay
+	\'Zay loharanon-tsoa
+	Sy fototry ny fiainanay
+	Ianao no ijoroanay
+	(Feo 1) Dera ho Anao ry Jehovah
+	Amena
+	(Feo 2, 3) Ry Jehovah - Haleloia,
+	Haleloia, Haleloia, Amena.
+	(Feo 4) Ry Jehovah Haleloia
+	Haleloia Amena.
+
+2. Ry Kristy Mpamonjy
+	Filohan\'ny tanora,
+	Tariho \'reto zandrinao
+	Handia ny lala-nombanao.
+	Dera ho Anao
+	(Feo 1) Ry Mpamonjy anay,
+	Amena
+	(Feo 2, 3) Ry Mpamonjy Haleloia.
+	Haleloia, Amena.
+	(Feo 4) Ry Mpamonjy Haleloia.
+	Haleloia, Amena.
+
+3. Ry Fanahy hendry
+	Midina ao am-ponay
+	Hibitsika, hanoro
+	Ny fiaina-mendrika, madio.
+	Dera ho Anao
+	(Feo 1) Ry Fanahy hendry
+	Amena
+	(Feo 2, 3) Ry Fanahy, Haleloia,
+	Haleloia, Haleloia,
+	Amena.
+	(Feo 4) Ry Fanahy, Haleloia,
+	Haleloia, Amena.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '595',
+  '595',
+  'RY ZANAKO MANIA',
+  'I. D. Sankey',
+  'E. Andrianjafitrimo',
+  'Do dia F 4/4 ',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. RY ZANAKO MANIA
+
+1
+	Ry zanako mania !
+	Henoinao izao.
+	Izaho ba fitia
+	Mangora-po anao ;
+	Ry zanako ! modia
+	Sao maty ianao,
+	Fa be ny bibidia ;
+	Modia re !
+
+2. Ny zavatry ny tany
+	Sao mahasimba anao
+	Harena mety lany
+	Tsy mahavonjy anao :
+	Izaho irery ihany
+	No hiadananao ;
+	Ka mbola manontany :
+	Tsy hody va ?
+
+3. Mamiratra jerena
+	Ny lalan-tsitrapo,
+	Fa ankoso-bolamena,
+	Mamitaka ny fo;
+	Ny sitrapon\'ny tena
+	Mamery ny ainao,
+	Ario ka miverena
+	Modia re !
+
+4. Izaho Tompon\'aina,
+	Nijaly ho anao,
+	Ka, he, nanolotr\'aina,
+	Mba hamonjena anao;
+	Ny rako mitaraina,
+	Modia ianao :
+	Ka aza mba malaina,
+	Modia re !
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '596',
+  '596',
+  'INDRO NY TOMPO',
+  'A. R. Marnoël',
+  'A. R. Marnoël',
+  'Do dia Bb 4/4 Marisika',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. INDRO NY TOMPO
+
+1
+	Indro ny Tompo fa mitsangana
+	Eo am-baravarana
+	Ka mandona moramora
+	Injao ny feony fa miantso
+	Toa mamaramparana
+	Moa tsy renao ry tanora ?
+
+ISAN\'ANDININY :
+	O, vohay (? vohay)
+	Ny fonao (ny fonao)
+	Mba hidiran\'ny Mpamonjy
+	Tia anao
+	O, vohay (? vohay)
+	Ka ekeo (ka ekeo)
+	Izy mba ho mponina ao.
+
+2. Indro ny hola-tsatro-tsilo izao
+	Dia eo an-dohany,
+	Namonjena anao mpanota
+	Eny, ny lanitra ho anao izao
+	Dia iantohany,
+	Raha ianao mety mamoha.
+	O ! vohay, ny fonao, sns.
+
+3. Indro ny tanany nahinjitra
+	Ary koa ny lanivoa
+	Voagorobaky ny ota
+	\'Zany fitiavany anao
+	Manentanentana ny fo,
+	Hitomany, antsoantso.
+	O ! vohay, ny fonao, sns.
+
+4. Eny, tsy ho ela dia hivadika
+	Ny rasa toy izao
+	Ka ianao indray no handona.
+	Amin\'izay dia hanenenanao
+	Ny ratsy \'zay natao,
+	Tsy ho hainao ny hifona.
+	O, vohay (? vohay)
+	Dieny izao (dieny izao)
+	Mba hidiran\'ny Mpamonjy
+	Ny fonao.
+	O, vohay (? vohay)
+	Ka ekeo (ka ekeo)
+	Izy mba ho mponina ao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '597',
+  '597',
+  'TANORA O, AVIA',
+  'M. Lewis',
+  'M. Rakotonirainy',
+  'Do dia A 4/4 ',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. Tanora ô, avia meteza
+	Hirotsaka hanafika,
+	Ka asandrato ny faneva ;
+	Samia re marisika !
+
+ISAN\'ANDININY :
+	Novonjena tamin\'ota
+	Mba hanompo ianao.
+	Koa ampio ireo mpanota
+	Vionjeo, ndrao dia very izao.
+
+2. O ! miverena ry mpanota
+	Izay no hafatra entinao.
+	Jesosy \'Lay nivesatra ota,
+	Ampanekeo \'reo namanao.
+	Novonjena tamin\'ota, sns.
+
+3. Ny valisoa dia miandry
+	Ny mpiasa mahatoky re
+	Izay tsy mba tafandrimandry
+	Raha mbola misy very e !
+	Novonjena tamin\'ota, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '598',
+  '598',
+  'TANORA VAO MIVELATRA',
+  'Ratovondrahety',
+  'Ratovondrahety',
+  'Do dia C 4/4 Allegreto',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. Tanora vao mivelatra
+	Ho voninkazo manitra
+	Masoandron\'aina mamiratra
+	No hery isandratany
+	He ! tsara re, he, sambatra !
+
+2. Tanora misy bika soa,
+	Mahery, hendry sy mahay ;
+	Mibanjina sy mifantoka
+	Aminareo ny masonay,
+	Mirary soa, mivavaka.
+
+3. Tanora misy tahotra
+	An\'Ilay Andriamanitra
+	Nanao tempoly ny tenanao
+	Hitoeran\'ny Fanahiny
+	Tandremonao, ambenonao.
+
+4. Tanora ô, andraikitrao
+	Ny fiangonan\'i Kristy ;
+	Ataovy asa manokana,
+	Taomy ireo sakaizanao
+	Hiditra ao, honina ao !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '599',
+  '599',
+  'RAISO JESO HO LAPANAO',
+  'J. Harker',
+  'Rajoelison',
+  'Do dia Ab 4/4 ',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. Raiso Jeso ho lapanao ny foko,
+	Iriko re ny fiadananao.
+	Ho entiko \'lay tanambokovoko.
+	Mba hanahafako \'lay endrikao.
+
+2. Raiso, Jeso ny androko rehetra
+	Foiko avokoa mba hanajana Anao.
+	Ho ampoky ny soa tsy misy fetra
+	Ho fitahiana ny olonao.
+
+3. Raiso, Jeso, nu tanako malemy.
+	Fihono mafy eo an-tananao ;
+	Aza afoy raha sehatry ny memy,
+	Fandrao ho kivy ka handà Anao.
+
+4. Raiso, Jeso ny fahatanorako,
+	O ! hamasino ho Anao anio ;
+	Levony avokoa ny fahotako
+	Dia raisonao ny fo ankehitrio.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '600',
+  '600',
+  'IZAO NO ANDRON\'NY HATANORAKO',
+  'J. Randrianarison',
+  'J. Randrianarison',
+  'Do dia E 12/8 ',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. \'Zao no andron\'ny hatanorako
+	Hanatonako Anao, ry Mpamonjy ;
+	Izay hany mba fanantenako
+	Itokisako handraisana vonjy.
+
+ISAN\'ANDININY :
+	Ka ny voady \'zay ataoko anio.
+	Tanteraho ary koa mba tahio.
+	Hamasinono ho mendrika Anao
+	Ny toetrako hatramin\'izao.
+
+2. \'Zao no andron\'ny hatanorako
+	Handreseko ny fakam-panahy
+	Ka ny toetra tsy maintsy ialako
+	Dia ireo ratsy \'zay mahazatra ahy.
+	Ka ny voady, sns.
+
+3. \'Zao no andron\'ny hatanorako
+	Hitoriako Anao, ry Jesosy,
+	Ka ny toetrako no hilazako
+	Ny finoako Anao tsy voahosy.
+	Ka ny voady, sns.
+	
+'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '601',
+  '601',
+  'MIASA RE IZAO',
+  'W. H. Doane',
+  'F. Ramanantsialonina',
+  'Do dia F 4/4 Marisika',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. Miasà re izao,
+	Jeso no momba anao
+	Mandra-pahatonga anao
+	Anatrehan\'ny Ray.
+	Aza ketraka ianao,
+	Tontosao ny atao,
+	Milofosa tokoa
+	Mba hamory ny voa.
+
+ISAN\'ANDININY
+
+Miaingà, miasà
+	Mijoroa eo aloha
+	Ô ! vitao (ô ! vitao)
+	Ny atao (ny atao)
+	Fa homba anao ny Tomposoa.
+
+2. He! tsarovy tokoa
+	miaramiula ianao,
+	Ny hijoro, hanavao,
+	No ilàna anao.
+	Dia tafio avokoa
+	Ny fiadiana mahasoa,
+	Haharesy ianao
+	Sy hahery izao.
+	Miaingà, miasà, sns
+
+3. Ho tanora madio,
+	No voady hatao.
+	Miezaha re anio
+	Mijoroa hanavao.
+	Ny fiainana soa
+	Idealy tokoa.
+	Mahereza hatrizao,
+	Aza kivy ianao.
+	Miaingà, miasà, sns
+
+
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '602',
+  '602',
+  'INONA NO TIANAO JESO',
+  'Mél. TIL102',
+  'Rajoelison',
+  'Do dia Bb 3/4 ',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. Inona no tianao, Jeso,
+	Mba hatolotro Anao ?
+	\'Zay nitondra latsa, eso,
+	Noho ny fitiavanao.
+	Moa vola sy harena
+	Na talenta, hery koa,
+	Moa azonaoekena ?
+	Sa tadiavinao ny fo ?
+
+2. Inona no tianao, Tompo,
+	Mba ho fiderana Anao ?
+	Dia Ianao izay nanompo
+	Na dia Zanaka izao.
+	Moa ny hira tsara indrindra
+	\'Zay miredona tokoa,
+	Tena kanto sy mirindra,
+	Sa tadiavinao ny fo ?
+
+3. Fahatanorana soa
+	Moa ampy ho Anao ?
+	Noho ny avotra analoa
+	Tany Kalvary izao.
+	\'Zay ananako rehetra,
+	Andro sy fotoana koa,
+	Foiko re tsy misy fetra,
+	Sa tadiavinao ny fo ?
+
+4. Indro ary, Jeso tia,
+	Fa hafoiko hatrizao,
+	Tony foko izay mania,
+	Raha tadiavinao.
+	O ! amboary sy diovy
+	Ho tempoly, lapa soa,
+	Hamasino sy arovy
+	Fa Anao tokoa, tokoa !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '603',
+  '603',
+  'RY TANORA MISEHOA',
+  'Raobijaona',
+  'Raobijaona',
+  'Do dia D 4/4 ',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. Ry tanora misehoa,
+	Ambarao ny Tomponao.
+	Alatsaho ao am-po,
+	Ny fitiavany anao.
+
+2. Aza very hevitra
+	Eo am-pitoerana.
+	Mitsangàna, mihazavà.
+	Ianao no andrasana.
+
+3. Hararaoty re izao
+	Ny fotoana omena anao.
+	Kely sisa ka vonjeo
+	\'Reo fanahy mitoreo.
+
+4. Hoy Jesosy raha tety ;
+	Mandehana mitoria.
+	Fa Izy hanome hery
+	Ho anao, ka matokia.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '604',
+  '604',
+  'VAO TANORA AHO IZAO',
+  'J. H. Fillmore',
+  'F. Ramanantsialonina',
+  'Do dia D 4/4 ',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. Vao tanora aho izao
+	Ka te ho mpiasanao,
+	Ry Jesosy, Zoky tia.
+	Raiso na mpaniasia,
+	Kely hery, tsy mahay,
+	Omeo tky sy ombay.
+	Jeso Kristy, raisonao aho
+	Hiasa ho Anao.
+
+2. Ny Baiboly jiroko
+	Ho fnilon-diako.
+	Hampandroso ahy izao
+	Mba ho voninahitrao,
+	Diovinao ny fiainako,
+	Ka hampio handresy koa
+	Jeso, Kristy, raisonao aho
+	Hiasa ho Anao.
+
+3. Ampianaro mba ho tia
+	Ireo ondry izay mania.
+	Ry Fanahy Masina ô
+	Raisinao ny tanako,
+	Sakambino aho izao
+	Mba hijoro ho Anao.
+	Kristy ô Mpamonjiko
+	Izay no faniriako
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '605',
+  '605',
+  'NY HATANORANA DIA TOA VONINKAZO',
+  'Rev. A. H. Ackey',
+  'Rajoelison',
+  'Do dia Eb 6/4 ',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. Ny hatanorana dia toa voninkazo.
+	Raozy mivelatra, manitra ery.
+	Nefa ho vasoka sady halazo,
+	Fa ny maharitra dia ny ary.
+
+ISAN\'ANDININY :
+	Eo anilanao no irirko \'zao
+	Akaiky Anao Jeso Mpamonjiko
+	Eo anilanao, eto ka hatrao.
+	Anilanao, ry hany Tokiko.
+
+2. Ny fifaliana dia, indro, mandalo
+	Tsy misy mantsy mateza ety
+	Maro mpisopatra, be fahavalo:
+	Rahoviana re no ho tody ary.
+	Eo anilanao, sns.
+
+3. Ny faniriako, ry Mpamonjy Tsara,
+	Hanompo Anao, raha mbola ety,
+	Rahatrizay dia handray \'lay anjara
+	\'Zay voatahiry an-danitra ary.
+	Eo anilanao, sns.
+
+4. Ny hahita Anao no iriko \'zao,
+	Hahita Anao eo anilan\'ny Ray
+	Eny,n hahita Anao dieny ety izao;
+	INdrindra ary, sy ho mandrakizay !
+	Eo anilanao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '606',
+  '606',
+  'MANDROSOA IZAO',
+  'P. P. Bilhorn',
+  'F. Ramanantsialonina',
+  'Do dia C 4/4 ',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. Mandrosoa izao, ry miaramila soa
+	Fa Jesosy no Mpitarika eo aloha.
+	Atsangano izao ilay fanilonao
+	Dia hazavao izao rehetra izao.
+
+ISAN\'ANDININY :
+	Ry tanora ô, mba hazavao
+	(Ry tanora ô, hazavaonao)
+	Ny nosinao (nosinao)
+	Feno haizina e ! (\'zao tontolo izao)
+	Ka mba vitao ny adidinao.
+
+2. Nofidiana ianao hitondra soa,
+	Dia ny famonjena lehibe tokoa.
+	Ambarao izao \'lay Fahazavana re,
+	Dia Jesosy Masoandro lehibe.
+	 Ry tanora ô, sns.
+
+3. Izao tontolo izao dia hifarana,
+	Ka ny haizim-pito ho tarangana.
+	Koa milofosa hamonjy namana,
+	\'Lay Kanana re iry fa tazana?
+	 Ry tanora ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '607',
+  '607',
+  'RY TANORA VONINKAZO',
+  'J. J. M. Biermann',
+  'Ravonjizafy',
+  'Do dia Db 3/4 ',
+  'TANORA',
+  'Ho an\'ny tanora',
+  '
+1. Ry tanora voninkazo,
+	Feno hatsaran-tarehy,
+	Faly sady ravoravo,
+	Feno tsiky, mihomehy,
+	Indro Ilay Mpanao anao,
+	Miantso hoe avia ! avia !
+	Anaka atolory \'zao
+	Ny fonao mpaniasia.
+
+2. Ny mpamonjy no miantso
+	Miandry anao hiara-dia,
+	Manana ny teny kanto,
+	Tsy ny eto fa ny ary.
+	<<Miomàna dieny izao
+	Hiaraka amin\'i Jeso,
+	Omeo azy ny fonao,
+	Dia ho sambatra doria>>.
+
+3. Ry tanora ô ! meteza,
+	Iza no andrasanao ?
+	Moa ve haharitra ela ?
+	Nefa ny ora manindao,
+	\'Njay ny feo manao hoe :
+	<<Moa tia Ahy va ianao ?
+	Jeso Tompo no miandry
+	Atolory ny fonao>>.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '608',
+  '608',
+  'FAHINY FONY AHO MBOLA ZAZA',
+  'Ira F. Stamphill - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia F 4/4 ',
+  'TANORA',
+  'Antso',
+  '
+1. Fahiny fony aho mbola zaza
+	Hariva vao mitsaha-milalao.
+	Nanaraka ny làla-mahazatra
+	Tsy ela dia ny antso no injao :
+	<<Modia fa hisakafo izao
+	Hariva ny andro.
+	Modia fa antsoin\'ny renina.>>
+	Dia nody ihany aho.
+
+2. Indray andro tan-tsisin\'ny fandriany
+	Raha niara-nandohalika izahay,
+	Dia toa nandre feo miantso koa i Neny
+	Feo to miantso avy amin\'ny Ray :
+	<<Modia fa hisakafo izao
+	Hariva ny andro.
+	Modia fa antsoin\'ny renina.>>
+	Dia nody ihany aho.
+
+3. Misy sakafo voavoatra sy tsara
+	Izay miandry ahy sy anao.
+	Ny Tompo Jesosy no manambara
+	Fa hiara-misakafo aminao.
+	Modia fa ora mety izao
+	Hariva ny andro
+	Modia antsoin\'ny Tomponao
+	Raiso ny akanjo.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '609',
+  '609',
+  'O! RY MPINO',
+  'E. Rakotonirina',
+  'E. Rakotonirina',
+  'Do dia C 4/4 Mitsatotsatoka sy Maleaka',
+  'TANORA',
+  'Antso',
+  '
+1. O ! ry mpino izay nandray ny teny
+	Miantso anao anio ny Tomponao.
+	Miaingà re izao hilaza ireny
+	Ho faminjena ireo namanao (Henoy)
+
+ISAN\'ANDININY :
+	Miantso anao izao Kristy Tompo
+	Hovalinao ve, mamalia.
+	O ! ekeo
+	Raha toa mpanompo vonona
+	Handova fiainana ary (ary)
+	\'Zay omen\'i Jeso tia (Jeso tia).
+
+2. O ! ry mpino, moa henonao
+	\'Lay antso feno fitiavana ?
+	Koa faingàna mitory dieny izao
+	Fa ity tany anie horavàna.
+	Miantso anao, sns.
+
+3. O ! ry mpino, mitsangàna izao,
+	Hoy ny feon\'Ilay Jeso Mpamonjy tia.
+	Mahereza aingao ilay fanilonao
+	Hampisinda ny haizina ety.
+	Miantso anao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '610',
+  '610',
+  'RY TANORA VONINKAZO',
+  'Andriamboavonjiarinaivo',
+  'Andriamboavonjiarinaivo',
+  'Do dia D 4/4 Mavitrika',
+  'TANORA',
+  'Antso',
+  '
+1. Ry tanora voninkazo,
+	Mavitrika sy sahy
+	Tsy manana ahiahy,
+	Moa mba fantatrao
+	Fa zava-poana avokoa,
+	\'Zao rehetra ary izao.
+	(Tanora ô).
+	Tsy haharitra ny tany
+	Fa toy ny voninkazo
+	Ho simba sy halazo.
+	Andrandrao ny tanjona ambony
+	Dieny ety
+	Ilay Kanana tsara ery
+	(Kanana ery)
+
+ISAN\'ANDININY :
+	Hazavao ny taninao
+	(Hazavao taninao)
+	Andeha torio ny teny soa
+	(\'Ndeha torio teny soa)
+	Zotom-po sy hery koa
+	(Zotom-po hery koa)
+	No mendrika an\'i Jeso tia
+	(An\'i Jeso tia anao)
+
+2. Ry tanora voninkazo,
+	Mavitrika sy sahy
+	Tsy manana ahiahy,
+	\'Ndeha hanatona
+	\'Zay nomena anao ety
+	Fa hivaly soa ary, tanora ô !
+	Tsy haharitra ny tany
+	Fa toy ny voninkazo
+	Ho simba sy halazo.
+	Asandrato avo ny fanevan\'i Jeso
+	Mba ho hita tsara ety.
+	(Ho hita re)
+	Hazavao ny taninao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '611',
+  '611',
+  'NY ANDRONAO TANORA',
+  'J. Rakotomananjanahary',
+  'J. Rakotomananjanahary',
+  'Do dia D 6/8 Animato',
+  'TANORA',
+  'Antso',
+  '
+1. Ny andronao tanora izao
+	No tena fatratra
+	Hisian\'ny hery
+	Tena feno hiasana re
+	Ka inona no ataonao
+	Mba tiako ho fantatra
+	Ary aiza no alehanao
+	Moa fantatrao ve ?
+
+ISAN\'ANDININY :
+	Tsy aleo ve atolotra
+	Ilay Mpamonjy tia,
+	Ho entiny, hamboariny
+	Ho tena mendrika,
+	Toy iza handeha irery,
+	Ho be faniasia
+	Tsy hahalia làlana
+	Ka dia ho rendrika ?
+
+2. Toa voninkazo tsara loko
+	Izany andronao,
+	Manintona, mamoaka
+	Fofo-manitra tokoa.
+	Fa rahariva dia halazo,
+	Ary fantatra
+	Ho potika, hihintsana
+	\'Lay voninkazo soa.
+	Tsy aleo ve, sns.
+
+3. O ! inona no tombotsoa
+	Mahazo izao sy izao
+	Kanefa dia ho potika
+	Ny hatanoranao.
+	Dieny mbola misy
+	Ny fotoana iainanao
+	Anio, meteza hanavao
+	Ireo lasanao.
+	Tsy aleo ve, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '612',
+  '612',
+  '\'LAY TANANA MASINA',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia C 4/4 Manimanina',
+  'TANORA',
+  'Fanoloran-tena sy faniriana',
+  '
+1. \'Lay tanàna masina
+	Indro efa tazako eto izao.
+	Mamirapiratra ery
+	Tena mahamanina.
+	Loharano mavana
+	\'Njao mandefa antso ho anao :
+	Avia ianao hiala sasatra e !
+
+ISAN\'ANDININY :
+	Andao hody e, andao hody e.
+	Aza mba variana ety
+	Fa misy anjaranao ary.
+	Andao hody e,
+	An-tanàna masina.
+	Misy anjara tranonao any e,
+	Ka aza omenao olon-kafa.
+
+2. \'Lay tanàna masina
+	Indro efa midina ho ety.
+	\'Lay Mpamonjy, \'Lay Mesia,
+	Eo am-bavahady re,
+	Miramirana ery
+	Maika hampandroso anao izao.
+	Ka moa ve efa tsinjonao ?
+	Andao hody e, sns.
+
+3. \'Lay tanàna masina
+	Tsy misy na sento na toreo,
+	Tsy misy fijaliana,
+	Tsy misy fahoriana
+	\'Ndeha isika izao hankeo
+	Fa aza mba varimbariana ety
+	O ! andao, Jeso miandry anao.
+	Andao hody e, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '613',
+  '613',
+  'ENDREY TSY TAKATRY NY SAIKO',
+  'N. Marc Ravalison',
+  'N. Marc Ravalison',
+  'Do dia C 4/4 ',
+  'TANORA',
+  'Fanoloran-tena sy faniriana',
+  '
+1. Endrey, tsy takatry ny saiko loatra
+	Ny fitiavanao, ry Jeso ô,
+	Nafionao ny ainao
+	Hanavotra ahy nohony heloko.
+
+2. Endrey, tsy haiko hadinoina re
+	Ny fijalianao tao Kalvary.
+	Niaritra ny mafy Ianao
+	Na dia zanak\'ANDRIAMANITRA.
+
+3. Nangorohoro irery Ianao,
+	Nisento irery tao Getsemane,
+	Ny latsa, eso, ny satro-tsilo,
+	Dia maneho fa tia ahy Ianao.
+
+4. Koa indro raiso re, ry Tompo
+	Ny tenako izao mba ho Anao
+	Na dia mpanota ô ! raisonao re
+	Fa voavidin\'ny ranao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '614',
+  '614',
+  'ENY, HO SATRIKO',
+  'M. Randriamiarana',
+  'A. Rabefarison',
+  'Do dia Eb 3/4 ',
+  'TANORA',
+  'Fanoloran-tena sy faniriana',
+  '
+1. Eny, ho satriko, ho mamiko,
+	Ry Tompo tia,
+	Ny hipetraka eo anilanao,
+	Ho zanakao.
+	Ka na lavitra, na sarotra,
+	Izany dia,
+	Ry Tompo ô,
+	Anilanao no tiako izao.
+
+ISAN\'ANDININY :
+	Eo anilanao, ry Jeso ô, anilanao
+	Eo anilanao tsy mety lao.
+	Ka na lavitra, na sarotra,
+	Izany dia,
+	Ry Tompo ô,
+	Anilanao no tiako izao.
+
+2. Eny, ho sambatra
+	Raha eo anilanao ny fo.
+	Eny, ho sambatra
+	Ho tretrika, ry Ray Tsitoha,
+	Sento sy lonjony
+	Dia tsy hisy intsony
+	Ry Tompo ô !
+	Raha Ianao no hanjaka ao.
+	Eo anilanao, ry Jeso ô, sns.
+
+3. Eny, ho ory !
+	Ho ory loatra ny fanahy,
+	Eny, ho ory aho
+	Raha Ianao no lavitra ahy
+	Ka na dia mivily aza izao
+	\'Ty zanakao,
+	Ry Tompo ô ! aoka Ianao
+	Mba tsy handao.
+	Eo anilanao, ry Jeso ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '615',
+  '615',
+  'O! RY TANORA',
+  'Ira D. Sankey',
+  'F. Ramanantsialonina',
+  'Do dia G 9/4 ',
+  'TANORA',
+  'Fanoloran-tena sy faniriana',
+  '
+1. Ô ! ry tanora izay feno hery,
+	Indro ny Tompo, \'Lay mampahery.
+	Miantso Izy anio, ka tsy mangina.
+	Aza variana na be ahiana.
+
+ISAN\'ANDININY :
+	Tompo malala \'ndreto \'zahay.
+	Ô, sakambino, sao lavo indray
+	Ny fikasana ho zanakao,
+	Irina ho tanterahinao.
+
+2. \'Zao no fotoana
+	Mendrika indrindra
+	Hanolorana ny tenanao
+	Hanara-dia, \'Lay be fitia,
+	Tsy mba hivily na haniasia.
+	Tompo malala, sns.
+
+3. Ka ny talenta anananao,
+	Ampiasao, mba hamonjenao
+	\'Reo namanao, ô ! mba tohano,
+	Tsy ho very \'zao na hahita angano.
+	Tompo malala, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '616',
+  '616',
+  'MANINDRY ATO AM-POKO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia G 3/4 ',
+  'TANORA',
+  'Fanoloran-tena sy faniriana',
+  '
+1. Manindry ato am-poko
+	Ny ota natao
+	Nentin\'ny saina adala,
+	Nahafoy ny didinao
+
+ISAN\'ANDININY :
+	Ô ! impiry aho no nania
+	Ka nandao ny tavanao
+	Raiko malal ô, meteza
+	Hamoha indray ny tranonao.
+
+2. Ekeko fa hadisoako
+	\'Zay vita taloha.
+	Ny hatsarako rehetra
+	Dia nosimbako avokoa.
+	Ô ! impiry, sns.
+
+3. Tranon\'ny Raiko no eto,
+	Fiadanako koa.
+	Ny fahotako rehetra
+	Efa hadino avokoa.
+
+Farany
+	Tiako tokoa, Ray malala ô,
+	Tiako ny hisaotra Anao.
+	Tranon\'ny Raiko no eto,
+	Fiadanako mandrakizay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '617',
+  '617',
+  'AMBOARY AHO JESO',
+  'B. Rasolotahiana',
+  'B. Rasolotahiana',
+  'Do dia F 4/4 ',
+  'TANORA',
+  'Fanoloran-tena sy faniriana',
+  '
+1. Amboary aho, Jeso, mba ho toa Anao
+	Indrindra fa ity foko, ity Jeso ô !
+	Mora fanahy sady be fitiavana.
+	Tsara ny maha-te ho tia Jeso ô !
+
+ISAN\'ANDININY :
+	Amboary, Jeso, ny fiainako
+	Ka fenoy ny fanahy ho tsara sy mandrika
+	(Hanan-toe-panahy tsara sy mendrika)
+	Ny fisainana sy ny fiteniko
+	(Ny fisaina sy ny fiteniko)
+	Enga anie, Jeso, mba ho toy ny Anao.
+	(Enga anie ka mba ho toy ny Anao).
+
+2. Izao tenako izay feno ota izao
+	Indrindra fa ity foko ity, Jeso,
+	No atolotro mba hohavaozinao,
+	Tsy hanala baraka Anao, Jeso.
+	Amboary, Jeso, sns.
+
+3. Ampitoero amiko, ny fitiavanao
+	Mba hitiavako ny fahavaloko, Jeso.
+	Ireo fomba ratsy, \'zay niainako
+	Soloy re Jeso ô ! mba ho tena vao.
+	Amboary, Jeso, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '618',
+  '618',
+  'IRIKO JESO',
+  'R. Rabenasolo',
+  'R. Rabenasolo',
+  'Do dia Eb 4/4 ',
+  'TANORA',
+  'Fanoloran-tena sy faniriana',
+  '
+1. Iriko Jeso ny o mpianatrao.
+	Iriko Jeso hanara-dia Anao.
+	Iriko Jeso hijoro ho Anao.
+	Iriko Jeso ho tonga zanakao.
+
+ISAN\'ANDININY :
+	Atolotro anio, ho Anao tsy misy fetra.
+	Atolotro ho Anao ny tenako Jeso
+	Hanompo Anao, hanao ny sitrakao
+	Ho Anao manontolo ka raiso anjakao.
+
+2. Iriko Jeso ny tsy hisalasala.
+	Iriko Jeso, hanoa Anao tokoa.
+	Iriko Jeso, ry Zoky Malala.
+	Iriko Jeso ny hankato Anao.
+	Atolotro anio, sns.
+
+3. Iriko Jeso manomboka anio.
+	Iriko Jeso ny foko, ô sasao.
+	Iriko Jeso iriko mba hadio.
+	Iriko Jeso ny ho mendrika Anao.
+	Atolotro anio, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '619',
+  '619',
+  'TSAROAKO RAY Ô !',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Ab 3/4 ',
+  'TANORA',
+  'Fanoloran-tena sy faniriana',
+  '
+1. Tsaroako Ray ô, tsaroako tokoa
+(Tsaroako Ray ô)
+Ny hadisoako natao taminao
+(Ny hadisoako izay natao)
+Hitalahoako ny famindram-po
+(Nataoko taminao)
+Ray malala ô, avia mihainoa.
+(Ry Raiko ô, avia mihainoa).
+	ISAN\'ANDININY :
+Fa Kalvay no ahitako anio ny fitiavanao
+Ary koa ny famindramponao
+Hitalahoako ny famindrampo
+Omeo ahy ny famindrampo
+Ray malala ô, avia mihainoa.
+
+2
+Ry Ray malala ô, raha toa halanao
+(Raha toa halanao)
+Tsy ho ahy ny fitiavanao
+(Ny fitiavanao ry Ray)
+Hangatahiko koa mba hesorinao
+(Esory koa tsy ho ahy.
+\'Zany aina nomenao ho ahy.
+(Ny aina \'zay nomenao ho any).
+Fa Kalvary, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '620',
+  '620',
+  'FIHINO MAFY AHO JESO Ô !',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia C 4/4 ',
+  'TANORA',
+  'Fanoloran-tena sy faniriana',
+  '
+1. O 
+O 
+Fihino, fihino
+Fihinio, mafy aho, Jeso ô,
+Fa malemy, malemy
+Mora vaky
+Raha tsy an-tananao, Jeso.
+	ISAN\'ANDININY :
+Fihino tahaka an\'i Jaona
+Ho eo an-tratranao, Jeso.
+Fihino, fihino
+Fa raha eo an-tratranao aho
+Dia ho tony.
+
+2
+Raha sendra ho kivy
+Ka mila hangatsiaka ny finoako,
+Hafanao re, ry Zoky
+Ô, fihino eo an-tratranao, Jeso.
+Fihino tahaka an\'i Jaona, sns.
+
+3Manonja, mahery ny sivana izao,
+Tompo ô, ka tohano, fihino
+Tsy ho latsaka
+\'Ty zandrinao, Jeso.
+Fihino tahaka an\'i Jaona, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '621',
+  '621',
+  'TANO AHO RY TOMPO ANDRIAMANITRA',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Eb 4/4 ',
+  'TANORA',
+  'Fanoloran-tena sy faniriana',
+  '
+1. Tano aho, ry Tompo Andriamanitra ô,
+Ny tenako rehetra no omeko Anao.
+Raiso koa ny foko ho Anao, Jeso.
+Fa sambatra izay miaraka aminao.
+	ISAN\'ANDININY :
+Ny ilaiko rehetra anananao,
+Omenao ahy ny fahasoavanao,
+Ny fiadananao iainako tokoa Jeso ô.
+Tsy mananjjava-mahory \'zay eo aminao.
+
+2
+Fa ny fahoriana sy ny ahiahy
+Tsy fantatr\'izay mitoetra eo akaikinao
+Fa tsy misy loza \'zay mety hanjo
+Izay miaraka aminao ka tia Anao.
+Ny ilaiko rehetra, sns.
+
+3Sambatra izay en anilanao
+Izay miaraka aminao sy tantananao
+Fifaliana feno tokoa, Jeso,
+Satria izaranao ny fiadananao.
+Ny ilaiko rehetra, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '622',
+  '622',
+  'HIFIDY AHO',
+  'R. Tsimaitoarivo',
+  'Vololomiamina',
+  'Do dia F 4/4 Kingakinga',
+  'TANORA',
+  'Fanoloran-tena sy faniriana',
+  '
+1. Hifidy aho, hifidy aho,
+	Hifidy aho
+	Toe-piainana, hifidy aho
+	Toe-piainana
+	Tena kanto indrindra,
+	Mendrika ny lanitra.
+	Ô ! fahendrena,
+	Hatsaram-panahy
+	Ny fanompoana finoana.
+	Hifidy aho, hifidy aho,
+	Hifidy aho
+	Toe-piainana, hifidy aho
+	Toe-piainana
+	Tena kanto indrindra,
+
+2. Hifidy aho, hifidy aho,
+	Hifidy aho
+	Toe-piainana, hifidy aho
+	Toe-piainana
+	Tena kanto indrindra,
+	Mendrika ny lanitra.
+	Ny fijoroana
+	mba ho mahatoky,
+	Fanaovan-tsoa, fankatoavana.
+	Hifidy aho, hifidy aho,
+	Hifidy aho
+	Toe-piainana, hifidy aho
+	Toe-piainana
+	Tena kanto indrindra,
+
+3. Hifidy aho, hifidy aho,
+	Hifidy aho
+	Toe-piainana, hifidy aho
+	Toe-piainana
+	Tena kanto indrindra,
+	Mendrika ny lanitra.
+	Fahatokiana,
+	Herim-po vaovao,
+	Ny fahalalana ny onony.
+	Hifidy aho, hifidy aho,
+	Hifidy aho
+	Toe-piainana, hifidy aho
+	Toe-piainana
+	Tena kanto indrindra,
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '623',
+  '623',
+  'EO AN-TANANAO RY TOMPO',
+  'A. Razaka',
+  'A. Razaka',
+  'Do dia Ab 3/4 ',
+  'TANORA',
+  'Fanoloran-tena sy faniriana',
+  '
+1. Eo an-tananao, ry Tompo,
+	Hametrahako ny foko
+	Ka ny fiainako rehetra,
+	Foiko anio tsy misy fetra.
+	Eo an-tongotrao ry Tompo
+	No ipetrahako, ihainoako.
+
+ISAN\'ANDININY :
+	Ireto teny mampahery ahy
+	Tano tsy ho very.
+	Inty aho manolo-tena,
+	Manavao ny fanekena.
+	Tsy hiala fa hanompo,
+	Hiasa ho Anao, ry Tompo.
+
+2. Eo an-tratranao ihany
+	Jeso no itokiako hatrany.
+	Ny ahiahim-pamonjena
+	Ianao, Jeso no antenaina
+	Eo akaikinao, ry Tompo,
+	Tony aho satria matoky
+	Ka fiadanana sy soa
+	No omenao ahy tokoa.
+	Ireto teny, sns.
+
+3. Eo anilanao, ry Tompo,
+	No tiako ka tsy hialako.
+	Ka ny androko izay sisa
+	Hitady ny Paradisa.
+	Eo akaikinao, ry Tompo,
+	Eo no tena fifaliako
+	Fiainana mandrakizay
+	Homenao rahatrizay.
+	Ireto teny, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '624',
+  '624',
+  'FANKATOAVANA',
+  'R. Tsimaitoarivo',
+  'R. Tsimaitoarivo',
+  'Do dia D 4/4 ',
+  'TANORA',
+  'Fanoloran-tena sy faniriana',
+  '
+1. Fankatoavana, fankatoavana
+	Fankatoavana an\'Andriamanitra
+	No filamatra harahiko,
+	Harahintsika rehetra.
+	Fankatoavana, 
+	Fankatoavana an\'Andriamanitra
+	Mandroso amim-pahatokiana
+	Mivelona amin\'ny
+	Tenin\'Andriamanitra,
+	Misotro ny ranon\'aina
+	Faneken\'ny fo
+	Mivavaka amin\'Andriamanitra,
+	Mampandroso an\'i Jesosy,
+	Mahari-po, mahery fo tokoa.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '625',
+  '625',
+  'RY JEHOVAH Ô, HERIKO IANAO',
+  'Raymond B. Rakotondrainibe',
+  'Raymond B. Rakotondrainibe',
+  'Do dia Eb 4/4 ',
+  'TANORA',
+  'Fandresena eo amin\'i Kristy',
+  '
+1. Ry Jehovah ô, heriko ianao,
+Ry tokiko, mamiko tokoa,
+Ka tsy matahotra aho na manahiahy
+Fa Ianao manda fiarovako.
+
+2
+Na dia sarotra ny làlana aza,
+Ny herinao ianteherako.
+Misinda teo izany hasasarana,
+Endrika mirana no azo indray.
+
+3Raha toa manonja fatratra ny ety
+Na dia solafaka ianao,
+Ny Tomponao no banjono hatrany re
+Eo aminy, toky azo antoka.
+
+4
+Manomboka anio re, ry Tompo,
+Apetrako eo an-tananao,
+Ny tenako raiso, eny hamasino
+Ataovy mendrika ho lapanao.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '626',
+  '626',
+  'FONY AHO MBOLA KELY',
+  'Charles M. Phillmore - Mamy J. Ratsirison',
+  'D. Razakaria',
+  'Do dia Ab 4/4 ',
+  'TANORA',
+  'Fandresena eo amin\'i Kristy',
+  '
+1. Fony aho mbola kely dia tsaroako tokoa
+Ny reniko nampianatra ahy Soratra Masina.
+Ireo tantaran\'ny Baiboly nankafiziko,
+Nanoro ny lalan-kizorako.
+	ISAN\'ANDININY :
+Hamasino Jeso
+Ireto talenta, talentako
+Hahazoako manompo Anao
+Entiko aminao ny fangatahako
+Tovy re ny faniriako izao.
+
+2
+Ankehitriny faly aho, ry neny tiako
+Fa notaizanao araka ny baikon\'i Jeso.
+Ilay Jeso malala any an-danitra anie,
+Hamaly anao noho \'reo soa be dia be.
+Hamasino Jeso, sns.
+
+3Ho jiro hanazava re no tarigetrako
+Hanintona ireo mbola ao anaty haizina.
+Fa tiako hiaraka amiko hitsena Anao Kristy,
+Hiara-mandova \'lay Kanana ary.
+Hamasino Jeso, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '627',
+  '627',
+  'HENOY ANGE NY HIRA',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia D 4/4 ',
+  'TANORA',
+  'Fandresena eo amin\'i Kristy',
+  '
+1. ISAN\'ANDININY :
+	Henoy ange ny hira
+	Ventesinay izao,
+	Ny feony tafatambatra
+	Manakoako ao ;
+	Fa hira mahafinaritra,
+	Dia fiderana Atao
+	Ho an\'Ilay Mesia,
+	\'Lay zanak\'Andriamanitra.
+
+1
+	Nidina tety Ianao, Tompo lehibe,
+	Hamonjy anay fa tia anay,
+	Nanaiky hisolo voina anay ;
+	Ka raha ho avy indray Ianao
+	Eny an-danitra avo ery
+	Dia hihira izahay ho fiderana Anao.
+	Henoy ange ny hira, sns.
+
+2. Voninahitra ho Anao, Tompo lehibe,
+	Ny saotra sy ny haja anie
+	Ho Anao tokoa mandrakizay.
+	Ka ny vavaka atao dia ho fiderana Anao
+	Raiso re, ry Tomponay,
+	Fa vokatry ny fo
+	Henoy ange ny hira, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '628',
+  '628',
+  'ANDRO MARO EFA LASA',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia F 4/4 ',
+  'TANORA',
+  'Fandresena eo amin\'i Kristy',
+  '
+1. Andro maro efa lasa ;
+	Aiza izao \'zahay,
+	Fa variana mikasa,
+	Ts\'isy vitanay.
+
+ISAN\'ANDININY :
+	Ray malala atafio anay
+	Ny herinao.
+	Mba hahery sy handresy
+	Ny mpanomponao
+	Ka handresy
+	Fa nomenao aina vaovao.
+
+2. Rahoviana Ilay mazava
+	No ho tonga indray ?
+	Ka ny haizina hisava,
+	Handry fehizay.
+	Ray malala, sns.
+
+3. He ! mandalo, he ! mimalo
+	\'Zao fiainana izao,
+	Fa handresy fahavalo
+	Izay ombanao.
+	Ray malala, sns.
+
+4. Taona maro efa lany :
+	Tsy haharitra
+	Ny tantaran\'ity tany
+	Dia ho tapitra.
+	Ray malala, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '629',
+  '629',
+  '\'ZAY MANDRESY',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Gb 3/4 ',
+  'TANORA',
+  'Fandresena eo amin\'i Kristy',
+  '
+1. \'Zay mandresy, \'zay mandresy
+	Hihira ny hiran\'i Mosesy
+	Sambatra (he sambatra),
+	Tretrika (he tretrika)
+	Ka tsy hitomany intsony.
+	Fanjakana tsy ho rava
+	Sy hiakanjo fotsy lava
+	Midera an\'i Jehovah
+	(Hidera an\'i Jehovah)
+	Ao an-danitra ao ambony.
+	(Ka hihira hoe : Haleloia)
+	Haleloia, haleloia
+	(Haleloia) haleloia
+	He hosana (ka mihobia)
+	Mihobia sy mihirà
+	Mihirà irony hira hiderana.
+	Resy izao ny fandozana
+	Fongana ny fahotana
+	Azontsika \'lay Kanana
+	Ka hobio derao
+	(Ô ! mifalia, mifalia)
+	Mifalia, mihobia
+	Mihirà sy miravoa, (miravoa)
+	Asandrato ny Hosana mifanesy
+	(Ka matokia, matokia),
+	Matokia, miadia,
+	Mandrosoa eo aloha,
+	(Eo aloha)
+	Fa handova an\'ilay Kanana,
+	\'Zay mandresy.
+
+
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '630',
+  '630',
+  'FA FITIAVAKI IANAO',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia E 4/4 ',
+  'TANORA',
+  'Fandresena eo amin\'i Kristy',
+  '
+1. Fa fitiavako Ianao,
+	Ry Mpamonjiko tokiko.
+	Ianao no tsy mandao
+	Ianao no Tompoko
+	Fa fitiavako Ianao,
+	(Ry Tompo tia)
+	Heriko tokoa, tokoa.
+
+ISAN\'ANDININY :
+	Eny hatrizay, ho mandrakizay
+	Ao anatiko ao
+	Ahitako Anao.
+	Na mifoha aho na mandry,
+	Io Ianao.
+	Na mifoha aho na mandry,
+	Indro ao Ianao.
+
+2. Fa fitiavako Ianao,
+	Ry Mpiaro ny fanahy
+	Ianao no manavao
+	Ianao no miandry ahy
+	Fa fitiavako Ianao,
+	(Ry Tompo tia)
+	Heriko tokoa, tokoa.
+	Eny hatrizay, sns.
+
+3. Fa fitiavako Ianao,
+	Ry Mpanjaka, Ray Tsitoha
+	Ianao anatiko ao
+	No manapaka ao am-po
+	Fa fitiavako Ianao,
+	(Ry Tompo tia)
+	Heriko tokoa, tokoa.
+	Eny hatrizay, sns.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '631',
+  '631',
+  'RAHA MAFY NY ADY ETY',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia F 3/4 ',
+  'TANORA',
+  'Fandresena eo amin\'i Kristy',
+  '
+1. Raha mafy ny ady atao ety
+	Akaro ny masonao.
+	Jesosy mitazana anao ery
+	Fa te ho akaikinao.
+
+ISAN\'ANDININY :
+	Ny sandriny no fihino
+	Fa mitsotra hitantana anao
+	Borahy eo aminy ny sentonao,
+	Vonona Izy hanampy anao.
+
+2. Raha ana sy sasatra ianao,
+	RAha mila ho kivy koa,
+	Tsy ho ela dia ho avy
+	Ilay Tomponao
+	Hanafaka anao tokoa.
+	Ny sandriny no fihino, sns.
+
+3. Raha toa fahoriana no hita aty
+	Raha toa ranomaso koa
+	Mandalo izany fa ilay ary
+	Hampionona ny ao am-po.
+	Ny sandriny no fihino, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '632',
+  '632',
+  'TOMPO MAHERY',
+  'D. Rasolonjatovo',
+  'A. R. Marnoë',
+  'Do dia Eb 6/4 ',
+  'TANORA',
+  'Fandresena eo amin\'i Kristy',
+  '
+1. Ny fitiavan\'i Kristy anay
+	No hery manentana anay
+	Hanaraka ny diany,
+	Hampiely koa ny fitiavany.
+
+2. Amin\'ny anaran\'i Jesosy,
+	Mifankatiava isika eto
+	Aoka hifanohona tsara
+	Mba samy tsy ho diso anjara.
+
+3. Ny Raintsika an-danitra any
+	Mijery antsika zanany,
+	Vonon-kanampy ny hery
+	Mba hamonjen\'indray ny very.
+
+4. Raha hisaraka eto izahay
+	Aza ilaozanao, ry Ray,
+	Akambano fo sy saina
+	Ka hafanao mba tsy halaina.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '633',
+  '633',
+  'INDRETO IZAHAY',
+  'Kotonjanahary (By)',
+  'Kotonjanahary (By)',
+  'Do dia G 6/4 Hentitra',
+  'TANORA',
+  'Fandresena eo amin\'i Kristy',
+  '
+1. Indreto \'zahay, indreto izahay
+	Indreto \'zahay, Jesosy,
+	Indreto \'zahay fa vonona re,
+	Noho ny hasoavanao.
+
+2. Handroso \'zahay,
+	Handroso \'zahay,
+	Handroso \'zahay, Jesosy,
+	Handroso \'zahay, hanafika izao,
+	Noho ny hasoavanao.
+
+3. Handresy izahay,
+	Handresy izahay,
+	Handresy izahay, Jesosy,
+	Handresy izahay,
+	hambabo ho Anao,
+	Noho ny hasoavanao.
+
+4. Hifaly izahay,
+	Hifaly izahay,
+	Hifaly izahay, Jesosy,
+	Hifaly izahay,
+	Hitsena Anao
+	Noho ny hasoavanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '634',
+  '634',
+  'O ! ATSANGANO IZAO NY FANEVANAO',
+  'J. Ratsimihahy',
+  'J. Ratsimihahy',
+  'Do dia Ab 4/4 ',
+  'TANORA',
+  'Fandresena eo amin\'i Kristy',
+  '
+1. Ô ! antsangano izao
+	Ny fanevanao,
+	Mijoroa, eny, mijoroa
+	Fa Jesosy izao
+	No miantso anao
+	Hiantafika, eny izao.
+	Mandrosoa (ry tanora ô)
+	Eo aloha (ry tanora ô)
+	(Mandrosoa izao)
+	Ilay fanevanao,
+	(Jeso fanevanao tanora ô)
+	Jeso ambarao,
+	Ota avelao,
+	Ô ! vitao ny adidinao
+	(Adidinao efa ho roa)
+	Mijoroa (ry tanora ô)
+	Misehoa (ry tanora ô)
+	(Mijoroa, misehoa)
+	Eny, torio ny Tompo soa,
+	Kapiteny hitarika eo aloha.
+	Ô ! mitsangàna, torio Jeso.
+
+2. Izao tontolo izao no halehanao
+	Misikina re ny herim-po.
+	Ady sarotra manoloana anao ;
+	Aoka ho vonona re ianao.
+	Ambarao (tanora ô !)
+	Sy lazao (ry tanora ô)
+	Ambarao sy lazao
+	Ilay Jeso fanevana, tanora ô !
+	Torio Izy anio, lainga re ario,
+	Torimaso koa fadio ;
+	(Jesosy no fidio)
+	Miasà (ry tanora ô)
+	Miasà (ry tanora ô), eny,
+	Miasà izao, mivonona, miaingà.
+	Izy maniry hitarika ny dia.
+	Ô ! mitsangàna, torio Kristy.
+
+3. Tsy ho ela izao
+	Dia ho avy an-danitra
+	Ilay Tompon\'ny asanao.
+	Milofosa re, ô ! miezaha
+	Sy miezaha fatratra
+	Ô ! torio (tanora ô !) 
+	Ô ! torio (Ry tanora ô)
+	Torio re anio
+	Ilay Jeso fanevanao, tanora ô !
+	Mivonona ianao,
+	Namana ilazao
+	Fa akaiky Izy izao.
+	\'Zao tontolo izao dia hifarana ;
+	Ô ! mitsangàna sy miasà.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '635',
+  '635',
+  'MISY ANTSO RE AO AN-TANANA',
+  'Billie Hanks JR. - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia G 4/4 ',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Misy antso re ao an-tanàna,
+	Antso mitaraina mafy ery.
+	Misy feo toa sasatra sy ana,
+	Feo miantsoantso hoe : avia.
+	Feo miavaka, re aty.
+	Feo miavaka, toa feo farofy.
+
+2. Endrika mitokana irery
+	Manan-kevitra miavaka.
+	Mahatsiaro fa tsy manan-kery
+	Saingy menatra hivavaka.
+	Tena miavaka, hitako
+	Ka tsy afaka ato an-tsaiko.
+
+3. Maso iray mibanjina tsy miala
+	Mila vonjy, te hanatona.
+	Olo-mial voly nefa ana,
+	Resin-doka, tena ankona.
+	Mila vavaka matotra
+	Nefa tsy afaka fa voageja.
+
+4. Efa tonga hanome ny aina
+	Hampahery sy hanafaka.
+	Hihaino antso,
+	Vonjy sy taraina,
+	Hanome ny valim-bavaka.
+	Jesosy Kristy, miantso izao,
+	Miantso ireo mpania
+	Ta ahy sy ianao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '636',
+  '636',
+  'AHY IZAO NY FAHEFANA',
+  'John Honges',
+  'A. R. Marnoël',
+  'Do dia G 4/4 Mientanentana',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Ahy izao ny fahefana,
+	Any an-danitra, eto koa.
+	Ka torio ny fanjakana,
+	Ny Filazantsara soa,
+	Hoy ny tenin\'i Jesosy
+	Zanak\'Andriamanitra
+	Tamin\'ny mpianatra.
+
+2. Ahy koa ny fahefana
+	Mba hamaly re ny soa.
+	Ahy koa ny fitsaràna
+	An\'ireo tsy mankato
+	\'Zaho ihany no mifona
+	Sy mamela heloka
+	Mpamonjy ny meloka.
+
+3. Tsy ho ela dia haneno
+	Ny trompetra farany
+	Ka ny Raiko no hameno
+	Ny fahefan-janany.
+	Hofohaziny ny maty
+	Ka hatsangany tokoa
+	Jeso Mpanjaka Tsitoha.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '637',
+  '637',
+  'NY PITIK\'AFO IRAY',
+  'Kurt Kaiser - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia D 4/4 ',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Ny pitikafo iray
+	No tonga afo lehibe
+	\'Zay mety hahamay
+	Mandevona ny ala be
+	Dia toy izany tokoa
+	Ny fitiavan\'ny Tomponao
+	Raha nandramanao fa soa
+	Dia mba hafindranao.
+
+2. Mba mahagaga koa
+	Ny andro lohataona.
+	Mitsimoka avokoa
+	Ny hazo \'zay tsy maina
+	Dia toy izany tokoa
+	Ny fitiavan\'ny Tomponao
+	Hamelona sy hanasoa
+	Izay mba tiavinao.
+
+3. Iriko re ho anao
+	Ny fifaliana tsapako.
+	Ka raiso hatrizao
+	Ho anao \'Lay Mpamonjiko
+	Fa be fitia tsy ho lany
+	Hitiavany anao tokoa
+	Ho tsapanao mantsy izany
+	Ka hafindranao koa.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '638',
+  '638',
+  'RY TANORA MIJOROA',
+  'H. A. Miller - Mamy J. Ratsirison',
+  'M. Rakotonirainy',
+  'Do dia C 4/4 ',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Ry tanora mijoroa
+	Ho vavolombelona
+	Kristy no mibaiko anao
+	Mijoroa, mijoroa
+	Asandrato avo be
+	Ny fanilo ho tazana e !
+	Mijoroa, mijoroa ianao.
+	Kristy eo anilanao
+	Mba ho herinao
+	Asandrato ny feonao
+	Mba ho re izao.
+	Mijoroa, mijoroa ianao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '639',
+  '639',
+  'RY MPITORY AN-TSITRAPO',
+  'E. Tolar Seat - Mamy J. Ratsirison',
+  'A. R. Marnoël',
+  'Do dia G 2/4 ',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Ry mpitory an-tsitrapo
+	Mitsangàna ianao.
+	Torio eran-tany
+	Ny Filazantsara izao.
+
+ISAN\'ANDININY :
+	Mitoria, mitoria ; eny mitoria.
+	Mitoria, mitoria, Jeso no torio.
+	Manàna re finoana
+	Ka dia mitoria.
+	Eny, finoana, mitoria
+	Torio ny teny.
+
+2. Na antritra na tanora
+	Dia miasà
+	Ny masoandro efa madiva
+	Ho lasa
+	Mitoria, mitoria, sns.
+
+3. Efa akaiky ny Tompo
+	Ka dia miasà
+	Angony avokoa \'zay sisa
+	Mbola eny an-tsaha
+	Mitoria, mitoria, sns.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '640',
+  '640',
+  'FANTATRAO VE FA NY ANDRO',
+  '(Tsy fantatra)',
+  'A. R. Marnoël',
+  'Do dia Bb 4/4 ',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Fantatrao ve fa ny andro
+	Efa lasan-davitra ?
+	Tsy ho ela, toa akanjo,
+	Ny haizina handrakotra.
+
+ISAN\'ANDININY :
+	Mitsangàna ka dia miezaha,
+	Vitao ny asanao
+	Ry firenen\'ny Tompo.
+	Vitao ny asanao
+	Mitsangàna hanefa ny asa
+	Nomena anao
+
+2. Ny masoandro efa iva
+	Lasa ny fahazavana
+	Tsy ho ela dia ho vita
+	Ny androm-pahasoavana.
+	Mitsangàna ka miezaha, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '641',
+  '641',
+  'ATREHO RY TOMPO O!',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia Eb 4/4 miadana',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Atrehonao ry Tompo ô 
+	Izao fotoana izao
+	Ho voninahitrao samirery
+	Ô ! atrehonao manontolo.
+
+ISAN\'ANDININY :
+	Tolory tsilon-tsaina
+	Handray ny hafatrao
+	Omeo fo mahitsy
+	Hitoeran\'ny teninao
+	Omeo fahavitrihana
+	Hanao ny asanao
+	Ka ny fotoana rehetra
+	Hiarahanay aminao.
+
+2. Ampahitao ny tavanao,
+	Jehovah Tompo ô,
+	Ireto oloa tafavory
+	Mangetaheta Anao.
+	Tolory tsilon-tsaina, sns.
+
+3. Midira re Fanahy ô,
+	Amboary ny fonay
+	Mba hankato ny Filazantsara
+	Ho famonjena anay.
+	Tolory tsilon-tsaina, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '642',
+  '642',
+  'RY MPITILIN\'I JESOSY',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  'Do dia Eb 3/4 ',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Ry mpitilin\'i Jesosy
+	Ezaho ny antso
+	Fa mamantonalina anie izao
+	Ry mpitilin\'i Jesosy
+	Ezaho ny antso
+	Fa hifarana izao tontolo izao.
+
+ISAN\'ANDININY :
+	Toy inona alina izao
+	Ry mpiambina ô ?
+	Aza mangina fe
+	Ezaho ny antsonao.
+	Ry mpitilin\'i Jesosy
+	Ezaho ny antso
+	Fa hifarana izao tontolo izao.
+
+2. Mandehana ka torio ny famonjena
+	\'Zay napetraky ny Tompo aminao
+	Mandehana ka torio ny famonjena
+	Fa hifarana izao tontolo izao.
+	Toy inona alina izao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '643',
+  '643',
+  'TANTARA MAMIKO',
+  'R. Rabenasolo',
+  'R. Rabenasolo',
+  'Do dia G 3/4 ',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Tantara mamiko tokoa
+	Manala ny haizin\'ny foko.
+	Tantara loharano soa,
+	Ilay tantara milaza an\'i Jeso.
+
+ISAN\'ANDININY :
+	Ô ! tantara indray, tantarao.
+	Ô ! tantara indray
+	Fa mamiko re ! ka tohizo e !
+	Ny tantaran\'i Jeso.
+
+2. Tantara sarobidy koa
+	Fa jiro mitsilo ny diako.
+	Tantara manadio ny fo,
+	Tantaran\'i Jeso, tantara tiako.
+	Ô ! tantara indray, sns.
+
+3. Tantara tena soa tokoa
+	Manaisotra ny ahiahy.
+	Mitondra ilay fiadanam-po
+	Mamelombelona ny fo sy fanahy.
+	Ô ! tantara indray, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '644',
+  '644',
+  'IZAHO VE JESO',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Gb 4/4 ',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Izaho ve Jeso no antsoinao
+	Handeha ho irakao (hitety)
+	Handeha hitety izao tontolo izao ?
+	(In) \'Nty aho Jeso iraho (Jesosy)
+	Ô ! tsy misy tsy mba atolotro.
+	Hanao ny irakao (na ny)
+	Na ny tanako na ny tongotro,
+	(In) \'Nty aho Jeso iraho.
+	Ilainao ve Jesosy ny tanako ?
+	Ilainao ve Jesosy ny androko ?
+	Ilainao ve Jesosy ny fananako ?
+	Ilainao ve ny fo ?
+	Indro omeko Anao
+	Omeko avokoa
+	Atolotro Anao tontolo
+	Hanao ny irakao (Jesosy).
+
+2. Izaho ve Jeso no voatendrinao
+	Hitondra ny hafatrao (Hiteny)
+	Handeha hiteny koa
+	Ny vonjy entinao
+	\'Nty aho Jeso iraho (Jesosy)
+	Ô ! tsy misy tsy mba atolotro.
+	Hitondra ny hafatrao
+	Na ny vavako na ny molotro
+	\'Nty aho Jeso iraho
+	Ilainao ve Jesosy ny tanako ?
+	Ilainao ve Jesosy ny androko ?
+	Ilainao ve Jesosy ny fananako ?
+	Ilainao ve ny fo ?
+	Indro omeko Anao avokoa
+	Atolotro Anao tontolo
+	Hitondra ny hafatrao (Jesosy).
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '645',
+  '645',
+  'MIAINGA IZAO',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Db 4/4 ',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Miaingà izao, ry tanora M. V.
+	Ary mba lazao isan\'ora re
+	Ireo namanao mbola be lalao
+	Nefa tsy mahay fa izao tany izao ho may
+
+ISAN\'ANDININY :
+	Ka andao ka mba lazao
+	(andao \'ndao ka mba lazao)
+	Lazao \'zao anio izao
+	Izao ny hafatrao lazao,
+	Lazao \'zao tontolo izao.
+
+2. Ianao no antsoina, ry tanora M. V.
+	Hitety ny tany, ka mizora re.
+	Aza iangarana irei namanao
+	Ambarao koa fa ity tany ity ho lao.
+	Ka andao, sns.
+
+3. \'Ndao ka miolomaiza, ry tanora M. V.
+	Ary mbola mahaiza miantso mafy hoe :
+	\'Ndry ny Tomponao, tamy ka tsenao
+	Avy indray Kristy hanavao ity tany ity.
+	Ka andao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '646',
+  '646',
+  'MIAINGA, MIASA',
+  'C. Rabenandrasana',
+  'D. Rasolonjatovo',
+  'Do dia C 4/4 Marisika',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Miaingà, miasà, Mandrosoa
+	(Eo aloha)
+	Marobe ireo vokatra
+	Ao an-tsaha
+	Mila anao, ka miasà.
+	Milonjehitra izao
+	Ireo vokatra ho anao
+	Misehoa mba ho sahy
+	Momba anao (ny Fanahy).
+	Voka-tsoa sesehena
+	Miandry anao
+	Aza kivy miasà.
+
+2. Ô ! avia mitoria, matokia
+	(Mifalia)
+	Momba anao Ilay Tompo tia anao
+	Ka ny tahotra ialao
+	Sesehena tokoa,
+	Ireo reraka ao am-po
+	Maneke, mamonje \'reo fanahy
+	(Marobe)
+	Diadema no miandry anao ary
+	Aza kivy mitoria.
+
+3. \'Zay rehetra mandre, maneke
+	(Mba handeha)
+	Miaraha na ny vavy na ny lahy
+	Mba ho famonjem-panahy
+	Iaraha-mahita
+	Izao fitoriana izao
+	Mazotoa ho tafita, ny Ray
+	(Momba anao)
+	Hafalian-dehiba doria doria
+	Miandry anao ka mitoria.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '647',
+  '647',
+  'ANY LAVITRA ANY',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Ab 3/4 ',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Any lavitra any
+	Misy mitomany
+	Iza no hankany
+	Hampionom-po
+	Hanala ny manjo
+	Sy hilaza soa.
+
+ISAN\'ANDININY :
+	(Mitsangàna mandehana)
+	(Mitsangàna)
+	(Iza re no mba hankany)
+	Iza no hankany ?
+	(Any lavitra any ?
+	(Mitsangàna)
+	Mba hankany lavitra any
+	Any lavitra any
+	(Iza re lazao)
+	(Mitsangàna)
+	(Fa ny Tompo momba anao)
+	Fa ny Tompo momba anao
+	(Mitsangàna)
+	Aza mba malaina
+	(Mitsangàna)
+	:,: N\'aiza n\'aiza misy anao
+	Dia asandrato ny Hosana
+	(Hosana). :,:
+
+2. Ao ambadika ao
+	Misy mitalaho
+	Iza no hankao
+	Iza no hamaly
+	Mba hamalifaly
+	\'Rony izay mijaly ?
+	Mitsangàna, sns.
+
+3. Ao an-tsaha mangina,
+	Lavi-pifaliana ;
+	Ba ne fahoriana,
+	Ianao tanora,
+	Dieny misy ora,
+	\'Ndeha re mizora.
+	Mitsangàna, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '648',
+  '648',
+  'JESO NO MIANTSO KA EKEO',
+  'W. Ogden',
+  'F. Ramanantsialonina',
+  'Do dia A 4/4 Milantolanto',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Jeso no miantso, ekeo :
+	Ô! mba vorio ny ondriny.
+	Ianao no Mpiandry ka vonjeo
+	Mba hody ao am-balany.
+
+ISAN\'ANDININY
+
+Katsaho,
+	Tadiavo ilay very soa ho faty.
+	Areno fa lavo.
+	Ianao hanampy azy.
+
+2. Injao re fa mitaraina,
+	Sady efa osa fa noratrainay.
+	Mitady \'la ranon\'aina,
+	Vonjeo aza mba malaina.
+	Katsaho, sns.
+
+3. Moa efa vonona ianao
+	Mba ho mpanompo tsara izao,
+	Hitady sy hamory koa,
+	Hikatsaka, hamindra fo.
+	Katsaho, sns.
+
+4. Tsy ho ela dia ho avy izao
+	Ilay Mpiandry Tomponao.
+	\'Ndeha hiara-miasa hanavao
+	Hamonjy izao tontolo izao.
+	Katsaho, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '649',
+  '649',
+  'I JESO \'ZAY ZOKINTSIKA',
+  'J. Ratsimihah',
+  'J. Ratsimihah',
+  'Do dia Bb 4/4 ',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. I Jeso \'zay Zokintsika
+	Dia Mpamonjy mora fo
+	Ka ny ota vitantsika
+	Dia havelany tokoa,
+	Rah mety hovonjeny
+	Ka mandao ny sitrapo,
+	Dia fiainana no omeny,
+	Fiainana tsy mety lo.
+
+2. Be ny zava-mahasondriana
+	Toa mamiratra tokoa,
+	Filibàna an-kamamiana,
+	Nefa ange tsy mahasoa.
+	Dia injao \'lay feo malemy
+	Miangavy mitalaho
+	Ô ! ry zandriko manjeny
+	Ny ota avelao.
+
+3. Ry tanora mahereza
+	Mazotoa, miasà.
+	E ! ny làlana mideza
+	Ka sahia hitomban-dahy.
+	Ilazao ireo tsy mino,
+	Taomy koa ireo nania,
+	Ka ny hafatra aza hadino :
+	Ho avy indray Kristy.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '650',
+  '650',
+  'TOMPO AMPIO AHO HITAONA',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia Eb 3/4 ',
+  'TANORA',
+  'Fiaraha-mitory',
+  '
+1. Tompo ampio aho hitaona fanahy
+	Fanahy ho Anao bba ho zanakao.
+	Ampio aho hahazo olona
+	Hitsena Anao an-drahon-danitra.
+
+ISAN\'ANDININY :
+	Ampio (eny ampio)
+	Ampio (Ry Tompoko)
+	Omeo fifaliana ireo mpanomponao
+	Hanangom-bokatra ho Anao.
+
+2. Raha hatrizay re ry Mpamonjiko
+	Raha hizara ny satroka Ianao,
+	Ho fifaliako ny hahita ireo
+	Fanahy mao hiaraka amiko.
+	Ampio, sns.
+
+3. Hifampijery, ho faly ery
+	Ireo voavonjy nahantra tety,
+	Hifaly havanja, ka hihoby hoe :
+	<<Hosana ! hosana ! ry Mpamonjy tia>>.
+	Ampio, sns.
+
+4. Hanidintsidina manerana
+	\'Reo tendrombohitra masina e !
+	Hahita ireo planeta vaovao
+	Hiarahaba ny havantsika ao.
+	Ampio, sns.
+
+5. Hamboly \'zahay ry Jesosy ô
+	Sady hihira, hihira ho Anao.
+	Ny tranonay e hotsidihinao
+	mandrakizay re hanananay Anao.
+	Ampio, sns.
+	
+'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '651',
+  '651',
+  'INONA KOSA NO HOMEKO',
+  'L. J. Raharijaona',
+  'L. J. Raharijaona',
+  'Do dia Eb 4/4 Dolce',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Inona kosa no homeko
+	An\'i Jesosy Mpamonjiko
+	Izy izay nanavotra ny aiko
+	aron\'ny fanahiko
+	Moa mendrika Azy ve ny foko
+	\'Zay vesaran-tsento sy toloko
+	Ka mazàna velon-taraina
+	Noho ny adin-tsaina.
+
+2. Ho zakaiko ny vokovoko
+	Izay efa nihombohanao
+	Mba hanaisotra \'reo otako
+	\'Zay nataoko taminao.
+	Nefa anie izaho dia malemy,
+	Ka moa hahazaka izany memy ?
+	Feno ahiahy sy tahotra,
+	Raha misy sarotra.
+
+3. Teo an-tampon\'ilay Kalvary
+	Ny mangidy nosotroinao
+	Nisoloanao \'ty olom-bery
+	Ka voavidy, lasanao.
+	Hitako ny tananao ry Tompo,
+	Te handray ny tanako maloto,
+	Ô, mba raiso hiasa ho Anao,
+	Mba ho fonenanao.
+	Raiso aho anio hiasa ho Anao
+	Ho Anao mandrakizay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '652',
+  '652',
+  'RAY O! AN-TANANAO',
+  'J. Rabarijoël',
+  'J. Rabarijoël',
+  'Do dia G 3/4 Milantolanto',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ray ô ! an-tananao ny fiainako
+	Hazony mafy isan\'andro
+	Ho eo anilanao tokoa
+	No fiononan\'ny foko izao.
+
+ISAN\'ANDININY :
+	Anilanao ry Raiko tia
+	Eo anilanao mandrakizay.
+
+2. He fiadanana tanteraka
+	No eo anilanao ry Tompo
+	Fo ampoky ny zava-tsoa
+	No tsapako raha eo aminao.
+	Anilanao, sns.
+
+3. Anilanao anio, ampitso koa
+	Anilanao tontolo andro
+	Anilanao tanteraka
+	Anilanao eo no tiako tokoa
+	Anilanao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '653',
+  '653',
+  'ALINA NY ANDRO',
+  'F.E. Belden',
+  'Rajoelison',
+  'Do dia Ab 6/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Alina ny andro \'iay sambokely
+	Natopatopan\'ny onja izao ;
+	Ny rivo-doza koa dia namely,
+	Ô ! fahoriana, Jesosy tsy tao.
+	Indro anefa, fa nisy mazava
+	Nanelatrelatra tampoka e !
+	Toy ny endrika izay nampisava
+	Ny horohoron\'ilay alim-be.
+
+2. \'Njao reny tsara, na mafy ny onja,
+	Feo nampitony ny fon\'izy ireo ;
+	Tsy be akory, indraim-bava monja :
+	\'Zaho ihany, todiho, jereo !
+	<<Tompo malala asaivo mankeny \'ty mpianatrao>>
+	Hoy ny anankiray.
+	<<Avia hoy ny valin\'ny teny,
+	Miantoraha eo an-tsandrin\'ny Ray>>.
+
+3. Nefa niahotra fa mafy loatra
+	Ny fisafaoky ny ranobe :
+	<<Tompo vonjeo fa tsy afa-manoatra,
+	Ny sandrinao, ô, ahinjiro re !>>
+	Avy hatrany, tsy nijery foana,
+	Ilay Mpamonjy nandray azy \'zao :
+	Nahoana re no dia kely finoana,
+	Niahanahana re ianao ?>>
+
+4. Tompo tsy miova, ny fiainako koa
+	Toa dia mahery manonja izao :
+	He ! loza maro indray mahavoa
+	Mila hanafotra \'lay tianao.
+	Ampaherezo fa kely finoana ;
+	Tazony mafy an-tananao re
+	Raha sendra kivy, ô, aza hadinoina
+	Rarao ny onja, savao ny alim-be.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '654',
+  '654',
+  'MATY JESOSY',
+  'R. Harkness',
+  'Rajoelison',
+  'Do dia C 6/8 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Maty Jesosy hisolo ahy re
+	Indro fitiavana.
+	Niaritra irery tanaty alim-be
+	Indro fitiavana.
+
+ISAN\'ANDININY :
+	Inona no hitanao
+	Amiko ratsy izao (tsy \'zao)
+	No dia nafoinao na dia ny ainao ?
+	Tompo ô, ambarao (ambarao).
+
+2. He ! voahombo na tsy diso re
+	Indro fitiavana
+	Nafoin\'ny Rainy na Zanaka e !
+	Indro fitiavana tokoa.
+	Inona no hitanao, sns.
+
+3. Naka ny toerako. Nahoana re ?
+	Indro fitiavana
+	\'Zaho mpanota sy meloka be
+	Indro fitiavana tokoa
+	Inona no hitanao, sns.
+
+4. Tsy foiko mantsy ho faty Ianao
+	\'Zaho fitiavana
+	Ka dia nafoiko ny aiko ho anao
+	\'Zaho fitiavana.
+	Fa ny iriko izao
+	Ka moa ve mba foinao ?
+	Ho Ahy anio sy ho mandrakizay
+	Ny Fitiavanao !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '655',
+  '655',
+  'RY MPANJAKAM-BONINAHITRA',
+  'Meredith',
+  'Rajoelison',
+  'Do dia Eb 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ry Mpanjakam-boninahitra
+	He ! midera Anao,
+	Izahay \'zay very lavitra
+	Fa naverinao
+
+ISAN\'ANDININY :
+	Ekeonao, ry Ray, (ry Ray)
+	Ekeonao, ry Ray, (ry Ray)
+	Ny saotra aterinay
+	Ho mandrakizay.
+
+2. Zanak\'ondry, misaotra Anao,
+	Faly, ravo ery
+	\'Reto olona navotanao
+	Tany Kalvary.
+	Ekeonao ry Ray, sns.
+
+3. Ry Fanahy Mpanavao ny fo
+	Eny, raisonao,
+	Ny fisaorana eram-po tokoa
+	Mendrika Anao.
+	Ekeonao ry Ray, sns.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '656',
+  '656',
+  'NA DIA MAIZINA NY DIA',
+  'Robert Harkess',
+  'Rajoelison',
+  'Do dia Bb 4/4 Mineur ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Na dia maizina ny dia
+	Mitatao ny rahona,
+	Misy toky tena azo antoka
+	Dia Ilay Mpamonjy tia,
+	Feno hasoavana
+	Aminy ny maso no mifantoka
+
+ISAN\'ANDININY :
+	Ao ambany elatrao no fiereko
+	Raha mamely ny tafiotra mafy re
+	Tsy matahotra aho izao
+	Fa eo anilako Ianao,
+	He ! mazava na ny ali-maizim-be.
+
+2. Na dia mila hanafotra aza
+	Ny onjan\'ny famoizam-po,
+	Misy tanjona azo amaharana,
+	Vatolampy tsy ho rava :
+	Kristy \'zay Mpamonjiko
+	Aminy tsy misy atahorana.
+	Ao ambany elatrao, sns.
+
+3. Tsy mba misy izay ahiako
+	Raha eo anilany,
+	Izy re no manda ikirizako.
+	He ! mandroso \'zao ny doako,
+	Isan\'andro arovany,
+	Mandra-pahatonga am-pitsaharako.
+	Ao ambany elatrao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '657',
+  '657',
+  'FIADANANA FENO',
+  'Haldor Sillenas',
+  'Rajoelison',
+  'Do dia Ab 6/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Fiadanana feno
+	No omen\'i Jeso \'zao
+	Loharano \'zay tsy mba ho ritra
+	Fa voavela avokoa,
+	Voasasa tokoa
+	Ny tota maro izay efa natao.
+
+ISAN\'ANDININY :
+	Fiadanana tsy ho lany
+	Raisiko amin\'ny rany
+	Tsy tratry ny saina
+	Tsy hay tantaraina
+	Na ety na rahatrizay (hatrizay)
+	
+
+2. Fiadanana feno
+	No omen\'i Jeso \'zao
+	Na dia be ny mahory mahazo
+	Fiarovana mafy
+	Na mamely ny rafy,
+	Ka mivonona mba hanindao.
+	Fiadanana tsy ho lany, sns.
+
+3. Fiadanana feno
+	No omen\'i Jeso \'zao
+	An an-dala-mahàna sy ety,
+	Toy ny andro maraina,
+	\'Zay mamelona aina,
+	Sy manolotra hery vaovao.
+	Fiadanana tsy ho lany, sns.
+
+4. Fiadanana feno
+	No omen\'i Jeso \'zao
+	Ho anao koa, ry olo-mahantra
+	Kristy re no fidio,
+	Ô ! ekeo Izy anio,
+	Dia ho sambatra koa ianao.
+	Fiadanana tsy ho lany
+	Raisina amin\'ny rany
+	Antsika rehetra,
+	Fa tsy misy fetra,
+	Dieny ety sy rahatrizay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '658',
+  '658',
+  'RAHA MANJENJENNA FOANA',
+  'R. Raterarivelo',
+  'R. Raterarivelo',
+  'Do dia G 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Raha nanjenjena foan
+	Mila toky izany fo,
+	Fa ny ora manoloana,
+	No manjombona tokoa :
+
+ISAN\'ANDININY :
+	Indro ! Jeso (indro ! Jeso)
+	Mitomany, (mitomany)
+	Fa ny fony tia anao ;
+	Eo anilanao hatrany
+	Tsy miala na mandao.
+
+2. Raha misento sy misaona,
+	Fa mamely ny manjo :
+	Hasambarana mivaona,
+	Hafaliana zary lo.
+	Indro ! Jeso, sns.
+
+3. Fa ny alom-pijaliana
+	Fanafody mahasoa ;
+	Ka omena zaza tiana,
+	Mba hitombo sy hamoa.
+	Indro ! Jeso, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '659',
+  '659',
+  'TIAKO HO RE LALANDAVA',
+  'A. C. Willard',
+  'Rajoelison',
+  'Do dia Ab 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Tiako ho re lalandava
+	Jeso ô, \'Lay feonao,
+	Fa Izy mahay mapisava
+	Ny alahelo izao
+	Feo manome famelana,
+	Fahamarinana koa.
+	\'Ndrindra ny fanantenana
+	\'Zay mampitraka ny fo.
+	Tiako ho re (tiako ho re)
+	\'Zany feonao Jesosy
+	(\'Zany feonao ô ! ry Jeso)
+	Fa tena soa (tena soa)
+	\'Zato fitiavanao.
+
+2. Tiako ho hita tokoa
+	Jeso ô, ny tavanao,
+	\'Zay hampisava avokoa
+	Ny haizin\'ny ota izao.
+	Tavan\'ny Tompo malala
+	\'Zay manambara fitia
+	Tsy mba miova na miala
+	Ahy hatrety sy sy doria !
+	Mba misehoa Ianao, ry Jesosy
+	(Mba misehoa, mba misehoa)
+	\'Zao Ianao, ô, ry Jeso
+	Fa tena soa indrindra
+	Ny tavanao !
+	(Fa tena soa, tena soa)
+	Tena soa indrindra ny tavanao.
+
+3. Tiako hiara-mitepo
+	Amin\'ny Anao re ny fo,
+	Dia hisava ny sento
+	Ary ho lao ny manjo.
+	Eny, hiara-mamindra
+	Aminao, ka tsy hania,
+	Ary rehefa hifindra
+	Ho eo aminao,Tompo tia.
+	Amin\'izay Ianao, ry Jesosy,
+	(Amin\'izay, amin\'izay)
+	Dia Ianao ô, ry Jeso,
+	No ho anjarako mandrakizay.
+	(Ho ahy tokoa, hoa hy tokoa)
+	Ahy tokoa, eny mandrakizay !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '660',
+  '660',
+  'TOY NY RANO',
+  'A. H. Acley',
+  'Rajoelison',
+  'Do dia Ab 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Toy ny rano ao an\'ony
+	Ny fiainako izao
+	Mikoriana sady tony
+	Noho ny hasoavanao
+
+ISAN\'ANDININY :
+	Sambatra aho re
+	(Sambatra aho, re
+	Tompo tia ô !
+	(Tompo tia ô)
+	Fitahian-tsy ho lany
+	Raisiko aminao.
+
+2. Raha mihantona ny andro
+	Tsy manahy aho izao,
+	Na migaina ny hainandro,
+	Ampy ny hasoavanao.
+	Sambatra, sns.
+
+3. Eny, na dia karankaina
+	Ny efitra vaiko \'zao,
+	Misy loharanon\'aina
+	Dia ny hasoavanao.
+	Sambatra, sns.
+
+4. Ny iriko dia ho ony
+	Onim-pitiavanao,
+	Hampahery, hampitony
+	\'Reo mangetaheta izao
+	Sambatra, sns.
+
+5. Ary ny ho fara-diako,
+	Raha ho tapitra ny ety
+	Dia \'Lay rano niaviako :
+	Ianao, Mpamonjy tia.
+	Sambatra, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '661',
+  '661',
+  'JESO MPIANDRY TSARA',
+  'E. Razakarivony',
+  'E. Razakarivony',
+  'Do dia Bb 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Jeso, Mpiandry tsara, no miantso \'zao
+	Fa maniry ny hiantoka anao
+	Izy te hiandry, hiaro hatrizao
+	Ary koa ho andry, manda ho anao.
+	Ô, avia izao, ry ondry \'zay nania
+	(:,: Ô, avia izao, ry ondry \'zay nania :,:)
+	\'Zaho no hiandry sy hiaro anao
+	(:,: \'Zaho no hiandry sy hiaro anao :,:).
+
+2. Jeso \'Lay Mpamonjy no miantso izao
+	Fa maniry famonjena ho anao
+	Izy ta hanavotra ny fiainanao
+	Mba ho kanto, sarobidy hatrizao
+	Ô, ry olombery, mba henoy ny feo
+	(:;: Ô, ry olombery, mba henoy ny feo :,:)
+	<<Manatona ahy \'zao anio izao>>
+	(:,: <<Manatona ahy \'zao anio izao>> :,:)
+
+3. Jeso tena tia no miantso anao
+	Sady miangavy koa anao anio.
+	Izy \'Lay nijaly avotra ho anao
+	Jeso tena tia Izy no fidio
+	Jeso Tompo tia raiso ho anao.
+	(:,: Jeso Tompo tia raiso ho anao :,:)
+	Raiso ho doria ny androm-piainako
+	(:,: Raiso ho doria ny androm-piainako :,:)
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '662',
+  '662',
+  'FOTOAM-BOLAMENA TOKOA',
+  'G. Augustin Mils',
+  'Rajoelison',
+  'Do dia Ab 6/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Fotoam-bolamena tokoa
+	\'Lay hihaonako isa-maraina
+	Amin\'i Jeso Tompo soa
+	\'Zay mofo, ranon\'aina.
+
+ISAN\'ANDININY :
+	Eny, mamy re ny fitiavany,
+	Loharano mandrakizay,
+	Fifaliana re ao an-tanany,
+	Santatry \'lay rahatrizay.
+
+2. Ny tavany feno fitia,
+	Mampisava ny fahoriana,
+	Sy manamaivana ny dia,
+	Mandresy hakiviana.
+	Eny, mamy re, sns.
+
+3. \'Njao reko ny feony izao
+	Toy ny antsa mandrotsirotsy
+	Mameno \'lay maraina vao
+	Ravahan-draozy fotsy.
+	Eny, mamy re, sns.
+
+4. Na dia hisoka tokoa
+	Tony andro ety an-tany
+	\'Tsy mba ho kivy \'zao ny fo
+	Fa Jeso eo ihany.
+	Eny, mamy re, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '663',
+  '663',
+  'ANARANA',
+  '(Tsy fantatra)',
+  '(Tsy fantatra)',
+  'Do dia F 2/4 Milantolanto',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Anarana tsy manam-paharoa
+	(Tsy mba manam-paharoa)
+	Anarana \'zay tiana tokoa
+	(Sady tiana tokoa)
+	Anarana miraki-java-tsoa
+	(Rakitry ny zava-tsoa)
+	Moa fantatrao ve ? Jesosy Kristy !
+	(Fantatrao ve Kristy ?)
+
+ISAN\'ANDININY :
+	Anaran-tsoa, anaran-tsoa,
+	Anaran-tsoa.
+	Jesosy Kristy Anarana soa.
+
+2. Anarana hobian\'ny anjely ary,
+	Anarana ankalazaina ety,
+	Satria nietry tany Kalvary,
+	Moa fantarao ve ? Jesosy Kristy !
+	Anaran-tsoa, sns.
+
+3. Anarana \'zay hoderaina indray,
+	Rehefa vory anatrehan-dray,
+	Ary ao an-danitra mandrakizay,
+	Moa fantarao ve ? Jesosy Kristy !
+	Anaran-tsoa, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '664',
+  '664',
+  'TANTANONAO NY DIANAY',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Eb 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Tantanonao ny diany
+	Jehovah Tomponay
+	Fa be tokoa ny tahotray
+	Fa kely ny herinay.
+	He ! sarotra tokoa
+	Ny làlana haleha,
+	Mijere !
+
+ISAN\'ANDININY :
+	Tena sitrakay tokoa
+	Ny eo anilanao ry Ray
+	Sambatra ny fo
+	Tantanonao Tomponay.
+
+2. Meteza hiaraka aminay
+	Fa sao dia very indray.
+	Ny fiainanay tapahinao
+	No fifalianay.
+	Ny miaraka aminao,
+	hataonay rehareha,
+	Maneke !
+
+3. Ianao no antom-piainanay
+	ianao no tanjakay
+	Vohanay ho Anao ny fo
+	Satria tempolinao.
+	Ny sitrakao hatao,
+	Ny vavakay ho to
+	Mihainoa !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '665',
+  '665',
+  'ATAOKO AN-KIRA',
+  'D. S. Hakes',
+  '(Tsy fantatra)',
+  'Do dia G 9/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ataoko an-kira ny fitiavana ahy
+	Fitiavana tsy nety sasatra
+	Ny foko izao dia tsy manahiahy
+	Fa lovako tokoa ny lanitra.
+
+ISAN\'ANDININY :
+	He ! sambatra ny foko re
+	Fa manana Mpamonjy lehibe.
+
+2. Ry namako, avia hiara-paly
+	Na sarotra ny làlantsika izao
+	Na misy aza re ny mampijaly
+	Ezaho mafy koa ny hiranao.
+	He ! sambatra, sns.
+
+3. Mpamonjy ô, ekeo ho fiderana
+	Anao ny hira izay ventesinay
+	Fa na mandreraka sy maha ana
+	Ny lalana izay izoranay.
+	Asandratray, ny hiranay
+	Hidera ny fitiavanao ry Ray.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '666',
+  '666',
+  'RAISO TOMPO O!',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Ab 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Raiso Tompo ô !
+	Ny foko ho Anao
+	Raiso ka mba sasao
+	Na tsy mendrika aza
+	Diovy ho Anao
+	Aza avela ho lao.
+
+ISAN\'ANDININY :
+	Raiso ny foko
+	Raiso ho Anao
+	Raiso ka mba anjakao
+	Raiso, Tompo ô !
+	Raiso ka sasao ;
+	Aza avela ho lao.
+
+2. Fo tsy mendrika
+	He ! fo tsy mba madio
+	No atolotro anio
+	Tsy azoko ovana
+	Ka omeko Anao
+	Ô ! ovay mba ho vao.
+	Raiso ny foko, sns.
+
+3. Eny, mba iriko
+	Hiaraka aminao.
+	Tompo aza mandao
+	Eo anilanao
+	tsy lany ny fitia
+	Ka tantano ny dia.
+	Raiso ny foko, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '667',
+  '667',
+  'ENTO MORAMORA',
+  'W. L. Thompson',
+  'Raoeliarijaona',
+  'Do dia Eb 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ento moramora
+	Mba hody aho ry Ray,
+	Tano isan\'ora
+	Fa andrao mania indray,
+	Sasatry ny ota
+	Manina ny soa,
+	Ry nisolo tao gologota,
+	Entonao tokoa.
+
+ISAN\'ANDININY :
+	(Ô, vohay ny vala)
+	Ô, vohay ny vala
+	Ka raiso ny ondrinao,
+	Ry Mpiandry mahalala
+	Ny halemeko izao.
+
+2. Ento moramora
+	Mba hody aho ry Ray
+	Tano fa tanora,
+	Andrao dia resy indray.
+	Be ny fahavalo,
+	He ! masiaka koa,
+	Ry Mpandresy tsy mimalo,
+	Entonao tokoa.
+	Ô, vohay ny vala, sns.
+
+3. Ento moramora
+	Hoa ao an-dapa ary
+	Be ny panakora
+	Ka andrao dia kivy ety.
+	Tano ny finoako
+	Tsy handà Anao,
+	Ry \'Lay itokian\'ny foko
+	Entonao izao.
+	Ô, vohay ny vala, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '668',
+  '668',
+  'MPAMONJIKO FENO HANITRA',
+  'H. Barraclough',
+  'Raterarivelo',
+  'Do dia Eb 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Mpamonjiko feno hanitra
+	Sy voninahitra ;
+	Na deraina tao an-danitra,
+	Dia tsy niahotra.
+
+ISAN\'ANDININY :
+	Fa indro, nifidy ho ory
+	Noho ny heloko ;
+	Nandao ny lapa ivory
+	Jesosy soloko.
+
+2. Fa ny voninahitry ny Ray
+	Izay nananany
+	No efa nilaozany indray
+	Ny jalin-janany.
+	Fa indro, nifidy, sns.
+
+3. Koa iza re no hahasaraka ahy
+	Amin\'ny herinao
+	Fa ny saina, tena sy fanahy
+	No niantohanao.
+	Fa indro, nifidy, sns.
+
+4. Andrandraiko an-karavoana
+	Ny fiavianao
+	Ny halemeko hosoloana
+	Ny voninahitrao.
+	Fa indro, nifidy, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '669',
+  '669',
+  'RAY MALALA ASEHOY',
+  'Alexander',
+  'A. Mananirina',
+  'Do dia Eb 3/4 Religioso',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ray malala asehoy
+	Ny famindramponao ;
+	Ka ny vavakay henoy
+	Asandratra aminao
+	Mamelà ny helokay
+	\'Zay vita taminao
+	Hamarino izahay
+	Hiraisana aminao.
+
+ISAN\'ANDININY :
+	Tompo ô ! ampio
+	Aza afoy fa mba tahio.
+	Tano tsy hania
+	Mba ho zanakao doria.
+
+2. Jeso ô Mpamonjy soa
+	Vonjeo ny olonao ;
+	Mba ho tia sy hanoa
+	Ny didy masinao.
+	He ! malemy izahay
+	Tafio ny herinao.
+	Dia handroso sy hahay
+	Hanao ny sitrakao.
+	Tompo ô ! ampio, sns.
+
+3. Ry Fanahy masina ô,
+	tariho izahay
+	Ka arovy hatrizao
+	Ny fandehananay.
+	Aoka tsy hafoinao,
+	Tohano hatrety
+	Tsy hisaraka aminao
+	Aty ka hatrery.
+	Tompo ô ! ampio, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '670',
+  '670',
+  'EO AN-TSANDRINAO',
+  'D. Rabarijoël',
+  'D. Rabarijoël',
+  'Do dia C 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Eo an-tsandrinao, ry Ray,
+	Miantoraka izahay
+	Avy tsy misalasala
+	Na dia lavitra ny vala
+	Ny nitoeranay hatrizay.
+
+ISAN\'ANDININY :
+	Na tsy mendrika aza re,
+	Hodiovinao anio
+	Ka hamirapiratra
+	Toa masoandro mirana.
+
+2. Izy mantsy re no loha
+	Tokana ahitana soa
+	Ka ireo tsela-mahajambena
+	Manodidina ny tena
+	Samy rava hatrizao.
+	Na tsy mendrika, sns.
+
+3. Eny, anio ho mandrakizay
+	Ny fiainako ry Ray
+	Eo am-pelatananao
+	No apetrako izao
+	Raiso Tompo, anjakao.
+	Na tsy mendrika, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '671',
+  '671',
+  'ANDRASO JESO',
+  'B. D. Ackley',
+  'Rajoelison',
+  'Do dia Bb 6/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Andraso Jeso hamonjy anao
+	Andraso Izy fa tsy mahafoy,
+	He, mahatoky nyh teniny \'zao
+	Ô, raiso ka inoy.
+
+ISAN\'ANDININY :
+	Tsy mba ho menatra
+	(Tsy mba ho menatra)
+	Tompo ny miandry Anao
+	(Tompo ny miandry Anao)
+	Fa indro famindrampo lehibe
+	Atafinao azy re.
+
+2. Andraso Jeso raha sarotra
+	Ny làlana izay diavinao,
+	Mahàna sady mahatahotra
+	Fa maizina izao.
+	Tsy mba ho menatra, sns.
+
+3. Andraso Jeso, na ela aza re
+	Ny famonjeny toa tsy hitanao.
+	Miasa mangina ny fitiavany e !
+	Mba hamonjena anao.
+	Tsy mba ho menatra, sns.
+
+4. Andraso Jeso, fa Izy herinao,
+	Fanantenana sy tokin\'ny fo ;
+	Tsy ela intsony hasehony anao
+	Ny fitondrany soa.
+	Ô ! fahafaham-po
+	handramanao izao,
+	Ka fiderana sy saotra tokoa
+	Hameno ny vavanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '672',
+  '672',
+  'HE NY RANAO MIKORIANA',
+  'J. Faustin S.',
+  'J. Faustin S.',
+  'Do dia Eb 2/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. He ! ny ranao mikoriana
+	Izay hosotroiko re anio
+	Itony ratrako mangina
+	Tsaboy ho tena voadio
+	Ny onjan-tsentonao mipaka
+	Aty am-poko ry tsy mandao
+	Ho vonona aho hampanjaka
+	Ny fitiavanao.
+
+2. Jereko Jeso ny fantsika
+	Milentika any anaty tokoa
+	Indrisy re ny halemeko,
+	Tsy mahatsapa izany koa,
+	Ny lefona izay mitsatoka,
+	Dia tsaroako loatra izao,
+	Ry Tompo tia sy Mpanjaka,
+	Ry Mpandefitra ô.
+
+3. Ilay nasiana, nororana,
+	Ny nofonao \'zay noratrana
+	Moa tsy milaza amiko izao,
+	Fiaraha-mihinam-baovao.
+	Firaisana mamy dia mamy,
+	Ny latabatrao re ry Tompo,
+	Mampianatra ahy hankamamy,
+	Ny firaisana.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '673',
+  '673',
+  'EO ANIVON\'AHIAHY',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia G 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Eo anivon\'ahiahy
+	Mijere, Tompo ô, mijere.
+	Ory loatra ny fanahy,
+	Tompo tia ô, mijere.
+
+ISAN\'ANDININY :
+	Mihainoa fa miantso Anao
+	(Miantso Anao)
+	Mamlia fa mitalaho
+	(Mitalaho)
+	Tompo ô, rahoviana re ?
+	Efa niandry ela be (ela be).
+
+2. Hodidinim-pahotana,
+	Mamonje Tompo ô, mamonje.
+	Tano \'ndrao tsy mahatana,
+	Tompo tia ô, mamonje.
+	Mihainoa, sns.
+
+3. Ady lava isan\'ora,
+	Manampia Tompo ô, manampia,
+	Isan\'andro voakora,
+	Tompo tia ô, manampia.
+	Mihainoa, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '674',
+  '674',
+  'TSY MBA MISY REHAREHAKO',
+  'J. F. Saïd',
+  'J. F. Saïd',
+  'Do dia G 2/4 Andante',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Tsy mba misy ataoko reharehako, Jeso,
+	Afa-tsy ny hazo fijalianao, Jeso.
+	Na ho levona aza koa ny foko, Jeso,
+	Ahy Jeso na ho mangidy
+	Na ho soa, Jeso,
+	Na mahantra koa, Jeso
+	Ho Anao na ho sambatra, Jeso,
+	Ampy ahy Ianao
+	Ampy ahy Ianao
+	Tsy matahotra aho fa ny lova ary, Jeso, (Jeso),
+	Ahy Jeso.
+
+2. Tsy ahoako intsony izao tontolo izao, Jeso,
+	Fa nataoko fatiantoka avokoa, Jeso,
+	Vola sy harena, zava-maro lo, Jeso,
+	Foiko avokoa.
+	Fanantenako, tokiko, Jeso,
+	Ny fahoriana ety, tsy hahasaraka ahy, Jeso.
+	Lovako Ianao, Jeso.
+	Ravoravo izao ny foko anilanao, Jeso.
+
+3. Vetivety foana dia hahita Anao, Jeso,
+	Hifanatri-maso aminao, ry Jeso
+	Sambatra sy tretrika ny olonao, Jeso,
+	Ho aminao.
+	Tsy hisy ranomaso, ratra koa, Jeso.
+	Ny etrin-tenako, Jeso.
+	Voninahitrao Jeso.
+	Lamba soa hatafinao ny tenako, Jeso
+	Fotsy madio.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '675',
+  '675',
+  'NY TOKIKO DIA AMINAO',
+  'Klein',
+  'Rabarijoël',
+  'Do dia Bb 4/4 Maesteso',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ny tokiko dia aminao,
+	Ry Tompo,
+	An-tànanao ny fiainako
+	Re hatrizao
+	Tsy mba misy atahorako tokoa
+	Fa ny herinao no aroko.
+	(Fa ny herinao no aro)
+	Eo aminao (dia eo aminao)
+	Eo aminao
+	No misy toky tsara (he tsara)
+	Hananako anjara fiarovana
+	Azo antoka.
+
+2. Ny masoko mibanjina tokoa,
+	Toy ny mijery
+	Ray be fitiavana,
+	Fa Ianao no Raiko
+	Ao an-danitra
+	Tena tia ka mahafinaritra,
+	(He ! tena tsara)
+	Ny masoko mibanjina
+	Ny tavanao ry Raiko (ry Raiko)
+	Ray tena tia ahy,
+	Fitiavana \'zay maharitra.
+
+3. Ny fivavahako sy faniriako,
+	Dia ny ho eo alinanao mandrakizay,
+	Eo no ahitako fiadanana,
+	Sy ny tena fifaliana,
+	Ry tikiko, ry heriko
+	Ry Vatolampy mafy, (he mafy)
+	Ry vonivatoko,
+	Tompo malalako,
+	Tano aho izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '676',
+  '676',
+  'METEZA RAY O!',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Eb 3/4 Andantino',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Meteza Ray ô, hihaino ahy anio.
+	Henoy ny feoko miantso Anao
+	Meteza Ray ô, ary koa valio
+	\'Ty zanakao \'zay mitady Anao.
+
+ISAN\'ANDININY :
+	Fa ny fahotako ve
+	(Fa ny fahotako ihany ve)
+	(No manimba)
+	Ka tsy ahitako Anao
+	(No tsy ahitako Anao)
+	(Entiko sasanao Ray ô !)
+	Sitrako tokoa
+	Ny ho diovinao
+	Ho zaza mankato
+	(Ho zanakao)
+	Ho tia Anao tokoa.
+
+2. Mihainoa, ry Ray ô, ary mamalia.
+	Tonga eto aho hifona aminao.
+	Raha toa tsy mendrika ho zanakao,
+	Raiso ho toy ireo mpanomponao.
+	Fa ny fahotako ve, sns.
+
+3. Vohako, Ray ô, ho Anao ny fo,
+	Mba ho sasana hadio tokoa ;
+	Ka ny voady dia ny ho tia
+	Sy mendrika ny honenanao.
+	Fa ny fahotako ve, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '677',
+  '677',
+  'HE TSARA NY FONENANA ETO',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Db 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. :,: He ! tsara ny fonenana eto
+	(Kanefa)
+	Ny eo anilanao no tiako.
+	(Raha lavitra)
+	Lavitra Anao ny fo misento
+	(Sento, sento)
+	Fa ny eo anilanao no tiako.
+	Ry Tompoko, Mpamonjiko,
+	Mpiahy ny fanahiko,
+	Eny, lavitra Anao ny fo misento
+	Ka ny eo anilanao no tiako. :,:
+	:,: Indro omeko Anao ny foko,
+	(ry Tompo ka mba hanompo)
+	Re, ry Tompo.
+	Mba hanompo (Anao ny foko)
+	Ny ota maro izay tsy foiko
+	Homboiko eo ambony vokovoko (kovoko)
+	Ny anaranao no hantsoiko
+	Ny feonao no henoiko
+	Izao tontolo izao hafoiko Tompo
+	Ny eo anilanao no tiako. :,:
+
+
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '678',
+  '678',
+  'NY TANY SY NY LANITRA',
+  'K. Grunholzer',
+  'Rabarijoël',
+  'Do dia D 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ny tany sy ny lanitra
+	Ny zavaboary
+	Nataon\'ANDRIAMANITRA
+	Mitory Ilay Mpahary
+	Feno fahendrena be sy hery
+	\'Zay tsy takatry ny saina.
+	\'Reo kintana mamiratra,
+	Manemitra ny habakabaka,
+	Milaza fa Andriamanitra
+	Irery ihany no mpanapaka.
+	Miara-midera ny fitiavanao izahay,
+	Jehovah Masina ô,
+	Mpanao izao rehetra izao.
+
+2. Ny lohasaha mavana,
+	Ny tendrombohitra avo,
+	Na ny tanety ngazana
+	Dia samy ravoravo,
+	Ka midera mafy koa,
+	Fa hendry Ilay namorona ny tany,
+	\'Reo voronkely tsara feo
+	INdray miredona mihira re,
+	Tsy misy \'zay mitoreo ireo.
+	Ny biby kely sy lehibe
+	Miara-midera ny fitiavanao,
+	Izahay Jehovah Masina ô,
+	Mpanao izao rehetra izao.
+
+3. Irinay koa izao, ry Ray,
+	Hiaraka hitory,
+	Ny fitiavanao anay
+	Fa tsy hatoritory.
+	Ianao namorona
+	Anay hitovy endrika aminao,
+	Ka dia midera izahay
+	Manda ny didy masinao, ry Ray
+	Navotanao mba ho zanakao
+	Ka sotra, dera no atolotray
+	Ny fonay tontolo sy herinay koa
+	Entinay hanompo sy ho tia,
+	Anao mandrakizay doria.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '679',
+  '679',
+  'RAY O, TSY MBA TAKATRY NY SAINA',
+  'E. Razakarivony',
+  'E. Razakarivony',
+  'Do dia Eb 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ray ô, tsy mba takatry ny saina
+	Ny haben\'ny fitiavanao
+	Fa ambony loatra ka lalaina
+	\'Zao ankehitriny izao.
+	Izahay no mendrika ho faty
+	Noho ny fahotana vitanay ;
+	Nefa kosa fijaliana mafy
+	No nasaina nisoloana anay
+
+ISAN\'ANDININY :
+	Efa nenina tokoa ny lasa
+	\'Zay nandavana ny teninao
+	Koa indro izao fa mikasa
+	Hankato izay baikonao.
+
+2. Ray ô ! mamy ny fitiavanao
+	Ka tsy hay ho hadinoina izao.
+	Fa mibitsika mangina anay
+	Mba hifikitra aminao ry Ray.
+	Eny, fitiavana tsy lany
+	Fa maharitra mandrakizay
+	No atlotrao ety an-tany
+	Hamonjena olom-bery indray.
+	Efa nenina ny lasa, sns.
+
+3. Ray ô ! indro fa miha-mazava
+	Aminay ny fitiavanao ;
+	Fa maharitra tsy mety rava
+	Ka ianteherana hatrizao.
+	Ny fitiavanao irery ihany
+	No mba azo antoka ety ;
+	Koa raha mbola ato an-tany
+	Ny irina : ho Anao doria.
+	Raisonao anio ny dera, saotra
+	\'Zay atolotra Anao, ry Ray ;
+	Koa ampio izahay mba hivoatra
+	Ho Anao anio, mandrakizay.
+	Amen ! Amen
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '680',
+  '680',
+  'MIVERENA JESO O!',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Ab 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Miverena Jeso ô,
+	Fa miandry Anao \'zahay.
+	Aza ela faigàna re
+	Fa miandry ela be
+	Fahoriana Jeso ô,
+	Ny fiandrasana Anao aty
+	\'Ndrao tsy mahandry \'zahay ka avia
+	Jesosy ô, malakia.
+
+ISAN\'ANDININY :
+	Avia Jesosy ô,
+	Miandry Anao fa malakia
+	Avia fa miandry Anao
+	Fa miandry Anao ny oloao
+	Avia fa miandry Anao
+	Fa miandry Anao Jeso ô. (Jeso ô)
+
+2. Marobe ny olona
+	Reraka sy ana.
+	Fa izao tontolo izao,
+	No manakan-dàlana,
+	Aza ela, Jeso ô,
+	\'Ndrao dia ritra ny ondrinao.
+	\'Ndrao tsy mahandry izahay,
+	Ka avia Jesosy ô, malakia.
+	Avia Jesosy ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '681',
+  '681',
+  'MIDERA AN\'I JEHOVAH',
+  'E. Razakarivony',
+  'E. Razakarivony',
+  'Do dia Eb 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. :,: Miderà an\'i Jeshovah
+	Miantsoa ny anarany
+	Ataovy fantatra
+	Any amin\'ny firenena
+	Ny asanay
+	Mihirà ho Azy
+	Mankalazà Azy
+	Saintsaino
+	Ny fahagagana rehetra
+	Ataony :,:
+	:,: Ataovy ho reharehanareo
+	Ny anarany masina
+	Aoka hifaly ny fon\'izay mitady
+	An\'i Jehovah
+	Mitadiava an\'i Jehovah
+	Sy ny heriny, sy ny heriny
+	Katsaho mandrakariva
+	Ny tavany :,:
+	Aman, Amen.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '682',
+  '682',
+  'FENO HAFALIANA',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Eb 4/4 Allegro',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Feno hafaliana
+	Ny ao an-danitra ao
+	Fa tonga ao am-bala
+	Ny ondry nania
+	\'Lay very taloha
+	Efa an-tranon-dRay
+	Ka faly (avokoa)
+	Ny ao an-danitra ao.
+
+2. He ! ny fahotany
+	Hadino avokoa,
+	Ka lamba madio
+	No hatafy azy izao.
+	Nateraka indray
+	Ka tiana tokoa,
+	He ! faly (avokoa)
+	Ny ao an-danitra ao.
+
+3. Hira sy Hosana
+	No miredona ao,
+	Tsy meloka intsony 
+	Ilay nania.
+	Fa velona indray
+	Ho mandrakizay,
+	Ka faly (avokoa)
+	Ny ao an-danitra ao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '683',
+  '683',
+  'JESO ZOKY \'ZAY MODELY',
+  'E. Razakarivony',
+  'E. Razakarivony',
+  'Do dia Eb 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Jeso Zoky \'zay modely
+	\'Ndreto ny tanoranao.
+	Vonona hanolo-tena avokoa.
+	Tsy ho kivy velively
+	Fa hanara-dia Anao
+	Na ho mafy
+	Na ho mora izay hanjo.
+
+ISAN\'ANDININY :
+	Indro raiso,
+	Fa atolotra Anao
+	Ny tenanay.
+	Ho Anao manontolo
+	Ka anjakao, Jeso.
+	Nefa osa ka tazony
+	Ho Anao mandrakizay
+	Ary ampio mba handresy
+	Toa Anao, Jeso.
+
+2. Raha manjeny andro lava
+	Atodiho hahatsiaro Anao
+	Ka toroy izay rehetra hatao.
+	Eny, mora lavo mantsy
+	Raha tsy tantananao,
+	Aza avela hanalavitra hatrizao.
+	Indro raiso, sns.
+
+3. Dia manantena ary
+	Fa horaisinao tokoa
+	Ka tsy holavinao
+	Ny fangatahanay.
+	Ry Jesosy Zoky tia
+	Izay tsy manam-paharoa
+	Ianao no hianteheranay.
+	Indro raiso, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '684',
+  '684',
+  'HITADY ANAO',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia C 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Hitady Anao Jehovah Tompo ô !
+	Hipetraka eo anilanao
+	Rahoviana re hahita Anao tokoa
+	Hialokaloka eo an-tratranao.
+
+ISAN\'ANDININY :
+	Tompo ô ! (Ô fidio)
+	Ho zanakao (Ho madio)
+	Raiso re (raiso re)
+	Raiso re (raiso re)
+	Na tsy mendrika
+	Dia ho Anao ny fo
+	Raiso mba ho Anao doria tokoa
+	Hitady Anao Jehovah ô
+	Tsy mionona raha tsy eo anilanao.
+
+2. Raha lavitra Anao ny zanakao
+	Tantano Ray mba tsy hania
+	Sasao madio ny fo ka anjakao
+	Ry Tompo ô, avia ka manampia.
+	Tompo ô, sns.
+
+3. Ry Tompo ô, Mpamonjy ny fanahy
+	Mba mitariha ny zanakao.
+	Ka atanjaho ho tena lehilahy
+	Ho vonona hiady ho Anao.
+	Tompo ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '685',
+  '685',
+  'IANAO TANORA NO FANILO',
+  'S. Razafindrakoto',
+  'S. Razafindrakoto',
+  'Do dia Eb 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ianao tanora no fanilo izao
+	Ianao no fahazavana soa.
+	Aminao no misy indray ny aina vao
+	Antenaina hampitraka ny efa voa
+	Fa ny haizina no manarona
+	Haizim-pito no manjaka koa.
+	Mila anao ny firenena hanarina
+	Ka faingàna re ianao, mandrosoa !
+
+ISAN\'ANDININY :
+	Ny fanevanao aingao izao
+	Asandrato ho tazana e !
+	Fa ny hery eo an-tananao
+	Ka aza ela ry tanora mandrosoa.
+
+2. He ! miposaka aminao tokoa izao
+	Ny hazavan\'ilay maraina soa
+	Ka mamirapiratra sy tena vao
+	Mampahery ireo izay mamoy fo.
+	Mitsangàna re ka mihazavà
+	Mba ho voninahitra tokoa.
+	Asehoy fa ianao dia tena sahy
+	Noho \'Lay Kapiteninao ao aloha.
+	Ny fanevanao aingao, sns.
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '686',
+  '686',
+  'VONONA AHO RY MPAMONJY',
+  'Harkness',
+  'J. Rabarijoël',
+  'Do dia F 6/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Vonona aho ry Mpamonjy
+	Hankato ny didinao
+	Voaraiko \'zao ny vonjy
+	Sy ny fanavotanao.
+	Voavelanao ny ota
+	Noho ny fahasoavanao
+	Na dia ratsy fa mpanota
+	Raisinao ho zanakao.
+
+ISAN\'ANDININY :
+
+Vonona aho mba hanompo
+	Sy hanaraka Anao
+	Vonona aho re ry Tompo
+	Hankato ny didinao.
+
+2. Na dia sarotra sy mafy
+	Ny hanaraka Anao
+	Vonona aho mba hihafy
+	Ka hanao ny sitrakao
+	Tsy ekeko ny ho resy
+	Amin\'ota lava izao
+	Fa mba tena ho mpandresy
+	Sy hijoro toa Anao.
+	Vonona aho, sns.
+
+3. Nefa kely \'zany hery
+	Entiko mba hankato
+	Fa ny làlana dia tery
+	Sady feno tsilo koa.
+	Ry Mpamonjy ô, tantano
+	Ny mpanompokelinao
+	Ny fanahiko tohano
+	Hankato ny didinao.
+	Vonona aho, sns.
+	'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '687',
+  '687',
+  'VONONA AHO',
+  'I. A. Ramboniarisoa',
+  'I. A. Ramboniarisoa',
+  'Do dia Eb 4/4 Milantolanto',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Vonona aho, ry Mpamonjy
+	Ny hanaraka Anao
+	FA natolotrao ny vonjy
+	Ka navotanao.
+
+ISAN\'ANDININY :
+	Na dia sarotra (sy mafy)
+	Ny hanara-dia Anao
+	Vonona aho ny hihafy
+	Hankato ny baikonao Jeso
+	(Satria) zanakao.
+
+2. Nefa kely \'zany hery
+	Entiko hanara-dia
+	Koa tantano sao dia very
+	\'Zaho \'(zay mpania.
+	Na dia sarotra, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '688',
+  '688',
+  'JESOSY MPIANDRY TSARA',
+  'Rajoelison',
+  'Rajoelison',
+  'Do dia F 6/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Jesosy Mpiandry tsara
+	Miantso hoe avia
+	Midira ao am-bala
+	Ry ondry \'zay nania.
+	Ô ! aza ela sao very
+	Tsy renao ve ny feo ?
+	Na sarotra aza sy tery
+	Ny lalana mankeo.
+
+ISAN\'ANDININY :
+	Miantso anao amim-pitiavana
+	\'Lay Mpiandry tena mahafatra-po.
+	Tsy misy azonao andavana
+	Ny fony \'zay tia tokoa.
+
+2. Jesosy Mpiandry tsara
+	Maty ho solonao.
+	Mba hanome anjara
+	Sy lova ho anao.
+	Fainagàna sasa-miandry
+	\'Lay Tompo mora fo
+	Indro mamelatra sandry
+	Handray anao tokoa.
+	Miantso anao, sns.
+
+3. Aza misalasala
+	Fa misy bibidia.
+	Devoly mpankahala
+	Mikendry \'reo mpania.
+	Jesosy \'Lay Mpiandry tia
+	Miantso hoe : <<Avia>> !
+	Vonon-kanolotra anao
+	Ny famonjeny izao.
+	Miantso anao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '689',
+  '689',
+  'INDRETO FA VONON-KANOMPO',
+  'Rabarijoël',
+  'Rabarijoël',
+  'Do dia F 6/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Indreto fa vonon-kanompo
+	\'Zahay zanakao, ô, ry Ray,
+	Tsy misy ekenay ho Tompo
+	Afa-tsy Jeso Zokinay.
+	Tsy tianay intsony ny ota
+	Namatotra anay hatrizao.
+	Ny lalan-komban\'ny mpanota
+	Afoinay hatramin\'izao.
+
+ISAN\'ANDININY :
+	Jereo ô, ry Ray,
+	Fa mandroso \'zahay zanakao.
+	Tohano ny fo
+	Fa hijoro hanaraka Anao.
+
+2. Kanefa mafana ny ady
+	Atrehinay ankehitrio
+	He ! mila hivarina an-kady
+	Izahay, ka vonjeo sy ampio.
+	Satana mikendry handova
+	Mamelatra fandrika be ;
+	Tantano, ry Ray tsy, ho lavo
+	Hazony akaikinao re.
+	Jereo ô, ry Ray, sns.
+
+3. Ny herinao Jeso Mpamonjy
+	Irinay hananana koa.
+	Ny herinao nenti-namonjy,
+	\'Lay hery mandresy tokoa.
+	Ny zava-kendrenay rehetra
+	Hanarakan ny didinao.
+	Fanahy ô, tongava hitoetra
+	Am-ponay mba ho lapanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '690',
+  '690',
+  'TSY MBA RENAO VE',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Db 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Tsy mba renao ve ? (in-3)
+	(Ding, dong) (in-3)
+	Feo manakoako ao (in-2)
+	(Ao am-ponao ao ?) (in-2)
+	Feo manakoako ao am-ponao ao.
+	Sao mba renao
+	Feon\'i Jeso miantso izao.
+
+ISAN\'ANDININY :
+	Lakolosy
+	(Ding, dong, sy)
+	No manakoako ao,
+	Fa Jesosy
+	(Ding, dong, dong)
+	No mandona ny fonao.
+	Jeso no te hanadio
+	Io fonao maloto io.
+	Atolory
+	(Atolory izao)
+	Atolory ny fonao
+	(Ho Azy ny fonao)
+	Atolory
+	(Atolory izao)
+	Atolory ny fonao
+	(Ho Azy ny fonao)
+	Atolory ny fonao
+	(Atolory izao ny fonao)
+	Atolory an\'i Jeso
+	(Mba ho an\'i Jeso)
+
+2. Ota marobe (in-3)
+	(Ding, dong) (in-3)
+	No miafinafina ao (in-2)
+	(Ao am-ponao ao ?) (in-2)
+	No miafinafina ao am-ponao ao
+	Ota maro,
+	Asehoy an\'i Jeso.
+	Lakolosy, sns.
+
+3. Tsy Satana ve (in-3)
+	(Ding, dong) (in-3)
+	No misitrisitrikao ? (in-2)
+	(Ao am-ponao ao ?) (in-2)
+	No misitrisitrikao Ao am-ponao ao
+	Raha satana,
+	\'Ndeha mba ilazao Jeso.
+	Lakolosy, sns.
+
+4. Aza ela be (in-3)
+	(Ding, dong) (in-3)
+	Ny fisalasalanao (in-2)
+	(Ao am-ponao ao ?) (in-2)
+	Ny fisalasalanao ao am-ponao
+	Malakia sao
+	Tsy mahandry anio Jeso.
+	Lakolosy, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '691',
+  '691',
+  '\'ZAO NO HIRANTSIKA',
+  'J. R. Sweney',
+  '(Tsy fantatra)',
+  'Do dia E 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. (Feo 1,2,3) \'Zao no hirantsika
+	Ry tanoran\'i Jeso
+	(Feo 4) \'Zao ry tanoran\'i Jeso
+	(Feo 1,2,3) Mba ho iray (2)
+	(Feo 4) Mba ho iray,
+	Mba ho iray, iray
+	(Feo 1,2,3) Tsofy mafy ny mozika
+	Mba hanako hoe :
+	(Feo 4) Tsofy mafy
+	Mba hanako hoe :
+	(Feo 1) Mba ho iray ny hira
+	Hiraisanay
+	(Feo 2,3,4) Mba ho iray ny hira
+	Hiraisanay, hiray
+	(Feo 1) Mba ho iray, iray,
+	Ny hira hiraisanay (3)
+	(Feo 2,3,4) Mba ho iray ny hira
+	Hiraisanay (3)
+	(Feo 1,2,3,4) Ka ho tena iray.
+
+ISAN\'ANDININY :
+	(Feo 4) Ka ho tanora hampiray
+	(Feo 1) Ho tanora
+	(Feo 2,3) Ho tanora hampiray
+	(Feo 1) Hampiray ny tanindrazanao
+	(Feo 2,3,4) Hampiray ny tanindrazanaohiray
+	(Feo 4) Ka isan\'ora hampiray
+	(Feo 1) Isan\'ora
+	(Feo 2,3) Isan\'ora hampiray
+	(Feo 1,2,3,4) Hampiray izao tontolo izao
+	(Feo 1) Mba ho iray ny hira hiraisanay
+	(Feo 2,3,4) Mba ho iray ny hira
+	Hiraisanay, hiray
+	(Feo 1) Mba ho iray, iray,
+	No hira hiraisanay (3)
+	(Feo 2,3,4) Mba ho iray ny hira
+	Hiraisanay (3)
+	(Feo 1,2,3,4) Ka ho tena iray.
+
+2. (Feo 1,2,3) \'Zao no tarigetrantsika
+	Anio sy ho doria,
+	(Feo 4) \'Zao no antsika
+	Ho doria,
+	(Feo 1,2,3) Mba ho iray (2)
+	(Feo 4) Mba ho iray,
+	Mba ho iray, iray.
+	(Feo 1,2,3) Ka tsy hisy hifanditra
+	Fa hifankatia,
+	(Feo 4) Ka tsy hisy
+	Fa hifankatia
+	(Feo 1) Ka ho iray ho tena
+	Vala iray
+	(Feo 2,3,4) Ka ho iray ho tena vala
+	iray, iray
+	(Feo 1) Ka ho iray, iray,
+	Ho tena vala iray (3)
+	(Feo 2,3,4) Ka ho iray tena vala
+	iray (3)
+	(Feo 1,2,3,4) Ka ho tena iray.
+	Ho tanora, sns.
+
+3. (Feo 1,2,3) Ny faneva
+	Hasandratsika,
+	Ry tanora ô,
+	(Feo 4) Ny faneva,
+	Ry tanora ô,
+	(Feo 1,2,3) Mba ho iray (2)
+	(Feo 4) Mba ho iray,
+	Mba ho iray, iray.
+	(Feo 1,2,3) Ka na misy rà mandriaka
+	Sy akora ao,
+	(Feo 4) Ka na misy
+	Ny akora ao,
+	(Feo 1) Dia ho iray
+	Ny tafiky ny Ray
+	(Feo 2,3,4) Dia ho iray ny tafiky
+	Ny Ray, iray
+	(Feo 1) Dia ho iray, iray,
+	Ny tafiky ny Ray (3)
+	(Feo 2,3,4) Dia ho iray ny tafiky
+	Ny Ray (3)
+	(Feo 1,2,3,4) Ka ho tena iray.
+	Ho tanora, sns.
+
+4. (Feo 1,2,3) Na mandeha
+	Mamakivaky izao
+	Tontolo izao,
+	(Feo 4) Na mamak\'izao
+	Tontolo izao,
+	(Feo 1,2,3) Dia ho iray (2)
+	(Feo 4) Dia ho iray,
+	Dia ho iray, iray
+	(Feo 1,2,3) fa nyTompo no
+	Mitaky ny firaisanao,
+	(Feo 4) fa nyTompo
+	Ny firaisanao,
+	(Feo 1) Mba ho iray,
+	Ny tànana hifandray
+	(Feo 2,3,4) Mba ho iray,
+	ny tànana hifandray, iray.
+	(Feo 1) Mba ho iray, iray,
+	Ny tànana hifandray (3)
+	(Feo 2,3,4) Mba ho iray ny tànana
+	Hifandray (3)
+	(Feo 1,2,3,4) Ka ho tena iray.
+	Ho tanora, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '692',
+  '692',
+  'RY TOMPO Ô ! TARIHO',
+  'L. J. Raharijaona',
+  'L. J. Raharijaona',
+  'Do dia Ab 4/4 Milamindamina',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ry Tompo ô ! tariho
+	Ny ondrikelinao,
+	Tantano sy vimbino
+	Hanao ny sitrakao ;
+	Raha misy hafaliana,
+	Dia taomy mba ho tia ;
+	Raha sendra fahoriana,
+	Sakano tsy hania.
+
+ISAN\'ANDININY :
+
+Ry Jeso ô ! tazano
+	Ny lalanay izao,
+	Tariho sy tantano
+	Ho ao am-balanao;
+	Anio dia mikasa
+	Hanolo-tena koa.
+	Fa nenina ny lasa
+	Hiezaka tokoa.
+	Ry Jeso ô ! tazano, sns.
+
+2. Anio no hafaliako,
+	Ny foko lasanao,
+	Ny maminao no tiako,
+	Hatao ny sitrakao.
+	Ny androko rehetra,
+	Atolotro Anao ;
+	Anao tsy misy fetra,
+	Ka raiso, anjakao :
+	Ry Jeso ô ! tazano, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '693',
+  '693',
+  'JESOSY IRERY IHANY',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Bb 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Jesosy irery ihany
+No zavatra rehetra
+Na ny laza, na harena
+Dia ho simba sy ho ritra
+(Dia mora simba sady mora ritra)
+Izy no tompon\'ny fahefana
+Tsy misy fetra !
+Soa maro sesehena izay
+(Tena) maharitra
+Miara-miasa, hahasoa
+Ny zava-drehetra
+(Ny zavatra rehetra)
+Ka na faly na tomany
+Jeso no banjino hatrany.
+Raha mitombo ny harena,
+Finaritra,
+(Sambatra, finaritra)
+Jesosy irery no zavatra rehetra !
+Raha sendra fitsapana
+Sy ady sarotra
+(Tojo ady sarotra)
+Jesosy irery no zavatra rehetra.
+
+2
+Jesosy irery ihany
+No zavatra rehetra
+Raha mahatsiaro toa nafoy
+Jeso Kristy no antsoy !
+Fa Izy hitantana, hiara-dia,
+Hiara-mitoetra,
+Fa Sakaiza,
+Tsy manary na aiza na aiza.
+Miara-miasa hahasoa
+Ny zava-drehetra
+Raha toa ka manirery,
+Ka izao rehetra izao
+(Mandao anao)
+Mihataka sy tsy mijery,
+Manadino, mandao !
+Jesosy irery no zavatra rehetra.
+Raha misondrotra ny laza
+Sy voninahitra
+(Sy ny voninahitra)
+Jesosy irery no zavatra rehetra.
+
+3Jesosy irery ihany
+No zavatra rehetra
+Fongana ve ny harena ?
+Jesosy ihany jerena !
+Ny havana maneso, mandatsa
+Sady tsy mitsetra,
+Fa jesosy dia onena,
+Ny olo-mahantra.
+Miara-miasa hahasoa
+Ny zava-drehetra
+(Zavatra rehetra)
+Raha manjombona ny andro,
+Jeosy no masoandro
+Raha mamiratra mazava,
+Ny lanitra,
+Jesosy irery no zavatra rehetra.
+Raha mikotroka mamely,
+Ny oram-baratra
+(Mafy ny oram-baratra)
+Jesosy irery no zavatra rehetra.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '694',
+  '694',
+  'JESOSY O!',
+  'Rakotonjanahary',
+  'Rakotonjanahary',
+  'Do dia E 4/4 Allegreto',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. (Feo tokana) Jesosy ô
+	(Feo 1,2,3) Jesosy ô, Jesosy ô
+	(Feo 4) Jesosy ô, Jesosy ô 
+	Mba henoy,
+	Mba henoy
+	Ô ! mba henoy
+	(Feo 1,2,3) Ô ! mba henoy,
+	Ô ! mba henoy
+	(Feo tokana) Ô ! mba henoy,
+	Ka aza afoy ny ondrinao
+	(Feo 1,2,3) Ka aza afoy,
+	Ka aza afoy ny ondrinao
+	(Feo tokana) He ! mitalaho
+	(Feo 1,2,3) He ! mitalaho
+	He ! mitalaho
+	(Feo 4) He ! mitalaho
+	He ! mitalaho aminao, aminao
+	(Feo tokana)  Eo aminao
+	(Feo 1,2,3) Eo aminao, eo aminao
+	(Feo 4) Eo aminao ka afaho
+	Mba afaho
+	(Feo tokana) Ka mba afaho
+	Ny ondrinao
+	(Feo 1,2,3) Ka mba afaho,
+	Ka mba afaho, ny ondrinao
+	(Feo 4) Ka mba afaho,
+	Mba afaho, ny ondrinao,
+	Ny ondrinao.
+
+ISAN\'ANDININY :
+	(Feo 1) Eny, eo aminao
+	(Feo 2,3,4) :,: Eo aminao,
+	Eo aminao :,:
+	(Feo 1) Misy, misy ny soa Jeso
+	(Feo 2,3,4) :,: Misy ny soa, misy ny soa :,:
+	(Feo 1) Eny, eo aminao Jeso
+	(Feo 2,3,4) Eo aminao,
+	Eo aminao,
+	Eo aminao,
+	Eo aminao misy hery tsitoha
+	(Feo 1) Misy hery tsitoha.
+	(Feo 2,3,4) Eo aminao,
+	Aminao misy soa
+	Misy hery tsitoa
+	(Feo 1) Jesosy ô,
+	(Feo 2,3,4) Aminao Jeso ô,
+	Jesosy ô,
+	(Feo 4) Aminao Jeso ô,
+	Jesosy ô, mba henoy,
+	Mba henoy
+	(Feo 1) Ô ! mba henoy,
+	(Feo 2,3) Ô ! mba henoy, ô,
+	Mba henoy
+	(Feo 4) Ô ! mba henoy,
+	Ka afaho, mba afaho
+	(Feo 1) Ka mba afaho
+	Ny ondrinao.
+	(Feo 2,3,4) Ka mba afaho
+	Ny ondrinao,
+	Ny ondrinao.
+
+2. (Feo tokana) Jesosy ô
+	(Feo 1,2,3) Jesosy ô, Jesosy ô
+	(Feo 4) Jesosy ô, Jesosy ô 
+	Mba vonjeo,
+	Mba vonjeo
+	(Feo tokana) Ô ! mba vonjeo
+	(Feo 1,2,3) Ô ! mba vonjeo, ô,
+	Mba vonjeo
+	(Feo 4) Ô ! mba vonjeo,
+	Ka atreho,
+	Mba atreho
+	(Feo tokana) Ka mba atreho,
+	Ny olonao
+	(Feo 1,2,3) Ka mba atreho,
+	Ka mba atreho,
+	Ny olonao
+	(Feo 4) Ka mba atreho,
+	Ny olonao
+	Ny olonao mba atreho Jeso
+	(Feo tokana) Eny, ekeo,
+	(Feo 1,2,3) Eny, ekeo, eny ekeo
+	(Feo 4) Eny, ekeo, eny ekeo
+	Dia fefeo
+	(Feo tokana) Dia mba fefeo
+	(Feo 1,2,3) Dia mba fefeo,
+	Dia mba fefeo
+	(Feo 4) Mba fefeo dia mba fefeo
+	Ka omeo
+	(Feo tokana) Ary omeo ny herinao
+	(Feo 1,2,3) Ary omeo, ary omeo
+	Ny herinao, ny herinao.
+	(Feo 4) Ary omeo, ary omeo
+	Ny herinao, ny herinao.
+	Eo aminao, sns.
+
+3. (Feo tokana) Jesosy ô
+	(Feo 1,2,3) Jesosy ô, Jesosy ô
+	(Feo 4) Jesosy ô, Jesosy ô 
+	Mba avia, mba avia
+	(Feo tokana) Ô ! mba avia
+	(Feo 1,2,3) Ô ! mba avia, ô,
+	Mba avia
+	(Feo 4) Ô ! mba avia ka valio
+	Ka valio
+	(Feo tokana) Ka mba valio izahay
+	(Feo 1,2,3) Ka mba valio,
+	Ka mba valio izahay
+	(Feo 4) Ka mba valio izahay,
+	Ny vavakay mba valio Jeso
+	(Feo tokana) Eny, anio,
+	(Feo 1,2,3) Eny, anio, eny anio,
+	(Feo 4) Eny, anio, eny anio,
+	Dieny anio
+	(Feo tokana) Dieny anio
+	(Feo 1,2,3) Dieny anio, dieny anio
+	(Feo 4) Eny anio, dieny anio
+	Ô ampio,
+	(Feo tokana) Ô mba ampio ny herinao
+	(Feo 1,2,3) Ô mba ampio, ô,
+	Mba ampio ny herinao,
+	Ny herinao
+	(Feo 4) Mba ampio, ô,
+	Mba ampio ny herinao,
+	Ny herinao
+	Eo aminao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '695',
+  '695',
+  'RY MADAGASIKARA',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia F 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ry Madagasikara soa
+	Natolo-Janahary anay.
+	Nosim-boahangy manirery
+	Fa nahasoa ny razanay.
+	He ! sarobidy tsara loatra,
+	Tsy sandàna, tsy atakalo
+	Feno ny fo ka toa mangina
+	Heriny mivavaka hoe :
+
+ISAN\'ANDININY :
+	Andriamanitra ô !
+	Tondrahy ny andon\'ny lanitra
+	Vontosy ny tsiron\'ny tany
+	I Madagasikara.
+
+2. Ry firenena malagasy
+	Andeha malaky mitsangàna,
+	Alao hery mandrosoa !
+	\'Zay maha-olona ano re,
+	Atolory, asorony !
+	Aza mandevina talenta
+	Fa anondroty firenena.
+	Andriamanitra ô, sns.
+
+3. Andriamanitra ambony
+	Fenoy ny fitahianao.
+	Ny mponina rehetra eto
+	Ary izay asa mahasoa
+	Ireo nantsoinao hitondra,
+	Mba tsidiho, mba tsidiho.
+	Ho sambatra tokoa ny Nosy
+	Raha Ianao no azy.
+	Andriamanitra ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '696',
+  '696',
+  'HO KIVY VE',
+  'E. D. Excel',
+  'Rabarijoël',
+  'Do dia C 4/4 Majeur ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ho kivy ve raha sendra ny manjo ?
+	Ny ady atao ve hampamoy fo ?
+	Tsy tanintsika izao tontolo izao
+	Jere Jeso ery mitazana anao.
+	Ny fanenjehana hiaretanao.
+	Mampanakaiky Ilay tratrarinao.
+	Na rotika aza
+	Izao nofo izao
+	Moa ve tsy hosoloiny
+	Vaovao ?
+
+2. Ny fahoriana hitanao ety
+	No làlana hahatonga anao ery.
+	Fanantenana latsaka ao am-po
+	No hahatraranao ilay Edena soa.
+	\'Zao nofo izao ta handavo anao,
+	Satana anie no ta hanjaka ao.
+	Koa mandrese,
+	Jesosy momba anao.
+	Tazano ange, fa indry,
+	Kanananao !
+
+3. Ampaherezo ny ondrinao, ry Ray !
+	Aza avela ho irery hangaihay.
+	Ny fanenjehana tsy tahotray
+	Satria Ianao Tsitoha mitarika anay.
+	Ny fiakarana ho afakay,
+	Izao rehetra izao tsy maintsy resinay
+	Fa sabatray ny teny masinao ;
+	Fiadiana aronay ny didinao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '697',
+  '697',
+  'MIHOBIA',
+  'John W. Peterson - Mamy J. Ratsirison',
+  'D. Rasolonjatovo',
+  'Do dia Eb 6/8 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. :,: Mihobia, mihobia
+	Ô, ry mponina eto an-tany
+	(Eny) mihobia
+	Manompoa, manompoa
+	An\'i Jehovah am-pifaliam-be
+	Mankanesa ho eo (eny ho eo)
+	Miobia (ka hobio)
+	Eo an-kianjany
+	(Eo an-kianjany)
+	Ka hobio, ka hobio
+	Izy no mpiandry soa
+	Isika dia ondry
+	\'Zay andrasany izao
+	(Mpiandry ary isika dia ondry izay andrasany eny)
+	(Izy koa) Eny Izy (no anao)
+	No anao sy nahary antsika
+	Ho Azy re, ho Azy re
+	(Haleloia) Haleloia (in-2)
+	Haleloia asandratray
+	Ho an\'Andriamanitra. :,:
+	Miderà ny anarany,
+	Miderà ny heriny
+	Miderà ny famindrampony
+	Ho mandrakizay.
+	Haleloia, Haleloia,
+	Haleloia, Aman
+	Haleloia, Haleloia, Haleloia,
+	Amen.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '698',
+  '698',
+  'TOY NY DIERA MANIRY RANO',
+  'K. Grunholnor',
+  'D. Rasolonjatovo',
+  'Do dia Ab 4/4 Miadana',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Toy ny diera maniry ny rano
+	Ao an\'ony Tompo ô,
+	Ny fanirian\'ny fanahiko Anao.
+	Tompo ô ! aiza Ianao ?
+	Maniry Anao Tompo ô ! ny fanahy
+	Ny hetaheta afaho.
+	Ô ! aza ela, ry Tompo, faingàna.
+	Aza ela faingàna Ianao.
+
+ISAN\'ANDININY :
+	Rahoviana re, tongava Tompo ô !
+	Ô ! ela be no miandry ny olonao.
+	Omeo ny herinao tsy ho resy izanay
+	Rahoviana re, tongava, Tompo ô !
+
+2. Maniry Anao, Tompo ô, ny fanahy
+	Maniry hihaona aminao ;
+	Maro ny zavatra izay mampanahy.
+	Tompo ô ! aiza Ianao ?
+	Efa ela no niandrasako Anao.
+	Tompo ô ! mba iantrao.
+	Avia, faingàna, iantrao ity zanakao
+	Tompo ô, tongava Ianao.
+	Rahoviana re, tongava, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '699',
+  '699',
+  'HANANDRATRA ANAO',
+  'L. J. Battmann',
+  'Rabehiandrana',
+  'Do dia Eb 4/4 Majeur ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. :,: Hanandratra Anao Tompo ô !
+	Hanandratra Anao Tompo ô !
+	Eo amin\'izao rehetra izao.
+	Hihoby ny anaranao,
+	Hihira ny fitiavanao
+	Amin\'ny zavaboary.
+	(Feo 1) Eo amin\'ny fitoera-masina,
+	(Feo 2,3) Eo amin\'ny fitoera-masina,
+	(Feo 1) Eo amin\'ny fitoeranao masina
+	(Feo 2,3) Toeranao masina
+	Eo amin\'ny fitoeranao masina,
+	(Feo 3) Eo amin\'ny Tempolin\'i Jehovah
+	Tempolin\'i Jehovah. (in-3) :,:
+	Ny andro fitsaharany (in-2)
+	Dia ny andro notinendriny
+	Hanandratra Anao (in-3)
+	Hanandratra Anao Tompo ô !
+	Hanandratra Anao Tompo ô !
+	Eo amin\'izao rehetra izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '700',
+  '700',
+  'TSAROAKO ETO IZAO',
+  'A. D. Acley',
+  'S. Razanajatovo',
+  'Do dia Eb 6/4 Andante',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Tsaroako eto \'zao
+	Ny otako, be (dia be) tokoa,
+	Ka valaka sy trotraka
+	Ity nofo mahantra ity.
+	Lalina, maizina
+	Ô, ry tany ô, (ry tany ô !)
+	Nefa injay tsapako
+	Misy tokin\'aina
+	Manome hery vao
+	Ho an\'ny olona izay mahatsiaro
+	Fa ho avy tokoa
+	Ny andro famonjena,
+	Hiarina izay ao am-pasana.
+	:,: Fa Andriamanitra
+	Ho avy ka handray
+	\'Reo nofo maro \'zay nihintsana
+	Ka ny taolana \'zay efa momoka
+	Dia indro fa arafitra
+	Ho olona indray.
+	Ao am-paradisa lapa soa
+	Fanjakan\'ny fiadanana
+	No hafindra ny fiainanan eto
+	Nefa kosa tsra lavitra
+	Fa ny ota vita ho hadino
+	Ary hifankahita ao ny mpino
+	Hiran-tserafima mifamaly
+	No hohenonao mandrakizay
+	Hosana, Amen. :,:
+	
+'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '701',
+  '701',
+  'VOHAY NY FO',
+  'A. D. Acley',
+  'S. Razanajatovo',
+  'Do dia Eb 6/4 Andante',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Vohay ny fo (in-2)
+	Vohay ka mba hampandrosoy Jeso.
+	Raha lavinao (lavinao)
+	Tsy raisinao (tsy raisinao)
+	Ho lasa Izy ka ho neninao
+	Raiso Jeso, raiso Izy \'zao
+	Heveronao ny fijaliany
+	Vohay ny fo (in-2)
+	Vohay ka mba hampandrosoy Jeso.
+	Vohay ny fo (in-2)
+	Vohay Jeso ka mba hampandrosoy.
+	(Vohay Jeso ka mba hanampy anao)
+	Maniry izao hanampy Anao
+	Hahazo ny fiainam-baovao
+	Faingàna re milazà hoe :
+	Midira ry Mpamonjy tiako
+	Ô, mandrosoa ka anjakao
+	Ny fonay mba ho lapanao tokoa
+	Fa izahay Jeso handray Anao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '702',
+  '702',
+  'HENOY, HENOY',
+  'K. Gruholzer',
+  'Rabarijoel',
+  'Do dia Eb 6/4 Allegreto',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Henoy, henoy
+	(\'Njay lakolosy)
+	Feon-dakolosy re
+	(Manakoako mafy)
+	Ndi, ndao
+	\'Njay lakolosy
+	Manakoako mafy.
+	Henoy, ô, henoy
+	Ô, henoy, ndao.
+	Ry foko mba mifohaza
+	He tonga izao ny maraina,
+	Maraina fanantenana
+	Henoy re, henoy re, henoy,
+	Ndi, ndao.
+	Avy Kristy, Kristy Mpanjakanao,
+	Avy handray anao hiakatra,
+	Hiakatra any an-danitra.
+	Ô, andrandrao re ny lohanao ;
+	Ho tapitra eo re ny ady izao,
+	Hifarana eo ny fisentoanao.
+	Ny lanitra ho lovanao,
+	Ô, mifalia, mifalia izao.
+	Ô, miomàna mba hiakatra
+	Hihaona amin\'ny Tompo mpamonjy
+	Fa lehibe be vininahitra,
+	Mpanjakan\'ny Mpanjaka.
+	Venteso re ny hiranao
+	Ka asandrato n y feonao
+	Hihoby mafy ny Tomponao
+	Fa mendrika hoderaina
+	Jehovah tena tia.
+	Ry foko ô asandrato
+	Ny hiram-pandresena izao.
+	Hobio ô, hobio, hobio.
+	(Ndi, ndao, Ndi, ndao, ndao)
+	(Ndi, ndao)
+	Ndi, ndao, Ndi, ndao
+	(Hobio, hobio)
+	Ndi, ndi, ndao
+	(Amen).
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '703',
+  '703',
+  'ONJA VAVENTY',
+  'A. Ogden',
+  '(Tsy fantatra)',
+  'Do dia Bb 9/4 Andante Expressivo',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Onja vaventy, onja mahery
+	Mila hanafotra ahy izao ;
+	Kanefa aho tsy mba irery,
+	Fa eo anilako Ianao.
+
+ISAN\'ANDININY
+	(An-tananao)
+	An-tananao, an-tananao
+	Tsy mampanahy
+	(Ny familian\'ny samboko)
+	Ny familian-tsamboko re.
+	(Na tahotra na ahiahy)
+	Na tahohtra eny koa na ahiaahy,
+	(Jesosy ô, eo aminao)
+	Jesosy, ô apetrako eo aminao.
+
+2. Ny rivo-doza \'zay mampahory
+	Sy mahaketraka ny fo,
+	Tsy hampimalo ahy akory
+	Fa eo anilako Ianao.
+	An-tananao, sns.
+
+3. Na isan\'andro no mamely
+	Ny ranonoram-baratra,
+	Hatoky aho, na dia kely,
+	Fa eo anilako Ianao.
+	An-tananao, sns.
+
+4. Misosa hatrany tsimoramora
+	Ny sambokeliko izao.
+	He ! manakaiky isan\'ora
+	\'Lay fitodian-tsoa ary.
+	An-tananao, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '704',
+  '704',
+  'JEHOVAH NO FAHAZAVAKO',
+  'G. R. Root',
+  'Rajoelison',
+  'Do dia Ab 4/4 Majeur ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Jehovah no fahazavako
+	Sady toky,
+	Mpamonjiko,
+	Tsy misy \'zay tokony hatahorako
+	Raha miankina aminao.
+	Ka na dia mifofofofo
+	Ny tafio-drivotra
+	Ka feno tebiteby
+	Ny foko sasatra, reraka,
+	Izy mamelona ny finoako,
+	Mampahery tokoa.
+	(Mampahery tokoa)
+
+:,: Mifalia ry foko
+	(Mifalia ry foko, re ry foko)
+	Fa Jesosinao
+	Injao manakaiky (akaikinao)
+	Ilay sambonao,
+	(Ilay sambokely, ilay sambonao)
+	Mampitony ny onjabe.:,:
+	AMEN
+
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '705',
+  '705',
+  'HO AVY INDRAY',
+  'J. Harker',
+  'Rajoelison',
+  'Do dia G 3/4 Moderato',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ho avy indray ny Tompo, haleloia
+	Ho avy indray ny Tompo, haleloia
+	Ho avy indray, (in-2)
+	(Ho avy Izy ka tsenao) (in-2)
+	Avy amin-kery eny an-danitra avo
+	Handray antsika olony.
+	Mangovitra ny tany sy lanitra.
+	Avy hitsara,
+	(Fa hitsara Izy \'zao, hitsara Izy \'zao),
+	:,: Fa isika hihira hoe : (eny hihira hoe)
+	Haleloia !
+	Ilay nandrasana
+	Avy hitondra anay,
+	(Avy hitondra)
+	Avy hitondra anay
+	Ary ambony.
+	Izy no Tompo
+	Mpanjakantsika (in-2)
+	Andeha hifaly, hifaly,
+	Isika, amen
+	Hihoby hoe : Haleloia
+	Midera Anao \'zahay Jeso ô. :,:
+	Amen.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '706',
+  '706',
+  'MOA VE MBA TAZANAO',
+  'Andriamboavonjiarinaivo',
+  'Andriamboavonjiarinaivo',
+  'Do dia G 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. ?
+
+Moa ve mba tazanao ilay,
+	Ilay Jerosalema
+	Moa ve mba tazanao ?
+	\'Lay tany vaovao
+	Hotronin\'ny anjely maro be !
+	Mampientana izany fo
+	Ny mahita anao, ry Jerosalema,
+	Henika voninahitra
+	Ary hazavan-dehibe !
+	Ry olombelona rehetra
+	Mibebaha re,
+	Ario ny otanao.
+	Jereo ny Tompo izao.
+	Tazànao \'Lay tanàna lehibe !
+	Mampientana izany fo
+	Ny mahita anao, ry Jerosalema,
+	Henika voninahitra
+	Ary hazavan-dehibe !
+	Ray ô ! henoy,
+	Henoy ny ota ao am-poko anio.
+	(Sentosento)
+	Sentosento akarinay
+	Ho eo an-tongotrao.
+	Mba hazony mafy re
+	Ireto zanakao
+	(Tsy ho very)
+	Tsy hivily, tsy hania
+	Fa ho mpanomponao.
+	Irinay koa Ray ô ! ny fitiavanao.
+	(Mamindrà fo)
+	Mamindrà fo aminay,
+	Diovy izahay
+	Mba ho isan\'ny voafidinao
+	Mandrakizay
+	(Ka hanompo)
+	H mpanompo mahatoky,
+	Tia Anao tokoa.
+	Ô ! mandrosoa ry voavonjy,
+	Fafao ny masonao.
+	Ny gadranao tapaho,
+	Jereo ny Tomponao
+	Fa Izy no Mpanjaka
+	Mandrakizay,
+	Mandrakizay,
+	Mandrakizay, Aman, Aman !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '707',
+  '707',
+  'ENDREY JESO',
+  'F. M. Zaka Rajaonia',
+  'D. Raveloson',
+  'Do dia F 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Endrey ! Jeso ny lanjan\'ny fitiavanao,
+	Ny famindrampo nasehonao tamiko re ;
+	Nefa indro fa nohamaivaniko satria
+	Nofidiko ny haniasia.
+	Ô ! mamelà,
+	Be ny halemeko ary koa ny sitrapo,
+	Ô ! ekeo fa ifonako.
+	Ka ny andro sy fiainako,
+	Ô ! mba jereo
+	Na tsy mendrika, ry Ray, vonjeo.
+
+2. Tsy takatro, Jesosy ô, ny herinao
+	Sy ilay fitia nanafaka ny otako ;
+	Fa lalina ka ambarao raha sitrakao
+	Hivelomako ao anatiko ao (anatiko ao)
+	Na ny sombiny aza re lazao,
+	Lazao, Jeso,
+	Fa iriko re, ry Tompoko,
+	Tiako mba hambara
+	Izay rehetra raisiko ;
+	Nefa he tsy voatanisako.
+
+3. Na izany aza, Tompo ô, atolotro
+	Ny tenako sy saina ary ny fo.
+	Omeko Anao mba ho fanati-tsitrapo.
+	Hiasa ho Anao sy hanasoa.
+	Izay fikasana izay nambaranao, Jeso.
+	Ô ! ampahitao ny masoko
+	Tsy amin\'ny heriko
+	Fa amin\'ny fanahinao.
+	Izay sitrakao no aoka ho to.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '708',
+  '708',
+  'MITSANGANA, MIHAZAVA',
+  'Andriamboavonjiarinaivo',
+  'Andriamboavonjiarinaivo',
+  'Do dia D 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. (Mitsangàna mihazavà)
+	Mitsangàna mihazavà
+	(Fa tonga ny fahazavanao)
+	Mitsangàna mitsangàna mihazavà
+	Fa tonga ny fahazavanao
+	Fa tonga ny fahazavanao
+	Mitsangàna (mitsangàna)
+	Mihazavà, (mihazavà)
+	Fa tonga ny fahazavanao
+	Fa tonga ny fahazavanao
+	Ary ny voninahitr\'i Jehovah
+	Efa miposaka aminao
+	Ny voninahitr\'i Jehovah
+	Efa miposaka aminao, (aminao)
+	(Fa indro ny haizina manarona ny tany)
+	Ary ny haizim-pito manarona ny firenena.
+	Fa aminao kosa
+	No iposahan\'i Jehovah
+	Sy isehoan\'ny voninahiny,
+	Ny voninahiny, ny voninahiny.
+	Ary ny firenena rehetra
+	Manatona ny fahazavanao ;
+	Ary ny Mpanjaka mankeo amin\'ny
+	Famirapiratry ny fiposahanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '709',
+  '709',
+  'MBA MIVERENA',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia A 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Mba miverena
+	Ry mpiodina ao Joda
+	Fa Jesosy mamindra fo e
+	Tsy hitahiry heloka ho anao
+	Na hanjombon-tava mandrakizay.
+
+ISAN\'ANDININY :
+	Mibebaha, mibebaha ianareo
+	Ka miverena eto amiko indray.
+	Ô, mibebaha mba hamonoako
+	Mba hamonoako ny helokareo.
+	Izany no antso, antsom-pitia.
+
+2. Mba mibebaha,
+	Ô, ekeo ny helokao e
+	Fa Jesosy hikosoka azy.
+	Tsy misy ota tsy havelany
+	Raha tena miaiky aminy ianao.
+
+3. Mba mianara
+	Ny tantaran\'i Petera
+	\'\'Zay nanana ny halemeny,
+	Niaiky izy ka nibebaka.
+	Navelan\'ny Tompo ny helony.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '710',
+  '710',
+  'OMEO SOLIKA AHO',
+  'The Csehys',
+  'A. R. Marnoël',
+  'Do dia Eb 4/4 Haingana',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Omeo solika aho hirehetako,
+	Omeo re fa mitaraina.
+	Omeo ny Fanahy hirehetako
+	Dia hirehitra aho mandra-maraina.
+
+ISAN\'ANDININY :
+	Hirao, hirao ny hosana
+	Ho an\'ny Mpanjakanao
+	(Mpanjaka).
+
+2. Omeo talenta hahazo olona,
+	Omeo re fa mitaraina.
+	Omeo talenta hamonjy olon,
+	Hamonjeko mandra-maraina.
+	Hirao, hirao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '711',
+  '711',
+  'JEHOVAH TOMPONAY O!',
+  'Oscar Porg',
+  'E. Ratovondrahety',
+  'Do dia C 4/4 Moderato',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Jehovah Tomponay ô !
+	Ray mandrakizay,
+	Andriamanitra Mpanjakanay,
+	Manerana izao rehetra izao
+	Ny herinao, tsy tratry ny fisainana
+	Ny voninahitra ao an-danitra ao !
+	Te hidera Anao izahay noforoninao
+	Kanefa tsy hainay \'zay vavaka
+	Ho enti-mankalaza ny fiandriananao
+	Fa masina, marina sady be fahendrena Ianao
+	Izay andohalehan\'izao tontolo izao.
+	Noho ny famindramponao 
+	\'Zay maharitra mandrakizay, Tompo ô !
+	(Maharitra mandrakizay)
+	Mba omeo ny Fanahinao Masina
+	(Ny Fanahy Masinao)
+	Hifona sy hitaraina ho anay.
+	(Hifona ho anay)
+	Mba henoy ny fivavakay
+	(Amin\'ny anaran\'i Jesosy Zanakao)
+	Noho ny haben\'ny fahasoavanao
+	Ary noho ny fitiavanao,
+	Jereo, Tompo ô ! ny fiangonanao.
+	Ampikambano, hatanjaho,
+	Arovy izy mba hijoro amin\'ny Teninao.
+	Ka na mafy ny tafiotra
+	Sy ny alon-dranomasina,
+	Ny ran\'ny Zanakao
+	No hamonjy azy
+	Sy hanavotra azy.
+	Ampitomboy ny finoany.
+	Ny anaranao ankalazaina mandrakizay
+	Sy hanefanay isan\'andro ny voadinay.
+	Mba raiso ny fisaoranay,
+	Henoy, henoy, ny vavakay, ry Tompo ô !
+
+
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '712',
+  '712',
+  'DERA, DERA, LAZA',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia A 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Dera, dera, laza,
+	Laza voninahitra
+	Ho Anao ry Tompo
+	Avo indrindra,
+	Sady masina
+	(Tomponay, Tomponay, Tomponay)
+	Andriamanitray,
+	Andriamanitray,
+	(Tompo Andriamanitra)
+	Andriamanitray,
+	Andriamanitray
+	Izay toloranay ny dera sy laza re.
+	:,: Nofidinao izahay
+	(Ka nomenao)
+	Andraikitra izahay ireto
+	Mba hanompo Anao.
+	Mba omeo hery izahay Tompo ô !
+	Ka tafio ny hasoavanao \'zahay
+	Mba hahafahanay hanome
+	(Hahafahanay, hahafahanay )
+	(Hanome AnaVoninahitra Anao voninahitra)
+	Amin\'izao andraikitra
+	Sy talenta nomenao izao. :,:
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '713',
+  '713',
+  'HODY AHO RAIKO O',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia A 12/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Hody aho, Raiko ô
+	Hody any aminao
+	(Hody any aminao)
+	Efa manina aho, Ray ô,
+	Avelao hody aminao
+	(Hody aminao)
+
+ISAN\'ANDININY :
+	Manimanina ny lanitra
+	\'Lay fiainana mandrakizay
+	\'Ty tany ity mampahory.
+	Avelao hody aminao.
+	(Hody aminao !)
+
+2. Tsy tamana eto aho
+	Fa te hody aminao.
+	Maizim-pito re ny tany
+	Avelao hody aminao.
+	Manimanina, sns.
+
+3. Ô ! jereo ny zanakao
+	Miandry foana, miandry Anao
+	(Miandry foana izao)
+	Tsy tamana intsony, Ray ô,
+	Avelao hody aminao.
+	Manimanina, sns.
+
+4. Halako ny tabataba
+	Halako ny ady lava
+	(Ady lava izao)
+	Mankaleo ny fahoriana,
+	Avelao hody aminao.
+	Manimanina, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '714',
+  '714',
+  'MAMELA HELOKA JESO TIA',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia G 4/4 Miadana',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Mamelà heloka,
+	Mamelà heloka,
+	Mamelà heloka,
+	Ry Jeso Tompo tia
+	Miantrà, miantrà, miantrà
+	Jeso tia mamalia.
+
+ISAN\'ANDININY :
+	Fantatrao, fantatrao,
+	(Ô ! fantatrao, ô, fantatrao,)
+	Fantatrao Tompo ô,
+	(Ô ! fantatrao, ry Tompo ô,)
+	\'Zay tena mahasoa
+	Ny fanahiko re
+	(\'Zay mahasoa, \'zay mahasoa, dia fantatrao)
+	Mamelà, mamelà heloka, Jeso tia
+	(Tompo ô mamelà heloka, Jeso tia)
+	Mamelà heloka Jeso tia.
+
+2. He manatona anao (Oam)
+	He, manatona anao (Oam)
+	Fa hankaiza tokoa (Oam)
+	Moa ry Jesosy tia (Oam)
+	\'Ty mpanota izay (Oam, oam, oam)
+	Tsy mahavonjy tena ity (tena ity)
+	Fantatrao, sns.
+
+3. Miady mafy tokoa
+	Ka mitolona re
+	Tsy ny sitrako ange
+	\'Zao tanteraka izao
+	Ka vonjeo Tompo ô
+	Mamelà Jeso tia
+	Mamalia
+	Fantatrao, sns.
+
+4. Ô, afeno aminao (Oam)
+	Ity foko ity (Oam)
+	Tehirizo ho Anao (Oam)
+	Ry Mpamonjiko ô (Oam)
+	mamela heloka (Oam, oam, oam)
+	Mitalaho aminao Jeso tia.
+	Fantatrao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '715',
+  '715',
+  'FANTATRO',
+  'A. Rajoeliarison',
+  'A. Rajoeliarison',
+  'Do dia D 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Fantatro fa nadona hatry ny ela
+	Tat am-poko Ianao, Jesosy ô.
+	Ary reko hatry ny ela koa
+	Ny feona \'zay mitalaho
+	Te hanolotra ho ahy
+	Ny famonjena izay natao
+	Ho an\'ireo izay tia Anao
+	Sy ireo nanetry ten
+	Mba handraisana Anao
+	Ô, ifonako tokoa ny heloko, Jesosy ô,
+	Ka vohako anio ny fo
+	Hitoeranao mandrakizay.
+	Ny avonavona taloha,
+	Ny fahotako hatrizay,
+	Entiko eo an-tongotrao,
+	Hodiovinao, handraisako
+	Fanahy vaovao.
+
+2. Mino aho fa ho sorona ho ahy
+	No nijalianao, Jesosy ô,
+	Ary inoako koa fa famonjena ho ahy
+	Ny rà nalatsakao
+	Ka ny hetahetam-po
+	\'Zay velona ao anatiko ao :
+	Hiara-maty aminao
+	Ka hatsanganao indray
+	Hiara-hitoetra aminao.
+	Mihainoa ankehitrio ny vavako,
+	Jesosy ô,
+	Fa atolotro Anao
+	\'zao tenako malemy \'zao.
+	Atafio ahy anio, Jeso,
+	Ny fahamarinanao
+	Hiankohofako Aminao,
+	Ka hitsenako Anao
+	Raha ho avy Ianao rahatrizay.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '716',
+  '716',
+  'Ô ! JEHOVAH Ô, IANAO NO HIANDRY AHY',
+  'B. Mac Lillenas',
+  'D. Rasolonjatovo',
+  'Do dia Eb 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ô ! Jehovah ô ! Ianao no hiandry ahy
+Raha mamakivaky irony lohasaha,
+Na mandia ny làlan-tsarotra aza aho ;
+Azo antoka fa hiandry ahy Ianao.
+	ISAN\'ANDININY :
+He ! Jehovah, he ! Jehovah hiandry ahy
+Tsy mba misy izay hatahorako
+Tsy mba misy zava-mahory ahy,
+Izy no Mpiandry Tsara, heriko.
+
+2
+He ! miovaova izao rehetra izao
+Fa ! Ianao, Jehovah, no maharitra.
+Ianao, Jehovah Tompo, tsy mandao
+Fa mitarika ahy hatrany ny Fanahy.
+He ! Jehovah, sns.
+
+3Volafotsy, volamena, haja koa,
+Voninahitra, harena, dia hikoa,
+Fa Ialay Mpiandry tsara, tokiko,
+Vatolampy tsy mivena, heriko.
+He ! Jehovah, sns.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '717',
+  '717',
+  'HE ! MAHAGAGA LOATRA NY FITIA',
+  'B. D. Ackley',
+  'D. Rasolonjatovo',
+  'Do dia Bb 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. He ! mahagaga loatra ny fitia.
+Nasehonao, ry Jeso Tompo tia.
+Fa na mpanota sy mahantra aho,
+Natolotra ahy ny fitiavanao.
+	ISAN\'ANDININY :
+He ! mahagaga loatra ny fitia.
+Tsy haiko hokobonina satria
+Fitiavana tsy manam-paharoa :
+Natolotra ahy \'Lay Paradisa soa.
+
+2
+He ! mahagaga loatra ny fitia.
+Fa he ! \'ty izaho mpanompo kely ity,
+No hiara-monina aminao,
+Ry Tompo, Mpanjaka
+Andriamanitra Tsitoha.
+He ! mahagaga, sns.
+
+3He ! mahagaga loatra ny fitia.
+Fa voavonjy ireo izay nania
+Ka he ! manaiky mba hiara-dia,
+Ilay Mpamonjy dia Jeso Kristy.
+He ! mahagaga, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '718',
+  '718',
+  'ENDREY NIVEZIVEZY AHO',
+  'Helen M. Miller',
+  'D. Rasolonjatovo',
+  'Do dia Eb 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Endrey nivezivazy aho
+	Ka dia nanezaka tokoa.
+	Nitety izao rehetra izao,
+	Tsy hita izay nahafa-po.
+
+ISAN\'ANDININY :
+	Kanjo, he tampoka teo,
+	Hitako \'Lay tena soa :
+	\'Lay Jesosy tiako no niseho.
+	Hafaliana no mameno fo.
+
+Ny androm-piainako rehetra
+	No nentiko nanaram-po
+	Ny fahoriana sy ny tsetra,
+	No tamby izay niainako.
+	Kanjo, he tampoka teo, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '719',
+  '719',
+  'RY TOMPO, INDRETO NY TANORANAO',
+  'A. Razaka',
+  'A. Razaka',
+  'Do dia F 4/4 Marisika',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. (Ry Tompo) \'dreto ny tanoranao anio
+	(Vonona) vonona hiasa ho Anao ;
+	(Kanefa) nefa kely hery ka avia
+	(Ry Tompo ô) ! tohano ny fanahinaF.
+
+ISAN\'ANDININY :
+	Ry Tompo ô ! (Tompo ô, ampio)
+	Ny mpiasanao (ny mpiasanao)
+	Ampifalio (Ô ampifalio)
+	Hahazo fanay maro ho Anao (Jeso).
+
+2. Ry Tompo \'dreto ny fiangonanao anio
+	Vonona hitory ny hafatrao
+	Nefa menatra, matahotra
+	Ka omeo ny Fanahy Masinao.
+	Ry Tompo ô, Tompo ô, sns.
+
+3. He ! mijoro izao ny irakao,
+	Hanafaingana ny fiavianao
+	Omeo fo mazoto hatrizao
+	Tsy ho kivy na mafy ny atao
+	Ry Tompo ô, Tompo ô, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '720',
+  '720',
+  'TOMPO JESO NO MANDONA AO AM-PO',
+  'A. Razaka',
+  'A. Razaka',
+  'Do dia F 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Tompo Jeso no madona ao am-po ;
+	Te hiditra ao izao anio izao.
+	Nefa indrisy fa be sitrapo,
+	Jeso, mamindrà fo (Jeso ô!)
+
+ISAN\'ANDININY :
+	Faniriako
+	(Vohay ny fo anio tokoa)
+	Ny hiditra ao am-ponao
+	(Vohay ny fonao)
+	Efa mandona ela
+	(Mandona ao efa ela be)
+	Miandry Anao Jeso.
+	Tsy mba manery
+	(Vohay ny fo anio tokoa)
+	Ny sitraponao.
+	(Vohay ny fonao)
+	Ô ! mba vohay ny fonao
+	(Ô ! mba vohay re ny fonao)
+	Hoy ny Tomponao
+	(Handrosoan\'ny Tomponao).
+
+2. Tompo Jeso no madona ao am-po ;
+	Sao efa niandry anao ela be ?
+	Ho neninao raha toa ka tsy hamoha,
+	Fa ho avy Izy re tsy ho ela
+	Vohay ny fo, sns.
+
+3. Tompo Jeso no madona ao am-po ;
+	Henonao sa tsy manaitra anao ?
+	Ny asa ratsy esory ao am-po
+	Fa Jeso hiditra ao tokoa.
+	Vohay ny fo, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '721',
+  '721',
+  'JEHOVAH O!',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  'Do dia Db 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. :,: Jehovah (Ianao)
+	Jehovah (Ianao)
+	Ianao nandinika ahy,
+	Ka fantatrao ny (toe)
+	Toe-piainako. :,:
+
+1
+	Ny fo sy saina mbamin\'ny fanahy
+	(Jehovah ô ! Jehovah ô !)
+
+ISAN\'ANDININY :
+	He ! fantatro ny fiainako
+	(Jehovah ô !)
+	Tsy miafina aminao ry Tompo ô
+	(Jehovah ô ! Jehovah ô !)
+	Fa fantatraony fiainako
+	(Jehovah ô !)
+	:,: Jehovah ô ! Ianao nandinika ahy
+	Ka fantatrao ny (toe)
+	Toe-piainako. :,:
+
+2. Ka toerana aiza lalana mankaiza
+	(Jehovah ô ! Jehovah ô !)
+	He ! fantatro ny fiainako, sns.
+
+3. Tsy misy saina mety hahatratra
+	(Jehovah ô ! Jehovah ô !)
+	He ! fantatro ny fiainako, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '722',
+  '722',
+  'NY ANJELIN\'I JEHOVAH',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia C 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ny anjelin\'i Jehovah manodidina
+	Manodidina izay miakina aminy.
+	\'Reo anjely ailn-kisa
+	Feno hery no miaro
+	Ny vahoakan\'Andriamanitra.
+	Inona ary hatahoranao ?
+	(Inona ary no hatahoranao ?)
+	Inona ary hatahoranao ?
+	(Inona ary no hatahoranao ?)
+	Fa ireo anjely marobe
+	(Anjely marobe)
+	No irahin\'i Jehovah
+	Hiaro anao izao.
+
+2. Ny anjelin\'i Satana dia handositra
+	Raha ny anjelin\'i Jehovah no manafika ;
+	Ka izay miantso sy matoky Azy
+	No mahazo fiarovana azo antoka.
+
+3. Ry Jehovah Tomponay \'ndreto izahay
+	Tsy mba manana mpiaro afa-tsy Ianao
+	Eny, arovy tsy ho azom-pahavalo
+	Mba hahita ni herinao na aiza misy anay
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '723',
+  '723',
+  'AOKA HIRAY SAINA',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia Eb 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Aoka hiray saina isika,
+	Isika, isika,
+	Isika rehetra olony
+	\'Zay mpianatry ny Tompo
+	Fa izany no famantarana
+	Fa samy mpianatra isika,
+	Isika rehetra izao.
+	Aoka hiray saina isika,
+	Isika, isika,
+	Isika rehetra olony
+	\'Zay mpianatry ny Tompo
+	Fa izany no famantarana
+	Fa samy mpianatra isika,
+	Isika rehetra izao.
+	Ny Apostoly taloha
+	Niray saina tokoa ;
+	Niray saina sy nifamela
+	Tamin\'ny fo rehetra.
+	Dai nanome azy ny Fanahy.
+	Eny, niray saina izy ireo
+	(Niray saina izy ireo)
+	Ary nifankatia tokoa.
+	(Ary dia niray saina sy nifankatia).
+	Ary dia nitolona tamim-bavaka
+	Ka nangata-pinoana sy naatoky
+	Ireo tamin\'ny Tompo
+	Ka dia notovina ho Azy
+	\'Reo teny fikasana.
+	Aoka hiray saina isika,
+	Isika, isika,
+	Isika rehetra olony
+	\'Zay mpianatry ny Tompo
+	Fa izany no famantarana
+	Fa samy mpianatra isika,
+	Isika rehetra izao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '724',
+  '724',
+  'JESOSY ILAY MPISOLOVAVAKO',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia C 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Jesosy Ilay Mpisolovavako
+	Amin\'ny masina,
+	Masina indrindra.
+	Izy ihany no banjiniko hatrizao
+	Amin\'ny masina,
+	Ny Masina indrindra.
+	Izy mifona ho ahy
+	Anatrehan\'ny Ray.
+	Azoko antoka ny asany.
+
+2. Jesosy no miantoka ahy re
+	Amin\'ny masina,
+	Masina indrindra.
+	Koa dia manatona Azy aho izao
+	Ka matoky fa izany no antoka,
+	Azoko antoka indrindra.
+
+3. Ny holatra izay asehony
+	Amin\'ny tanany,
+	Masina indrindra.
+	Eo anatrehan\'ny anjeliny
+	Sy ny Ray mandresy lahatra
+	Ny lanitra tokoa.
+
+4. Jesosy Ilay Mpisolovavako
+	Indro manatona
+	Am-pahasahiana re
+	Ity mpanota \'zay novonjenao
+	Maimaimpoana e
+	Ka tena sambatra,
+	Ô, sambatra indrindra !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '725',
+  '725',
+  'RY TOMPO ANDRIAMANITRAY',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia F 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ry Tompo Andriamanitray ô,
+	Ho an\'izao tontolo izao,
+	Ho an\'ireo mitady Anao
+	Ary ny fiangonanao
+	No angatahanay ny fitiavanao,
+	Andriamanitray ô,
+	Mpihaino vavaka.
+	Resim-pahotana
+	Izao rehetra izao,
+	Efa niala taminao,
+	Nandao ny fitiavanao,
+	Ry Tompo Mpanjakanay ô,
+	Fanantenanay ny herinao.
+	Mihainoa ny vavakay
+	(Fa ny Mesia \'zay famonjena)
+	Ry Tompo Andriamanitray ô,
+	(Nomena \'zao tontolo izao)
+	Ka ny Mesia nomenao ny olona
+	(Ho aina sy ho fandresena)
+	Ho hery anie
+	Ho an\'izay mitady Anao,
+	(Ry Tompo)
+	Ry (Tompo), ry Tompo
+	Mpanjakanay ô,
+	Avia ka mihainoa ny vavakay.
+	Ny fitiavanay areheto
+	Ho tonga olonao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '726',
+  '726',
+  'RERAKA NY FO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Bb 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Reraka ny fo,
+	Mafy loatra ny ady atao ety
+	Mbola nofo ihany moa
+	Mora resy fa malia.
+	Fantatra, Jeso,
+	Fa milofo izao tontolo izao
+	Te handrobany ondrikelinao,
+	Ka Sa izay mandrovitsihy
+	Dia masiaka ery.
+	Reraka ny fo,
+	Nefa fantatro tokoa, Jeso,
+	Na inona inona hanjo,
+	Ho eo anilako Ianao.
+
+ISAN\'ANDININY :
+	Ka raha mbola misy aina koa
+	Mitempo ao anatiko ao
+	Ary koa mitsotra hitantana ahy
+	Ireo sandrinao, Jeso,
+	Dia lazaiko fa raha ho avy Ianao,
+	Ho avy eny an-danitra ao,
+	Haleloia, Jeso
+	No hitsenako Anao.
+
+2. Hamafisiko, hamafisiko anio, Jeso,
+	Ny voady \'zay natao,
+	\'Zay nataoko taminao.
+	Tsy hihamotra aho
+	Fa tsy misy ataoko rehareha
+	Afa-tsy ny fitiavanao
+	Sy ny rà izay nalatsakao
+	Hanavotana ahy.
+	Hamafisiko izay nekeko
+	Taminao, Jeso,
+	Ka tsy hanan-tahotra aho
+	Fa eo anilako Ianao.
+	Ka raha mbola, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '727',
+  '727',
+  'NY MITOETRA EO ANILANAO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia A 4/4 Allegro',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ny mitoetra eo anilanao,
+	(Ny mitoetra, mitoetra anilanao)
+	Ho eo an-kianjanao, ry Tsitoha,
+	(Anilanao, an-kianjanao, ry Tsitoha).
+	Hidera Anao tahaka ireo anjelinao
+	(Hidera Anao tahaka ireo anjelinao),
+	No faniriako vokatry ny fo.
+	(No faniriako avy ao am-po),
+
+ISAN\'ANDININY :
+	Ho sitrako tokoa anio, ry Ray,
+	(Ho sitrako anio, anio, ry Ray),
+	Hidera Anao eo an-Tempolinao
+	(Hidera Anao eo amin\'nyTempolinao)
+	Toy ireo izay navotanao,
+	(Ho toy ireo, ho toy ireo navotanao)
+	Voavelanao toy \'reo mpanomponao
+	(Voasasanao, madio \'reo mpanomponao).
+
+2. Ampianaro aho hahay manoa
+	(Ampianaro aho mba hahay manoa)
+	\'Zay sitrakao sy fandaharanao
+	(\'Zay sitrakao sy ny fandaharanao)
+	Ry Tompo ô, midina avia ka mihainoa
+	(Ry Tompo ô, midina avia ka mihainoa)
+	Ny vavako ho fiderana Anao
+	(Ny vavako hidera Anao).
+	Ho sitrako tokoa, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '728',
+  '728',
+  'RAHA MISEHO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia D 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Raha miseho ery
+	Anaty rahona ery,
+	Ianao Jeso,
+	Ka anjely marobe
+	No indray, hihira hoe
+	Ary hanelatrelatra ao
+	Ny voninahitrao
+	Fa izao rehetra izao
+	Hiankohoka aminao,
+
+ISAN\'ANDININY :
+	Ho haiko tantaraina moa
+	Ny hafaliako ao am-po
+	Handraisako Anao
+	Ka hiderako Anao
+	Mpanjakako Tsitoha ?
+
+2. Raha miseho ery
+	Anaty rahona ery,
+	Ianao Jeso,
+	Ary havaozinao indray
+	\'Ty mety lo ity,
+	Ireo maty ao aminao
+	hatsangana avokoa
+	Ka hampidininao ety
+	Ny Tany vaovao
+	Ho haiko tantaraina, sns.
+
+3. \'Ndray hihoby avokoa
+	Ireo voavonjinao ireo, Jeso,
+	Ka hiara hanandra-peo
+	Ho fiderana Anao.
+	Ary atolotray Anao,
+	Mpanjaka lehibe,
+	Dera sy ny haja
+	Mba ho hasina ho Anao,
+	Ho haiko tantaraina, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '729',
+  '729',
+  '\'ZAO TONTOLO \'ZAO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia C 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. \'Zao tontolo \'zao
+	Matory avokoa,
+	Matory, matory,
+	Matory avokoa.
+	Rakotra haizina ao
+	Ka renoka tokoa ;
+	Sondriana ery matory.
+	Sasaka alim-be
+	Kanefa ny lanitra ery,
+	(Mazava), feno hazavana lehibe
+	(Fa teraka ao ny Tompo)
+	Ry fanahiko, hatory ve ianao
+	Kanefa ao ny Tompo ?
+
+2. \'Zao tontolo \'zao
+	Matory avokoa,
+	Matory, matory,
+	Matory avokoa.
+	Rakotra haizina ao
+	Ka renoka tokoa ;
+	Sondriana ery matory.
+	Nefa ery an-danitra
+	Indreo mihira avokoa
+	(Mihira) \'reo anjely sady faly ery
+	Fa teraka ao ny Tompo
+	Ry fanahiko, hatory ve ianao
+	Kanefa ao ny Tompo ?
+
+3. \'Zao tontolo \'zao
+	Matory avokoa,
+	Matory, matory,
+	Matory avokoa.
+	Rakotra haizina ao
+	Ka renoka tokoa ;
+	Sondriana ery matory.
+	Taketry ny sainao ve
+	Izay nomena anao
+	(Nomena) Ary koa
+	Ny fitahian\'ny Ray
+	Fa teraka ao ny Tompo
+	Ry fanahiko, hatory ve ianao
+	Kanefa ao ny Tompo ?
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '730',
+  '730',
+  'HAMAKIVAKY HABAKABAKA',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia D 3/4 Milanto',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Hamakivaky habakabaka
+	Hiaraka aminao, ry Jeso tia,
+	Fanantenako izany
+	Ka ifikirako mafy
+	Ireo teny fikasanao.
+	Tsara dia \'zay miaraka aminao
+	Hamakivaky lanitra
+	Tsy manam-petra ;
+	Tsy misy fiara
+	Nataon-tanan\'olombelona
+	Fa ny herinao, ry Tompo,
+	No hianteherako.
+	Hirimorimo \'lay fiara afo
+	Hamakivaky habakabaka,
+	Hitety kintana tsy hita isa
+	Ho any, ho any amin\'ny fonenen\'ny
+	Mpamonjiko.
+	Hamakivaky habakabaka,
+	Hamakivaky habakabaka.
+	Fa ny herinao, ry Tompo,
+	No hianyeherako
+	Hirimorimo \'lay fiara afo
+	Hamakivaky habakabaka,
+	Hitety kintana tsy hita isa
+	Ho any, ho any amin\'ny fonenen\'ny
+	Mpamonjiko.
+	Hamakivaky habakabaka,
+	Hamakivaky habakabaka.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '731',
+  '731',
+  'ILAY AVIAVY TSY MAMOA',
+  'Dera Arson',
+  'Dera Arson',
+  'Do dia Eb 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. :,: Ilay aviavy tsy mamona, Jereo,
+	Nanatona azy ny Tompo
+	Ka variana ery
+	Nijery, nijery,
+	Nanantena mba hahita voa ;
+	Kanefa tsy nahita !
+	<< Kapao io, kapao io !
+	Fa nahoana no avela ho eo
+	Hanimba tany ?
+	Tsia, Ray ô, avelao ihany aloha
+	Fa ho karakaraiko e !
+	Fa raha tsy mamoa
+	Amin\'ity taona ity e !
+	Tsy mampaninona
+	Fa mbola hokapainao ihany >>
+	Ry aviavy ô !
+	Ry Kristiana tsy mamoa,
+	Hamavoinao ve
+	Ny famindrampon\'Andriamanitra
+	Mamoaza, mamoaza ny voan\'ny
+	Fibebahanaq. :,:
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '732',
+  '732',
+  'MAMAKY NY ONJA',
+  'Lillenas Haldor',
+  'D. Rasolonjatovo',
+  'Do dia B na Bb 6/8 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Mamaky ny onja tokoa izao
+	Ny sambon\'ny fiainanay.
+	Ao misy harambato \'zay miafina.
+	Ka mety hampididoza anay.
+
+ISAN\'ANDININY :
+	Jeso Mpamilinay
+	(Jeso Mpamily ny sambonay)
+	Izay tena mahay
+	(Mpamily ny sambo \'zay tena mahay)
+	Hisosa faingana ilay sambonay.
+	Jeso Kapiteny no mitodra azy ;
+	Izahay faly manantena
+	Ho tody soa ary.
+
+2. \'Reo onja vaventy
+	\'Zay mampanahy,
+	Mampihorohoro tokoa.
+	Ho sahy izahay raha ao Jesosy.
+	Ho tony dia tony ny fonay.
+	Jeso Mpamilinay, sns.
+
+3. Na hifofofofo aza re izao
+	\'Lay rivo-mahery tsy toha
+	Raha mbola Jeso
+	No ao an-tsambo ao
+	Hisinda ny loza mahazo.
+	Jeso Mpamilinay, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '733',
+  '733',
+  'EKEKO RY TOMPO',
+  'H. T. Reza',
+  'D. Rasolonjatovo',
+  'Do dia D 6/8 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ekeko, ry Tompo malala ô,
+	Ny lahatra izay vitanao.
+	Ekeko, ry Tompo tia,
+	Fa natao hanitsy ny dia.
+	Izay nanome fahoriana
+	Sy nahaoriory ny fo,
+	Ireo \'zay nitondra hafaliana,
+	Ekeko ho ahy avokoa.
+
+2. Ekeko, ry Tompo Tsitoha ô,
+	Ny didin\'ny fitiavanao.
+	Ekeko tokoa satria
+	Hanitsy ny dia tsy hania.
+	Na henjana toa tsy ho vita,
+	Handroso tsy mba hanahy.
+	Hitarika ahy ho yafita
+	Ekeko fa fitiavana ahy.
+
+3. Ekeko ry Tompon\'ny foko
+	Hitory ny fitiavanao
+	Na mora, ne sarotra,
+	Hitety \'zao rehetra izao.
+	Na ho haingana na mbola ho ela
+	Ny andro hiverenanao
+	Izaho Tompo ô, tsy hamela
+	Ny hafatr\'izay nomenao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '734',
+  '734',
+  'TSAROAKO ANIO',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia Ab 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Tsaroako anio, Jeso,
+	Ny fanavotanao ;
+	Fa tao an-davaka aho
+	No nakarinao.
+	Ny sandrinao mahery
+	No natsotranao
+	Hitarika ahy ho eo anilanao.
+
+ISAN\'ANDININY :
+	\'Zao no voady ataoko aminao
+	(Jesosy ô),
+	Voadiko anio, mandrakizay :
+	Tsy hisy hahasaraka ahy
+	Tsy hitoetra eo anilanao
+	Ho eo an-tongotrao, akaikinao.
+
+2. He ! sambatra aho, Jeso,
+	Satria voasasanao.
+	Nyheloko rehetra
+	Dia voavelanao.
+	Ny fiainako tontolo
+	Dia nohavaozinao
+	Ho mendrika tokoa ny lapanao
+	\'Zao no voady, sns.
+
+3. Endrey ny hafaliako
+	Manana Anao.
+	Ny lanitra no hamboarinao
+	Ho tranoko.
+	Ireo anjely maro
+	\'Zay mydera Anao
+	No hiaraka amiko eo akaikinao.
+	\'Zao no voady, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '735',
+  '735',
+  'SAMBATRA IZAY MITOETRA',
+  'A. Raoeliarijaona',
+  'A. Raoeliarijaona',
+  'Do dia C 2/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. :,: (Fa ) sambatra izay mitoetra
+	Ao an-tranon\'ny Avo indrindra
+	(Ao an-tranon\'i Jehovah)
+	Sambatra izay manan-kery
+	Izay manan-kery avy aminao,
+	Andriamanitra ô, Andriamanitra ô,
+	(Sambatra izay manan-kery,
+	Ao am-pony, ao am-pony,
+	Ao am-pony, fiderana)
+	Sambatra izay mitoetra
+	Ao an-tranon\'ny Avo indrindra,
+	Hidera Anao, hidera Anao,
+	Hidera Anao, mandrakariva,
+	Hidera Anao. :,:
+	:,: (Sambatra izay manan-kery,
+	Manan-kery avy aminao
+	Ry Avo indrindra)
+	Sambatra izay mitoetra
+	(\'Zay mitoetra)
+	Ao amin\'ny Avo indrindra
+	Ho masoandrony Ianao,
+	(Ho Mpiaro azy)
+	Sady ho ampingany koa
+	Ho masoandrony Ianao,
+	(Ho Mpiaro azy)
+	Sady ho ampingany koa
+	Andriamanitra ô, jereo
+	(Ry Tompo jereo \'reo
+	\'Zay voahosotrao)
+	Andriamanitra ô, jereo
+	\'Zay voahosotrao. :,:
+	:,: Ho masoandro sy ampingany Ianao
+	Fa sambatra izay mitoetra
+	Ao amin\'ny Avo indrindra
+	Fa sambatra izay mitoetra
+	Ao amin\'ny Avo indrindra
+	Andriamanitra ô, jereo
+	(Ry Tompo jereo \'reo
+	\'Zay voahosotrao)
+	Andriamanitra ô, jereo
+	\'Zay voahosotrao. :,:
+	(Fa ) sambatra izay mitoetra
+	Ao an-tranon\'ny Avo indrindra
+	(Ao an-tranon\'i Jehovah)
+	Sambatra izay manan-kery
+	Izay manan-kery avy aminao,
+	Andriamanitra ô, Andriamanitra ô
+	(Sambatra izay manan-kery,
+	Ao am-pony, ao am-pony,
+	Ao am-pony, fiderana)
+	Sambatra izay mitoetra
+	Ao an-tranon\'ny Avo indrindra,
+	Hidera Anao, hidera Anao,
+	Hidera Anao, mandrakariva,
+	Hidera Anao.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '736',
+  '736',
+  'TOY NY DIERA',
+  'B. Andriatsizafy',
+  'B. Andriatsizafy',
+  'Do dia Ab 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Toy ny diera maniry rano
+	No anirian\'ny fanahiko,
+	No aniriako, aniriako Anao.
+	Eto an-tany, eto an-tany
+	No aniriako Anao ry Tompo ô
+	Eto an-tany, eto an-tany
+	Maina sy mangetana
+	No anirian\'ny fanahiko Anao.
+	Andriamanitra ô,
+	Mangetaheta, mangetaheta,
+	Mangetaheta Anao,
+	Andriamanitra ô,
+	Ny fanahiko.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '737',
+  '737',
+  'TSY MISY TANTARA',
+  '(Tsy fantatra)',
+  '(Tsy fantatra)',
+  'Do dia Eb 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. (Nasolo ny 737-Jesosy ô ! tarihonao : Fihirana Edisiona Vaovao fanao am-paosy)
+	1
+	Tsy misy tantara 
+	\'zay mamin\'ny fo
+	Toy ny tantaran\'i Jeso,
+	Tsy tontan\'ny ela
+	Mambabo ny fo
+	Tantarao amiko indray.
+
+ISAN\'ANDININY:
+	Tantarao
+	Tantarao \'ndray (in-3)
+	Tantarao
+	Iny Jesosy tsy foiko
+	Tantarao indray
+	Tantarao.
+
+2. Tsy misy tantara
+	Inoako tokoa
+	Toy ny tantaran\'i Jeso
+	Tantara mitondra
+	Fiadanana am-po
+	Tantarao amiko indray.
+	Tantarao indray, sns.
+
+3. Tsy misy tantara
+	Ilaiko ety
+	Toy ny tantaran\'i Jeso
+	Tantara ilaiko
+	Raha hody ery
+	Tantarao amiko indray.
+	Tantarao indray, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '738',
+  '738',
+  'NIVEZIVEZY AHO',
+  'B. M. C.',
+  'D. Rasolonjatovo',
+  'Do dia Ab 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Nivezivezy aho
+	Tao anaty ali-maizim-be.
+	Toa jamba fa tsy nahita
+	Ny fahamarinana.
+
+IS1AN\'ANDININY :
+	Tampoka anefa indro Jeso.
+	Izy tonga teo namonjy ahy.
+	Ravo ny foko, faly tokoa.
+	Tsapako teo fa tia ahy Jeso.
+
+2. Izao tontolo ratsy izao,
+	Nanintona ny fo,
+	Ho bobongolo sady lao,
+	Tsy nahitana soa.
+	Tampoka anefa, sns.
+
+3. Ny fivavahako Jeso tia
+	Dia noheverinao.
+	Fa notantananao ny dia
+	Sakaizako Ianao.
+	Tampoka anefa, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '739',
+  '739',
+  'HALELOIA ASANDRATRAY',
+  'Th. Bovet',
+  'Rabarijoël',
+  'Do dia C 3/4 Mientanentana',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Haleloia asandratray
+	Hidera Anao Mpanavotray !
+	Fa resinao izao ny fasana,
+	Misokatra ny lalana
+	Hidiranay an-danitra
+	Isaoranay mandrakizay doria.
+
+2. Anjely masina iray
+	Izay iraka avy tamin-dRay,
+	Niantso mafy ka niteny hoe :
+	Ry Jeso Zanaka, henoy :
+	Miantso Anao ny Ray izao
+	Ô, mitsangàna re fa velona !
+
+3. He ! faly izahay izao
+	Ry Tompo sy Mpanavotra
+	Fa hosokafanao ny fasanay,
+	\'Zahay izao hiakatra
+	Fa tonga ny Mpanavotray.
+	He ! dera, laza ho Anao.
+	Amena !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '740',
+  '740',
+  'FITIAVANA RE !',
+  '(Tsy fantatra)',
+  'Rajoelison',
+  'Do dia Eb 6/8 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Fitiavana re !
+	(Fitiavana, fitiavana ahy re)
+	Tsy takatra tokoa (tokoa)
+	Avo, lalina e !
+	(He ! avo lalina, ô, lalim-be)
+	Tsy manam-paharoa ! (tsy roa)
+	Nefa inoako izao
+	fa efa nasehonao,
+	(Efa nasehonao)
+	Ô ! ry Ray teny Kalvary
+	Raha maty Kristy !
+
+2. Fitiavana re !
+	(Fitiavana, fitiavana ahy re)
+	Manintona ny fo (ny fo)
+	Mba hanaiky e !
+	(Eny, mba hanaiky, hanaiky re)
+	Ho babony tokoa (tokoa)
+	Indro, apetrako izao
+	Foiko re ho Anao.
+	(Anao re hatrizao)
+	Ô ! ry Ray mba hanompo ety
+	Ka ho hatrary.
+
+3. Fitiavana re !
+	(Fitiavana, fitiavana ahy re)
+	Izao tontolo izao (izao)
+	Voasarony e !
+	(He ! voasarony e, voasarony e)
+	Indrindra koa ianao (ianao) ;
+	Ô ! ry namako, ekeo.
+	Renao anio \'lay feo :
+	(Renao anio \'lay feo)
+	Maty anie, tany Kalvary
+	Ho anao Kristy.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '741',
+  '741',
+  'AVY INDRAY TSY HO ELA',
+  'D. Razafindramanana',
+  'D. Razafindramanana',
+  'Do dia Ab 9/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Avy indray tsy ho ela
+	\'Lay Mpanjakanay
+	\'Zay andrasanay.
+	Ka tsy kivy ny fonay
+	Na dia mafy ny manjo ety ;
+	Sarotra ny alehanay
+	Nefa kosa,
+	Ny tanany no miaro anay ;
+	Izany no toky sy tanjakay,
+	Fanoitra tsara
+	Manan-kery
+	Ho anao ety 
+	Ho avy indray tsy ho ela
+	\'Lay Mpanjaka soa,
+	Vonona tokoa ny hamela
+	Ireo fonao izay tsy mahasoa.
+
+2. \'Zaho tsy ho tafandry
+	Na hatory koa.
+	Na hirondrona.
+	Fa hiasa hatrany
+	Hanazava irei namako.
+	Jesosy Tompo
+	No anton\'ny asa
+	Ka mampientana ny fanahy
+	Fa soa ny fanantenana
+	Ny fanavotanao,
+	Izay toky
+	Hifaharanay tokoa.
+	Ka \'zaho tsy mba hangina
+	Na hatory koa,
+	Fa handeha hiasa hatrany
+	Hanambara fa avy Jeso.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '742',
+  '742',
+  'FANTATRAO VA RE',
+  '(Tsy fantatra)',
+  'Raterarivelo',
+  'Do dia C 2/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Fantatrao va re, ô ! ry fo,
+	Ny làlam-pamonjena maminao ?
+	Loza marobe no mbola hanjo
+	Handevona izao rehetra izao.
+
+ISAN\'ANDININY :
+	Ô ! henoy izany feo mahery,
+	Mba hitandremanao ny didiny ;
+	Ka ny mpino ihany
+	No tsy ho very,
+	Fa lehibe ny tombambidiny.
+
+2. Ny Sabata no famantarana,
+	Tombo-kasen\'ny olo-masina ;
+	Fa firaisana, fitsaharana,
+	Mba ho anao izay horaisina.
+	Ô ! henoy izany feo, sns.
+
+3. Mikaela no azo antoka,
+	Ho aronao nasiana marika ;
+	Ny Mpamonjinao efa niantoka,
+	Ka ny tena hery mahasarika.
+	Ô ! henoy izany feo, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '743',
+  '743',
+  'HE ! MPIVAHINY ETY AN-TANY',
+  'I. D. Sankey',
+  'F. Ramanantsialonina',
+  'Do dia D 6/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. He ! mpivahiny ety an-tany
+	Ny tenanao sy ny ahy koa.
+	Tsy ho ela intsony
+	Ny fetra ho lany,
+	Ho vovoka sy ho lao tokoa.
+
+ISAN\'ANDININY :
+	Jesosy ihany toky sy hery
+	Ka tia anao, ry olom-bery,
+	He ! manatona fa tsy ho irery,
+	\'Zay manana Azy tsy ho very.
+
+2. He ! fa misento sy mitaraina
+	Ka kivy koa miferin\'aina ;
+	He ! ranomaso, loza manjo
+	Sy noratraina, toro ny fo.
+	Jesosy ihany, sns.
+
+3. He fa marary ny fo sy saina
+	F\'efa nandao \'reo nolalaina
+	\'Njao fa mandatsa koa ny sakaiza
+	Tsy tia intsony \'reo notinaiza.
+	Jesosy ihany, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '744',
+  '744',
+  'MOA RENAO VE NAMAKO ANY',
+  'TH. Bovet',
+  'Rabarijoël',
+  'Do dia G 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Moa renao ve namako any
+	Ny feo fanairana izao ?
+	Dia feo miantso eran-tany,
+	Midona ao an-tsofinao.
+
+ISAN\'ANDININY :
+	Akaiky izao \'lay andro soa
+	\'Zay iavian\'ny Tomponao !
+	Ka aoka ho vonona avokoa
+	Ny saina amam-panahinao.
+
+2. Anjely telo manan-kery
+	Mitondra hafa-dehiba.
+	Henoinao, ry olom-bery,
+	Fa haf-pitianana e !
+	Akaiky izao, sns.
+
+3. Ny voalohay mitory :
+	Ô ! matahora ianao,
+	Ny làla-marina izory,
+	Ny fitsaran\'izao atao.
+	Akaiky izao, sns.
+
+4. Ny faharoa misento mafy
+	Fa indro rava hatrizao
+	Ilay Babylona tena rafy
+	Hanohitra ny Tomponao.
+	Akaiky izao, sns.
+
+5. Ny fahatelo indro kosa
+	Miantso loza lehibe
+	Ho an\'izay tsy mahatontosa
+	Ny sitrapon\'ny Avo re.
+	Akaiky izao, sns.
+
+6. Indreo ny hafatra toriana
+	Manakoako mafy izao,
+	Ka aoka samy mba hangina
+	Mihaino tsara hatrizao.
+	Akaiky izao, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '745',
+  '745',
+  'EFA ELA NO NANDAO',
+  'Ira D. Sankey',
+  'F. Ramanantsialonina',
+  'Do dia F 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Efa ela no nandao
+	\'Ty mpanota kely hery,
+	Fa nadositra Anao,
+	Osa, reraka sy lao,
+	Ka miverina izao.
+	Ianao no tsy mandao,
+	Fa hiverina izao
+	Aoka tsy ho lavinao.
+
+2. Efa babon\'i Satana
+	Ka nijaly, ory koa.
+	Ka maniry hovahana.
+	Ry Mpamonjy Tompo soa,
+	Aminao no azo toky
+	Fa ho resy ny manjo,
+	Fanarena-mahatoky
+	Tena fiadanam-po.
+
+3. Mampahery ny fitia
+	Namonjena ahy re.
+	Voavonjy ny mania
+	Tena fitiavam-be,
+	Fiononako Ianao
+	Sady Mpanavao tokoa,
+	Orim-bato aina vao,
+	Manda fiononam-po.
+
+4. Vonona aho, ry Mpamonjy
+	Ho mpanaraka Anao.
+	Efa azoko ny vonjy !
+	Raiso aho ho zanakao.
+	Tompo ho Anao irery
+	Ka tariho hatrizao ;
+	Dia tantano tsy ho very
+	Fa ho ao an-danitrao.
+
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '746',
+  '746',
+  'HALELOIA ! MIDERA',
+  'B. Andriantsizafy',
+  'B. Andriantsizafy',
+  'Do dia Bb 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. :,: Haleloia (in-4)
+	:,: Miderà An\'Andriamanitra :,:
+	(Feo 4) (Miderà an\'Andriamanitra)
+	Eo amin\'ny fitoerany Masina :,:
+	Miderà Azy.
+	:,: Azy (in-4)
+	Eo amin\'ny habakabaky ny heriny :,:
+	Miderà Azy.
+	:,: Ary aoka :,:
+	\'Zay rehetra (in-3)
+	Manam-pofon\'aina
+	Samy hidera an\'i Jehovah
+	Haleloia.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '747',
+  '747',
+  'RY TOMPO Ô, TARIHO NY TANINDRAZANAY',
+  'M. De Schoulepnikov',
+  'J. Rabarioël',
+  'Do dia F 4/4 Allegro risolut',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ry Tompo ô, tariho
+	Ny tanindrazanay,
+	Ny saina atodio
+	Fa tena tianay,
+	Hanaiky ny mazava
+	Omen\'ny teninao,
+	Ka tsy hisalasala
+	hanara-dia Anao.
+	Tantano re, ry Tompo
+	Hanao ny sitrakao,
+	Ho vonona hanompo
+	Handray ny hafatrao,
+	Ny didinao rehetra
+	Nomenao fahizay,
+	No aoka mba ho fetra
+	Hotanterahinay.
+
+2. Ry Tompo ô, vimbino
+	Ny tanindrazanay,
+	Arovy sy tsimbino
+	Mba hiadananay.
+	Omeo saina hendry
+	Ireo mpitondra anay,
+	Hahaizanay mikendry
+	\'Zay hahasoa anay.
+	Rah sendra ka variana
+	Tsy mahatsiaro Anao.
+	Fohazy mba ho liana
+	Handray ny hevitrao.
+	Ny sitrakao rehetra
+	No tena sitrakay
+	Fa io no tarigetra
+	\'Zay hotratrarinay.
+
+3. Ry Tomponay malala,
+	Ry Vonivatonay
+	Tariho lalandava
+	Ny tanindrazanay.
+	Ny herinao rehetra
+	Ny voninahitrao,
+	No aoka mba hitoetra
+	Ho tazanay izao.
+	Irinay Tompo tsara
+	Hohamasininao,
+	Handraisanay anjara
+	Ho eo anilanao.
+	Vonjeo ny Malagasy
+	Ho olonao tokoa,
+	Ka tsy hilasilasy
+	Hanaraka ny soa.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '748',
+  '748',
+  'Ô ! RY FANAHIKO,DERAO JEHOVAH',
+  'Psa Uier de Strasbourg',
+  'Rakotonjanahary',
+  'Do dia G 4/4 Moderato',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ô ! ry fanahiko, derao Jehovah
+	Ary izay rehetra ato anaty
+	derao ny Anarany Masina.
+	Andriamanitra fanantenana
+	Mameno soa ny andronao rehetra,
+	Ka isaory, ô ry fanahiko.
+
+2. Navelany ny helokao rehetra
+	Tsy mba nisainy ireo helok\'ota
+	Sitrany daholo ny rofinao
+	Ny faty tsy ho tahotrao intsony.
+	Matoky ianao akaiky Azy.
+
+3. Malala-tanana Andriamanintsika
+	Ka ampoky ny soa ny vahoaka.
+	Tsy mba maro teny fa mizara :
+	Rariny an\'izay hampahoriana,
+	Hery ho an\'izay mangozohozo
+	He ! famindrampo tena lehibe.
+
+4. Ry olombelona marefo aina.
+	Ahitra ihany isika izao no ety;
+	Tsy mateza fa voninahitra
+	Pahon\'ny rivotra koa dia lasa,
+	Ka na ny tany naniriana aza
+	Tsy mahalala ny fisiany.
+
+5. Aminao koa ry mandrakizay ô,
+	Dia mandrakizay ny indrafonao;
+	Tovinao ny fampanantenanao
+	Arovanao izay matahotra Anao
+	\'Zay mankato ny hasin\'ny lalànao
+	Ka mitandrina \'zay voasoratrao.
+
+6. Ray manadino ireo fahotana
+	Nataontsika zanany malala.
+	Raisiny tokoa izay mibebaka
+	Satria fantany ny toe-tsika.
+	Fa vovoka nalaina tamin-tany
+	Ka dioviny amin\'indrafo.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '749',
+  '749',
+  'ILAY BOKY \'ZAY NODORANA',
+  'Ratovondrahety',
+  'Ratovondrahety',
+  'Do dia G 4/4 Faly sy mirehitra',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Ilay boky \'zay nodorana
+	Dia may, nefa tsy levona ;
+	Izay natao ho lavenona,
+	Lasa vato fanorenana ;
+	Noheverina ho foana
+	Kanjo mainka koa velona
+	\'Lay nafenina, nalevina,
+	No nisandratra nivelatra !
+	(Mba henoy)
+	Iza moa no hahasakana,
+	(Iza moa)
+	Eny, iza no hanohitra
+	(No hanohitra)
+	Ilay teny voasoratra, (ilay teny)
+	Dia ny tenin\'Andriamanitra ?
+	(Andriamanitra)
+	\'Zao rehetra izao ho levona (levona)
+	Fa ny teny no haharitra (haharitra)
+
+2. Ilay Teny Masina sy to,
+	Manambara ny Mpamonjiko,
+	Tena sarobidy ao am-po
+	Ka vakiko sy iainako :
+	Fifaliana, fiarovako,
+	Fahazavana ao an-dàlako ;
+	Koa tanako ho lovako
+	Sy isaorako ny Tompoko !
+	(Maty aho)
+	Maty aho nefa velona,
+	(Velona)
+	Fa Kristy no ahavelomako,
+	(Ahavelomako)
+	Maty Izy, ho Mpisoloko, (soloko)
+	Noho ny fahotana vitako ;
+	(Ota vitako)
+	Nefa Izy dia natsangana,
+	(Tsangana)
+	Santatry ny fitsanganako. (Haleloia !)
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '750',
+  '750',
+  'RAIKO Ô MIJERE',
+  'G. Raterarison',
+  'G. Raterarison',
+  'Do dia Eb 6/4 Mangingina',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Raiko ô ! mijere
+	Miantso ka vonjeo,
+	Fa he mijaly sy feno ratra re,
+	\'Ty nofo mitoreo ;
+	Ry mahantra avia maneke,
+	Natao ho anao Getsemane.
+
+2. Jereo Getsemane,
+	Ora nijaliana,
+	Tompo Jesosy tia sy lehibe,
+	Feno fitomaniana ;
+	Nanjary rà ny dinitrao,
+	Nohon\'ny otako natao.
+
+3. Indro re Jesosy,
+	Mangoraka ny very ;
+	Nangirifiry re tao Kalvary,
+	Fa tsy nisy nijery ;
+	Ny Rainy koa dia nandao,
+	Noho ny heloka fanao.
+
+4. Manintona ahy izao,
+	Ny hazo fijalianao ;
+	Fa mitarika ahy mba hanavao.
+	Hanadio ny natao ;
+	Ny hazo fijaliana an-tany,
+	Manaiky ny fitondrany.
+'
+);
+
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '751',
+  '751',
+  '\'LAY JESOSY NO SAKAIZA',
+  'C. C. Converse',
+  'F. Ramanantsialonina',
+  'Do dia G 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. \'Lay Jesosy no sakaiza,
+	Mahatoky tsy mandao.
+	Fa nikolo sy nitaiza,
+	Nanamboatra nanavao.
+	Mahalala ny halemena
+	Ka mananatra tokoa
+	Fa Sakaiza tena tia,
+	Sy Mpanarina ny dia.
+
+2. Jeso no sakaiza tsara,
+	Sy Mpiaro ny fanahy.
+	Izy ihany no anjara,
+	Vonjy sy Mpanafaka ahy.
+	He ! natsotrany ny sandry,
+	Mba handray anao izao,
+	Ka miadana sy mandry,
+	\'Zany eo anilanao.
+
+3. Jeso tena mahatoky,
+	Ampy hiadananao.
+	Mofo tena mahavoky,
+	Ary tena tanjakao.
+	Ô ! ry namako atolory
+	Ny fiainanao izao,
+	Aza ketraka akory
+	Izy ampy ho anao.
+
+4. Jeso no Sakaiza hendry,
+	Mpanalàlana anao
+	\'Lay Mpamonjy voatendry
+	Mba hanavotra anao.
+	Eny, ho avy tsy ela
+	Mba handray anao izao.
+	Miomàna sao tavela,
+	Ka hanenina ianao.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '752',
+  '752',
+  'MPAMONJY BE FIANTRA',
+  'S. S. Wesley',
+  'F. Ramanantsialonina',
+  'Do dia Eb 4/4 Milanto',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Mpamonjy be fiantra
+	No maty ho anao,
+	Nijaly sy nahantra,
+	Nisolo voina anao.
+	Ny voina sy ny ratra,
+	Zakainy mora re ;
+	Fa Izy feno antra
+	Sy be fitiavana e !
+
+2. Nafoin\'ny Rainy tia
+	Nangorohoro re,
+	Hanavotra mpania
+	Hitondra entam-be.
+	Nisento nitaraina,
+	Nohon\'ny helokao
+	Ka he niferin\'aina
+	Hanavotra anao.
+
+3. Ry Tompoko malala,
+	He ! be ny vitanao,
+	\'Ty nofoko adala,
+	Tsy mahavaly izao.
+	Kanefa izany foko,
+	Atolotro Anao
+	Ekeko sady foiko
+	Ho tena lapanao.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '753',
+  '753',
+  'MBA RAHOVIANA',
+  'R. Raveloson',
+  'R. Raveloson',
+  'Do dia G 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Mba rahoviana foana moa
+	Hahazo fifaharana
+	Ny fahoriana \'zay manjo
+	Ka hisy fitsaharana ?
+	Maso andrandra
+	Tsy ho ela izao,
+	Ho avy an-drahon-danitra
+	Jesosy tia
+	Ô ! mba avia
+	Hamonjy hanavotra.
+
+2. Izao fiainantsika izao,
+	Ny ranomaso tsy mandao,
+	Ka fisentoana lava izao
+	Ry velona ô, izao atao :
+	\'Ndeha mba fidio
+	Kristy anio
+	Hampionona izany fo.
+	Ho avy indray
+	Haka, kandray
+	Hisava ny manjo.
+
+3. Ô ! ry sakaiza, ory ve ?
+	Handeha hatony Jeso tia
+	Ka aza misalasala re
+	Fa Izy miantso hoe : Avia !
+	Famonjena
+	Tsy terena,
+	Hatolotra fa mandrosoa
+	Ka matokia
+	An\'i Kristy
+	Ho avy hitondra soa.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '754',
+  '754',
+  'ANIO JESO HO REKO',
+  'F. E. Bolton',
+  'Rajoelison',
+  'Do dia Ab 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Anio, Jeso, ho reko ny feonao tia,
+	Miantso hoe : avia manatona
+	Anio, Jeso, izaho \'zay naniasina,
+	Jero fa he : mitolo-batana.
+
+2. Anio, Jeso, he tazako mihombo
+	Ianao ery ambony Gologota.
+	Anio, Jeso, toa tsapako mitombo
+	Ilay fitia : izaho tsy handà.
+
+3. Anio, Jeso, ny fahatanorako
+	Afoiko re ho eo an-tànanao.
+	Anio, Jeso, tsy hisy fahotako
+	Tsy hoentiko mba hodiovinao.
+
+4. Anio, Jeso, vohako re ny foko
+	Hidiranao ho lapanao doria
+	Anio, Jeso, \'Lay tanam-bokovoko
+	Ekeko mandra-pahatonga ery.
+	Amena !
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '755',
+  '755',
+  'ANAO NOMEKO NY AIKO',
+  'O.U. Linnereu',
+  'A. R. Marnoël',
+  'Do dia Eb 3/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Anao nomeko ny aiko,
+	Ny rako nalatsaka
+	Ho an\'ny babon-tSatana,
+	Ny gadra he ! afaka.
+	Fitiava-mahasoa,
+	Sahinao ve tsy handray ?
+	Rako no nomena aoan,
+	Inona no omenao ?
+
+2. Nilaozako ny Raiko
+	Sy ny voninahitro
+	Fonena-mamiratra sy
+	haleloia rodobe.
+	Tonga ory tety Aho,
+	Nefa re Mpanjakanao,
+	He ! nafoiko ny lapa,
+	Inona no foinao ?
+
+3. Niaritra fijaliana,
+	Nitomany mafy koa,
+	Nizaka zava-tsy tiana,
+	Mba ho solonao tokoa.
+	Famelana ny helokao,
+	Avotra anao tokoa.
+	Ho anao niari-jaly
+	Inona no iaretanao ?
+
+4. Atolory re ny ainao,
+	Atolory ny fonao
+	Ialao re ny ota,
+	Reseo ny ratsy izao.
+	Sambatra re ianao
+	manana Mpamonjy tia !
+	Atolory ny ainao
+	Hovelomiko doria.
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '756',
+  '756',
+  'SAMBATRA SY TRETRIKA',
+  'J. H. M. Naughton',
+  'F. Ramanantsialonina',
+  'Do dia Ab 4/4 Antonony',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. Sambatra sy tretrika,
+	Tokantrano soa,
+	Tsara sady mendrika,
+	Fa mifanasoa.
+	Ravo sy miadana
+	Feno hasambarana.
+	Fa mifankatia tokoa,
+	Tena tombotsoa.
+	Isan\'andro, ho doria, sns.
+
+ISAN\'ANDININY :
+	Isan\'andro, ho doria
+	Tokantrano mifangia
+	Mahay mifankatia.
+
+2. \'Njany fa misandratra,
+	Hira fiderana.
+	Ary efa santatra
+	Hanambarana.
+	Feo milamina mirindra
+	Fitiavana mifindra,
+	No mifehy ny tokantrano
+	Tompo ô, tohano.
+	Isan\'andro, ho doria, sns.
+
+3. Mirana ny lanitra
+	\'Zay no fitahiana.
+	Feno fofo-manitra,
+	Sady fifaliana.
+	Tokantrano paradisa
+	Lavitry ny disadisa.
+	Fa firaisam-po no ao,
+	Fiainam-baovao.
+	Isan\'andro, ho doria, sns.
+
+4. Kristy ô, Fitiavana,
+	Sy Mpanjakako,
+	Sady Fihavanana,
+	Fiadanako.
+	Ô ! arovy ka tahio
+	Ny tokantrano ampio,
+	Santatry ny Edena ety
+	Ary hatrary.
+	Isan\'andro, ho doria, sns.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '757',
+  '757',
+  'ISAORANA ANIE ANDRIAMANINTSIKA',
+  'L. J. Raharijaona',
+  'L. J. Raharijaona',
+  'Do dia F 4/4 ',
+  'OLON-TOKANA - OLON-DROA - RODOBE',
+  NULL,
+  '
+1. (Raha ny marina dia tsy misy ny TA055 fa :
+	ny 55 ao @ Fihirana fanao am-paosy
+	no nadadika ho TA757 ao @ Tiona)
+	1
+	Isaorana anie
+	Andriamanintsika,
+	Fa fitahiam-be
+	Omeny ho antsika
+	Hatreo am-bohoka
+	Ka mandraka antitra
+	Isika henika
+	Ny soan\'ny lanitra.
+
+2. Tsy mety tapitra
+	na lany ny hareny ;
+	Tsy hita faritra
+	Ny sisa izay homeny ;
+	Fanahy sambatra
+	Sy fo miadana
+	No efa santatra
+	izay ananana.
+
+3. Ny Ray sy Zanaka
+	Sy ny Fanahy koa,
+	Derain\'ny masina
+	Ho Tompo iray koa ;
+	Andriamanitray
+	Be fahasoavana
+	No anateranay
+	Izay fisaorana.
+	
+'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '758',
+  '758',
+  'AMINAO IRERY IHANY',
+  'Tita & Antso Razakaria',
+  'Tita & Antso Razakaria',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Aminao irery ihany
+	no hany tiako;
+	Lehibe tsisy ohatra izany
+	ny hafaliako,
+	Hasambarana hatrany
+	no mitoetra ao anaty,
+	‘Lay mpanjaka lehibe
+	fitiavana.
+
+Réf
+
+Raiso re ny tenako,
+	Ho Anao ny fiainako,
+	Efa fantatrao anie,
+	ilay fo mitsotra re,
+	Aza lavinao raha toa ka
+	sitrakao.
+
+2. Ny hoaviko ‘zay sisa, ao
+	Aminao,
+	Ka ny lasa izay vita,
+	ô! mba fafao.
+	Ka manomboka izao,
+	inty aho ampiasao
+	Hankatò izay baiko nomenao.
+	Raiso re ny tenako,sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '759',
+  '759',
+  'MISEDRA ADY SAROTRA VE (VAHAOLANA)',
+  'Tita & Antso Razakaria',
+  'Tita & Antso Razakaria',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Misedra ady sarotra ve
+	ny fiainanao,
+	Noho ireo olana marobe
+	izay miseho?
+	Toa mila hampamoy fo,
+	mampisento,
+	Inty misy vahaolana
+	lazaiko anao:
+
+Réf
+
+Ao ilay Jesosy, vahaolana
+	ho ahy sy ho anao,
+	Izy ilay fitiavana sy
+	fiadanana.
+	Raiso Izy anio, ô! ekeo ho
+	Mpamonjy anao,
+	Dia ho azonao antoka tokoa ny hoavinao.
+
+2. Raha toa fahoriana indray
+	no mianjady,
+	Aretina sy ahiahy mandratra fo,
+	‘Reo zava-tsarotra manjo iainanao,
+	Inty misy vahaolana
+	lazaiko anao:
+	Ao ilay Jesosy, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '760',
+  '760',
+  'AZA MIVEZIVEZY',
+  'Andriamboavonjiarinaivo',
+  'Andriamboavonjiarinaivo',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Aza mivezivezy mitady
+	Mpamonjy ianao
+	Raha sendra ady mafy
+	eo amin’ny fiainanao;
+	Aza mandany andro
+	mikaroka ianao,
+	Fa ny akaiky indrindra,
+	Jeso Ilay Tomponao.
+
+Réf
+
+Tsy lavitra anao re, tsy lavitra Jeso.
+	Antsoy re Izy izao e! fa hamaly anao tokoa (antsoy re)
+	Aza misalasala,
+	dondòny re Izy izao,
+	Indro efa vonona Izy hihaino ny vavakao.
+
+2. Aza mirenireny mitady
+	izay tia anao
+	Aza avezivezy ny fo sy fanahinao,
+	Fa ny akaiky indrindra dia Jeso ‘Lay Tomponao,
+	Tsy mba mandao mihitsy,
+	tsy sasatra miandry anao.
+	Tsy lavitra anao re, sns.
+
+3. Aza mirepirepy mitady
+	ny tena soa,
+	Ny vola sy harena dia samy ho lo tokoa;
+	Katsaho ny tsara indrindra mitoetra mandrakizay,
+	Tanàna kanto loatra, itoeranao rahatrizay.
+
+Réf
+
+Io re no tsara indrindra, tsara mandrakizay.
+	Tsy mba vidiam-bola, fa atolotry ny Ray! (ho an’ireo)
+	Ho an’ny rehetra mino sy vonona hibebaka,
+	Dia tsy mba hisy hadino, fa samy ho sambatra.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '761',
+  '761',
+  'HARENAKO',
+  'Rakotomananjanahary Julien',
+  'Rakotomananjanahary Julien',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Tsy ho azonao an-tsaina
+	ny hafaliana anatiko ao,
+	Satria tsy mba ivelany ihany, toy ny an’izao tontolo izao;
+	Fa halafiana avy ao anaty, miorina tsy mety maty,
+	Ambony ny finoako an’i Jeso.
+	Na esorina amiko aza izay rehetra ananako,
+	Raha mbola velona aho, izao ny ahy no tanako:
+	Harenako Jesosy tia, fananako doria doria,
+	Tsy misy atakaloko Azy, sanatria!
+
+2. Hanontany angamba ianao
+	hoe: «Fa dia nahoana
+	indrindra re?»
+	Dia tsotra ihany no lazaiko
+	valin’izany teninao:
+	«Ny heloko dia nofafany,
+	ny gadrako dia novahany,
+	Ny fiainako dia nohavaoziny».
+	Ilay fiadanam-pony,
+	no indro fa nomeny ahy,
+	Ary ny famindrampony
+	injao mameno ny fanahy,
+	Tsy misy raha ny toy izao,
+	ny zavatra efa hitanao,
+	Tena ambony ny fitiavan’i Jeso.
+
+3. Fanandramana ilaina
+	hampitomboana herim-po
+	‘Zay tsapa fa mihamirona
+	latsaka ambany kokoa,
+	Mila miarina raha lavo,
+	miankina amin’Ilay Avo,
+	Nanaiky ho faty teny Kalvary.
+	Tsy ampy hery handresena
+	ny ratsy nahazatra ianao,
+	Fa Jesosy famonjena
+	no antoka hanampy anao.
+	«Ndeha eo ianao no miantoraha,
+	Teo aho no nanao fampitaha
+	Ny fitiavany tsy miova
+	ho doria.»'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '762',
+  '762',
+  'INTY AHO (NY TONGOTRO, RY TOMPO ô)',
+  'Rakotomananjanahary Julien',
+  'Rakotomananjanahary Julien',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Ny tongotro, ry Tompo ô,
+	iriko mba ho irakao
+	Any amin’izay ilainao
+	anirahana ahy;
+	Nefa tsy haiko fehezina
+	fa fantatrao,
+	Ka ny fitiavanao, no aoka
+	hameno ny fanahy.
+
+Réf
+
+Inty aho, ry Raiko,
+	manolo-tena ho Anao;
+	Kanefa tsy haiko izay hanao ny sitrakao,
+	Ny foko raisinao, hiraikitra amin’ny fonao,
+	Inty aho, hanao ny asanao.
+
+2. Ny tanako iraho re hiasa
+	mafy ho Anao,
+	Hizara, hanome, hanala fahasahiranana,
+	Satria mazàna mikombona fa tsy manao
+	Ny fomba tianao raha sendra aho ka manana.
+	Inty aho, ry Raiko, sns.
+
+3. Ny saiko koa, ny vavako,
+	hatramin’ireo sofiko,
+	Zatra naniasia sy nanalavitra Anao,
+	Soloy, havaozy, hanoa Anao, ry tokiko,
+	Ianao irery anie no aoka ho Mpanjaka ao.
+	Inty aho, ry Raiko, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '763',
+  '763',
+  'RY TANORA Ô, MBA MIVONDRòNA (FITIA AGAPE)',
+  'Josué A. Rabarison',
+  'Josué A. Rabarison',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Ry tanora ô, mba mivondròna;
+	Iray izay no tanjona kendrena,
+	Ka ny hira izay asandratra indray
+	Mba ho iray mandrakizay.
+
+Réf
+
+Miantso antsika ange Jeso
+	Kristy
+	(Miantso antsika ange
+	Jeso Kristy)
+	Mitomoera amin’ny fitiavany,
+	Asandrato ny fanevantsika re
+	Dia ‘lay fitia agape.
+
+2. Arodano ny fahasamihafana,
+	Jeso re tsy mpanavakavaka
+	Miantso antsika hifampitantana,
+	Hiaraka ho any an-danitra.
+	Miantso antsika ange, sns.
+
+3. Fa ny tena fitiavana
+	Tsy andairan’ny fisamahana,
+	Fo sy saina, fanahy iray hatrany,
+	No hiatrehana ny hoavy.
+	Miantso antsika ange, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '764',
+  '764',
+  'EO AKAIKINAO, RY RAIKO',
+  'Andrianantenaina Mandimby D.',
+  'Andrianantenaina Mandimby D.',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Eo akaikinao, ry Raiko,
+	No mahatsara ahy.
+	Na dia reraka ny aiko,
+	Eo tsy misy mampanahy.
+	Na lalovan-drahona aza,
+	Ny fiainako eto an-tany;
+	Vatolampiko hatrany ô,
+	Ianao, ry Tompo tsara.
+
+Réf
+
+Miantso Anao re, ry Tompo,
+	Miangavy mitalaho,
+	Mihanta re ‘ty zanakao:
+	Tompo ô, henoinao
+	Na anaty fahoriana,
+	Ka vesaram-pijaliana;
+	Mino aho fa eto Ianao, Tompo ô,
+	Misaotra Anao.
+
+2. Eo akaikinao, ry Raiko
+	No fifalian’ny foko;
+	Na mavesatra ny saiko,
+	Ianao no antsoiko.
+	Ireo haizina mandalo,
+	Adin-tsaina ‘zay mangeja,
+	Tsy ataoko hampimalo
+	Raha eo Ianao, ry Raiko.
+	Miantso Anao re, sns'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '765',
+  '765',
+  'JESO RE NO ASANDRATO (ASANDRATO KRISTY)',
+  'Josué A. Rabarison & Franck Rakotozafy',
+  'Josué A. Rabarison & Franck Rakotozafy',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Jeso re no asandrato,
+	Ilay hany Tompontsika;
+	Ho antsika ‘zay mpanota:
+	Fanavotana azo antoka.
+
+Réf
+
+Fanahy maro mila vonjy
+	No injao ho voataona.
+	Asandrato re ny Tompo,
+	Fa hiseho ny voninahiny.
+
+2. Ankehitriny ô! Manatòna!
+	Izy no miantso antsika
+	Hiasa, hitaona fanahy,
+	Hanambara ny fiaviany indray.
+	Fanahy maro, sns.
+
+3. Ny eto an-tany dia ho rava,
+	Tsy misy azo antenaina,
+	‘Ndeha re hody an-tranon’ny Ray,
+	‘Lay fonenana mandrakizay.
+	Fanahy maro, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '766',
+  '766',
+  'RAY Ô, INDRO RAISO NY FO (VAVAKA FANOLORAN-TENA)',
+  'Josué A. Rabarison',
+  'Josué A. Rabarison',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Ray ô, indro raiso ny fo
+	fanahy sy saina
+	Izay asandratra eo Aminao:
+	«Mba ho mendrika».
+	Vonona hanompo hiasa,
+	hampandroso,
+	Ekeo anio raha toa sitrakao,
+	Raiso Tompo ô!
+
+2. Hamasino Ray ô,
+	‘reto mpanomponao,
+	Ho heniky ny hasoavanao,
+	N’aiza n’aiza haleha.
+	Fenoy ny Fanahy,
+	tantano sy vimbino
+	‘Ty zanakao Ray ô, ekeo,
+	hamasino re.
+
+3. Hamafiso Ray ô,
+	‘ty fanoloran-tena;
+	Ny voady hanao izay sitrakao,
+	«Ho mandrakizay.»
+	Hiasa sy hanompo,
+	hitarika ‘reo ondry
+	Nankininao ho tantananay,
+	ho any Aminao.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '767',
+  '767',
+  'MIFANKATIAVA RE',
+  'Dera Arson',
+  'Dera Arson',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Mifankatiava re,
+	Ry mpiray fanantenana
+	Fa efa akaiky indrindra anie
+	‘Lay Tompo andrasantsika;
+	Aoka ho toy ny Tompo,
+	madio am-po
+	Madio am-po, madio am-po
+
+Réf
+
+Tsara, tsara, tsara ny
+	mifankatia
+	Fa izany no hahafantarana
+	fa mpianatr’i Kristy.
+	Any an-danitra any
+	tsy misy ady,
+	Eny, any an-danitra any,
+	tsy misy lolom-po,
+	Na fifandirana fa fitiavana.
+
+2. Tsy misy heloka
+	Hoentina any an-danitra any.
+	Aoka mba hifankatia toy ny
+	mpirahalahy,
+	Fa samy hiara-dia ho any
+	an-danitra
+	An-danitra, an-danitra.
+	Tsara, tsara, sns.
+
+3. Jesosy no jereo,
+	Fa Izy mahavonjy;
+	Ny fifandeferana,
+	ny halemem-panahy
+	Aoka hanjaka ao am-po re,
+	ry rahalahy,
+	Ry rahalahy, ry rahalahy.
+	Tsara, tsara, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '768',
+  '768',
+  'MISOSA MORA TSY MIATO (NY SAMBOKO)',
+  'Moïse Randriamboavonjy',
+  'Moïse Randriamboavonjy',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Misosa mora tsy miato
+	Ity samboko
+	Tsy matahotra re,
+	Na dia lalina ny rano etỳ,
+	Satria Jeso (satria Jeso)
+	no mihazona (no mihazona)
+	ny familian’ny samboko,
+	(ny samboko)
+	Izy no kapiteniko
+	(sy kapiteniko)
+	Atopatopan’ny onja
+	Ity samboko
+	Nefa tsy mba manahy,
+	na ho fefika ao an-dalana ao
+	Satria Jeso (satria Jeso)
+	no mihazona (no mihazona)
+	ny familian’ny samboko,
+	(ny samboko)
+	Izy no kapiteniko (sy kapiteniko)
+
+Réf
+
+Ka na manonjanonja mafy sy mandrivotra ny lalana diaviko etỳ
+	Dia tsy hatahotra aho
+	satria eo Jeso (Tompoko)
+	Na misamboaravoara mila hampivadi-po
+	Ny alon-drano te hitelina, Jeso no eo ka ho tafita.
+
+2. Ny harambato sy loza
+	‘izay manemitra
+	Tsy hamily ny dia
+	‘zay hizoran’ity samboko,
+	Satria Jeso (satria Jeso)
+	no mihazona (no mihazona)
+	ny familian’ny samboko, (ny samboko)
+	Izy no kapiteniko (sy kapiteniko)
+	‘Lay fitodiana, iriko hotratrarina
+	Dia tsy maintsy hiantsonan’
+	ity sambom-piainako,
+	Satria Jeso (satria Jeso)
+	no mihazona (no mihazona)
+	ny familian’ny samboko,
+	(ny samboko)
+	Izy no kapiteniko (sy kapiteniko)
+	Ka na manonjanonja mafy, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '769',
+  '769',
+  'JESOSY Ô! ANDROANY (MELOHIKO)',
+  'Moïse Randriamboavonjy',
+  'Moïse Randriamboavonjy',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Jesosy ô! androany no
+	ambarako tsy miambatra
+	Ny didim-pitsaran’ny foko
+	ho fantatrao, (fantatrao)
+	Melohiko mba ho faty avokoa
+	‘Reo toetra ratsy nangeja
+	ahy taloha,
+	Tsy misy homeko
+	ny famindrampo,
+	Ry Tompo Tsitoha
+	(Tompo Tsitoha).
+
+2. Fantatro fa tsy mora koa
+	ny hanatanteraka, ampio,
+	‘Ty didim-pitsaran’ny fo,
+	ka mba ampio (ô! ampio)
+	Fa Ianao, Jeso, no
+	hianteherako,
+	Hanampy ahy eo amin’ny
+	toerako,
+	Hamono ny ota nifoterako
+	sy havelako (havelako)
+
+3. Fantatro fa ireo, Jeso,
+	no efitra mampisaraka
+	Ny lalako sy lalanao
+	tsy mety ho tafaraka,
+	Ka na dia hisy aza ireo hitoreo,
+	Vao mainka asandratro mafy
+	ny feo:
+	Melohiko tsisy famindrampo
+	Noho Ianao, Jeso, Mpamonjiko!'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '770',
+  '770',
+  'EFA ANTOMOTRA NY ANDRON’I JEHOVAH',
+  'A. Emiliarison',
+  'A. Emiliarison',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Efa antomotra ny andron’i
+	Jehovah,
+	Eny antomotra sy mihafaingana.
+	‘Njay fa re ny feon’ny andron’i Jehovah,
+	Moa ve ianao mba efa niomana?
+
+Réf
+
+Mitomania ianareo mahery,
+	(Mitomania mafy ianareo)
+	Fa tonga ny andro fahatezerana.
+	(Fa tonga ny andro fahatezerana)
+	Androm-pahoriana andron’alahelo,
+	Fandravana ary fanafoanana.
+
+2. Avy ny andro toy ny fatana mandoro,
+	Ny mpirehareha hofongorana.
+	Ny mpanao ratsy dia ho vody vary,
+	Ka ny fakany tsy hisy miangana.
+	Mitomania ianareo mahery, sns.
+
+3. Efa antomotra ny andron’i
+	Jehovah,
+	Fanafahana ary fifaliana,
+	Ho an’ireo ‘zay nijoro ho mahatoky,
+	‘Zay nijaly noho ny fahamarinana.
+
+Réf
+
+Koa mifalia ianareo, ry mino,
+	(Koa mifalia mafy ianareo)
+	Fa tonga ny andro fanavotana.
+	(Fa tonga ny andro fanavotana.)
+	Hisehoan’Ilay nandrasantsika ela,
+	Kristy hanome fahasambarana.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '771',
+  '771',
+  'RAHA TSY EO IANAO',
+  'Mahefa Hantalalao',
+  'Mahefa Hantalalao',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Raha tsy eo Ianao, ry Jesosy ô!
+	Dia feno haizina ny tany
+	Ka ireo fahoriana lava izao
+	No iainanay, Jeso, eto an-tany
+
+Réf
+
+:,: Ka isaoranay Ianao, ry Jesosy ô!
+	Fa ny fitiavanao no nasehonao.
+	Koa raiso re, Jeso, voninahitra,
+	Dera, laza, hery izay atolotray. :,:
+
+2. Raha tsy eo Ianao, ry Jesosy ô!
+	Ho toy inona moa ny fiainanay?
+	Ka na ireo soa izay nomenao
+	Dia ataonay, Jeso, tsinontsinona.
+	Ka isaoranay Ianao, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '772',
+  '772',
+  'TIAKO, HE, TIAKO NY MIHIRA (TIAKO NY MIHIRA)',
+  'Rasolofoniaina Joseph',
+  'Rasolofoniaina Joseph',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. :,: Tiako, he tiako ny mihira,
+	(Hiran’ny lanitra e! ô! Mitory fiadanana)
+	Ny hiran-danitra mitory fiadanana.
+	Tiako satria ‘lay fifaliako,
+	Jesosy Tompo no ato am-poko,
+
+Réf
+
+Feo 1,2,3,4 Eny ô! Tsy haiko
+	ny hangina, anh,
+	Feo 2,3 Tsy hangina aho,
+	tsy hangina e!
+	Feo 1,4 Tsy hangina anh,
+	tsy hangina anh,
+	tsy hangina,
+	Feo 2,3 Tsy hangina,
+	tsy hangina aho,
+	tsy hangina!
+	Feo 1,4 Ka tsy haiko
+	ny hangina, anh,
+	tsy hangina anh,
+	Feo 2,3 Ka tsy haiko ny hangina, tsy hangina aho, tsy hangina e! :,:
+	Feo 1,4 Tsy hangina, anh,
+	tsy hangina.
+	Feo 2,3 Tsy hangina,
+	tsy hangina aho,
+	tsy hangina! :,:
+	Andao isika, andao hihira
+	fifaliana,
+	Ho fiderana ny Tompo
+	Mpamonjy mahery.
+
+2. :,: Tsy tiako intsony ny mihiran’
+	(Izao tontolo izao e! ô!
+	‘zay fahaverezana)
+	Izay mitondra ho amin’ny
+	fahaverezana;
+	Tsy tiako intsony ny mihaino
+	Satria ny tsara no ato am-poko.
+	Eny ô! Tsy haiko ny hangina, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '773',
+  '773',
+  'LAZAO ILAY TANTARA, TANTARAN’I KRISTY',
+  'Rajaonia Zaka',
+  'Rajaonia Zaka',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Lazao ilay tantara,
+	Tantaran’i Kristy.
+	Tantara mamin’ny foko,
+	Mitory fitia.
+	Fitiavana ambony,
+	Indro natolony.
+	Mitondra famonjena,
+	Ho an’ny olony.
+
+Réf
+
+Lazao ilay tantara,
+	Torio lazao tsara.
+	Aza avelanao hitoetra tsy hahalala
+	Ireo namanao tonga ao, ao am-bala.
+	O ……………………………
+
+2. Tiako ho re hatrany,
+	Ilay tantara soa.
+	Fa loharano mamy,
+	Mamelona tokoa.
+	Tantara mampisava
+	ny haizin’ny fo,
+	Mampahery ny ory,
+	‘Reo reraka ao am-po.
+	Lazao ilay tantara, torio sns.
+
+3. Tiako ho re hatrany,
+	Ilay tantara soa.
+	Fa loharano mamy,
+	Mamelona tokoa.
+	Tantara mampisava
+	ny haizin’ny fo,
+	Mampahery ny ory,
+	‘Reo reraka ao am-po.
+	Lazao ilay tantara, torio sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '774',
+  '774',
+  'MIARA-MIATRIKA NY HOAVY',
+  'S. Lala-James',
+  'S. Lala-James',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Miara-miatrika ny hoavy
+	Amin’ilay Mpamonjy tia,
+	Ifikiro mafy ny tanany
+	Anio sy ho mandrakizay.
+	:,: Tsy ho ela intsony
+	Dia ho avy indray Kristy,
+	Ireo fahoriana izay nampitomany
+	Hampodiny ho tonga zava-tsoa; :,:
+	Matokia (matokia) Azy (matokia)
+	Ka minoa (ka minoa) Azy (dieny anio)
+	Ka ny fonao sy ny Azy
+	Hifandray mandrakizay doria.
+	Miara-miatrika ny hoavy
+	Amin’ilay Mpamonjy tia,
+	Ifikiro mafy ny tanany
+	Anio sy ho mandrakizay.
+	Amena! Amena! Amena!'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '775',
+  '775',
+  'TENY SOA SAROBIDY',
+  'Rasamizafy Vonjiniaina',
+  'Rasamizafy Vonjiniaina',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Teny soa sarobidy no nomenao,
+	Nomenao ho fiainanay,
+	Azo antoka tokoa ny fiainanay
+	Hazavain’ny Teninao, ry Ray (ry Ray).
+
+Réf
+
+Teny, teny soa sy fiainanay,
+	Teny, teny soa ho sakafonay;
+	Velona tokoa ny fanahinay
+	Miaraka amin’ny Teninao, ry Ray!
+
+2. Ry Fanahy! mitoera ato anatinay
+	Hampianatra sy hanoro anay
+	Ilay Teny Masina ‘zay nomenao
+	Ka hitondra fiainana vaovao (ho anay).
+	Teny, teny soa, sns.
+
+3. Hamasino izahay, Andriamanitro ô!
+	Mba hitovy toetra Aminao,
+	Ka hitory ilay fitiavan-dehibe
+	Amin’ireo tsy mbola nandre (Anao).
+	Teny, teny soa, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '776',
+  '776',
+  'INTY AHO, IRAHO AHO (MIANTSO ANTSIKA NY RAY)',
+  'S. Lala-James',
+  'S. Lala-James',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Miantso antsika ny Ray
+	Ho vavolombelony,
+	Ny Fanahy Masiny
+	No hitari-dalana.
+
+Réf
+
+Aza lavinao ny antsony
+	Fa valio Jeso dieny anio:
+	Inty aho, iraho aho,
+	Inty aho, iraho aho, Jeso.
+
+2. Andro mety izao,
+	Jesosy andeha torio;
+	Ireo ondry mania
+	Mila ny fahasoavany.
+	Aza lavinao ny antsony sns.
+
+3. Ho avy indray i Kristy,
+	Moa vonona ve ianao?
+	Moa efa nampandre
+	Ireo namanao ianao?
+	Aza lavinao ny antsony sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '777',
+  '777',
+  'HO AVY INDRAY KRISTY HANOME',
+  'Rasolofoniaina Joseph',
+  'Rasolofoniaina Joseph',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Ho avy indray Kristy
+	hanome fiainana,
+	Ho avy mba hanala
+	ny fahoriana etỳ.
+	Io no andrandraiko hatramin’izao,
+	Ny fanantenako tsy miova
+	ho doria,
+	Miandry anao ny fo
+	tsy sasatra tokoa,
+	Hitako sahady ny lanitra.
+	Omeo ahy anio ny herinao,
+	Omeo ahy koa ny Fanahinao,
+	Hahazo fandresena,
+	Dia indro fa omena
+	Satroboninahitra mandrakizay.
+
+2. Ho avy indray ny Tompo
+	amin-drahona,
+	Miaraka amin’ny anjelin’ny lanitra.
+	Sao variana loatra, jereo Jeso,
+	Ny Mpanjaka be voninahitra tokoa;
+	Ho avy tsy ho ela
+	ny Mpamonjinao,
+	Ho avy hanome hasambarana.
+	Faly re ny fo, ho faly re,
+	Sambatra aho, Jeso,
+	tena sambatra e!
+	Omena fandresena,
+	hahazo ilay harena:
+	Tany vaovao, fiainana ho doria!
+
+3. Miomàna ianao hitsena an’i Kristy,
+	Miomàna re, izao ny ora farany;
+	Ny androm-pahasoavana omena anao,
+	Sao holavinao ny fitiavany izao;
+	Miandry anao ny Tompo
+	efa elabe,
+	Miantso anao hiverina
+	am-balany;
+	Tia anao ny Tompo
+	hatramin’izao,
+	Eny, tia anao Izy an-danitra ao,
+	Omena famonjena ianao
+	izay nekena:
+	Hasambarana fiana-
+	mandrakizay.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '778',
+  '778',
+  'NOFIKO, RY JESO TIA',
+  'Emiliarion',
+  'Emiliarion',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Nofiko, ry Jeso tia,
+	Nandao ‘zao tontolo izao (aho izao),
+	‘Zaho sy Ianao niara-dia
+	Ho any an-tany vaovao.
+	Sambatra aho, ry Mpamonjy,
+	Faly, eny, mirana erỳ ;
+	Sambatra aho fa voavonjin’
+	Ny ranao tao Kalvary
+
+Réf
+
+Tsy nofy fa ho sambatra
+	‘Zay manasa ny akanjony.
+	Tsy nofy fa ho sambatra,
+	Lanitra ho azony.
+
+2. Nofiko tsy ho ela sisa,
+	Eny an-drahon-danitra, (Ianao)
+	Sy ny anjely alin-kisa
+	Feno voninahitra.
+	Kanto loatra ny hatsarany,
+	Faly mirana sy tretrika.
+	Eny, sambatra aoka izany
+	‘Zaho ‘lay tsy mendrika.
+	Tsy nofy fa ho sambatra, sns.
+
+3. Nofiko, ry Tompo tsara,
+	Ny mitafa Aminao (tsotra izao),
+	Tsara lova tsara fara
+	‘Zany eo anilanao.
+	Efa reraka sy ana,
+	Te hifaly eo anilanao;
+	Ry Jesosy mitantàna,
+	Ento mody aho izao.
+	Tsy nofy fa ho sambatra, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '779',
+  '779',
+  'NY ETO AN-TANY FENO TOMANY',
+  'Rajaonia Zaka',
+  'Rajaonia Zaka',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Ny eto an-tany feno tomany,
+	Fombany izany;
+	Misy ny sento,
+	Misy toreo,
+	Toy izany ny eto;
+	Misy ny very mandinika izany
+	Ka dia mitomany
+	Nahoana e!
+	Izaho manontany.
+	Kivy ny fo raha variana amin’izany
+	Ka torotoro,
+	Fa fandalovana ny eto an-tany
+	Ka aza tomany.
+	Mbola ho avy ny fanantenana
+	Ho antsika ‘zay mino;
+	Ho avy e!
+	Ny Tompo banjino!
+
+2. Na misy aza ‘reo fifaliana,
+	Mihelina ihany.
+	Tsy azo itokiana fa vetivety
+	Dia mety ho lefy;
+	Fa ny hoavy izay antenaina
+	Dia ny maraina;
+	Tsy miova e!
+	Izay no andrandraina.
+	O! miverena Ianao, ry Mpamonjy,
+	Fa sasa-miandry;
+	Maro ireo izay mila vonjy,
+	Tolory sandry.
+	Mbola ho avy ilay antenaina,
+	Dia ny maraina;
+	Tsy miova e!
+	Izay no andrandraina.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '780',
+  '780',
+  'RAHA TONGA ILAY FOTOANA (FIBEBAHANA)',
+  'R. Ralambo Alison',
+  'R. Ralambo Alison',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Raha tonga ilay fotoana
+	Izay tsy fantatrao
+	Handinihana izay rehetra
+	momba anao,
+	Moa ve mba nekenao
+	‘Lay Jesosy tia anao,
+	Ka nandray Azy mba
+	hisolo vava anao?
+
+Réf
+
+Miantso anao Izy anio,
+	eny, miantso avia,
+	Ianao koa ô mamalia,
+	Mibebaha ary koa
+	atahory ny Ray,
+	‘Zay no hamaritra
+	ny hoavinao mandrakizay.
+	Kely sisa ny fotoana, ry lahy,
+	Ibebahantsika rehetra izao
+	Ka hararaoty àry anio
+	ny andro izay
+	Mbola ahavelomanao.
+
+2. Inona no azontsika
+	andrandraina,
+	Fa ity tany ity anie ka
+	tsy haharitra?
+	‘Lay Jesosy irery, hoy aho, no mba hany tokin’aina
+	Nampanantena lanitra
+	sy tany vaovao;
+	Miantso anao Izy anio, sns.
+
+3. Raha mbola sitrakao
+	ny handray anay ho zanakao
+	Mba handova indray
+	‘lay fiainana mandrakizay,
+	Jeso ô! meteza Ianao hanadio sy hanafaka ny heloka
+	‘Zay vitanay hatrizay;
+	Fantatray fa ny ainao
+	no natolotrao
+
+Réf
+
+Hamonjena anay mpanota izao,
+	Koa izaho dia hanao
+	ny sitrakao, ry Jeso,
+	Ho setrin’ny famonjena
+	avy Aminao.
+	Jesosy ô! inty aho
+	fa hanolo-tena ho Anao,
+	Ka ny fiainako rehetra eto,
+	ry Tompo,
+	Dia mba hanompoako Anao.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '781',
+  '781',
+  'RY MPIAMBINA ô! AIZA MOA IANAO?',
+  'Andriamboavonjiarinaivo',
+  'Andriamboavonjiarinaivo',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Ry mpiambina ô! aiza moa ianao?
+	Toa inona alina tokoa re izao?
+	Mahareta re, sao sondrian-tory
+	Ka tsy hitanao izay ho avy;
+	Raiso ny ampinganao, jereo ny jironao,
+	Moa ampy ve ny solika fitaizanao?
+	Mitsangana re izao, atrakao ny lohanao,
+	Ka jereo ny lanitra.
+	Feo 1, 3 Avy ny maraina
+	Feo 2, 4 Indro avy ny maraina
+	Feo 1, 3 Avy ny maraina
+	Feo 2, 4 Eny avy ny maraina
+	Avy ny Mpanjakanao,
+	moa vonona ianao? Aiza re?
+	Raiso ny ampinganao, jereo ny jironao,
+	Moa ampy ve ny solika fitaizanao?
+	Mitsangana re izao, atrakao ny lohanao,
+	Ka jereo ny lanitra.
+
+2. Ry mpiambina ô! aiza moa ianao?
+	Tsy efa akaiky ve Ilay Mpampakatra?
+	Miambena re
+	Sao sondrian-tory,
+	Mba ho mendrika tokoa ianao.
+	Aza avelanao ho lefy ny finoanao,
+	Moa ampy ve ny solika fitaizanao?
+	Avy Ilay Mpanjaka re,
+	‘Lay mpanjaka Lehibe,
+	Feo 1, 3 Avy ny maraina
+	Feo 2, 4 Indro avy ny maraina
+	Feo 1, 3 Avy ny maraina
+	Feo 2, 4 Eny avy ny maraina
+	Avy ny Mpanjakanao,
+	moa vonona ianao? Aiza re?
+	Aza avelanao ho lefy
+	ny finoanao,
+	Moa ampy ve ny solika fitaizanao?
+	Avy Ilay Mpanjaka re,
+	‘Lay mpanjaka Lehibe,
+	Ka jereo ny lanitra.
+
+3. Ry mpiambina ô! aiza moa ianao?
+	Toa inona alina tokoa re izao?
+	Mivavaha re sao sondrian-tory,
+	Fa tsy hitanao ny hiaviany;
+	Vetivety foana dia ho tonga indray Jeso,
+	Moa ampy ve ny solika fitaizanao?
+	Tsy ho ela intsony re dia hivaly aminao
+	‘Zao finiavanao izao!
+	Feo 1, 3 Avy ny maraina
+	Feo 2, 4 Indro avy ny maraina
+	Feo 1, 3 Avy ny maraina
+	Feo 2, 4 Eny avy ny maraina
+	Avy ny Mpanjakanao,
+	moa vonona ianao? Aiza re?
+	Vetivety foana dia ho tonga indray Jeso,
+	Moa ampy ve ny solika fitaizanao?
+	Tsy ho ela intsony re dia hivaly aminao
+	‘Zao finiavanao izao!'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '782',
+  '782',
+  'ANDRIAMANITRA ô, FAINGàNA',
+  'D. Rasolonjatovo',
+  'D. Rasolonjatovo',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Fanombohana sy famaranana
+	isaky ny andininy:
+	Andriamanitra ô, faingàna
+	ka avia hamonjy ahy;
+	Andriamanitra ô, faingàna
+	ka avia hanafaka ahy;
+	Horohoro tebiteby
+	no mameno ny fanahy.
+	Andriamanitra ô, faingàna, ô faingàna
+	Mba hanafaka ahiahy.
+	1. Ray ô! ianao no antenaiko,
+	Ray ô! mba hanavotra ny aiko.
+	Ray ô! aza ela malakia,
+	Tompo tia ô! Avia.
+	Ianao no antenaiko.
+	Tompo tia ô! Faingàna!
+
+2. Ray ô! mitanondrika ny foko,
+	Ray ô! torotoro mitoloko;
+	Ray ô! ny fitiavanao mahery
+	Tsy hamela ahy ho very;
+	Ianao no antenaiko,
+	Tompo tia ô! Faingàna!'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '783',
+  '783',
+  'INDRO EFA KELY SISA IZAO (MANDRAISA FANAPAHAN-KEVITRA)',
+  'R. Ralambo Alison',
+  'R. Ralambo Alison',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. :,: Indro efa kely sisa izao
+	Hangina ny antsom-pitiavana
+	Nanairany anao
+	hifidy ny fahasambarana,
+	Moa efa nekenao va re (Jesosy)
+	Jesosy izay niandry elabe,
+	(Mandona ny fonao)
+	Mandona ny fonao (maniry)
+	Maniry hiditra ao?
+	Ry mpanota manatòna,
+	Atolory ny fonao;
+	Izy anie izao mifona,
+	Hamelana ny otanao ô! :,:
+
+2. Tsy vitsy ireo nikasa
+	Hanompo an’Andriamanitra,
+	Kanefa tsy tanteraka fa lasa tampoka any ambany rangolahy;
+	Tsy ampy ny mikasa (mandraisa)
+	Mandraisa fanapahan-kevitra,
+	(Anio ianao no afaka ô)
+	Anio ianao no afaka ô (ny ampi)
+	Ny ampitso dia tsy fantatra.
+	Ry mpanota manatòna, sns.
+	Fanamarihana:
+	Averina in-2 ny isan’andininy
+	amin’ny andininy faha-2 ka
+	tsy hiraina ny andalana
+	voalohany sy faha-3 amin’ny
+	farany fa zava-maneno fotsiny
+	no manao azy.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '784',
+  '784',
+  'MANDEHANA MITORIA',
+  'Seth Arison',
+  'Seth Arison',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Mandehana mitoria
+	Mandehana mitoria
+	Ilay hafatr’i Jesosy,
+	Ilay hafatr’i Jeso.
+
+Réf
+
+Mandehana, mandehana mitoria,
+	Aza mety reraka;
+	Mandrosoa, mandrosoa, mandrosoa,
+	Amin’izao fotoana izao.
+	:,: Mandehana, mandehana mitoria
+	Ilay hafatr’i Jeso;
+	Mandrosoa, mandrosoa, mandrosoa,
+	Aza mety sasatra. :,:
+
+2. Mandehana mitoria,
+	Mandehana mitoria,
+	Aza ketraka na kivy
+	Fa ny Tompo homba anao.
+	Mandehana, mandehana mitoria, sns.
+
+3. Halaviro ny hakamoana,
+	Halaviro ny hakamoana
+	Ka sikino hery vao
+	Ny fonao hatramizao.
+	Mandehana, mandehana mitoria, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '785',
+  '785',
+  'AMIN’ILAY FOTOANA MALAZA (IANAO NO NANASA AHY)',
+  'Miller, Harold A.',
+  'S. Razanajatovo',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Amin’ilay fotoana malaza,
+	Hahitako ny Mpamonjy tia,
+	Dia tiako ny handre feo hilaza:
+	«Ianao no nanasa ahy ho atỳ»
+
+Réf
+
+«Ianao no nanasa ahy ho atỳ»
+	«Ianao no nanasa ahy ho atỳ»
+	He ho tretrika aho amin’izay
+	Fa nitaona azy ireo
+	ho amin-dRay
+
+2. Amin’ireo marobe manaiky
+	Hiditra any an-dapa soa arỳ,
+	Dia tiako ny handre feo hiaiky:
+	«Ianao no nanasa ahy ho atỳ»
+	«Ianao no nanasa ahy sns.
+
+3. Amin’ireo marobe nijaly,
+	Nitomany sy niafy tety,
+	Dia tiako ny handre feo hifaly:
+	«Ianao no nanasa ahy ho atỳ»
+	«Ianao no nanasa ahy sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '786',
+  '786',
+  'MIARA-DIA AMINY (MINO SY MANKATò)',
+  'SDA Hymnal 590',
+  'M. Randriamiandriray',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Miara-dia Aminy,
+	Dia Jeso Zanany;
+	Voninahitra omeny anao,
+	‘Ndeha isika hankatò,
+	Izy homba tokoa
+	Ka hiray, hino sy hankatò.
+
+Réf
+
+Ravo ny fo, mino sy mankatò
+	An’i Jesosy tia,
+	mino sy mankatò.
+
+2. Rava ny aloka,
+	Lasa ny rahona
+	Noho ny herin’i Kristy ho anao;
+	Foana koa ny ahiahy,
+	Ny sento sy tomany
+	Raha matoky sy mino ianao.
+	Ravo ny fo, sns.
+
+3. Tsy misy vesatra na koa fahoriana
+	Omeny hery sy zotom-po,
+	Foana ireo fangidiana
+	Sy endri-pijaliana,
+	Ho an’ireo izay niova fo.
+	Ravo ny fo, sns.
+
+4. Tsy hay ambara avokoa
+	‘Lay fitia kanto, soa
+	Raha tsy eo Ilay Tompo Tsitoha;
+	Tombontsoa omeny,
+	Hafaliana zarainy
+	Ho an’ireo mino sy mankatò.
+	Ravo ny fo, sns.
+
+5. Fifankatiavana eo amin’i Jeso
+	Ka hiaraka Aminy doria,
+	‘Ndreto isika handeha
+	N’aiza n’aiza haleha
+	Fa miaro antsika Kristy.
+	Ravo ny fo, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '787',
+  '787',
+  'HIRA MAMPAHERY RE (HO AO AN-TRANO TSY HO ELA)',
+  'SDA Hymnal 626',
+  'Tantely Ravelomanantsoa',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Hira mampahery re no
+	andeha hatao,
+	Hody isika, tsy ho ela re,
+	Tsy hisy alina fa hazavana lehibe
+	No honenana mandrakizay.
+
+Réf
+
+Kely sisa re, dia hifarana e!
+	Ireo loza mitatao;
+	Dia hihaona isika izao hiaraka mandrakizay,
+	Ho ao an-trano tsy ho ela re!
+
+2. Mbola misy ve asa
+	tena mila anao?
+	Andeha hody isika ka vitao;
+	Aim-panahy vaovao no omeny ho anao
+	Dia ho ao an-trano
+	izaho sy ianao.
+	Kely sisa re, sns.
+
+3. Lasa izao ny dia,
+	na dia lalan-tsarotra,
+	Aoka isika re hifankatia,
+	Hifananatra ary hifanohana,
+	Dia ho tonga soa tokoa arỳ.
+	Kely sisa re, sns.
+
+4. Tsy ho ela re fitsaharan-
+	dehibe
+	Miaraka amin’i Jeso Kristy
+	Ravo re ny fo, feno hafaliam-be
+	Fa hifarana ny ady etỳ.
+	Kely sisa re, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '788',
+  '788',
+  'MIZOTRA HO ANY ZIONA',
+  'SDA Hymnal 422',
+  'Tantely Ravelomanantsoa',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. ‘Ndeha isika ‘zay tia ny Ray,
+	Haneho hafaliana;
+	Hihira am-pifaliam-be,
+	Hihira mafy mampiray,
+	Ho re hatrany an-danitra
+	‘Zao fiderana izao.
+
+Réf
+
+Mizotra ho any Ziona (isika)
+	Ziona tsara tarehy, Ziona!
+	Miakatra ho any isika,
+	‘Lay tanàna tsara tarehy.
+	(Ilay tanàna omen’ny Ray)
+
+2. Aza variana etỳ
+	Tsy mahalala ny Ray;
+	Fa mba ho tena zanaka
+	Handova lanitra vaovao,
+	Hitory hafaliana
+	Ho fiainam-baovao.
+	Mizotra ho any Ziona sns.
+
+3. Havoana soa i Ziona,
+	Miraki-java-tsoa,
+	Mialoha ny hahatongavana
+	Handova ilay tany soa,
+	Tanàna mirenty tokoa
+	Sy masina avokoa.
+	Mizotra ho any Ziona sns.
+
+4. Venteso ny fideranao,
+	Ho ren’izao rehetra izao;
+	Asandrato Imanoela,
+	Derao ny famonjeny anao;
+	Handeha am-patokiana
+	Ho voninahiny.
+	Mizotra ho any Ziona sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '789',
+  '789',
+  'SABATA',
+  'Tita Razakaria',
+  'Tita Razakaria',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Andro iray nomen’ny Tompo,
+	Andro tokana tsy miova,
+	nohamasininy,
+	Notahiny tena miavaka
+	Mba ho famantarana ahy
+	sy ‘lay Mpamorona;
+	Dia nomeny ho ahy sy ho anao
+	Mba ho fitsaharana,
+	Ary mbola hitoetra,
+	eny, ho mandrakizay.
+	Izy mihitsy no niteny,
+	nanao sonia:
+	Io no famantarana amiko
+	sy Ianao,
+	Mbola hotsarovana,
+	eny, na any an-danitra,
+	Ny Sabata fitsaharana
+	Tsy hiova fa haharitra.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '790',
+  '790',
+  'EO AN-TONGOTRAO, JESO',
+  'Harlala sy Rajo',
+  'Harlala sy Rajo',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Eo an-tongotrao, Jeso,
+	No iantorahako mpanomponao,
+	F’eo no misy vonjy ho ahy
+	Tena azo antoka;
+	O! fifaliana omenao ahy
+	Tsy ho tapitra mandrakizay,
+	Fiadanana no tsapako
+	Raha eo anilanao, Jeso!
+
+Réf
+
+Fa nahoana moa no sahiko
+	Ny mihira toy izao ô!
+	Satria nomenao ahy ny lambam-pahamarinanao;
+	Eny, sambatra aho itoeranao, Jeso malalako,
+	Raiso (raiso re) ny saotra atolotro
+	Fa tena vokatry ny fo.
+
+2. Jeso ô, atolotro
+	Ho Anao ‘zao tenako izao,
+	Na tsy mendrika aza re
+	Atokany ho Anao,
+	Fa vonona aho hanara-dia
+	Na ho mora na ho sarotra,
+	Ianao no ianteherako
+	Ka tsy mba manan-tahotra aho.
+	Fa nahoana moa sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '791',
+  '791',
+  'AMPIO, ANDRIAMANITRA Ô',
+  'Ramambavola William',
+  'Ramambavola William',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Ampio, Andriamanitra ô,
+	Ireto zanakao,
+	Fa malemy tsy mahatohitra
+	Ny loza mitatao;
+	Ianao irery ihany
+	No azo itokiana,
+	Fa raha ny eto an-tany
+	Dia tanim-pijaliana.
+
+2. Tohano am-pandehanana
+	Fa mbola kely hery,
+	Ry Jesosy be fitiavana,
+	Mpamonjy ny ondry very;
+	Tsy mba misy fifaliana
+	Ny mihataka Aminao,
+	Fa zary fijaliana
+	‘Zao rehetra hita izao.
+
+3. Araiketo mafy orina
+	Ny fiainanay,
+	Ry Jesosy tsy misorona,
+	Mpanjaka sady Ray;
+	Raha mivily ka mania
+	Te hisara-dalana,
+	‘Lay Mpamonjy be fitia
+	No tena Mpanalalana.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '792',
+  '792',
+  'VENTESO MAFY',
+  'Conférence Générale',
+  'D. Razakaria',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Venteso mafy, hirao sy torio:
+	Jesosy ho avy indray
+	Tsy ho ela intsony,
+	angamba anio,
+	Jesosy ho avy indray.
+
+Réf
+
+Ho avy indray, ho avy indray,
+	Jesosy ho avy indray.
+
+2. Fahoriana, ady sy ny sisa koa,
+	Indro eo imasonao;
+	Faminaniana milaza avokoa
+	Fa akaiky izy izao.
+	Ho avy indray, sns.
+
+3. O ! miomàna, ny ota ario,
+	Ho avy indray Kristy;
+	Koa mitsangàna, ekeo Izy anio
+	Hamonjy anao ho doria.
+	Ho avy indray, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '793',
+  '793',
+  'RY MPANOTA HENOY',
+  'A. J. Hodge',
+  'Tsy fantatra',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Ry mpanota henoy,
+	misy fetra izao
+	Ny fotoanan\'ny famindrampo;
+	Aoka re mba hafoy
+	ireo ota fanao
+	Ndrao ho very ka hijaly ny fo.
+
+Réf
+
+Manatòna anio,
+	Tsy ampitso fa anio,
+	O! Jereo ‘Lay nanavotra anao,
+	Ilay nihombo terỳ,
+	Dia teo Kalvary,
+	Maty Izy mba hisolo anao!
+
+2. Mahasondriana tokoa,
+	nefa mihelina anie,
+	Ny hafaliana izay hita etỳ;
+	Atodiho ny fo mba hanatrika re
+	‘Lay tsy miova Izay miandry arỳ.
+	Manatòna anio, sns.
+
+3. Dieny izao mbola re
+	ilay feo tena tia,
+	Feon\'i Jeso miantso anao,
+	Mamalia hoe:
+	«Na dia efa nania,
+	Indro, Tompo, re ny foko
+	ho anao!»
+	Manatòna anio, sns.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '794',
+  '794',
+  'HAZO FIJALIANA',
+  'George Bennard',
+  'Rajoelison',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Moa mba tazanao ve
+	\'Ry havoana iry
+	Misy hazo fijaliana?
+	Moa tsy fantatrao ve
+	Fa io re no Kalvary,
+	Nihomboan\'Ilay Fitiavana?
+
+Réf
+
+O! tazano hatrizao ka ekeo,
+	Izy mba ho Mpamonjy anao;
+	Aza tananao koa fa omeo
+	manontolo anio ny fonao!
+
+2. Ndeha hiakatra eo,
+	Hanakaiky kokoa.
+	Ka handre ilay feo mitoreo:
+	«Andriamanitra ô!
+	O! nafoinao tokoa,
+	Ity zanakao, ô! Ray, jereo!»
+	O! tazano hatrizao, sns.
+
+3. Moa tsy fantatrao ve
+	Fa nitsory ny ra
+	Noho ny fahotana marobe?
+	O! ry namako ô!
+	Aoka re tsy handa
+	Ity antsom-pitia lehibe!
+
+Réf
+
+Na dia eso izao no hanjo,
+	Hiaretana an-dalana etỳ,
+	Fa indro lova izay tsy ho lo
+	Hovantanina raha mby erỳ.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '795',
+  '795',
+  'ASANDRATO NY ANARANY',
+  'S. Lala-James',
+  'S. Lala-James',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. :,: Asandrato ny Anarany,
+	Asandrato ny fitiavany!
+	Asandrato eran-tany
+	(Ny antso) Ny antsonao, ry Ziona ô!
+	(Satria) Kristy nanome ny rany
+	(Ary koa) Nanaiky ho faty koa
+	N’aiza n’aiza eto an-tany
+	(Tadidio) Fa novonjeny avokoa
+	Koa andeha ambarao
+	(Mba ho) ren’izao tontolo izao
+	(Fa) Kristy ihany no Mesia
+	Maty teny Kalvary :,:
+	Dieny anio (ô raiso)
+	raiso re (ny vonjy)
+	Ny vonjy atolony (anio)
+	Eny, anio no andro mety
+	Hanoloranao ny fo,
+	Ny ampitso lava izao
+	Mety hampamoy fo;
+	(Koa indro) Tano mafy am-pinoana
+	Ilay tokim-pandresena
+	‘Zay atolotr’i Jesosy Tompo
+	Fa ho anao ny famonjena.
+	Asandrato ny fitiavany!
+	Asandrato eran-tany (ny antso)
+	Ny antsonao, ry Ziona ô! (satria)
+	Kristy nanome ny rany
+	Nanaiky ho faty koa (ary koa)
+	N’aiza n’aiza eto an-tany (tadidio)
+	Fa novonjeny avokoa;
+	Hararaoty dieny anio (raiso)
+	‘Lay fitiavany madio (indro)
+	Fa atolony ahy sy anao
+	Ny fiainana mandrakizay'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '796',
+  '796',
+  'ANDRIAMANITRA, MENDRIKA HODERAINA (TSOFY RANO)',
+  'Samoelina Ranaivoharivony',
+  'Samoelina Ranaivoharivony',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Andriamanitra,
+	mendrika hoderaina Ianao,
+	Masina masina mandrakizay,
+	Ianao no iankohofanay,
+	Asandratray eo aloha;
+	Tsara Ianao,
+	Sambatra izahay;
+
+Réf
+
+Tsofy, tsofy rano re, Ray,
+	‘Reto zanakao indray;
+	Arotsahy ny Fanahy
+	Amin’ny vahoakanao.
+
+2. Tompo ô,
+	tahio ‘zao fotoana anio izao
+	Tsapanay fanatrehanao, ry Ray,
+	Ahazoanay mijoro
+	amin’izao finoana izao;
+	O jereo ‘reto olonao,
+
+Réf
+
+Tsofy, tsofy rano re Ray
+	‘Reto zanakao indray;
+	:,: Arotsahy ny Fanahy
+	Amin’ny vahoakanao :,:'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '797',
+  '797',
+  'VAVAKA',
+  'Samoelina Ranaivoharivony',
+  'Samoelina Ranaivoharivony',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Andriamanitra ô,
+	henoy ny vavaka ao am-po,
+	Ka ny fikasan’ireto olonao
+	Hahazo ny famindram-ponao;
+
+Réf
+
+O! arovy sy tantano
+	ireto zanakao,
+	Ka atreho izao fotoana izao,
+	Arotsahy ny fanahinao!
+
+2. Andriamanitra ô,
+	aoka re ny fahasoavanao
+	No tena hanjaka ato am-ponay,
+	Ka haharitra mandrakizay;
+
+Réf
+
+O! arovy sy tantano, sns.
+	:,: Arotsahy ny fanahinao'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '798',
+  '798',
+  'FENO RAHONA (JESOSY TSY MANDAO)',
+  'Seth Arison',
+  'Seth Arison',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Feno rahona mainty matroka
+	izato fiainako,
+	Tsy misy mitombina
+	‘zay rehetra atao,
+	Adin-tsaina sy fikorontanam-panahy
+	Manimba ny fisainana,
+	misy ady ato am-po;
+	Tsy ataoko hahakivy izany
+	Fa Jeso no tsy mba mandao.
+
+2. Na manjombona aza
+	izato manodidina ahy
+	Tsy ekeko hanafotra ny saina
+	sy fanahy,
+	Vavaka hatrany no asandratro sesilany,
+	Dia matoky ny foko hatreo
+	fa Jeso hanampy ahy;
+	Ny hakiviako afaka
+	Fa Jeso no aro ho ahy.
+
+3. Tsy azo atao ny ho kivy
+	raha isika izao anilan’ny Ray,
+	‘Ndeha re hofikirina Izy
+	ho mandrakizay,
+	F’Izy tsy handao,
+	tsy hamela antsika ho irery;
+	‘Ndao hatao fahazarana
+	ny miaraka Aminy
+	Ka hifandray Aminy
+	Tsy misy fitsaharana.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '799',
+  '799',
+  'NA INONA MISEHO (VAHAOLANA JESO)',
+  'Moïse Randriamboavonjy',
+  'Moïse Randriamboavonjy',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Na inona miseho sy zava-
+	tsarotra manjo, ’zay manjo,
+	Tomany sy toreo ‘zay mety hankarary fo, ’zany fo,
+	‘Ndeha banjino sy jereo fa indro misy zava-tsoa
+	Natolotr’Ilay Ray
+	ho vahaolana: Jeso, Jeso.
+
+2. Izay hita sy re dia zary
+	mampivadi-po, ’zany fo,
+	Na aiza no aleha toa lala-maizina avokoa, avokoa,
+	Nefa izao dia mijere fa indro misy zava-tsoa
+	Natolotr’Ilay Ray ho vahaolana: Jeso, Jeso.
+
+3. Ny hoavintsika etỳ tsy fantatra
+	‘zay mbola hiseho, ’zay hiseho,
+	Tohizana ny dia, fahatokiana no aseho, no aseho;
+	Ny finoana no hatanjaho, ny fandresena efa azonao,
+	Natolotr’Ilay Ray ho vahaolana: Jeso, Jeso.'
+);
+INSERT INTO `hymns` (
+  `hymn_id`, `number`, `title`, `composer`, `author`,
+  `key_signature`, `theme1`, `theme2`, `lyrics`
+) VALUES (
+  '800',
+  '800',
+  'RY TANINDRAZANAY MALALA Ô!',
+  'Norbert Raharisoa & Rahajason',
+  'Norbert Raharisoa & Rahajason',
+  NULL,
+  'HIRA FANAMPINY',
+  NULL,
+  '
+1. Ry Tanindrazanay malala ô!
+	Ry Madagasikara soa,
+	Ny Fitiavanay anao tsy miala
+	Fa ho anao, ho anao doria tokoa;
+
+Réf
+
+Tahionao, Ry Zanahary,
+	’Ty Nosindrazanay ity,
+	Hiadana sy ho finaritra
+	He! Sambatra tokoa izahay.
+
+2. Ry Tanindrazanay malala ô!
+	Irinay mba hanompoana anao
+	Ny tena sy fo, fanahy anananay
+	Izay sarobidy sy mendrika tokoa;
+	Tahionao, ry Zanahary, sns.
+
+3. Ry Tanindrazanay malala ô! Irinay mba hitahiana anao,
+	Ka Ilay Nahary izao tontolo izao
+	No fototra hijoroan’ny satanao!
+	Tahionao, ry Zanahary, sns.
+	'
+);
+
+
+-- Fin de l'insertion : 800 cantiques
+
+-- Index supplémentaires pour les recherches fréquentes
+ALTER TABLE `hymns` ADD FULLTEXT INDEX `idx_lyrics_fulltext` (`lyrics`);
+ALTER TABLE `hymns` ADD FULLTEXT INDEX `idx_title_fulltext` (`title`);
